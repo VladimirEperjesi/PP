@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0">
+	<step id="party" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="operation" type="STRING"/>
+				<requiredColumn name="id" type="LONG"/>
+				<requiredColumn name="isolate_group_id" type="LONG"/>
+				<requiredColumn name="master_id" type="LONG"/>
+				<requiredColumn name="target_master_id" type="LONG"/>
+			</requiredColumns>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,392,-1,-1" layout="vertical"/>
+	</step>
+</purity-config>

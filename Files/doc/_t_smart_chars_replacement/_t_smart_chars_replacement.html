@@ -1,0 +1,328 @@
+<html xmlns:comm="http://www.ataccama.com/purity/comment" xmlns:ver="http://www.ataccama.com/purity/version">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">			
+				table.smpl {
+						border-width: 0 0 1px 1px;
+						border-spacing: 0;
+						border-collapse: collapse;
+						width: 90%;
+				}
+
+				table.outer {
+						border-width: 1px 1px 1px 1px;
+						border-spacing: 0;
+						border-collapse: collapse;
+						border-color: #0;
+						border-style: solid;
+				}
+				
+				table td
+				{
+					margin: 0;
+					padding: 4px;
+					border-width: 1px 1px 0 0;
+				}
+				
+				table.smpl, table.smpl td
+				{
+					border-color: #0;
+					border-style: solid;
+				}
+				
+				pre.nonprop {
+					font-family: Arial;
+				}	
+			
+				
+				.cell_hdr {
+				font-weight:bold;
+				}
+				.cell_hdr { 
+					background-color: #D0D0F0; 
+					font-weight: bold; 
+					font-family: Arial; 		
+					font-size: 16px; 
+					}
+				.cell_val { 
+					background-color: #F0F0F0; 
+					font-family: Arial; 
+					font-size: 12px;
+					}
+				.cell_extra_val { 
+					background-color: #F0F0F0;
+					color: #A00000; 
+					}
+				.cell_hdr_red { 
+					background-color: #D0E0F0; 
+					font-weight: bold; 
+					font-family: Arial;
+					font-size: 16px; 
+					}	
+				.cell_line_hdr { 
+					background-color: #D0D0F0; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}
+				.cell_line_val {
+					background-color: #F0F0F0; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}	 
+				.cell_hdr_comment { 
+					background-color: #E0E0E0; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}
+				.cell_val_comment { 
+					background-color: #F0F0F0; 
+					color: #808080; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}	
+				
+				.table_90 { 
+					width: 90%; }
+				
+				li { font-family: Arial; font-size: 12px; }
+				
+				H1 { font-family: Arial; font-size: 25px; }
+				H2 { font-family: Arial; font-size: 20px; }
+				H3 { font-family: Arial; font-size: 15px; text-decoration: underline; margin: 20px, 0, 0, 0; padding: 0; }
+				p { font-family: Arial; font-size: 12px; margin: 0; padding: 2px; }				
+				pre {font-family: Arial; font-size: 12px; margin: 0; padding: 2px;				 				 
+ 				 white-space: pre-wrap;       /* css-3 */
+ 				 white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ 				 white-space: -pre-wrap;      /* Opera 4-6 */
+ 				 white-space: -o-pre-wrap;    /* Opera 7 */
+ 				 word-wrap: break-word;       /* Internet Explorer 5.5+ */
+					}
+		</style><title>Documentation of Component Definition : _t_smart_chars_replacement</title>
+   </head>
+   <body>
+      <table class="outer" width="90%">
+         <tr>
+            <td rowspan="3"><img src="images/logo_about.png"></td>
+            <td>
+               <H1>Component Documentation</H1>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <H2>Smart Character Replacement (_t_smart_chars_replacement.comp)</H2>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <table width="100%">
+                  <tr>
+                     <td class="cell_hdr">Minimum Engine Version Required</td>
+                     <td class="cell_val">engine v8.x.x</td>
+                     <td class="cell_hdr">Last Update Date</td>
+                     <td class="cell_val">2015-08-03+02:00</td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <div id="l_contents">
+         <H1>Contents</H1>
+      </div>
+      <ul>
+         <li><a href="#l_fdesc">Functional Description</a></li>
+         <li><a href="#l_tdesc">Technical Description</a></li>
+         <li><a href="#l_params">Parameters</a></li>
+         <li><a href="#l_pathv">Path Variables</a></li>
+         <li><a href="#l_lkps">Lookups</a></li>
+         <li><a href="#l_inputs">Input Attributes</a></li>
+         <li><a href="#l_outputs">Output Attributes</a></li>
+         <li><a href="#l_details">Attribute Details</a></li>
+      </ul><br><table id="l_desc" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Functional Description</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <div><pre><fdescription><h4>Component Goals</h4>
+The goal of the component is to replace individual characters based on their position with characters in replacement string.
+Examples of application (put the phone number to different formats / masks):
+
+<table>
+<tr>
+  <th class="cell_line_hdr">in_string</th>
+  <th class="cell_line_hdr">in_replacement</th>
+  <th class="cell_line_hdr">out_string</th>
+</tr>
+<tr>
+  <td class="cell_line_val">phone number xxx xxx xxx</td>
+  <td class="cell_line_val">123456789</td>
+  <td class="cell_line_val">phone number 123 456 789 </td>
+</tr>
+<tr>
+  <td class="cell_line_val">phone number (xxx) xxx-xxx</td>
+  <td class="cell_line_val">123456789</td>
+  <td class="cell_line_val">phone number (123) 456-789 </td>
+</tr>
+</table> 
+
+<h4>Interface</h4>
+Input: any string, replacement string (length of this string must equal to the count of chars to be replaced)
+Output: string with replaced chars
+
+<h4>Component Behaviour</h4>
+Component handles input string on the level of chars. 
+At first, it adds special character (snowman) after every single character except the last one. 
+After that, it generates sequence number for every char defined by component params (letters, digits, special chars or defined set of chars).
+From this sequence number, order of every to-be-replaced char is calculated.
+When we have order of chars, we use it to select the position of char in replacing string.
+
+<h4>Lookup files and external sources</h4>
+Component doesn't use any lookup file.
+
+<h4>Summary of testing data</h4>
+Testing data are divided in 4 groups: replacing defined set, letters, digits and special characters. In every group there are records with letter/digit/spec. chars only, mixed values and examples for real use of the component.
+
+
+</fdescription></pre></div><br><table id="l_tdesc" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Technical Description</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>For detailed technical description see <a href="./technical/_t_smart_chars_replacement.html">doc / _t_smart_chars_replacement / technical / _t_smart_chars_replacement.html</a></p><br><table id="l_params" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Parameters</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Parameter name</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="30%">Letters</td>
+            <td class="cell_line_val" width="70%">Flag indicating whether letters should be replaced</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="30%">Digits</td>
+            <td class="cell_line_val" width="70%">Flag indicating whether digits should be replaced</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="30%">Special chars</td>
+            <td class="cell_line_val" width="70%">Flag indicating whether special chars should be replaced</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="30%">Defined set</td>
+            <td class="cell_line_val" width="70%">Set with characters to be replaced</td>
+         </tr>
+      </table><br><table id="l_pathv" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Path Variables</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table>
+         <tr>
+            <td class="cell_hdr" width="20%">Pathvar Name</td>
+            <td class="cell_hdr" width="40%">Folder</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">COMPONENTS</td>
+            <td class="cell_line_val">/ [ your project folder ] / components</td>
+            <td class="cell_line_val">all components folder</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">TESTS_ROOT</td>
+            <td class="cell_line_val">/ [ your project folder ] / unit_tests</td>
+            <td class="cell_line_val">all unit tests folder</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">DATA</td>
+            <td class="cell_line_val">/ [ your project folder ] / data</td>
+            <td class="cell_line_val">dictionaries e.g Data/ext/src</td>
+         </tr>
+      </table><br><table id="l_lkps" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Lookups</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>There are no included lookups in this component.</p><br><table id="l_sComps" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Included Components</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>There are no included non-internal components in this component.</p><br><table id="l_inputs" width="90%">
+         <tr>
+            <td>
+               <H2>Input Attributes</H2>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Attribute</td>
+            <td class="cell_hdr">DQC type</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">in_string</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Any string with chars to be replaced</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">in_replacement</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">String with replacing chars</td>
+         </tr>
+      </table><br><table id="l_outputs" width="90%">
+         <tr>
+            <td>
+               <H2>Output Attributes</H2>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Attribute</td>
+            <td class="cell_hdr">DQC type</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">out_string</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">String with replaced chars</td>
+         </tr>
+      </table><br><H2 id="l_details">Attribute Details</H2><br></body>
+</html>

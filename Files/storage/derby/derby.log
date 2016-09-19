@@ -1,0 +1,27 @@
+Mon Sep 12 16:05:57 CEST 2016 : Apache Derby Network Server - 10.10.2.0 - (1582446) started and ready to accept connections on port 1528
+----------------------------------------------------------------
+Mon Sep 12 16:05:58 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0157-1eb8-00a7-00007d90edfd 
+on database directory D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\storage\derby\esb with class loader java.net.URLClassLoader@40e455bf 
+Loaded from file:/C:/Users/vladimir.eperejsi/Desktop/MDC/runtime/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_67-b01
+user.dir=D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\bin
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\storage\derby
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Sep 12 16:05:58 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance 185e801c-0157-1eb8-00a7-00007d90edfd 
+on database directory D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\storage\derby\mdc with class loader java.net.URLClassLoader@40e455bf 
+Loaded from file:/C:/Users/vladimir.eperejsi/Desktop/MDC/runtime/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_67-b01
+user.dir=D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\bin
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\storage\derby
+Database Class Loader started - derby.database.classpath=''

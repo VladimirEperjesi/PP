@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<settings>
+  <connector>
+    <saved-state stringQualifier="&quot;" lineWithColumnNames="1" recordLength="-1" ignoredRowRegEx="" escapeSequence="" fixedSizes="false" fieldSeparator="^~" numberOfLinesInHeader="1" recordSeparator="\r\n" encoding="UTF-8" numberOfLinesInFooter="0">
+      <columns>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="difference" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="INTEGER" dateFormatLocale="en_US" name="TC_ID" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="description" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="in_string" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="in_replacement" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="out_string" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="e_out_string" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+      </columns>
+    </saved-state>
+  </connector>
+</settings>

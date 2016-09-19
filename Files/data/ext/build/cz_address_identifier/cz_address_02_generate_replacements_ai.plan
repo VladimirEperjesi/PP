@@ -1,0 +1,1148 @@
+<?xml version='1.0' encoding='utf-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+  <references/>
+  <component-mappings>
+    <propertyMappings/>
+  </component-mappings>
+
+<step id="Multiplicator" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="normal">
+    <properties/>
+    <visual-constraints bounds="24,96,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator" endpoint="out"/>
+    <target step="i4" endpoint="in_a"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator" endpoint="out"/>
+    <target step="ua_city_full" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="Multiplicator 2" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="normal">
+    <properties/>
+    <visual-constraints bounds="456,96,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 2" endpoint="out"/>
+    <target step="i104" endpoint="in_a"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 2" endpoint="out"/>
+    <target step="ua_post_office_full" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="Multiplicator 3" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="normal">
+    <properties/>
+    <visual-constraints bounds="24,384,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 3" endpoint="out"/>
+    <target step="i6" endpoint="in_a"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 3" endpoint="out"/>
+    <target step="ua_street_full" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="Multiplicator 4" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="normal">
+    <properties/>
+    <visual-constraints bounds="456,384,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 4" endpoint="out"/>
+    <target step="i2" endpoint="in_a"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 4" endpoint="out"/>
+    <target step="ua_city_district_full" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="Multiplicator 5" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="normal">
+    <properties/>
+    <visual-constraints bounds="24,-552,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 5" endpoint="out"/>
+    <target step="i3" endpoint="in_a"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 5" endpoint="out"/>
+    <target step="ua_city_partial" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="Multiplicator 6" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="normal">
+    <properties/>
+    <visual-constraints bounds="24,-264,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 6" endpoint="out"/>
+    <target step="i103" endpoint="in_a"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 6" endpoint="out"/>
+    <target step="ua_post_office_partial" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="Multiplicator 7" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="normal">
+    <properties/>
+    <visual-constraints bounds="504,-552,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 7" endpoint="out"/>
+    <target step="i5" endpoint="in_a"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 7" endpoint="out"/>
+    <target step="ua_street_partial" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="Multiplicator 8" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="normal">
+    <properties/>
+    <visual-constraints bounds="504,-264,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 8" endpoint="out"/>
+    <target step="i1" endpoint="in_a"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="Multiplicator 8" endpoint="out"/>
+    <target step="ua_city_district_partial" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="i1" className="com.ataccama.dqc.tasks.flow.Union" disabled="false" mode="normal">
+    <properties>
+      <columnMappings>
+        <columnMapping in_b="input" dest="input" in_a="input"/>
+        <columnMapping in_b="repl" dest="repl" in_a="repl"/>
+      </columnMappings>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="696,-216,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="i1" endpoint="out"/>
+    <target step="id_city_district_partial" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="i103" className="com.ataccama.dqc.tasks.flow.Union" disabled="false" mode="normal">
+    <properties>
+      <columnMappings>
+        <columnMapping in_b="input" dest="input" in_a="input"/>
+        <columnMapping in_b="repl" dest="repl" in_a="repl"/>
+      </columnMappings>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="216,-216,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="i103" endpoint="out"/>
+    <target step="id_post_office_partial" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="i104" className="com.ataccama.dqc.tasks.flow.Union" disabled="false" mode="normal">
+    <properties>
+      <columnMappings>
+        <columnMapping in_b="input" dest="input" in_a="input"/>
+        <columnMapping in_b="repl" dest="repl" in_a="repl"/>
+      </columnMappings>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="648,144,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="i104" endpoint="out"/>
+    <target step="id_post_office_full" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="i2" className="com.ataccama.dqc.tasks.flow.Union" disabled="false" mode="normal">
+    <properties>
+      <columnMappings>
+        <columnMapping in_b="input" dest="input" in_a="input"/>
+        <columnMapping in_b="repl" dest="repl" in_a="repl"/>
+      </columnMappings>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="648,432,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="i2" endpoint="out"/>
+    <target step="id_city_district_full" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="i3" className="com.ataccama.dqc.tasks.flow.Union" disabled="false" mode="normal">
+    <properties>
+      <columnMappings>
+        <columnMapping in_b="input" dest="input" in_a="input"/>
+        <columnMapping in_b="repl" dest="repl" in_a="repl"/>
+      </columnMappings>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="192,-504,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="i3" endpoint="out"/>
+    <target step="id_city_partial" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="i4" className="com.ataccama.dqc.tasks.flow.Union" disabled="false" mode="normal">
+    <properties>
+      <columnMappings>
+        <columnMapping in_b="input" dest="input" in_a="input"/>
+        <columnMapping in_b="repl" dest="repl" in_a="repl"/>
+      </columnMappings>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="192,144,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="i4" endpoint="out"/>
+    <target step="id_city_full" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="i5" className="com.ataccama.dqc.tasks.flow.Union" disabled="false" mode="normal">
+    <properties>
+      <columnMappings>
+        <columnMapping in_b="input" dest="input" in_a="input"/>
+        <columnMapping in_b="repl" dest="repl" in_a="repl"/>
+      </columnMappings>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="696,-504,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="i5" endpoint="out"/>
+    <target step="id_street_partial" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="i6" className="com.ataccama.dqc.tasks.flow.Union" disabled="false" mode="normal">
+    <properties>
+      <columnMappings>
+        <columnMapping in_b="input" dest="input" in_a="input"/>
+        <columnMapping in_b="repl" dest="repl" in_a="repl"/>
+      </columnMappings>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="192,432,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="i6" endpoint="out"/>
+    <target step="id_street_full" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="id_city_district_full" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_city_district_full.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="648,504,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="id_city_district_partial" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_city_district_partial.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="696,-144,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="id_city_full" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_city_full.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="192,216,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="id_city_partial" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_city_partial.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="192,-432,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="id_post_office_full" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_post_office_full.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:][:digit:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="648,216,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="id_post_office_partial" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_post_office_partial.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:][:digit:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="216,-144,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="id_street_full" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_street_full.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:][:digit:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="192,504,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="id_street_partial" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_street_partial.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:][:digit:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="696,-432,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="read_id_city_district_full" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_id_city_district_full.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="744,312,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_id_city_district_full" endpoint="out"/>
+    <target step="i2" endpoint="in_b"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_id_city_district_partial" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_id_city_district_partial.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="792,-336,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_id_city_district_partial" endpoint="out"/>
+    <target step="i1" endpoint="in_b"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_id_city_full" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_id_city_full.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="288,24,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_id_city_full" endpoint="out"/>
+    <target step="i4" endpoint="in_b"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_id_city_partial" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_id_city_partial.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="312,-624,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_id_city_partial" endpoint="out"/>
+    <target step="i3" endpoint="in_b"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_id_post_office_full" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_id_post_office_full.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="744,24,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_id_post_office_full" endpoint="out"/>
+    <target step="i104" endpoint="in_b"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_id_post_office_partial" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_id_post_office_partial.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="312,-336,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_id_post_office_partial" endpoint="out"/>
+    <target step="i103" endpoint="in_b"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_id_street_full" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_id_street_full.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="288,312,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_id_street_full" endpoint="out"/>
+    <target step="i6" endpoint="in_b"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_id_street_partial" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_id_street_partial.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="792,-624,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_id_street_partial" endpoint="out"/>
+    <target step="i5" endpoint="in_b"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_ua_city_district_full" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_ua_city_district_full.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------
+Vytvoření cif replacementů ze source kódů pro FULL replacementy
+---------------------------------------------------------------------------------------------------------------------
+
+Comment #
+ID city district full</comm:comment>
+    </properties>
+    <visual-constraints bounds="456,312,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_ua_city_district_full" endpoint="out"/>
+    <target step="Multiplicator 4" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_ua_city_district_partial" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_ua_city_district_partial.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------
+Vytvoření cif replacementů ze source kódů pro PARTIAL replacementy
+---------------------------------------------------------------------------------------------------------------------
+
+Comment #
+ID city district part</comm:comment>
+    </properties>
+    <visual-constraints bounds="504,-336,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_ua_city_district_partial" endpoint="out"/>
+    <target step="Multiplicator 8" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_ua_city_full" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_ua_city_full.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------
+
+Comment #
+ID city full</comm:comment>
+    </properties>
+    <visual-constraints bounds="24,24,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_ua_city_full" endpoint="out"/>
+    <target step="Multiplicator" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_ua_city_partial" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_ua_city_partial.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------
+
+Comment #
+ID city part</comm:comment>
+    </properties>
+    <visual-constraints bounds="24,-624,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_ua_city_partial" endpoint="out"/>
+    <target step="Multiplicator 5" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_ua_post_office_full" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_ua_post_office_full.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------
+
+Comment #
+ID post_office full</comm:comment>
+    </properties>
+    <visual-constraints bounds="456,24,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_ua_post_office_full" endpoint="out"/>
+    <target step="Multiplicator 2" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_ua_post_office_partial" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_ua_post_office_partial.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------
+
+Comment #
+ID post_office part</comm:comment>
+    </properties>
+    <visual-constraints bounds="24,-336,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_ua_post_office_partial" endpoint="out"/>
+    <target step="Multiplicator 6" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_ua_street_full" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_ua_street_full.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------
+
+Comment #
+ID street full</comm:comment>
+    </properties>
+    <visual-constraints bounds="24,312,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_ua_street_full" endpoint="out"/>
+    <target step="Multiplicator 3" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="read_ua_street_partial" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="normal">
+    <properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_address_identifier/cz_address_ua_street_partial.txt" encoding="windows-1250" numberOfLinesInFooter="0" stringQualifierEscape="">
+      <columns>
+        <textReaderColumn name="input" type="string" ignore="false"/>
+        <textReaderColumn name="repl" type="string" ignore="false"/>
+      </columns>
+      <dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+      <errorHandlingStrategy rejectFileName="rejected.txt">
+        <errorInstructions>
+          <errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+          <errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+          <errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+        </errorInstructions>
+      </errorHandlingStrategy>
+      <shadowColumns/>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------
+
+Comment #
+ID street part</comm:comment>
+    </properties>
+    <visual-constraints bounds="504,-624,-1,-1" layout="vertical"/>
+  </step>
+  <connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+    <source step="read_ua_street_partial" endpoint="out"/>
+    <target step="Multiplicator 7" endpoint="in"/>
+    <visual-constraints>
+      <bendpoints/>
+    </visual-constraints>
+  </connection>
+
+
+
+<step id="ua_city_district_full" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_city_district_full.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="456,456,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="ua_city_district_partial" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_city_district_partial.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="504,-192,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="ua_city_full" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_city_full.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="24,168,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="ua_city_partial" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_city_partial.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="24,-480,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="ua_post_office_full" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_post_office_full.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:][:digit:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="456,168,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="ua_post_office_partial" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_post_office_partial.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:][:digit:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="24,-192,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="ua_street_full" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_street_full.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:][:digit:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="24,456,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<step id="ua_street_partial" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="normal">
+    <properties approximativeIndex="true" duplicities="first" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_street_partial.lkp" key="input">
+      <additionalColumns>
+        <columnExprDef expression="repl" name="repl"/>
+      </additionalColumns>
+      <matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" .,/-[:letter:][:digit:]" doRemoveDia="true" doUpperCase="true"/>
+      <userMetadata>
+        <items/>
+      </userMetadata>
+      <comm:comment>---------------------------------------------------------------------------------------------------------------------</comm:comment>
+    </properties>
+    <visual-constraints bounds="504,-480,-1,-1" layout="vertical"/>
+  </step>
+
+
+
+<modelComment bounds="840,96,217,48" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">shortcut: 
+dictionaries = project/data/ext/..</modelComment>
+
+
+
+<modelComment bounds="816,-552,217,48" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">shortcut: 
+dictionaries = project/data/ext/..</modelComment>
+
+
+
+<modelComment bounds="24,-53,913,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">										F U L L</modelComment>
+
+
+
+<modelComment bounds="24,-672,913,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">										P A R T I A L</modelComment>
+
+</purity-config>

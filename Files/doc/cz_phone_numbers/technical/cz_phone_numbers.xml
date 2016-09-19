@@ -1,0 +1,699 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configDoc screen="images/screen_cz_phone_numbers.comp.png" cfgFilePath="workspace://Component_manager/component/cz_phone_numbers.comp" runtimeVersion="10.4.0.ga-2016-03-30" companyImage="images/logo_about.png" fileName="cz_phone_numbers.comp" date="2016-05-02 12:36:14" xmlns:comm="http://www.ataccama.com/purity/comment" version="1.0">
+  <generatorMeta name="Data Quality Center 10.4.0" company="Ataccama Corporation" about="{4}
+
+Version: {1}
+
+Copyright © 2002-{2} Ataccama Corporation. All rights reserved.
+
+Your use of the product is subject to the {4} end user license agreement." date="2016-05-02 12:45:56"/>
+  <configAlg name="in (Integration Input)" image="images/InputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.InputStep">
+    <properties>
+      <columns>
+        <columnDef name="in_number" type="STRING">
+          <comm:comment>Input phone number</comm:comment>
+        </columnDef>
+      </columns>
+      <shadowColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add Columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="std_idc" type="STRING">
+          <comm:comment>Standardized international dialing code</comm:comment>
+        </addedColumn>
+        <addedColumn name="std_phone_number" type="STRING">
+          <comm:comment>Standardized phone number (without idc and extension)</comm:comment>
+        </addedColumn>
+        <addedColumn name="std_extension" type="STRING">
+          <comm:comment>Standardized extension</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_idc" type="STRING">
+          <comm:comment>Best existing international dialing code</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_phone_number" type="STRING">
+          <comm:comment>Best existing phone number (without idc and extension)</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_extension" type="STRING">
+          <comm:comment>Best existing extension</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_number" type="STRING">
+          <comm:comment>Best existing phone number (with idc and extension)</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_comment" type="STRING">
+          <comm:comment>Parsed comment before/after phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="sco_number" type="INTEGER">
+          <comm:comment>Data quality score</comm:comment>
+        </addedColumn>
+        <addedColumn name="exp_number" type="STRING">
+          <comm:comment>Explanation codes</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add internal columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="pur_number_orig" type="STRING">
+          <comm:comment>Parsed phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_number" type="STRING">
+          <comm:comment>Cleansed digit-only phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_exit_code" type="STRING">
+          <comm:comment>Cleansed digit-only exit code</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_idc" type="STRING">
+          <comm:comment>Cleansed digit-only international dialing code</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_national_number" type="STRING">
+          <comm:comment>Cleansed digit-only national phone number (without idc prefix)</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_extension" type="STRING">
+          <comm:comment>Cleansed digit-only phone extension number</comm:comment>
+        </addedColumn>
+        <addedColumn name="pat_number" type="STRING">
+          <comm:comment>Pattern of parsed phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="pat_national_number" type="STRING">
+          <comm:comment>Pattern of parsed national number</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_comment_before" type="STRING">
+          <comm:comment>Comments found before phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_comment_after" type="STRING">
+          <comm:comment>Comments found after phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_prefix_1" type="STRING">
+          <comm:comment>First digit of (national) phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_prefix_2" type="STRING">
+          <comm:comment>First two digits of (national) phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_prefix_3" type="STRING">
+          <comm:comment>First three digits of (national) phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_prefix_4" type="STRING">
+          <comm:comment>First four digits of (national) phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_old_prefix" type="STRING">
+          <comm:comment>Old format prefix phone</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_explanation" type="STRING">
+          <comm:comment>Temporary explanation</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_foreign_idc" type="STRING">
+          <comm:comment>International dialing code of foreign phone number</comm:comment>
+        </addedColumn>
+        <addedColumn name="par_output_format" type="STRING">
+          <comm:comment>Phone number output format definition. Default value is empty which means that the original component logic will be used. Example of unique format including extension is &#39;+ddd ddddddddd ext. dddddd&#39;. &quot;d&quot; is successively replaced by phone number digits. Other characters will be left as they are. Only OUT_NUMBER for identified values (STD value is available) is standardized in that way.</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+      <comm:comment>Add internal columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Phone not empty (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="in_number is not null">
+      <comm:comment>Check whether phone is empty</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Replace extension synonym (Apply Replacements)" image="images/ApplyReplacementsAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm">
+    <properties replacementsFileName="pathvar://DATA/ext/lkp/___extension_snowman.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="in_number" out="pur_number_orig">
+      <scorer explanationColumn="tmp_explanation">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="EXTENSION_REPLACED" explain="true" key="AR_CHANGED"/>
+          <scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+          <scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+          <scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+        </scoringEntries>
+      </scorer>
+      <tokenizer whiteSpaceDefinition="[:white:]">
+        <types>
+          <tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+          <tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+        </types>
+      </tokenizer>
+      <comm:comment>Wraps words such as &quot;ext.&quot;, &quot;extension&quot;, &quot;klapka&quot; with snowman and skull character. It will be later used as separator between phone number and its extension number</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Parse phone number (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_number_orig" regexNameColumn="pat_number" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="(.*?)\p{Space}*(00|\+)?\p{Space}*((?:\p{Digit}[/\s()-]*){6,15})\s*☃.+?☠\.?\s*(\p{Digit}{1,5})(\D.*)?" name="phone_with_extension" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="tmp_comment_before" substitution="$1"/>
+            <regexOutputColumn name="pur_exit_code" substitution="$2"/>
+            <regexOutputColumn name="pur_number_orig" substitution="$3"/>
+            <regexOutputColumn name="pur_extension" substitution="$4"/>
+            <regexOutputColumn name="tmp_comment_after" substitution="$5"/>
+          </resultColumns>
+          <comm:comment>Optional comment, optional exit code (&quot;00&quot; or &quot;+&quot;), six-fifteen-digit long international phone number, snowman character (meaning start of extension synonym), extension synonym, skull (meaning end of extension synonym), one-five-digit long extension, optional comment</comm:comment>
+        </regExpression>
+        <regExpression pattern="(.*?)\p{Space}*(00|\+)?\p{Space}*((?:\p{Digit}[/\s()-]*){6,15})(\D.*)?" name="phone_without_extension" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="tmp_comment_before" substitution="$1"/>
+            <regexOutputColumn name="pur_exit_code" substitution="$2"/>
+            <regexOutputColumn name="pur_number_orig" substitution="$3"/>
+            <regexOutputColumn name="tmp_comment_after" substitution="$4"/>
+          </resultColumns>
+          <comm:comment>Optional comment, optional exit code (&quot;00&quot; or &quot;+&quot;), six-fifteen-digit long international phone number, optional comment</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Parse phone number.
+International phone can have maximally 15 digits.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove snowman and skull characters (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="substituteAll(&#39;[☃☠]&#39;, &#39;&#39;, tmp_comment_before)" column="tmp_comment_before">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="substituteAll(&#39;[☃☠]&#39;, &#39;&#39;, tmp_comment_after)" column="tmp_comment_after">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>When there was replacement of extension synonyms, but these extensions were not parsed/recognized, we remove special chars which wrapped them.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Phone parsed (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="pat_number is not null">
+      <comm:comment>Phone was parsed</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Trash non-digits (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="trashNonDigits(pur_number_orig)" column="pur_number">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Trash non-digits</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="idc and national number (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_number" regexNameColumn="pat_national_number" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="(420)?(0?\d{0,9})" name="phone_czech_valid" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_idc" substitution="$1"/>
+            <regexOutputColumn name="pur_national_number" substitution="$2"/>
+          </resultColumns>
+          <comm:comment>Maximally 9-digit long number can be valid</comm:comment>
+        </regExpression>
+        <regExpression pattern="(420)(\d*)" name="phone_czech_too_long" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_idc" substitution="$1"/>
+            <regexOutputColumn name="pur_national_number" substitution="$2"/>
+          </resultColumns>
+          <comm:comment>Longer numbers with czech idc will be invalidated later</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Separate optional idc (&quot;420&quot;) from national part</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Czech number (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties>
+      <condition>pat_national_number is not null
+</condition>
+      <comm:comment>If phone number hasn&#39;t czech IDC and has more than 9 digits, we consider it to be foreign number</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Old format (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="left(pur_national_number, 1) is &#39;0&#39;">
+      <comm:comment>Old format phones started with zero</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Convert Old Phone Numbers (Convert Phone Numbers)" image="images/ConvertPhoneNumbersAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ConvertPhoneNumbersAlgorithm">
+    <properties conversionTableFileName="pathvar://DATA/ext/lkp/cz_phone_repl.lkp" phoneNumber="pur_national_number" areaCode="&quot;&quot;" omitIfNotConverted="false" nationalNumber="pur_national_number">
+      <scorer explanationColumn="exp_number" scoreColumn="sco_number">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="CPN_PN_NULL" explain="false" key="CPN_PN_NULL"/>
+          <scoringEntry score="0" explainAs="CPN_AC_NULL" explain="false" key="CPN_AC_NULL"/>
+          <scoringEntry score="0" explainAs="CPN_PN_UNKNOWN" explain="false" key="CPN_PN_UNKNOWN"/>
+          <scoringEntry score="0" explainAs="CPN_PN_NONSENSE" explain="false" key="CPN_PN_NONSENSE"/>
+          <scoringEntry score="0" explainAs="CPN_AC_NONSENSE" explain="false" key="CPN_AC_NONSENSE"/>
+          <scoringEntry score="0" explainAs="CPN_PN_LENGTH" explain="false" key="CPN_PN_LENGTH"/>
+          <scoringEntry score="0" explainAs="CPN_PN_NEW_FORMAT" explain="false" key="CPN_PN_NEW_FORMAT"/>
+          <scoringEntry score="100" explainAs="PHONE_OLD_FORMAT_FIXED" explain="true" key="CPN_PN_CONVERTED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Convert old format phone numbers</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union old and new (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union old and new phone numbers</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="9 digits (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="length(pur_national_number) is 9">
+      <comm:comment>Check whether national czech number has 9 digits</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Prefixes (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="left(pur_national_number, 1)" column="tmp_prefix_1">
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+        </assignment>
+        <assignment expression="left(pur_national_number, 2)" column="tmp_prefix_2">
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+        </assignment>
+        <assignment expression="left(pur_national_number, 3)" column="tmp_prefix_3">
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Prepare 1-3-digit long prefixes of czech national phone number</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Mobile prefix 3 (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_phone_mobile_prefixes.lkp" prefix="false" foreignKeyColumn="tmp_prefix_3">
+      <columns/>
+      <scorer explanationColumn="exp_number" scoreColumn="sco_number">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="PHONE_MOBILE" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Check 3-digit long mobile prefix</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Area prefix 2 (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_phone_area_prefixes.lkp" prefix="false" whenCondition="indexOf(exp_number, &#39;CZ_PHONE_MOBILE&#39;) is null" foreignKeyColumn="tmp_prefix_2">
+      <columns/>
+      <scorer explanationColumn="exp_number" scoreColumn="sco_number">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="PHONE_LANDLINE" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+    </properties>
+  </configAlg>
+  <configAlg name="Area prefix 1 (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_phone_area_prefixes.lkp" prefix="false" foreignKeyColumn="tmp_prefix_1">
+      <columns/>
+      <scorer explanationColumn="exp_number" scoreColumn="sco_number">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="PHONE_LANDLINE" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <whenCondition>indexOf(exp_number, &#39;CZ_PHONE_MOBILE&#39;) is null and
+indexOf(exp_number, &#39;CZ_PHONE_LANDLINE&#39;) is null</whenCondition>
+    </properties>
+  </configAlg>
+  <configAlg name="Special prefix 3 (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_phone_special_prefixes.lkp" prefix="false" foreignKeyColumn="tmp_prefix_3">
+      <columns/>
+      <scorer explanationColumn="exp_number" scoreColumn="sco_number">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="PHONE_SPECIAL" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <whenCondition>indexOf(exp_number, &#39;CZ_PHONE_MOBILE&#39;) is null and
+indexOf(exp_number, &#39;CZ_PHONE_LANDLINE&#39;) is null</whenCondition>
+    </properties>
+  </configAlg>
+  <configAlg name="Special prefix 2 (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_phone_special_prefixes.lkp" prefix="false" foreignKeyColumn="tmp_prefix_2">
+      <columns/>
+      <scorer explanationColumn="exp_number" scoreColumn="sco_number">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="PHONE_SPECIAL" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <whenCondition>indexOf(exp_number, &#39;CZ_PHONE_MOBILE&#39;) is null and
+indexOf(exp_number, &#39;CZ_PHONE_LANDLINE&#39;) is null and
+indexOf(exp_number, &#39;CZ_PHONE_SPECIAL&#39;) is null</whenCondition>
+    </properties>
+  </configAlg>
+  <configAlg name="Invalid digit count (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+      <scoringCases>
+        <scoringCase condition="true" explanation="&#39;PHONE_INVALID_DIGIT_COUNT&#39;" score="200000"/>
+      </scoringCases>
+      <comm:comment>Score czech phones with invalid length</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Has exit code (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="pur_exit_code is not null">
+      <comm:comment>Check whether phone has exit code</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg definitionFile="___idc_validate" name="Validate_idc (Component)" image="images/componentStep.png" class="com.ataccama.dqc.tasks.common.usersteps.ComponentStep">
+    <properties fileName="pathvar://COMPONENTS/___idc_validate.comp">
+      <mappings>
+        <mappingEndPoint name="in">
+          <columnMappings>
+            <columnsMapping to="in_idc"/>
+            <columnsMapping to="in_number" from="pur_number"/>
+          </columnMappings>
+        </mappingEndPoint>
+        <mappingEndPoint name="out">
+          <columnMappings>
+            <columnsMapping to="out_idc" from="tmp_foreign_idc"/>
+            <columnsMapping to="exp_idc"/>
+            <columnsMapping to="sco_idc"/>
+          </columnMappings>
+        </mappingEndPoint>
+      </mappings>
+      <comm:comment>Find out if a number contains foreign idc code</comm:comment>
+      <parameters/>
+    </properties>
+  </configAlg>
+  <reference name="___idc_validate"/>
+  <configAlg name="Foreign IDC (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+      <scoringCases>
+        <scoringCase condition="tmp_foreign_idc is not null" explanation="&#39;PHONE_FOREIGN_IDC&#39;" score="100000"/>
+        <scoringCase condition="tmp_foreign_idc is null" explanation="&#39;PHONE_UNKNOWN_IDC&#39;" score="300000"/>
+      </scoringCases>
+      <comm:comment>Score phone with foreign and unknown IDCs</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Unknown number (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+      <scoringCases>
+        <scoringCase condition="true" explanation="&#39;PHONE_UNKNOWN&#39;" score="500000"/>
+      </scoringCases>
+      <comm:comment>Score unknown phone numbers (not czech, without exit code)</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Phone not parsed (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+      <scoringCases>
+        <scoringCase condition="true" explanation="&#39;PHONE_NOT_PARSED&#39;" score="1000000">
+          <comm:comment>Score unparsed phones</comm:comment>
+        </scoringCase>
+      </scoringCases>
+    </properties>
+  </configAlg>
+  <configAlg name="Phone empty (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+      <scoringCases>
+        <scoringCase condition="true" explanation="&#39;PHONE_EMPTY&#39;" score="10000000"/>
+      </scoringCases>
+      <comm:comment>Score empty phone</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union Invalid (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union empty, unparsed, foreign, uknown and invalid numbers</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union valid and invalid (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union valid and invalid phone numbers</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Score phone number (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+      <scoringCases>
+        <scoringCase condition="pat_number is &#39;phone_with_extension&#39;" explanation="&#39;PHONE_EXTENSION&#39;" score="0">
+          <comm:comment>Phone contains extension</comm:comment>
+        </scoringCase>
+        <scoringCase explanation="&#39;PHONE_INVALID_EXTENSION&#39;" score="1000">
+          <condition>tmp_explanation is &#39;EXTENSION_REPLACED&#39; and
+pat_number is &#39;phone_without_extension&#39;</condition>
+          <comm:comment>There was extension synonym found, but extension number was invalid (e.g. too long).
+
+E.g.: 111111111 ext. 2222222</comm:comment>
+        </scoringCase>
+        <scoringCase explanation="&#39;PHONE_PREFIX_NOT_FOUND&#39;" score="10000">
+          <condition>sco_number &lt; 10000 and
+set.intersection(exp_number, &#39;PHONE_LANDLINE PHONE_MOBILE PHONE_SPECIAL&#39;) is 0</condition>
+          <comm:comment>Phone prefix is mobile, landline or special.</comm:comment>
+        </scoringCase>
+        <scoringCase condition="tmp_comment_before is not null or tmp_comment_after is not null" explanation="&#39;PHONE_COMMENTS&#39;" score="min(length(tmp_comment_before) + length(tmp_comment_after), 100)">
+          <comm:comment>There was comment found before/after phone number</comm:comment>
+        </scoringCase>
+        <scoringCase condition="substituteAll(@&quot;[^\p{Punct}]&quot;, &#39;&#39;, pur_number_orig) is not null" explanation="&#39;PHONE_SPECIAL_CHARS&#39;" score="min(100 * length(substituteAll(@&quot;[^\p{Punct}]&quot;, &#39;&#39;, pur_number_orig)), 500)">
+          <comm:comment>There were special characters inside phone number.
+Score every special character with 100</comm:comment>
+        </scoringCase>
+        <scoringCase condition="pur_exit_code is null and pur_idc is not null" explanation="&#39;PHONE_MISSING_EXIT_CODE&#39;" score="2000">
+          <comm:comment>We found idc code, however required exit code is missing</comm:comment>
+        </scoringCase>
+        <scoringCase condition="pur_exit_code is not null and pur_idc is null and pat_national_number is not null" explanation="&#39;PHONE_MISSING_IDC&#39;" score="5000">
+          <comm:comment>There was exit code, however idc is missing</comm:comment>
+        </scoringCase>
+      </scoringCases>
+      <comm:comment>Set score</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Set std and out (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="out_phone_number">
+          <expression>nvl
+(
+	pur_national_number, //Czech local number
+	substr(pur_number, length(tmp_foreign_idc)), //foreign number with idc removed
+	iif(pat_number is not null, in_number, null)
+)
+
+</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment column="out_idc">
+          <expression>case
+(
+	pur_national_number is not null,
+		&#39;+420&#39;,
+	pur_number is not null,
+		iif(pur_exit_code is not null and tmp_foreign_idc is not null, &#39;+&#39;, &#39;&#39;) + tmp_foreign_idc,
+	null
+)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment column="out_extension">
+          <expression>iif(out_phone_number is not null, pur_extension, null)
+
+//pur_extension</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment column="out_number">
+          <expression>
+		nvl(out_idc, pur_exit_code)+
+		out_phone_number+
+		iif(out_extension is not null, 
+				&#39; ext. &#39; + out_extension,
+				null)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="tmp_comment_before + &#39; &#39; + tmp_comment_after" column="out_comment">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="iif(sco_number &lt; 10000, out_idc, &#39;&#39;)" column="std_idc">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="iif(sco_number &lt; 10000, out_phone_number, &#39;&#39;)" column="std_phone_number">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="iif(sco_number &lt; 10000, out_extension, &#39;&#39;)" column="std_extension">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Set std and out</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="par_output_format is not null (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="par_output_format is not null and std_phone_number is not null and std_idc is not null"/>
+  </configAlg>
+  <configAlg name="Remove + (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="trashNonDigits(out_number)" column="out_number">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+    </properties>
+  </configAlg>
+  <configAlg definitionFile="_t_smart_chars_replacement" name="_t_smart_chars_replacement (Component)" image="images/componentStep.png" class="com.ataccama.dqc.tasks.common.usersteps.ComponentStep">
+    <properties fileName="pathvar://COMPONENTS/_t_smart_chars_replacement.comp">
+      <mappings>
+        <mappingEndPoint name="in">
+          <columnMappings>
+            <columnsMapping to="in_string" from="par_output_format"/>
+            <columnsMapping to="in_replacement" from="out_number"/>
+          </columnMappings>
+        </mappingEndPoint>
+        <mappingEndPoint name="out">
+          <columnMappings>
+            <columnsMapping to="out_string" from="out_number"/>
+          </columnMappings>
+        </mappingEndPoint>
+      </mappings>
+      <parameters>
+        <letters>false</letters>
+        <digits>false</digits>
+        <special_chars>false</special_chars>
+        <defined_set>&#39;d&#39;</defined_set>
+      </parameters>
+    </properties>
+  </configAlg>
+  <reference name="_t_smart_chars_replacement"/>
+  <configAlg name="Union Same (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties/>
+  </configAlg>
+  <configAlg name="Remove internal columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns/>
+      <removedColumns>
+        <columnRef name="in_number"/>
+        <columnRef name="pur_number_orig"/>
+        <columnRef name="pur_number"/>
+        <columnRef name="pur_exit_code"/>
+        <columnRef name="pur_idc"/>
+        <columnRef name="pur_national_number"/>
+        <columnRef name="pur_extension"/>
+        <columnRef name="pat_number"/>
+        <columnRef name="pat_national_number"/>
+        <columnRef name="tmp_comment_before"/>
+        <columnRef name="tmp_comment_after"/>
+        <columnRef name="tmp_prefix_1"/>
+        <columnRef name="tmp_prefix_2"/>
+        <columnRef name="tmp_prefix_3"/>
+        <columnRef name="tmp_prefix_4"/>
+        <columnRef name="tmp_old_prefix"/>
+        <columnRef name="tmp_explanation"/>
+        <columnRef name="tmp_foreign_idc"/>
+        <columnRef name="par_output_format"/>
+      </removedColumns>
+      <comm:comment>Remove internal columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="out (Integration Output)" image="images/OutputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep">
+    <properties>
+      <requiredColumns>
+        <requiredColumn name="std_idc" type="STRING">
+          <comm:comment>Standardized international dialing code</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="std_phone_number" type="STRING">
+          <comm:comment>Standardized phone number (without idc and extension)</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="std_extension" type="STRING">
+          <comm:comment>Standardized extension</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_idc" type="STRING">
+          <comm:comment>Best existing international dialing code</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_phone_number" type="STRING">
+          <comm:comment>Best existing phone number (without idc and extension)</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_extension" type="STRING">
+          <comm:comment>Best existing extension</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_number" type="STRING">
+          <comm:comment>Best existing phone number (with idc and extension)</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_comment" type="STRING">
+          <comm:comment>Parsed comment before/after phone number</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="sco_number" type="INTEGER">
+          <comm:comment>Data quality score</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="exp_number" type="STRING">
+          <comm:comment>Explanation codes</comm:comment>
+        </requiredColumn>
+      </requiredColumns>
+    </properties>
+  </configAlg>
+</configDoc>

@@ -1,0 +1,100 @@
+key;code;res_client_type;standardized_form
+V LIKVIDACI;0;;V likvidaci
+PODNIKAJICI OSOBA TUZEMSKA;100;PO;Podnikající osoba tuzemská
+FYZICKA OSOBA PODNIKAJICI DLE ZIVNOSTENSKEHO ZAKONA NEZAPSANA V OBCHODNIM REJSTRIKU;101;FOP;Fyzická osoba podnikající dle ivnostenského zákona nezapsaná v obchodním rejstøíku
+FYZICKA OSOBA PODNIKAJICI DLE ZIVNOSTENSKEHO ZAKONA ZAPSANA V OBCHODNIM REJSTRIKU;102;FOP;Fyzická osoba podnikající dle ivnostenského zákona zapsaná v obchodním rejstøíku
+SAMOSTATNE HOSPODARICI ROLNIK ZAPSANY V OBCHODNIM REJSTRIKU;104;FOP;Samostatnì hospodaøící rolník zapsanı v obchodním rejstøíku
+FYZICKA OSOBA PODNIKAJICI DLE JINYCH ZAKONU NEZ ZIVNOSTENSKEHO A ZAKONA O ZEMEDELSTVI NEZAPSANA V OBCHODNIM REJSTRIKU;105;FOP;Fyzická osoba podnikající dle jinıch zákonù ne ivnostenského a zákona o zemìdìlství nezapsaná v obchodním rejstøíku
+FYZICKA OSOBA PODNIKAJICI DLE JINYCH ZAKONU NEZ ZIVNOSTENSKEHO A ZAKONA O ZEMEDELSTVI ZAPSANA V OBCHODNIM REJSTRIKU;106;FOP;Fyzická osoba podnikající dle jinıch zákonù ne ivnostenského a zákona o zemìdìlství zapsaná v obchodním rejstøíku
+ZEMEDELSKY PODNIKATEL - FYZICKA OSOBA NEZAPSANA V OBCHODNIM REJSTRIKU;107;FOP;Zemìdìlskı podnikatel - fyzická osoba nezapsaná v obchodním rejstøíku
+ZEMEDELSKY PODNIKATEL - FYZICKA OSOBA ZAPSANA V OBCHODNIM REJSTRIKU;108;FOP;Zemìdìlskı podnikatel - fyzická osoba zapsaná v obchodním rejstøíku
+VOS;111;PO;Veøejná obchodní spoleènost
+SRO;112;PO;Spoleènost s ruèením omezenım
+KS;113;PO;Spoleènost komanditní
+SPOLECNY PODNIK;115;PO;Spoleènı podnik
+ZAJMOVE SDRUZENI;116;PO;Zájmové sdruení
+NADACE;117;PO;Nadace
+NADACNI FOND;118;PO;Nadaèní fond
+AS;121;PO;Akciová spoleènost
+OBECNE PROSPESNA SPOLECNOST;141;PO;Obecnì prospìšná spoleènost
+SPOLECENSTVI VLASTNIKU JEDNOTEK;145;PO;Spoleèenství vlastníkù jednotek
+KOMODITNI BURZA;151;PO;Komoditní burza
+GARANCNI FOND OBCHODNIKU S CENNYMI PAPIRY;152;PO;Garanèní fond obchodníkù s cennımi papíry
+USTAV;161;PO;Ústav
+ZEMEDELSKE DRUZSTVO;201;PO;Zemìdìlské drustvo
+DRUZSTVO;205;PO;Drustvo
+VD;231;PO;Vırobní drustvo
+SPOTREBNI DRUZSTVO;232;PO;Spotøební drustvo
+BYTOVE DRUZSTVO;233;PO;Bytové drustvo
+JINE DRUZSTVO;234;PO;Jiné drustvo
+DRUZSTEVNI PODNIK (S JEDNIM ZAKLADATELEM);241;PO;Drustevní podnik (s jedním zakladatelem)
+SPOLECNY PODNIK (S VICE ZAKLADATELI);242;PO;Spoleènı podnik (s více zakladateli)
+ZAJMOVA ORGANIZACE DRUZSTEV;251;PO;Zájmová organizace drustev
+SPOLECNA ZAJMOVA ORGANIZACE DRUZSTEV;261;PO;Spoleèná zájmová organizace drustev
+STATNI PODNIK;301;PO;Státní podnik
+NARODNI PODNIK;302;PO;Národní podnik
+BANKA-STATNI PENEZNI USTAV;312;PO;Banka-státní penìní ústav
+CNB;313;PO;Èeská národní banka
+CKA;314;PO;Èeská konsolidaèní agentura
+OSS;325;PO;Organizaèní sloka státu
+PRISPEVKOVA ORGANIZACE;331;PO;Pøíspìvková organizace
+SZDC;352;PO;Správa eleznièní dopravní cesty, státní organizace
+RVDA;353;PO;Rada pro veøejnı dohled nad auditem
+VI;361;PO;Veøejnoprávní instituce (ÈT,ÈRo,ÈTK)
+CTK;362;PO;Èeská tisková kanceláø
+FOND;381;PO;Fond (ze zákona)
+STATNI FOND;382;PO;Státní fond ze zákona
+ZP;391;PO;Zdravotní pojišovna
+SMO;401;PO;Sdruení mezinárodního obchodu
+PODNIK SE ZAHRANICNI MAJETKOVOU UCASTI;411;PO;Podnik se zahranièní majetkovou úèastí
+ZO;421;PO;Zahranièní osoba
+ORGANIZACNI SLOZKA ZAHRANICNIHO NADACNIHO FONDU;422;PO;Organizaèní sloka zahranièního nadaèního fondu
+ORGANIZACNI SLOZKA ZAHRANICNI NADACE;423;PO;Organizaèní sloka zahranièní nadace
+ZAHRANICNI;424;PO;Zahranièní
+ODSTEPNY ZAVOD ZAHRANICNI FYZICKE OSOBY;425;PO;Odštìpnı závod zahranièní fyzické osoby
+PODNIK ZAHRANICNIHO OBCHODU;441;PO;Podnik zahranièního obchodu
+ODSTEPNY ZAVOD NEBO JINA ORGANIZACNI SLOZKA PODNIKU ZAPISUJICI SE DO OBCHODNIHO REJSTRIKU;501;PO;Odštìpnı závod nebo jiná organizaèní sloka podniku zapisující se do obchodního rejstøíku
+SAMOSTATNA DROBNA PROVOZOVNA OBECNIHO URADU;521;PO;Samostatná drobná provozovna obecního úøadu
+PF;541;PO;Podílovı fond
+VS;601;PO;Vysoká škola
+SPO;641;PO;Školská právnická osoba
+ZZ;651;PO;Zdravotnické zaøízení
+VVI;661;PO;Veøejná vızkumná instituce
+VNUZZ;671;PO;Veøejné neziskové ústavní zdravotnické zaøízení
+SDRUZENI;701;PO;Sdruení (svaz, spolek, spoleènost, klub aj.)
+ODBOROVA ORGANIZACE A ORGANIZACE ZAMESTNAVATELU;703;PO;Odborová organizace a organizace zamìstnavatelù
+ZVLASTNI ORGANIZACE PRO ZASTOUPENI CESKYCH ZAJMU V MEZINARODNICH NEVLADNICH ORGANIZACICH;704;PO;Zvláštní organizace pro zastoupení èeskıch zájmù v mezinárodních nevládních organizacích
+PODNIK;705;PO;Podnik nebo hospodáøské zaøízení sdruení
+SPOLEK;706;PO;Spolek
+POLITICKA STRANA, POLITICKE HNUTI;711;PO;Politická strana, politické hnutí
+PODNIK NEBO HOSPODARSKE ZARIZENI POLITICKE STRANY;715;PO;Podnik nebo hospodáøské zaøízení politické strany
+CIRKEVNI ORGANIZACE;721;PO;Církevní organizace
+EVIDOVANE CIRKEVNI PRAVNICKE OSOBY;722;PO;Evidované církevní právnické osoby
+SVAZY CIRKVI A NABOZENSKYCH SPOLECNOSTI;723;PO;Svazy církví a náboenskıch spoleèností
+ORGANIZACNI JEDNOTKA SDRUZENI;731;PO;Organizaèní jednotka sdruení
+ORGANIZACNI JEDNOTKA POLITICKE STRANY, POLITICKEHO HNUTI;732;PO;Organizaèní jednotka politické strany, politického hnutí
+ORGANIZACNI JEDNOTKA ODBOROVE ORGANIZACE A ORGANIZACE ZAMESTNAVATELU;733;PO;Organizaèní jednotka odborové organizace a organizace zamìstnavatelù
+POBOCNY SPOLEK;736;PO;Poboènı spolek
+STAVOVSKA ORGANIZACE - PROFESNI KOMORA;741;PO;Stavovská organizace - profesní komora
+KOMORA;745;PO;Komora (s vıjimkou profesních komor)
+ZAJMOVE SDRUZENI PRAVNICKYCH OSOB;751;PO;Zájmové sdruení právnickıch osob
+HONEBNI SPOLECENSTVO;761;PO;Honební spoleèenstvo
+SVAZEK OBCI;771;PO;Svazek obcí
+OBEC;801;PO;Obec nebo mìstská èást hlavního mìsta Prahy
+KRAJ;804;PO;Kraj
+RRRS;805;PO;Regionální rada regionu soudrnosti
+ZOJS;901;PO;Zastupitelskı orgán jinıch státù
+ZAHRANICNI SPOLEK;906;PO;Zahranièní spolek
+MEZINARODNI ODBOROVA ORGANIZACE;907;PO;Mezinárodní odborová organizace
+MEZINARODNI ORGANIZACE ZAMESTNAVATELU;908;PO;Mezinárodní organizace zamìstnavatelù
+ZAHRANICNI KULTURNI, INFORMACNI STREDISKO, ROZHLASOVA, TISKOVA A TELEVIZNI AGENTURA;911;PO;Zahranièní kulturní, informaèní støedisko, rozhlasová, tisková a televizní agentura
+MEZINARODNI ORGANIZACE A SDRUZENI;921;PO;Mezinárodní organizace a sdruení
+ORGANIZACNI JEDNOTKA ORGANIZACE S MEZINARODNIM PRVKEM;922;PO;Organizaèní jednotka organizace s mezinárodním prvkem
+EHZS;931;PO;Evropské hospodáøské zájmové sdruení
+ES;932;PO;Evropská spoleènost
+EDS;933;PO;Evropská drustevní spoleènost
+ZAHRANICNI POBOCNY SPOLEK;936;PO;Zahranièní poboènı spolek
+POBOCNA MEZINARODNI ODBOROVA ORGANIZACE;937;PO;Poboèná mezinárodní odborová organizace
+POBOCNA MEZINARODNI ORGANIZACE ZAMESTNAVATELU;938;PO;Poboèná mezinárodní organizace zamìstnavatelù
+EVROPSKE SESKUPENI PRO UZEMNI SPOLUPRACI;941;PO;Evropské seskupení pro územní spolupráci
+SUBJEKT PRAVNIM RADEM VYSLOVNE NEUPRAVENY;950;PO;Subjekt právním øádem vıslovnì neupravenı

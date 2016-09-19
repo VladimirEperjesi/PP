@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='utf-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Add columns) --><step id="Add columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="&#39;01 02 03 04 05 06 07 08 09 10 11 12&#39;" name="tmp_orders" type="STRING"/>
+				<addedColumn name="tmp_order" type="STRING"/>
+				<addedColumn name="tmp_month_name" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="168,120,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add columns" endpoint="out"/>
+		<target step="Multiplicator" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Full) --><step id="Full" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" mode="NORMAL">
+		<properties condition="full is not null"/>
+		<visual-constraints bounds="72,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Full" endpoint="out"/>
+		<target step="Splitter" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Get full month name) --><step id="Get full month name" className="com.ataccama.dqc.tasks.expressions.DynamicExpressionAssigner" disabled="false" mode="NORMAL">
+		<properties cacheSize="10">
+			<assignments>
+				<assignment expression="&#39;toString(toDate(&quot;&#39;+tmp_order+&#39;&quot;, &quot;MM&quot;), &quot;MMMM&quot;, &quot;&#39;+full+&#39;&quot;)&#39;" column="tmp_month_name">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="EE_EMPTY" explain="true" key="EE_EMPTY"/>
+							<scoringEntry score="0" explainAs="EE_INVALID" explain="true" key="EE_INVALID"/>
+							<scoringEntry score="0" explainAs="EE_CHANGED" explain="true" key="EE_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>E.g. of final expression:
+tmp_order = &quot;01&quot;
+full = &quot;en&quot;
+---&gt;
+toString(toDate(&quot;01&quot;, &quot;MM&quot;), &quot;MMMM&quot;, &quot;en&quot;)</comm:comment>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="72,384,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Get full month name" endpoint="out"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Get short month name) --><step id="Get short month name" className="com.ataccama.dqc.tasks.expressions.DynamicExpressionAssigner" disabled="false" mode="NORMAL">
+		<properties cacheSize="10">
+			<assignments>
+				<assignment expression="&#39;toString(toDate(&quot;&#39;+tmp_order+&#39;&quot;, &quot;MM&quot;), &quot;MMM&quot;, &quot;&#39;+short+&#39;&quot;)&#39;" column="tmp_month_name">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="EE_EMPTY" explain="true" key="EE_EMPTY"/>
+							<scoringEntry score="0" explainAs="EE_INVALID" explain="true" key="EE_INVALID"/>
+							<scoringEntry score="0" explainAs="EE_CHANGED" explain="true" key="EE_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>E.g. of final expression:
+tmp_order = &quot;01&quot;
+full = &quot;en&quot;
+---&gt;
+toString(toDate(&quot;01&quot;, &quot;MM&quot;), &quot;MMM&quot;, &quot;en&quot;)</comm:comment>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="288,384,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Get short month name" endpoint="out"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Matching Values) --><step id="Matching Values" className="com.ataccama.dqc.tasks.clean.MatchingValues" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<matchingColumn expression="tmp_month_name" name="tmp_month_name">
+					<generator doRemoveRepeatedChars="false" doSqueezeWS="false" supportedCharacters="[:letter:]" doRemoveDia="true" doUpperCase="true"/>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="MV_CHANGED" explain="true" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</matchingColumn>
+			</columns>
+		</properties>
+		<visual-constraints bounds="168,504,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Matching Values" endpoint="out"/>
+		<target step="Snowman" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Multiplicator) --><step id="Multiplicator" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="168,192,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Multiplicator" endpoint="out"/>
+		<target step="Full" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Multiplicator" endpoint="out"/>
+		<target step="Short" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Short) --><step id="Short" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" mode="NORMAL">
+		<properties condition="short is not null"/>
+		<visual-constraints bounds="288,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Short" endpoint="out"/>
+		<target step="Splitter 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Snowman) --><step id="Snowman" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="&#39;☃&#39;+tmp_order" column="tmp_order">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="168,576,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Snowman" endpoint="out"/>
+		<target step="month_replacement" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Splitter) --><step id="Splitter" className="com.ataccama.dqc.tasks.text.Splitter" disabled="false" mode="NORMAL">
+		<properties allSentenceColumn="tmp_orders" oneWordColumn="tmp_order">
+			<separatorConfig includeSeparators=" " lowerCaseLetters="false" excludeSeparators="" digits="false" upperCaseLetters="false"/>
+		</properties>
+		<visual-constraints bounds="72,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Splitter" endpoint="out"/>
+		<target step="Get full month name" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Splitter 2) --><step id="Splitter 2" className="com.ataccama.dqc.tasks.text.Splitter" disabled="false" mode="NORMAL">
+		<properties allSentenceColumn="tmp_orders" oneWordColumn="tmp_order">
+			<separatorConfig includeSeparators=" " lowerCaseLetters="false" excludeSeparators="" digits="false" upperCaseLetters="false"/>
+		</properties>
+		<visual-constraints bounds="288,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Splitter 2" endpoint="out"/>
+		<target step="Get short month name" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same) --><step id="Union Same" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="168,432,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same" endpoint="out"/>
+		<target step="Matching Values" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (___locales_for_names_of_months) --><step id="___locales_for_names_of_months" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="NORMAL">
+		<properties stringQualifier="" lineSeparator="\r\n" fieldSeparator="," lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/___locales_for_names_of_months.csv" encoding="UTF-8" numberOfLinesInFooter="0" compression="NONE" stringQualifierEscape="">
+			<columns>
+				<textReaderColumn name="full" type="STRING" ignore="false"/>
+				<textReaderColumn name="short" type="STRING" ignore="false"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd"/>
+			<errorHandlingStrategy rejectFileName="rejected.txt">
+				<errorInstructions>
+					<errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+				</errorInstructions>
+			</errorHandlingStrategy>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="168,48,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="___locales_for_names_of_months" endpoint="out"/>
+		<target step="Add columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (month_replacement) --><step id="month_replacement" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="NORMAL">
+		<properties approximativeIndex="false" compressed="false" duplicities="OMIT" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/___month_replacement.lkp" bidirectApproximativeIndex="false" key="tmp_month_name">
+			<additionalColumns>
+				<columnExprDef expression="tmp_order" name="order"/>
+			</additionalColumns>
+			<matchingValue doRemoveRepeatedChars="false" doSqueezeWS="false" doRemoveDia="true" doUpperCase="true"/>
+			<userMetadata>
+				<items/>
+			</userMetadata>
+		</properties>
+		<visual-constraints bounds="168,648,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="month_replacement" endpoint="rejected"/>
+		<target step="out 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out 2) --><step id="out 2" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" mode="NORMAL">
+		<properties useStringQualifierOnAllColumns="false" stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" generateMetadata="true" fileName="pathvar://DATA/ext/lkp/ambiguous_month_name.csv" encoding="UTF-8" writeHeader="true" writeAllColumns="false" compression="NONE" stringQualifierEscape="&quot;">
+			<columns>
+				<textWriterColumn expression="tmp_month_name" name="month_name"/>
+				<textWriterColumn expression="tmp_order" name="order"/>
+				<textWriterColumn expression="nvl(full,short)" name="language"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+		</properties>
+		<visual-constraints bounds="168,720,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="552,24,505,193" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Description
+
+Plan uses java function for getting month names
+and abbreviations. 
+In order to add new language, add corresponding
+locale code in to the input file.
+Column &quot;full&quot; is for months full names and
+column &quot;short&quot; for theirs 3-letter abbreviation
+
+You can find locales at
+http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html#util-text
+</modelComment>
+
+
+
+<modelComment bounds="528,288,241,70" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Split predefined string
+&#39;01 02 03 04 05 06 07 08 09 10 11 12&#39;,
+so we have 1 record for every month</modelComment>
+
+
+
+<modelComment bounds="528,360,241,70" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Get full month name (MMMM) and
+abbreviation (MMM) for every input
+locale and every month</modelComment>
+
+
+
+<modelComment bounds="360,576,318,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Add snowman character (☃) before month order, 
+so we know that replaced string represented month</modelComment>
+
+</purity-config>

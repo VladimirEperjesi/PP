@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='utf-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Filter not punycoded TLDs) --><step id="Filter not punycoded TLDs" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" mode="NORMAL">
+		<properties condition="indexOf(tld, &quot;XN&quot;, 0) is null">
+			<comm:comment>Filter not punycoded TLDs</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Filter not punycoded TLDs" endpoint="out"/>
+		<target step="Multiplicator" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Group by TLD length) --><step id="Group by TLD length" className="com.ataccama.dqc.tasks.analysis.aggregator.GroupAggregator" disabled="false" mode="NORMAL">
+		<properties>
+			<aggregationSets>
+				<aggregationSet>
+					<aggregations/>
+					<groupBy>
+						<component expression="length(tld)" name="tld_length"/>
+					</groupBy>
+				</aggregationSet>
+			</aggregationSets>
+			<comm:comment>Group by TLD length</comm:comment>
+		</properties>
+		<visual-constraints bounds="432,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Group by TLD length" endpoint="out_results"/>
+		<target step="TLD lengths lookup builder" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Multiplicator) --><step id="Multiplicator" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Multiplicator</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,168,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Multiplicator" endpoint="out"/>
+		<target step="Group by TLD length" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="455,216"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Multiplicator" endpoint="out"/>
+		<target step="TLD Lookup Builder" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="257,216"/>
+				<point location="143,216"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (TLD Lookup Builder) --><step id="TLD Lookup Builder" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="NORMAL">
+		<properties approximativeIndex="false" compressed="false" duplicities="OMIT" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/___email_tld.lkp" bidirectApproximativeIndex="false" key="tld">
+			<additionalColumns/>
+			<matchingValue doRemoveRepeatedChars="false" doSqueezeWS="false" supportedCharacters="[:letter:][:digit:]" doRemoveDia="false" doUpperCase="true"/>
+			<userMetadata>
+				<items/>
+			</userMetadata>
+			<comm:comment>TLD Lookup Builder</comm:comment>
+		</properties>
+		<visual-constraints bounds="120,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="TLD Lookup Builder" endpoint="rejected"/>
+		<target step="Trash" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (TLD lengths lookup builder) --><step id="TLD lengths lookup builder" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="NORMAL">
+		<properties approximativeIndex="false" compressed="false" duplicities="ACCEPT" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/___email_tld_lengths.lkp" bidirectApproximativeIndex="false" key="true">
+			<additionalColumns>
+				<columnExprDef expression="tld_length" name="tld_length"/>
+			</additionalColumns>
+			<matchingValue doRemoveRepeatedChars="false" doSqueezeWS="false" doRemoveDia="false" doUpperCase="false"/>
+			<userMetadata>
+				<items/>
+			</userMetadata>
+			<comm:comment>TLD lengths lookup builder</comm:comment>
+		</properties>
+		<visual-constraints bounds="456,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="TLD lengths lookup builder" endpoint="rejected"/>
+		<target step="Trash 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Trash) --><step id="Trash" className="com.ataccama.dqc.tasks.io.Trash" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="120,312,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (Trash 2) --><step id="Trash 2" className="com.ataccama.dqc.tasks.io.Trash" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Trash 2</comm:comment>
+		</properties>
+		<visual-constraints bounds="456,384,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (tlds-alpha-by-domain) --><step id="tlds-alpha-by-domain" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="NORMAL">
+		<properties stringQualifier="" lineSeparator="\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/tlds-alpha-by-domain.txt" encoding="UTF-8" numberOfLinesInFooter="0" compression="NONE" stringQualifierEscape="">
+			<columns>
+				<textReaderColumn name="tld" type="STRING" ignore="false"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd"/>
+			<errorHandlingStrategy rejectFileName="rejected.txt">
+				<errorInstructions>
+					<errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+				</errorInstructions>
+			</errorHandlingStrategy>
+			<shadowColumns/>
+			<comm:comment>Source file.</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="tlds-alpha-by-domain" endpoint="out"/>
+		<target step="Filter not punycoded TLDs" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<modelComment bounds="24,24,265,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">http://data.iana.org/TLD/tlds-alpha-by-domain.txt</modelComment>
+
+
+
+<modelComment bounds="264,240,217,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">1. Grouping by lenght of TLD.</modelComment>
+
+
+
+<modelComment bounds="24,96,217,100" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Description
+1. Source file contains one column
+ - TLD domain
+2. Filter not punycoded TLDs
+3. Set lookup - TLDs
+4. Set lookup - length of TLD</modelComment>
+
+</purity-config>

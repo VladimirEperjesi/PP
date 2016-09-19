@@ -1,0 +1,40 @@
+TC_ID^~description^~in_reg_number^~in_company_name^~in_residence_city^~e_std_reg_number^~e_std_company_name^~e_std_legal_form^~e_out_reg_number^~e_out_company_name^~e_out_company_name_base^~e_out_active^~e_out_reg_num_comments^~e_sco_company^~e_exp_company
+1^~empty reg. number and name^~^~a.s.^~city^~^~^~akciová společnost^~^~a.s.^~^~^~^~10000000^~COMPANY_REG_NUMBER_AND_NAME_MISSING
+2^~unparsed reg. number, empty name^~xxx^~^~^~^~^~^~xxx^~^~^~^~^~1000000^~COMPANY_REG_NUMBER_INVALID_NAME_MISSING
+3^~invalid reg.number, empty name^~12345678^~^~^~^~^~^~12345678^~^~^~^~^~1000000^~COMPANY_REG_NUMBER_INVALID_NAME_MISSING
+4^~dummy reg. number, empty name^~666^~^~^~^~^~^~666^~^~^~^~^~100000^~COMPANY_REG_NUMBER_DUMMY_NAME_MISSING
+5^~empty reg. number, not found name^~^~Ropid^~^~^~^~^~^~Ropid^~Ropid^~^~^~23000^~COMPANY_NAME_NOT_FOUND COMPANY_REG_NUMBER_MISSING
+6^~valid but not found reg. number, empty name^~11111119^~^~^~^~^~^~11111119^~^~^~^~^~20300^~COMPANY_REG_NUMBER_NOT_FOUND COMPANY_NAME_MISSING
+7^~valid but not found reg. number, valid name^~11111119^~Rapid, a.s.^~Praha^~^~^~akciová společnost^~11111119^~Rapid, a.s.^~Rapid^~^~^~20000^~COMPANY_REG_NUMBER_NOT_FOUND
+8^~empty reg. number, ambiguous name, form and city^~^~Apollo, spol. s r.o.^~Praha^~^~^~společnost s ručením omezeným^~^~Apollo, spol. s r.o.^~Apollo^~^~^~13000^~COMPANY_AMBIGUOUS COMPANY_REG_NUMBER_MISSING
+9^~empty reg. number, valid name^~^~Rapid, a.s.^~Praha^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~3000^~COMPANY_REG_NUMBER_MISSING
+10^~unparsed reg. number, valid name^~xxx^~Rapid, a.s.^~Praha^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~3000^~COMPANY_REG_NUMBER_NOT_PARSED
+11^~invalid reg.number, valid name^~12345678^~Rapid, a.s.^~Praha^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~2000^~COMPANY_REG_NUMBER_INVALID_CHECKSUM
+12^~dummy reg. number, valid name^~666^~Rapid, a.s.^~Praha^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~1000^~COMPANY_REG_NUMBER_DUMMY
+13^~valid reg. number, different name, form and city^~00001040^~Ropid, s.r.o.^~Brno^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~7000^~COMPANY_NAME_DIFFERS COMPANY_FORM_DIFFERS COMPANY_CITY_DIFFERS
+14^~valid reg. number, different name, correct form and city^~00001040^~Ropid, a.s.^~Praha^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~1000^~COMPANY_NAME_DIFFERS
+15^~valid reg. number, correct name and city, different form^~00001040^~Rapid, s.r.o.^~Praha^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~3000^~COMPANY_FORM_DIFFERS
+16^~valid reg. number, correct name and form, different city^~00001040^~Rapid, akciová společnost^~Brno^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~3000^~COMPANY_CITY_DIFFERS
+17^~valid reg. number, different name^~00001040^~Ropid^~^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~1300^~COMPANY_NAME_DIFFERS COMPANY_FORM_MISSING COMPANY_CITY_MISSING
+18^~short reg number^~1040^~^~^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~610^~COMPANY_REG_NUMBER_NORMALIZED COMPANY_NAME_MISSING COMPANY_FORM_MISSING COMPANY_CITY_MISSING
+19^~valid reg. number, missing name, form and city^~00001040^~^~^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~600^~COMPANY_NAME_MISSING COMPANY_FORM_MISSING COMPANY_CITY_MISSING
+20^~valid reg. number, missing name, correct form and city^~00001040^~a.s.^~Praha^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~300^~COMPANY_NAME_MISSING
+21^~valid reg. number, correct name and city, missing form^~00001040^~Rapid^~Praha^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~200^~COMPANY_FORM_MISSING
+22^~valid reg. number, correct name and form, missing city^~00001040^~Rapid, akciová společnost^~^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~100^~COMPANY_CITY_MISSING
+23^~valid reg. number, correct name, form, city^~00001040^~Rapid, a.s.^~praHa^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~^~0^~
+24^~jiri novak^~^~jiri novak^~^~70892661^~Jiří Novák^~^~70892661^~Jiří Novák^~Jiří Novák^~false^~^~3000^~COMPANY_REG_NUMBER_MISSING
+25^~jiri novak^~^~jiri novak s.r.o.^~^~70892661^~Jiří Novák^~společnost s ručením omezeným^~70892661^~Jiří Novák^~Jiří Novák^~false^~^~6000^~COMPANY_FORM_DIFFERS COMPANY_REG_NUMBER_MISSING
+26^~jiri novak^~^~jiri novak^~praha^~^~^~^~^~jiri novak^~jiri novak^~^~^~13000^~COMPANY_AMBIGUOUS COMPANY_REG_NUMBER_MISSING
+27^~jiri novak^~^~jiri novak s.r.o.^~praha^~^~^~společnost s ručením omezeným^~^~jiri novak s.r.o.^~jiri novak^~^~^~13000^~COMPANY_AMBIGUOUS COMPANY_REG_NUMBER_MISSING
+28^~jiri novak^~^~jiri novak^~liberec^~72638133^~Jiří Novák^~^~72638133^~Jiří Novák^~Jiří Novák^~true^~^~3000^~COMPANY_REG_NUMBER_MISSING
+29^~jiri novak^~^~jiri novak s.r.o.^~podoli i^~^~^~společnost s ručením omezeným^~^~jiri novak s.r.o.^~jiri novak^~^~^~13000^~COMPANY_AMBIGUOUS COMPANY_REG_NUMBER_MISSING
+30^~jiri novak^~^~jiri novak^~xx^~^~^~^~^~jiri novak^~jiri novak^~^~^~13000^~COMPANY_AMBIGUOUS COMPANY_REG_NUMBER_MISSING
+31^~jiri novak^~^~jiri novak s.r.o.^~xx^~^~^~společnost s ručením omezeným^~^~jiri novak s.r.o.^~jiri novak^~^~^~13000^~COMPANY_AMBIGUOUS COMPANY_REG_NUMBER_MISSING
+32^~jiri novak^~^~ing. jiri novak s.r.o.^~^~02171589^~Ing. Jiří Novák s.r.o.^~společnost s ručením omezeným^~02171589^~Ing. Jiří Novák s.r.o.^~Ing. Jiří Novák^~true^~^~3100^~COMPANY_CITY_MISSING COMPANY_REG_NUMBER_MISSING
+33^~jiri novak^~^~ing. jiri novak s.r.o.^~praha^~02171589^~Ing. Jiří Novák s.r.o.^~společnost s ručením omezeným^~02171589^~Ing. Jiří Novák s.r.o.^~Ing. Jiří Novák^~true^~^~6000^~COMPANY_CITY_DIFFERS COMPANY_REG_NUMBER_MISSING
+34^~jiri novak^~^~ing. jiri novak s.r.o.^~podoli i^~02171589^~Ing. Jiří Novák s.r.o.^~společnost s ručením omezeným^~02171589^~Ing. Jiří Novák s.r.o.^~Ing. Jiří Novák^~true^~^~3000^~COMPANY_REG_NUMBER_MISSING
+35^~jiri novak^~^~ing. jiri novak a.s.^~praha^~02171589^~Ing. Jiří Novák s.r.o.^~společnost s ručením omezeným^~02171589^~Ing. Jiří Novák s.r.o.^~Ing. Jiří Novák^~true^~^~9000^~COMPANY_FORM_DIFFERS COMPANY_CITY_DIFFERS COMPANY_REG_NUMBER_MISSING
+36^~jiri novak^~^~mgr. jiri novak s.r.o.^~podoli i^~^~^~společnost s ručením omezeným^~^~mgr. jiri novak s.r.o.^~mgr. jiri novak^~^~^~23000^~COMPANY_NAME_NOT_FOUND COMPANY_REG_NUMBER_MISSING
+37^~comments before/after reg. number^~ico: 1040 xxx^~^~^~00001040^~Rapid, akciová společnost^~akciová společnost^~00001040^~Rapid, akciová společnost^~Rapid^~true^~ico:  xxx^~619^~COMPANY_REG_NUMBER_NORMALIZED COMPANY_NAME_MISSING COMPANY_FORM_MISSING COMPANY_CITY_MISSING COMPANY_REG_NUMBER_COMMENTS
+38^~only city^~^~^~praha^~^~^~^~^~^~^~^~^~10000000^~COMPANY_REG_NUMBER_AND_NAME_MISSING
+39^~all empty^~^~^~^~^~^~^~^~^~^~^~^~10000000^~COMPANY_REG_NUMBER_AND_NAME_MISSING

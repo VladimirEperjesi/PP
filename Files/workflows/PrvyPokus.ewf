@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow xmlns:vis="http://www.ataccama.com/purity/visual" version="10.5.0.ga-2016-06-24">
+	<continueOnFailure>false</continueOnFailure>
+	<groups/>
+	<multiplicity>0</multiplicity>
+	<variables/>
+	<tasks>
+		<task id="Run MDC Load" priority="0" name="Golem_full" acceptMode="ALL_VALID">
+			<executable operationName="KoopGolem_full" class="com.ataccama.nme.ext.workflow.RunNmeBatchLoad">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="342,217,-1,-1"/>
+		</task>
+	</tasks>
+</workflow>

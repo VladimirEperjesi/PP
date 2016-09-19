@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (party) --><step id="party" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="id" type="LONG"/>
+				<columnDef name="eng_active" type="BOOLEAN"/>
+				<columnDef name="eng_last_update_date" type="DATETIME"/>
+				<columnDef name="eng_creation_date" type="DATETIME"/>
+				<columnDef name="eng_deletion_date" type="DATETIME"/>
+				<columnDef name="eng_activation_date" type="DATETIME"/>
+				<columnDef name="eng_deactivation_date" type="DATETIME"/>
+				<columnDef name="cmo_jmeno" type="STRING"/>
+				<columnDef name="cmo_prijimeni" type="STRING"/>
+				<columnDef name="cmo_rod_cis" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,72,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="party" endpoint="out"/>
+		<target step="party.csv" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (party.csv) --><step id="party.csv" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" mode="NORMAL">
+		<properties useStringQualifierOnAllColumns="false" stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" generateMetadata="true" fileName="party.csv" encoding="UTF-8" writeHeader="true" writeAllColumns="true" compression="NONE" stringQualifierEscape="&quot;">
+			<columns/>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+		</properties>
+		<visual-constraints bounds="480,192,-1,-1" layout="vertical"/>
+	</step>
+
+</purity-config>

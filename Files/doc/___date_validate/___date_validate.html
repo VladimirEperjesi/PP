@@ -1,0 +1,656 @@
+<html xmlns:comm="http://www.ataccama.com/purity/comment" xmlns:ver="http://www.ataccama.com/purity/version">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">			
+				table.smpl {
+						border-width: 0 0 1px 1px;
+						border-spacing: 0;
+						border-collapse: collapse;
+						width: 90%;
+				}
+
+				table.outer {
+						border-width: 1px 1px 1px 1px;
+						border-spacing: 0;
+						border-collapse: collapse;
+						border-color: #0;
+						border-style: solid;
+				}
+				
+				table td
+				{
+					margin: 0;
+					padding: 4px;
+					border-width: 1px 1px 0 0;
+				}
+				
+				table.smpl, table.smpl td
+				{
+					border-color: #0;
+					border-style: solid;
+				}
+				
+				pre.nonprop {
+					font-family: Arial;
+				}	
+			
+				
+				.cell_hdr {
+				font-weight:bold;
+				}
+				.cell_hdr { 
+					background-color: #D0D0F0; 
+					font-weight: bold; 
+					font-family: Arial; 		
+					font-size: 16px; 
+					}
+				.cell_val { 
+					background-color: #F0F0F0; 
+					font-family: Arial; 
+					font-size: 12px;
+					}
+				.cell_extra_val { 
+					background-color: #F0F0F0;
+					color: #A00000; 
+					}
+				.cell_hdr_red { 
+					background-color: #D0E0F0; 
+					font-weight: bold; 
+					font-family: Arial;
+					font-size: 16px; 
+					}	
+				.cell_line_hdr { 
+					background-color: #D0D0F0; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}
+				.cell_line_val {
+					background-color: #F0F0F0; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}	 
+				.cell_hdr_comment { 
+					background-color: #E0E0E0; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}
+				.cell_val_comment { 
+					background-color: #F0F0F0; 
+					color: #808080; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}	
+				
+				.table_90 { 
+					width: 90%; }
+				
+				li { font-family: Arial; font-size: 12px; }
+				
+				H1 { font-family: Arial; font-size: 25px; }
+				H2 { font-family: Arial; font-size: 20px; }
+				H3 { font-family: Arial; font-size: 15px; text-decoration: underline; margin: 20px, 0, 0, 0; padding: 0; }
+				p { font-family: Arial; font-size: 12px; margin: 0; padding: 2px; }				
+				pre {font-family: Arial; font-size: 12px; margin: 0; padding: 2px;				 				 
+ 				 white-space: pre-wrap;       /* css-3 */
+ 				 white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ 				 white-space: -pre-wrap;      /* Opera 4-6 */
+ 				 white-space: -o-pre-wrap;    /* Opera 7 */
+ 				 word-wrap: break-word;       /* Internet Explorer 5.5+ */
+					}
+		</style><title>Documentation of Component Definition : ___date_validate</title>
+   </head>
+   <body>
+      <table class="outer" width="90%">
+         <tr>
+            <td rowspan="3"><img src="images/logo_about.png"></td>
+            <td>
+               <H1>Component Documentation</H1>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <H2>Cleanse Date (___date_validate.comp)</H2>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <table width="100%">
+                  <tr>
+                     <td class="cell_hdr">Minimum Engine Version Required</td>
+                     <td class="cell_val">engine v8.x.x</td>
+                     <td class="cell_hdr">Last Update Date</td>
+                     <td class="cell_val">2015-08-03+02:00</td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <div id="l_contents">
+         <H1>Contents</H1>
+      </div>
+      <ul>
+         <li><a href="#l_fdesc">Functional Description</a></li>
+         <li><a href="#l_tdesc">Technical Description</a></li>
+         <li><a href="#l_params">Parameters</a></li>
+         <li><a href="#l_pathv">Path Variables</a></li>
+         <li><a href="#l_lkps">Lookups</a></li>
+         <li><a href="#l_inputs">Input Attributes</a></li>
+         <li><a href="#l_outputs">Output Attributes</a></li>
+         <li><a href="#l_details">Attribute Details</a></li>
+      </ul><br><table id="l_desc" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Functional Description</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <div><pre><fdescription><h4>Component Goals</h4>
+The goal of this component is to parse dates or datetimes, validate them, apply business rules and set them to the standard date/datetime formats.
+Those are 'yyyy-MM-dd' for date and 'yyyy-MM-dd HH:mm:ss.SSS' for datetime,
+where
+yyyy	- year
+MM	- month
+dd	- day
+HH	- hours in 24-hour format
+mm	- minutes
+ss	- seconds
+SSS	- milliseconds
+
+<h4>Interface</h4>
+Input: date or datetime (in STRING).
+Output: Standardized date/datetime (business validations applied), the best existing date/datetime, date pattern, score and explanation of data discrepancies.
+In case of multiple dates in input only first one is standardized.
+
+Allowable numeric input date formats are the following:
+<ul>
+<li>dd.MM.(yy)yy	- with dots as separators</li>
+<li>MM/dd/(yy)yy	- with forward slashes as separators</li>
+<li>(yy)yy-MM-dd	- with dashes as separators</li>
+<li>yyyyMMdd	- with no separators</li>
+where
+dd corresponds to 1* or 2 digits of a day
+MM corresponds to 1* or 2 digits of a month
+(yy)yy corresponds to 4 or 2* digits of a year
+* for the last format (yyyyMMdd), there has to be exactly 8 digits (4 for year, 2 for month and 2 for day)
+</ul>
+Allowed patterns for time are:
+<ul>
+<li>HH:mm:ss.SSS (e.g. 18:03:30.001)</li>
+<li>HH:mm:ss (e.g. 18:03:30)</li>
+where
+HH corresponds to 2 digits of an hour (00-23)
+mm corresponds to 2 digits of a minute (00-59)
+ss corresponds to 2 digits of a second (00-59)
+SSS corresponds to 1-3 digits of a millisecond (0-9 or 00-99 or 000-999)
+</ul>
+
+When there is datetime on input, time part has to be separated by space or character 'T'.
+
+Besides numeric dates, component is able to validate also dates with month name or its abbreviation (first 3 letters). In this case, date format would contain "MMM(M)" for month (MMMM is used for full month name, MMM for abbreviation).
+By default, months names in 10 languages are supported: en, de, nl, fr, es, pt, ru, it, sk, cs
+All except Czech (cs) supports also abbreviation. In Czech, some abbrevs would be ambiguous.
+You can add other languages to the lookup. See <a href="http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html#util-text">http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html#util-text</a> for Locale ID (first two letters before underscore suit the purpose)
+
+In case the month name is used, the combination of day number (normal or ordinal) and year element must be unambiguous for date to be valid.
+Examples of valid dates: "January 1st 99", "January 1 1999"
+Examples of invalid date: "January 1 99"
+
+The reason for this is, that we want to have consistency in format validity. We could determine, that number 99 can mean only year, but for date in same format - e.g. "January 12 13" - we wouldn't be able to.
+
+
+<h4>Component Behaviour</h4>
+<ol>
+<li>Input value of date/datetime is pre-cleansed (whitespace are squeezed), months names and ordinal numbers are replaced (special character are used, so we later know which date part was replaced)</li>
+<li>Possible date component is separated from (optional) time part. Possible comments before and after date/datetime are removed</li>
+<li>Numeric date formats are checked and validated</li>
+<li>If previous step was not successful, non-numeric dates are checked and validated</li>
+<li>After that, timepart is validated (if present)</li>
+<li>Output values are set with these rules: 
+  - out_date is filled, when we have valid date
+  - out_datetime is filled, when we have valid date and there was valid time or there was no time on input (in this case 00:00:00.000 is used)
+<li>Input record is scored and data discrepancies are explained</li>
+<li>Business validations are made for std values (we omit dates in future and dates far in the past - year 1.1.1900 or before)</li>
+</ol>
+
+If there was 2-digit long year recognized on the input, component "goes 20 years into the future or 80 years into the past" from current date.
+E.g.:
+If today was 2014-10-13,
+input date 34-10-13 would be recognized as 2034-10-13
+input date 34-10-14 would be recognized as 1934-10-14
+
+<h4>Lookup files and external sources</h4>
+Component uses lookups with month names and ordinal numbers. 
+By default, months names in 10 languages are present: en, de, nl, fr, es, pt, ru, it, sk, cs
+All except Czech (cs) supports also abbreviation. In Czech, some abbrevs would be ambiguous.
+You can add other languages to the lookup. See <a href="http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html">http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html</a> for Locale ID (first two letters before underscore suit the purpose).
+
+For ordinal numbers, only English values are used by default. One has to add ordinal numbers in different languages by himself.
+
+<h4>Summary of testing data</h4>
+Testing data contains a set of input dates and datetimes in different formats. Some of them are valid, invalid, unparsed, contains comments or are in the future or far int the past.</fdescription></pre></div><br><table id="l_tdesc" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Technical Description</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>For detailed technical description see <a href="./technical/___date_validate.html">doc / ___date_validate / technical / ___date_validate.html</a></p><br><table id="l_params" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Parameters</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>There are no parameters for this component.</p><br><table id="l_pathv" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Path Variables</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table>
+         <tr>
+            <td class="cell_hdr" width="20%">Pathvar Name</td>
+            <td class="cell_hdr" width="40%">Folder</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">COMPONENTS</td>
+            <td class="cell_line_val">/ [ your project folder ] / components</td>
+            <td class="cell_line_val">all components folder</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">TESTS_ROOT</td>
+            <td class="cell_line_val">/ [ your project folder ] / unit_tests</td>
+            <td class="cell_line_val">all unit tests folder</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">DATA</td>
+            <td class="cell_line_val">/ [ your project folder ] / data</td>
+            <td class="cell_line_val">dictionaries e.g Data/ext/src</td>
+         </tr>
+      </table><br><table id="l_lkps" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Lookups</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Lookup name/folder</td>
+            <td class="cell_hdr">Build plan name</td>
+            <td class="cell_hdr">Source name/folder</td>
+            <td class="cell_hdr">Initial content</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___month_replacement.lkp</td>
+            <td class="cell_line_val" width="150">___names_of_months.plan</td>
+            <td class="cell_line_val" width="150">___locales_for_names_of_months.csv</td>
+            <td class="cell_line_val" width="30">short</td>
+            <td class="cell_line_val">10 predefined locales (en, de, nl, fr, es, pt, ru, it, sk, cs)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___ordinal_number_replacement.lkp</td>
+            <td class="cell_line_val" width="150">___ordinal_number_replacement.plan</td>
+            <td class="cell_line_val" width="150">___ordinal_number_replacement.csv</td>
+            <td class="cell_line_val" width="30">short</td>
+            <td class="cell_line_val">Ordinal numbers of days. Currently only in English language</td>
+         </tr>
+      </table><br><table id="l_sComps" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Included Components</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>There are no included non-internal components in this component.</p><br><table id="l_inputs" width="90%">
+         <tr>
+            <td>
+               <H2>Input Attributes</H2>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Attribute</td>
+            <td class="cell_hdr">DQC type</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">in_datetime</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Input STRING value of a date or datetime. Many patterns of the date(time) are supported
+               (see in Functional description).
+            </td>
+         </tr>
+      </table><br><table id="l_outputs" width="90%">
+         <tr>
+            <td>
+               <H2>Output Attributes</H2>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Attribute</td>
+            <td class="cell_hdr">DQC type</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">std_date</td>
+            <td class="cell_line_val" width="150">DAY</td>
+            <td class="cell_line_val">Standardized value of the date: cleansed, parsed and validated by business logic.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">std_datetime</td>
+            <td class="cell_line_val" width="150">DATETIME</td>
+            <td class="cell_line_val">Standardized value of the datetime: cleansed, parsed and validated by business logic.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">out_date</td>
+            <td class="cell_line_val" width="150">DAY</td>
+            <td class="cell_line_val">The best existing value of a date in the DAY format.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">out_datetime</td>
+            <td class="cell_line_val" width="150">DATETIME</td>
+            <td class="cell_line_val">The best existing value of a date in the DATETIME format.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150"><a href="#out_pattern">out_pattern</a></td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Parsed pattern of the date/datetime.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150"><a href="#sco_datetime">sco_datetime</a></td>
+            <td class="cell_line_val" width="150">INTEGER</td>
+            <td class="cell_line_val">Data quality score penalizing the discrepancies in the date value.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150"><a href="#exp_datetime">exp_datetime</a></td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Data quality explananation for the discrepancies in the date value.</td>
+         </tr>
+      </table><br><H2 id="l_details">Attribute Details</H2>
+      <table id="out_pattern" width="90%">
+         <tr>
+            <td>
+               <H3>Parsed pattern of the date/datetime. (out_pattern)</H3>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr" width="300">Value</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">YYYY-MM-DD</td>
+            <td class="cell_val">Example: 2013-09-15. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DD-MMM-YYYY</td>
+            <td class="cell_val">Example: 15-Sep-2013. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DD-MM-YYYY</td>
+            <td class="cell_val">Example: 15-09-2013. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DD-WD-YYYY </td>
+            <td class="cell_val">Example: 15 September 2013. Partial pattern will have a suffix "part". If the date
+               contains time, the time pattern will be included with a space as the delimiter. There
+               are only 2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">MM-DD-YYYY</td>
+            <td class="cell_val">Example: 09-15-2013. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">MMM-DD-YYYY </td>
+            <td class="cell_val">Example: Sep-15-2013. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">YYYY-MMM-DD</td>
+            <td class="cell_val">Example: 2013-Sep-15. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">WD-DD-YYYY </td>
+            <td class="cell_val">Example: September/15/2013. Partial pattern will have a suffix "part". If the date
+               contains time, the time pattern will be included with a space as the delimiter. There
+               are only 2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">YYYY-WD-DD</td>
+            <td class="cell_val">Example: 2013 September 15. Partial pattern will have a suffix "part". If the date
+               contains time, the time pattern will be included with a space as the delimiter. There
+               are only 2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">YYYYMMDD</td>
+            <td class="cell_val">Example: 20130915. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DDMMYYYY</td>
+            <td class="cell_val">Example: 15092013. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">MMDDYYYY</td>
+            <td class="cell_val">Example: 09152013. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DD-MMM-YY </td>
+            <td class="cell_val">Example: 15-Sep-13. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DD-MM-YY</td>
+            <td class="cell_val">Example: 15-09-13. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DD-WD-YY </td>
+            <td class="cell_val">Example: 15. September 13. Partial pattern will have a suffix "part". If the date
+               contains time, the time pattern will be included with a space as the delimiter. There
+               are only 2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">YY-MM-DD </td>
+            <td class="cell_val">Example: 13-09-15. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">MM-DD-YY</td>
+            <td class="cell_val">Example: 09-15-13. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">MMM-DD-YY </td>
+            <td class="cell_val">Example: Sep/15/13. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">YY-MMM-DD </td>
+            <td class="cell_val">Example: 13-Sep-15. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">WD-DD-YY </td>
+            <td class="cell_val">Example: September 15 13. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">YY-WD-DD</td>
+            <td class="cell_val">Example: 13-september-15. Partial pattern will have a suffix "part". If the date contains
+               time, the time pattern will be included with a space as the delimiter. There are only
+               2 expected time patterns: HH:mm:ss and HH:mm:ss.SSS.
+            </td>
+         </tr>
+      </table>
+      <table id="sco_datetime" width="90%">
+         <tr>
+            <td>
+               <H3>Data quality score penalizing the discrepancies in the date value. (sco_datetime)</H3>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr" width="300">Value</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">0</td>
+            <td class="cell_val">Valid value. No modification was done to the input value, it was correct on input.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">&lt; 10 000</td>
+            <td class="cell_val">Corrected value. Small modification was done to the input value (trimmed, squeezed
+               spaces) but the resulting value is still valid.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">&lt; 10 000 000</td>
+            <td class="cell_val">Unsafe/Unknown value. Huge modification was done to the input value, or value is ambiguous,
+               or it does not fit the business rules, and the resulting value can no longer be considered
+               valid.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">&gt;= 10 000 000</td>
+            <td class="cell_val">Null value. The input value or the pre-cleansed value (after deleting invalid characters)
+               is null, or the pre-cleansed value did not fit any expected pattern, and the output
+               column is null.
+            </td>
+         </tr>
+      </table>
+      <table id="exp_datetime" width="90%">
+         <tr>
+            <td>
+               <H3>Data quality explananation for the discrepancies in the date value. (exp_datetime)</H3>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr" width="300">Value</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DATE_EMPTY_INPUT</td>
+            <td class="cell_val">Scored 10000000. There was no value on input</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DATE_NOT_PARSED</td>
+            <td class="cell_val">Scored 1000000. Date was not parsed from input string</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DATE_INVALID</td>
+            <td class="cell_val">Scored 100000. Date is invalid (invalid format or non-existing date)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DATE_IN_FUTURE</td>
+            <td class="cell_val">Scored 10000. Date is in the future. This is business validation. </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DATE_FAR_IN_PAST</td>
+            <td class="cell_val">Scored 10000. Date is far in the past (dates 1900-01-01 and before). This is business
+               validation. 
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DATE_INVALID_TIME</td>
+            <td class="cell_val">Scored 5000. There was recognized time pattern on the input, but time was invalid</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DATE_WITH_MONTH_NAME</td>
+            <td class="cell_val">Scored 100. There was not numeric date on input. It contained month name instead.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DATE_COMMENTS_FOUND</td>
+            <td class="cell_val">Scored 1 for every character found before/after date/datetime. Maximally 100. Explained
+               only if input date value is valid.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DATE_MONTH_NAME_REPLACED</td>
+            <td class="cell_val">Scored 0. Month name was found and replaced in the input string (e.g. January -&gt; 01)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">DATE_ORDINAL_NUMBER_REPLACED</td>
+            <td class="cell_val">Scored 0. Ordinal number was replaced in input string (e.g. 1st -&gt; 01)</td>
+         </tr>
+      </table><br></body>
+</html>

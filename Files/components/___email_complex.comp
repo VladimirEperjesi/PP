@@ -1,0 +1,2704 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<icon type="5">iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAM80lEQVR4nM2aCVRTVxrHte14auvR6eLYVltrbfVYp7XL2DrWTtdpnYoVVMQFRHEBURZxwQ6KIsq+hX2RXRBIwr5vskkEPggECOQjENZAEKVCa4eenuPc+/DxUkRCnU7lnfM/QM575Pe/73+/+92XzLh79+6Mw4cPzyH6kGgv0cFprl1Eq4menkEP8stcK4ujpvVpkPC9qLdxuLwPb5cq8fvibhws7MJbBR14M78dB/IVeCO3DVXZcuzLROxNb0ZlahN2pzRgV2I9dgjrsJ1fi4r4Gmy9UoXyyxXYEi1CWZQIm8NLsSmsFBtDirAhqBAlAfko8c/HWr9cFPvkYI13JlZ7ZSB4ZmCVWxpRCla4ErmM6rpTIoocE7HULg5zLEPrwvXt481MjphSdmpgTX1ilWD4ugqHKwj8NQJ/lYMfyFUQtWF/diuqMluwL12GyrQm7EluxO6kBuwUSrDjHnhbLGBrDAGPuo4YScGvMeDSkGIGvN6fBc9BsXc21vAoeCaCezpWuqVi5T3gCuckAp2EIioCXu4gwGsX+Fh6JhZzDgWjUNsZgzadFlB2asBoML9bertEibeLe/BWDoFOI8DJclQJZdjHJyPNJ8Bx9dgdU4cd0WJsjyCwYQQ2lMAGlaMskID6E1Cfq9jAK0CJRx7WuhFIlyyscUxHcEjDSnsCZkeAzvKx/Awfr9nEYempWCyxjsHik5ex6HgUFlpFEoVhwdEwzLcksgjFfPMQzLun3CMhmLzNHfk6Thin7SCl7NTAwcHMDhzMIuCpbdgXS4AjGrEnVILdIbXYEVSDCn/ANp/rKOeVI3qUYrNbMUqdCrDBIQ8l9tlYa5eF1bapWGWThBXWQhSdIIBW8VhmSeDMorDIlIAZE6ADBGJfMObsCcCs3X6Yqe+D6Tt5mLbdE1P1PDBF1x2Ttrpg0hY3FG52QqGO46i06U8X5jUBgacG4snrlJ0xMJDUigPJrdjPb5me8NqcCWoggWqLE2fghlCO/UKS7/imRw5fdj6+i1TGu7JE0c3x8KNyZuD55PwxA3TkVXxSWWIbH/nIl9nF3W/gHnwi1RYXBl6o68oZUMU3Y18Cyf7lhkcem/sMqMHT8xK3ujLwwm1unIG+WCn2XpFid5TkkcWGglM1XC7qpwa6yppul9nxu6iuEWUY+sqTtrphki4xq0e0Xc2AMqYBe2JJTY8Q/6Hwwo1OstgvzjTdncJBa7/77J3g/tROcHp6O7jO04cxA93RZOJeJgtSaPX/BT5Nz1MmWH+xKeaj041hb1lJAhYfqOU9u6fGedaWaqeZ2sDXspfxN4yq1Da2kwI3C0QDAi1HmfBbJ5lwk5PM76UDYs+ndoHnHH1wnWsAHs/s5gx0RdRhZ6QYFcFVvwt81i4fWeI3jtLYNTb1ocstav3+sq+Gvrn7kzvAddZWcH1CD5we1wEKz2gGJ76Wg4waqPRIU9LzXGfpMdfR63lzDMBr3m7w/PNu8HrOiDPQEV6D7eHV2BpY8dDwWdu9m7INA2V1/rk9/WLF8M/DP/3C3v4R8nsvyIck4QWqmHVnpA+Cd5q5dcxAlWe6cjy8z1xD8H1mLwPv/cIBzoAiBFBxibQF/qLfBJ+rH9iU/JVLfeLnF+rbMsQDU8kyPZSVLUPRa62l4+GpaGwYA17pyvHwfs8agf98Ywbe7yUTzkBrUAW2BlegzLdUI3yxcURz5mZeg+Aj+9rI149Xp+t4SH/s+36Ehfuhd3CkMbpElb0vQJ682VWWpOMiy9jjLacjOtxzc+y8kaE7v+SZhSjU4Z0f04WJYsPCB843gcAXTcF/4SEIfPkwZ0AeUI4tpCFr5hU/EP6qUbg0Q8tTEv8325roZSchYokVUPifh//DRIVGpsIxqdN7niF4Pa0PD8p8moGnnMKzRmhkpgof9IIphCwyI/DmEPKaBWcA/cpQRiT1uHof/FWjiMaMb3h1Ce/YVse8eQpYeMGn9hJ1eMFXF6Sa4NnM854zEA80dd9h74T3fCPxVOBDF5lD6CtWDHzoshOcATryTd6kZ3crGIMv3h/ZmKnlXcd/7zzEv30a1OHDFptBf2370IPgC60iFO0FdYO9VfKhZmH5AGmFFVSV7ilKKmoieu2/peydkIQXqqYCH/7qUQh/7SgDH7HCmjPQ5FWEUl4RSlxysMw0Rpqj7Vcn/PAiPAg+e3eAjI1AnnGwnIUPWGQsvtncc0fTJGYzT0slexfYOj8ZfNTS44TjFAMf/bYNZ6DBoxDrHLKarpnESFL/4VIt/ODB8MELj0B3sXSQvrGqpm3oQfAUilYbNirjDdDM+y7YL2Zfu3osUqEJPna5DcSuPM3Ax75ryxmoPClsKN4bKc7e4AOa4INeMAb2TYtPRivY2AAvQzlWJqtahnjPG4jZzAcvM5WoG1GfsB0F9cxgtCRXDmiCj1t5BuJWnYUr752FeMI5ZiBfJxDyNgdAxnovjfAZO73H4hP4somYnbDDylsj7Mirw7Oid4O9Tn3CVvMyGeOq6rYhTfCCVXYgeN+egReudeYMZG/0heyNPpDypduk8P7z9wMtlfQNb8l67rDwvi/uHYuCIq92cKIV9lcG1CZsyhZ3bkA0wCe+fwGS1jgz8MmfuHEGMv/FgwwtHiR/5jQpPF3Ga3yzmBHrg9YhtlTShouFYKvM+BVWWSkfM6BebdJ0Pcau1QSfssYF0ta5M/Apn/M4A6lfe0DaejdI/PjipPB0wlZ7j95y2tuwdZ6/8cLEBtRWWFpS2XPUq036dq+xazXBZ6zzgMzPeJD6hTdkfu3HGUj53JnExxn4a89PCk8nLJvZXjJR2UWKtsP3GRjXHqgbUK82mTt9mWvpoqgJPvszb8j50h+yvvKHHK0gzkDyJ46Q+JkDxK22nRSejhztbcbKodoKO1aBSNYn6m3oHWPPUa82VS7pzJy6UdcxpAk+/59BULA+BHI3kJ/aoZwB/jp7EHxsT8rTd5PC0+xeWmkmYUGYjvLehFVv1IKXm0nU4ekm5od7VYoe6tVGFidS0ddaEipVmuCLNoRB0aZwKNwUCkVbojkD8WvOQfxaW7i8ynpSeDbzLGxdaL6KzTuNDgtIa36BRbiC7qTo+jCitjcYX21+7LvN/K9cvSCpJvhS7UgoI+BFutFQohfDGYhbbQNX1pyGqLesNcLT2LCwTM0njRmb+YlW3YmOfnH70I3ajiEaG/r3HdXQyFTgRVtjQLQ9Hkq3x0K5gYAzEPMeWZpXn4HwN600wtPI0IWKbcRG6/5o5mlXKRNe/9XGho6+2CdLWeuXo5zIDD1E1gL5VOArdwigcpcARPoJULEniTMQteoURL17EsKWW2qEZzPPbr7pQTfg6pmnjRndzNBFip2wEcuOibP0/WW5hkGyPKMQWcH+UFmRcZSs5FC0bKrw1fqJUGOYDJWGSVB9MJ0zEPnX4xD5zgm49Ib5lOBZUXDWBB153xf3i6fSEk+l2kwEX2eUBnX7M6HmQDrUHsriDNDoRLx1DIKXHJ4yPBsb9ciMDP30S0NkkUp95Cl85IoTYjryNR5ZnVOtNhPBNxzIgUaTXKgzzYZ681zOQOgyCwhbYQlBr5r+Jng2NmV2CZ0UfioT+Kake+hh4ZsPF0CzWSE0WORBo2UhZyDkdTO4tMICAl4x+c3wbGNG9wOiC8LOWzLlpJWoLbFa9bDwLeZF0GJVDNKjRdB8ooQzELz0CIQsMye7/X0PBT9R5pO1XKXqE/Z/iQ0L33asHFpPloPsZCm0nBJxBoJeNYbgN8xI9TD6XeB/rwk7Hr7jVCW0f1cB8u+uQ9uZKs5A4OJDELj0MO3rpzV8t001dNmKQWEL0HGuhjNAsx+41ITsUfdNa/heWwko7STQaSeGrvMSzoDfon0QuMQUfBYYTmv4fnspqBwaodu+HpSOjZwBnwVG4LvQCLye05/W8DdJb9jvKINeByn0uTZzBtxmb2M+OGA+PJjG8Ddd5HDDBRl4lVvLmIHdDn/SKXOY8S04zNCBCzNHdfGxzeD4xFZwnKULzk/qgdvsHeA+Zxd4zDMA3rN7wOf5A+C/gMydhaZwabE5hC09CpHLrOHyStLZvm0LCe/bgfADR0hZ6wppn3pC1pc+kLc+CAo3hkKJDmmL9a6AaGcCVO1OBrFROkiMs6HxSB40WxRCy/EyaCOVpuN0NXSfrQWlfSP0OTaN6h58j1tzGWWnBj44vWTHpfMztODczE2M7B7TBvsnNsNFsqg5PrkNnGbrjX6sM3cX88kI+3yePuKmT4nZZ5XsEzP60Il99MFuwOkelm4D6U6KbkZoP09bYtpV0saM9ja0PaArLF2kaJ2npZJWGzphaeZZ+BserVB+MT+MsH84+k2Vg6aHbF7RjTj3uPb16Q7f7d5UInIoCLM0szzEfNnj7ujXbf5MtJZ+9+AP/urMw8iA6O8UnrL/F+uu8EF8xtrzAAAAAElFTkSuQmCC</icon>
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Add Columns) --><step id="Add Columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="std_email" type="STRING">
+					<comm:comment>Standardized value of the email address - contains only valid values.</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_name" type="STRING">
+					<comm:comment>Column that stores the email address owner if recognised.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_email" type="STRING">
+					<comm:comment>The best existing value of email.</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_email" type="STRING">
+					<comm:comment>Explanations if invalid, cleansed or matched.</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_email" type="INTEGER">
+					<comm:comment>Data quality score for value of email.</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="696,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add Columns" endpoint="out"/>
+		<target step="Internal_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Blacklist_lookup) --><step id="Blacklist_lookup" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_blacklist.lkp" prefix="false" foreignKeyColumn="std_email">
+			<columns/>
+			<scorer explanationColumn="exp_email" scoreColumn="sco_email">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="2000000" explainAs="EMAIL_BLACKLISTED" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Check if cleansed email is on blacklist</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,4128,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Blacklist_lookup" endpoint="out"/>
+		<target step="Get_email&#39;s_domain" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Check_TLD_proposal) --><step id="Check_TLD_proposal" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_tld.lkp" prefix="false" foreignKeyColumn="tmp_tld_guess">
+			<columns>
+				<columnAssign expression="true" name="tmp_tld_matched"/>
+			</columns>
+			<scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="TLD_GUESS_FAILED" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="TLD_GUESS_FAILED" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="7000" explainAs="EMAIL_TLD_MISSING_LAST_DOT" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Tries to match the proposed TLD.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,3552,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Check_TLD_proposal" endpoint="out"/>
+		<target step="Check_guess_for_known_provider" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Check_guess_for_known_provider) --><step id="Check_guess_for_known_provider" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_known_providers.lkp" prefix="false" whenCondition="tmp_tld_matched" foreignKeyColumn="tmp_domain_guess" matchCondition="lookup.tld = tmp_tld_guess">
+			<columns>
+				<columnAssign expression="true " name="tmp_tld_known_domain"/>
+			</columns>
+			<scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="-3000" explainAs="EMAIL_TLD_MISSING_LAST_DOT_KNOWN_PROVIDER" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Tries to match the domain and TLD guess against known email providers.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,3624,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Check_guess_for_known_provider" endpoint="out"/>
+		<target step="Select_the_longest_matched_proposal" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Clean_explanations_for_next_email_validation_2) --><step id="Clean_explanations_for_next_email_validation_2" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="null" column="exp_pur_email_validation">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Empties explanation column for the next Email Validate step.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,2352,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Clean_explanations_for_next_email_validation_2" endpoint="out"/>
+		<target step="Split_proposals" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Cleanse_possible_email_parts) --><step id="Cleanse_possible_email_parts" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="substituteMany(@&quot;^\.?(.*?)\.?$&quot;, &quot;$1&quot;, trim(tmp_email_domain), 1, true)" column="tmp_email_domain">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Trims and removes leading and trailing dots.</comm:comment>
+				</assignment>
+				<assignment expression="substituteMany(@&quot;^\.?(.*?)\.?$&quot;, &quot;$1&quot;, trim(tmp_email_local), 1, true)" column="tmp_email_local">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Trims and removes leading and trailing dots.</comm:comment>
+				</assignment>
+				<assignment expression="substituteMany(@&quot;^\.?(.*?)\.?$&quot;, &quot;$1&quot;, trim(tmp_email_trailing), 1, true)" column="tmp_email_trailing">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Trims and removes leading and trailing dots.</comm:comment>
+				</assignment>
+				<assignment expression="tmp_email_local + &quot;@&quot; + tmp_email_domain" column="pur_email">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="iif(matches(@&quot;[.a-z]{2,6}&quot;, tmp_email_trailing, true), tmp_email_local + &quot;@&quot; + tmp_email_domain + &quot;.&quot; + tmp_email_trailing, &quot;&quot;)" column="pur_email_2">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>If regexp matched only partially and the trailing part consists only of letters and dots with length of 2-6 characters, assume that part is TLD and create a new proposal.</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Precleanses email parts and proposes upto 2 possible email addresses.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,2208,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Cleanse_possible_email_parts" endpoint="out"/>
+		<target step="Score_email_extraction" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Domain and TLD to lower case) --><step id="Domain and TLD to lower case" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="lower(pur_email_domain)" column="pur_email_domain">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="lower(pur_email_tld)" column="pur_email_tld">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Converting domain and TLD to lower case.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,3240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Domain and TLD to lower case" endpoint="out"/>
+		<target step="Lookup_missspelled_tld" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_TLD_is_invalid_and_domain_ambiguous) --><step id="Email_TLD_is_invalid_and_domain_ambiguous" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+and 
+containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)</condition>
+			<comm:comment>Email with invalid TLD and ambiguous domain is an email without proper</comm:comment>
+		</properties>
+		<visual-constraints bounds="1056,744,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_TLD_is_invalid_and_domain_ambiguous" endpoint="out_true"/>
+		<target step="Union same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1223,792"/>
+				<point location="1223,983"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_TLD_is_invalid_and_domain_ambiguous" endpoint="out_false"/>
+		<target step="Union same 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1056,816"/>
+				<point location="1079,816"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_TLD_is_invalid_and_domain_ambiguous 2) --><step id="Email_TLD_is_invalid_and_domain_ambiguous 2" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+and 
+containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)</condition>
+			<comm:comment>Email with invalid TLD and ambiguous domain is an email without proper</comm:comment>
+		</properties>
+		<visual-constraints bounds="792,1968,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_TLD_is_invalid_and_domain_ambiguous 2" endpoint="out_true"/>
+		<target step="Union same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="963,2016"/>
+				<point location="1165,2016"/>
+				<point location="1223,2238"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_TLD_is_invalid_and_domain_ambiguous 2" endpoint="out_false"/>
+		<target step="Union same 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="792,2076"/>
+				<point location="1005,2076"/>
+				<point location="1079,2243"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_TLD_is_invalid_and_domain_ambiguous 3) --><step id="Email_TLD_is_invalid_and_domain_ambiguous 3" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+and 
+containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)</condition>
+			<comm:comment>Email with invalid TLD and ambiguous domain is an email without proper</comm:comment>
+		</properties>
+		<visual-constraints bounds="792,2736,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_TLD_is_invalid_and_domain_ambiguous 3" endpoint="out_true"/>
+		<target step="Union same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="986,2784"/>
+				<point location="1160,2784"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_TLD_is_invalid_and_domain_ambiguous 3" endpoint="out_false"/>
+		<target step="Union same 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="792,2856"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_contains_multiple_@) --><step id="Email_contains_multiple_@" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="indexOf(pur_email, &#39;@&#39;) != lastIndexOf(pur_email, &#39;@&#39;)">
+			<comm:comment>Email contains multiple &#39;@&#39;.</comm:comment>
+		</properties>
+		<visual-constraints bounds="528,1488,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_contains_multiple_@" endpoint="out_false"/>
+		<target step="Precleanse_for_next_email_validation" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_contains_multiple_@" endpoint="out_true"/>
+		<target step="Union Same 8" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="632,1536"/>
+				<point location="1307,1536"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_does_not_contain_@) --><step id="Email_does_not_contain_@" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="indexOf(pur_email, &#39;@&#39;) is null">
+			<comm:comment>Email does not contain @.</comm:comment>
+		</properties>
+		<visual-constraints bounds="528,1032,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_does_not_contain_@" endpoint="out_true"/>
+		<target step="Prepare_values_for_tokenizer" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="662,1080"/>
+				<point location="815,1080"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_does_not_contain_@" endpoint="out_false"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="457,1080"/>
+				<point location="457,1416"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_does_not_contain_@_2) --><step id="Email_does_not_contain_@_2" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="indexOf(pur_email, &#39;@&#39;) is null">
+			<comm:comment>Email does not contain @.</comm:comment>
+		</properties>
+		<visual-constraints bounds="792,1344,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_does_not_contain_@_2" endpoint="out_false"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="792,1416"/>
+				<point location="709,1416"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_does_not_contain_@_2" endpoint="out_true"/>
+		<target step="Union Same 8" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="946,1392"/>
+				<point location="1326,1392"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_format_is_invalid 2) --><step id="Email_format_is_invalid 2" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="not containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;)">
+			<comm:comment>Email has problems with format as a whole, not domain part problems.</comm:comment>
+		</properties>
+		<visual-constraints bounds="504,1896,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_format_is_invalid 2" endpoint="out_true"/>
+		<target step="Email_TLD_is_invalid_and_domain_ambiguous 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="566,1944"/>
+				<point location="660,1944"/>
+				<point location="815,1944"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_format_is_invalid 2" endpoint="out_false"/>
+		<target step="Match_email_within_the_input" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="504,1960"/>
+				<point location="504,2027"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_format_is_not_invalid) --><step id="Email_format_is_not_invalid" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="not containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;)">
+			<comm:comment>Email has problems with format as a whole, not domain part problems.</comm:comment>
+		</properties>
+		<visual-constraints bounds="696,672,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_format_is_not_invalid" endpoint="out_true"/>
+		<target step="Email_TLD_is_invalid_and_domain_ambiguous" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="826,720"/>
+				<point location="874,720"/>
+				<point location="1079,720"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_format_is_not_invalid" endpoint="out_false"/>
+		<target step="Stopword_parsing" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="551,720"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_is_empty_or_suspicious) --><step id="Email_is_empty_or_suspicious" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>containsWord(exp_pur_email_validation, &quot;EML_NULL&quot;)
+or
+(
+  containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)
+  and
+  not containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+)  </condition>
+			<comm:comment>Email that is empty or of which domain part consists only of a valid TLD is invalid.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1008,600,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_empty_or_suspicious" endpoint="out_false"/>
+		<target step="Email_format_is_not_invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1008,672"/>
+				<point location="925,672"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_empty_or_suspicious" endpoint="out_true"/>
+		<target step="Union Same 8" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1164,648"/>
+				<point location="1367,648"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_is_empty_or_suspicious_2) --><step id="Email_is_empty_or_suspicious_2" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>containsWord(exp_pur_email_validation, &quot;EML_NULL&quot;)
+or
+(
+  containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)
+  and
+  not containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+)  </condition>
+			<comm:comment>Email that is empty or of which domain part consists only of a valid TLD is invalid.</comm:comment>
+		</properties>
+		<visual-constraints bounds="792,1800,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_empty_or_suspicious_2" endpoint="out_false"/>
+		<target step="Email_format_is_invalid 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="792,1871"/>
+				<point location="527,1871"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_empty_or_suspicious_2" endpoint="out_true"/>
+		<target step="Union Same 7" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="924,1848"/>
+				<point location="1283,1848"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_is_empty_or_suspicious_or_invalid) --><step id="Email_is_empty_or_suspicious_or_invalid" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>containsWord(exp_pur_email_validation, &quot;EML_NULL&quot;)
+or
+(
+  containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)
+  and
+  not containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+)
+or
+containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;)</condition>
+			<comm:comment>Email that is empty or of which domain part consists only of a valid TLD is invalid.</comm:comment>
+		</properties>
+		<visual-constraints bounds="792,2664,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_empty_or_suspicious_or_invalid" endpoint="out_false"/>
+		<target step="Email_TLD_is_invalid_and_domain_ambiguous 3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_empty_or_suspicious_or_invalid" endpoint="out_true"/>
+		<target step="Union Same 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="949,2712"/>
+				<point location="1288,2712"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_is_invalid) --><step id="Email_is_invalid" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="std_email is null">
+			<comm:comment>Email is invalid.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1056,3240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_invalid" endpoint="out_true"/>
+		<target step="Internal_columns_3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_invalid" endpoint="out_false"/>
+		<target step="Union Same 6" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1056,3312"/>
+				<point location="753,3312"/>
+				<point location="753,3743"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_is_invalid_1) --><step id="Email_is_invalid_1" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="exp_pur_email_validation is not null">
+			<comm:comment>Sends valid emails directly to output, invalid for further parsing and cleansing.</comm:comment>
+		</properties>
+		<visual-constraints bounds="696,528,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_invalid_1" endpoint="out_true"/>
+		<target step="Email_is_empty_or_suspicious" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="853,576"/>
+				<point location="1031,576"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_invalid_1" endpoint="out_false"/>
+		<target step="Union_Same_7" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="696,594"/>
+				<point location="120,594"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_is_invalid_2) --><step id="Email_is_invalid_2" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="exp_pur_email_validation is not null">
+			<comm:comment>Sends valid emails directly to output, invalid for further parsing and cleansing.</comm:comment>
+		</properties>
+		<visual-constraints bounds="504,1704,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_invalid_2" endpoint="out_true"/>
+		<target step="Email_is_empty_or_suspicious_2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="563,1752"/>
+				<point location="663,1752"/>
+				<point location="815,1752"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_invalid_2" endpoint="out_false"/>
+		<target step="Union Same 5" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="504,1777"/>
+				<point location="464,1777"/>
+				<point location="128,1777"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_is_invalid_3) --><step id="Email_is_invalid_3" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="exp_pur_email_validation is not null">
+			<comm:comment>Sends valid emails directly to output, invalid for further parsing and cleansing.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,2568,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_invalid_3" endpoint="out_true"/>
+		<target step="Email_is_empty_or_suspicious_or_invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="636,2616"/>
+				<point location="815,2616"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_is_invalid_3" endpoint="out_false"/>
+		<target step="Union Same 4" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="480,2640"/>
+				<point location="418,2640"/>
+				<point location="324,2640"/>
+				<point location="119,2640"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Email_not_whitelisted) --><step id="Email_not_whitelisted" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="std_email is null">
+			<comm:comment>Email_not_whitelisted</comm:comment>
+		</properties>
+		<visual-constraints bounds="696,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_not_whitelisted" endpoint="out_true"/>
+		<target step="Pre_cleanse" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Email_not_whitelisted" endpoint="out_false"/>
+		<target step="Union_Same_7" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="459,360"/>
+				<point location="71,360"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Final_scoring) --><step id="Final_scoring" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_email" defaultExplainColumn="exp_email">
+			<scoringCases>
+				<scoringCase explanation="&quot;EMAIL_EMPTY&quot;" score="10000000">
+					<condition>std_email is null
+and
+containsWord(exp_pur_email_validation, &quot;EML_NULL&quot;)</condition>
+				</scoringCase>
+				<scoringCase explanation="&quot;EMAIL_INVALID&quot;" score="5000000">
+					<condition>std_email is null
+and
+(
+	containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;)
+)</condition>
+				</scoringCase>
+				<scoringCase explanation="&quot;EMAIL_TLD_NOT_MATCHED&quot;" score="5000000">
+					<condition>std_email is null
+and
+containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;) and not containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)</condition>
+				</scoringCase>
+				<scoringCase explanation="&quot;EMAIL_TLD_MISSING&quot;" score="5000000">
+					<condition>std_email is null
+and
+containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;) and containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)</condition>
+				</scoringCase>
+				<scoringCase condition="not containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;) and containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)" explanation="&quot;EMAIL_SUSPICIOUS&quot;" score="5000000"/>
+				<scoringCase condition="not(containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;) or containsWord(exp_pur_email_validation, &quot;EML_NULL&quot;))" score="sco_pur_email">
+					<explanation>// union of minor explanations
+$expl:=set.distinct(substituteAll(@&quot;EMAIL_WS_SQUEEZED|EMAIL_ACCENTS_REMOVED|EMAIL_COMMAS_REPLACED|EMAIL_DOTS_REDUCED|EMAIL_NAME_MISSED_QUOTES|EMAIL_ENCAPSULED&quot;, &quot;EMAIL_CLEANSED&quot;, exp_pur_email));
+// remove general explanation if more specific is present
+iif(containsWord(exp_pur_email, &quot;EMAIL_TLD_MISSING_LAST_DOT_KNOWN_PROVIDER&quot;), substituteAll(@&quot;\bEMAIL_TLD_MISSING_LAST_DOT\b&quot;, &quot;&quot;, $expl), $expl)</explanation>
+				</scoringCase>
+			</scoringCases>
+			<comm:comment>Set final explanations and score.</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,4344,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Final_scoring" endpoint="out"/>
+		<target step="Set_output_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Get_email's_domain) --><step id="Get_email&#39;s_domain" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="substr(std_email, indexOf(std_email, &#39;@&#39;, 0)+1, lastIndexOf(std_email, &#39;.&#39;) - indexOf(std_email, &#39;@&#39;, 0)-1)" column="pur_domain">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>get the domain from standardized value. Substring from @ to last dot.</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Get the part of the domain from the standardized email input</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,4200,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Get_email&#39;s_domain" endpoint="out"/>
+		<target step="Temporary_domain_lookup" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Guesses_TLD_from_the_end_of_domain) --><step id="Guesses_TLD_from_the_end_of_domain" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="lower(iif(length(pur_email_domain) &gt; tmp_tld_length , right(pur_email_domain, tmp_tld_length), null))" column="tmp_tld_guess">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>The lenght of domain must be greater than that of the TLD, SLD must have at least one character.</comm:comment>
+				</assignment>
+				<assignment expression="lower(iif(length(pur_email_domain) &gt; tmp_tld_length , left(pur_email_domain, length(pur_email_domain) - tmp_tld_length), null))" column="tmp_domain_guess">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>The lenght of domain must be greater than that of the TLD, SLD must have at least one character.</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Takes a trailing substring of the domain name of the lenght of tmp_tld_lenght as a possible TLD.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,3480,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Guesses_TLD_from_the_end_of_domain" endpoint="out"/>
+		<target step="Check_TLD_proposal" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Internal_columns) --><step id="Internal_columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="pur_email" type="STRING"/>
+				<addedColumn name="pur_regex_name" type="STRING"/>
+				<addedColumn name="sco_pur_email" type="INTEGER"/>
+				<addedColumn name="exp_pur_email" type="STRING"/>
+				<addedColumn name="exp_pur_email_validation" type="STRING"/>
+				<addedColumn name="rd" type="STRING"/>
+				<addedColumn name="tmp_stopword" type="STRING"/>
+				<addedColumn name="tmp_stopword_remainder" type="STRING"/>
+				<addedColumn name="tmp_email_local" type="STRING"/>
+				<addedColumn name="tmp_email_domain" type="STRING"/>
+				<addedColumn name="tmp_email_trailing" type="STRING"/>
+				<addedColumn name="tmp_email_leading" type="STRING"/>
+				<addedColumn name="pur_email_2" type="STRING"/>
+				<addedColumn name="pur_email_local" type="STRING"/>
+				<addedColumn name="pur_email_domain" type="STRING"/>
+				<addedColumn name="pur_email_tld" type="STRING"/>
+				<addedColumn name="pur_domain" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>Internal_columns</comm:comment>
+		</properties>
+		<visual-constraints bounds="696,168,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Internal_columns" endpoint="out"/>
+		<target step="Whitelist_lookup" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Internal_columns_2) --><step id="Internal_columns_2" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="tmp_tld_typo_corrected" type="STRING"/>
+				<addedColumn name="tmp_tld_known_domain" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>Adds internal columns.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,3096,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Internal_columns_2" endpoint="out"/>
+		<target step="Parse_local_domain_tld_parts" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Internal_columns_3) --><step id="Internal_columns_3" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="rd_tld" type="STRING"/>
+				<addedColumn name="tmp_tld_known_domain" type="BOOLEAN"/>
+				<addedColumn name="tmp_tld_length" type="INTEGER"/>
+				<addedColumn name="tmp_tld_guess" type="STRING"/>
+				<addedColumn name="tmp_tld_matched" type="BOOLEAN"/>
+				<addedColumn name="tmp_domain_guess" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>Adds internal columns.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,3336,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Internal_columns_3" endpoint="out"/>
+		<target step="Lookup_all_TLD_lengths" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Look_for_known_domain) --><step id="Look_for_known_domain" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_known_providers.lkp" prefix="false" foreignKeyColumn="lower(pur_email_domain)">
+			<columns>
+				<columnAssign expression="pur_email_local + &quot;@&quot; + lower(pur_email_domain) + &quot;.&quot; + lower(lookup.tld)" name="std_email"/>
+			</columns>
+			<scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="5000" explainAs="EMAIL_TLD_APPENDED_KNOWN_PROVIDER" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Looks for a well known domain.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1056,3168,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Look_for_known_domain" endpoint="out"/>
+		<target step="Email_is_invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Lookup_all_TLD_lengths) --><step id="Lookup_all_TLD_lengths" className="com.ataccama.dqc.tasks.clean.MultiplicativeLookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_tld_lengths.lkp" prefix="false" foreignKeyColumn="true" bestsOnly="false" recordDescriptorColumn="rd_tld">
+			<columns>
+				<columnAssign expression="lookup.tld_length" name="tmp_tld_length"/>
+			</columns>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Multiply record, so each has its own unique TLD lenght found in the lookup.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,3408,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Lookup_all_TLD_lengths" endpoint="out"/>
+		<target step="Guesses_TLD_from_the_end_of_domain" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Lookup_domain) --><step id="Lookup_domain" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_known_providers.lkp" prefix="false" foreignKeyColumn="pur_email_domain">
+			<columns>
+				<columnAssign expression="lookup.tld" name="tmp_tld_known_domain"/>
+			</columns>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Looks for a well known domain.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,3384,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Lookup_domain" endpoint="out"/>
+		<target step="Populates_std_email_if_email_is_valid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Lookup_missspelled_tld) --><step id="Lookup_missspelled_tld" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_tld_misspellings.lkp" prefix="false" foreignKeyColumn="pur_email_tld">
+			<columns>
+				<columnAssign expression="lower(lookup.tld)" name="tmp_tld_typo_corrected"/>
+			</columns>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Looks for correct form of misspelled TLD.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,3312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Lookup_missspelled_tld" endpoint="out"/>
+		<target step="Lookup_domain" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Match_email_within_the_input) --><step id="Match_email_within_the_input" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_email" regexNameColumn="pur_regex_name" appendRegexNameColumn="true" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns>
+				<columnAssign expression="pur_email" name="out_email"/>
+			</noMatchColumns>
+			<regExpressions>
+				<regExpression pattern="([-a-z0-9._!#$%&amp;&#39;*+/=?^`{|}~]+)@([-a-z0-9.]+\.[a-z]+)" name="EMAIL_WITHIN" multiplicative="false" ignoreCase="true" partialMatch="true">
+					<resultColumns>
+						<regexOutputColumn name="tmp_email_local" substitution="$1"/>
+						<regexOutputColumn name="tmp_email_domain" substitution="$2"/>
+						<regexOutputColumn name="tmp_email_trailing" substitution="$&#39;"/>
+						<regexOutputColumn name="tmp_email_leading" substitution="$`"/>
+					</resultColumns>
+					<comm:comment>Extracting any email from within the input string.</comm:comment>
+				</regExpression>
+				<regExpression pattern="([-a-z0-9._!#$%&amp;&#39;*+/=?^`{|}~]+) ?@ ?([-a-z0-9.]+)" name="GUESS_EMAIL_WITHIN" multiplicative="false" ignoreCase="true" partialMatch="true">
+					<resultColumns>
+						<regexOutputColumn name="tmp_email_local" substitution="$1"/>
+						<regexOutputColumn name="tmp_email_domain" substitution="$2"/>
+						<regexOutputColumn name="tmp_email_trailing" substitution="$&#39;"/>
+						<regexOutputColumn name="tmp_email_leading" substitution="$`"/>
+					</resultColumns>
+					<comm:comment>Extracting anything that at least a little resembles an email.</comm:comment>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Tries to extract an email from any kind of string using strickter and looser form of regular expression.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,2040,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Match_email_within_the_input" endpoint="out"/>
+		<target step="Not_matched" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Not_matched) --><step id="Not_matched" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="tmp_email_domain is null">
+			<comm:comment>Regulax expression did not match.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,2112,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Not_matched" endpoint="out_false"/>
+		<target step="Cleanse_possible_email_parts" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Not_matched" endpoint="out_true"/>
+		<target step="Union Same 7" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="635,2160"/>
+				<point location="811,2160"/>
+				<point location="883,2160"/>
+				<point location="883,2305"/>
+				<point location="1285,2305"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Parse_email_to_local_and_domain_part) --><step id="Parse_email_to_local_and_domain_part" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_email" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="@" name="local@domain" multiplicative="false" ignoreCase="true" partialMatch="true">
+					<resultColumns>
+						<regexOutputColumn name="pur_email_local" substitution="$`"/>
+						<regexOutputColumn name="pur_email_domain" substitution="$&#39;"/>
+					</resultColumns>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Splits email to local, domain parts.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1056,3096,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Parse_email_to_local_and_domain_part" endpoint="out"/>
+		<target step="Look_for_known_domain" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Parse_local_domain_tld_parts) --><step id="Parse_local_domain_tld_parts" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_email" regexNameColumn="pur_regex_name" appendRegexNameColumn="true" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="(.*)@(.*)\.(.*)$" name="TLD_MISSPELLED" multiplicative="false" ignoreCase="true" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_email_local" substitution="$1"/>
+						<regexOutputColumn name="pur_email_domain" substitution="$2"/>
+						<regexOutputColumn name="pur_email_tld" substitution="$3"/>
+					</resultColumns>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Splits email to local, domain without TLD and TLD parts.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,3168,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Parse_local_domain_tld_parts" endpoint="out"/>
+		<target step="Domain and TLD to lower case" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Populates_std_email_if_email_is_valid) --><step id="Populates_std_email_if_email_is_valid" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties whenCondition="tmp_tld_known_domain is not null or tmp_tld_typo_corrected is not null">
+			<assignments>
+				<assignment column="pur_email_tld">
+					<expression>case(
+	tmp_tld_typo_corrected is null,
+			tmp_tld_known_domain,
+	
+	tmp_tld_known_domain is null,
+			tmp_tld_typo_corrected,
+	
+	tmp_tld_known_domain != tmp_tld_typo_corrected,
+			iif(levenshtein(tmp_tld_known_domain, pur_email_tld) &lt; 2,
+					tmp_tld_known_domain,
+					tmp_tld_typo_corrected
+			),
+
+	tmp_tld_known_domain
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="pur_email_local + &quot;@&quot; + pur_email_domain + &quot;.&quot; + pur_email_tld" column="std_email">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Decides between the two TLD proposals if at least one is present, populates output column.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,3456,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Populates_std_email_if_email_is_valid" endpoint="out"/>
+		<target step="Score_TLD_correction" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Pre_cleanse) --><step id="Pre_cleanse" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="in_email" column="pur_email">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Populates operational column to preserve source value.</comm:comment>
+				</assignment>
+				<assignment column="pur_email">
+					<expression>squeezeSpaces(pur_email)
+</expression>
+					<scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+						<scoringEntries>
+							<scoringEntry score="1" explainAs="EMAIL_WS_SQUEEZED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Trims and squeezes all whitespaces.</comm:comment>
+				</assignment>
+				<assignment expression="removeAccents(pur_email)" column="pur_email">
+					<scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+						<scoringEntries>
+							<scoringEntry score="5" explainAs="EMAIL_ACCENTS_REMOVED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Removes accents.</comm:comment>
+				</assignment>
+				<assignment expression="substituteAll(@&quot;,&quot;, &#39;.&#39;, pur_email)" column="pur_email">
+					<scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+						<scoringEntries>
+							<scoringEntry score="150" explainAs="EMAIL_COMMAS_REPLACED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Replacing commas with dots.</comm:comment>
+				</assignment>
+				<assignment expression="substituteAll(@&quot;\.\.+&quot;, &#39;.&#39;, pur_email)" column="pur_email">
+					<scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+						<scoringEntries>
+							<scoringEntry score="100" explainAs="EMAIL_DOTS_REDUCED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Squeezes multiple dots to a single dot.</comm:comment>
+				</assignment>
+				<assignment expression="substituteMany(@&quot;^\.?(.*?)\.?$&quot;, &quot;$1&quot;, pur_email, 1, true)" column="pur_email">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Removes leading and trailing dot.</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Squeezing all whitespaces into single space character, removing accents, squeezing dots, replacing commas with dots, removing leading and trailing dot.</comm:comment>
+		</properties>
+		<visual-constraints bounds="696,384,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Pre_cleanse" endpoint="out"/>
+		<target step="Validate_Email_1" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Precleanse_for_next_email_validation) --><step id="Precleanse_for_next_email_validation" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="null" column="exp_pur_email_validation">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Deletes explanations from previous Validate Email step.</comm:comment>
+				</assignment>
+				<assignment expression="substituteMany(@&quot;^\.?(.*?)\.?$&quot;, &quot;$1&quot;, pur_email, 1, true)" column="pur_email">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Removes trailing and leading dot from input.</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Prepares columns for next Email validation.</comm:comment>
+		</properties>
+		<visual-constraints bounds="504,1560,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Precleanse_for_next_email_validation" endpoint="out"/>
+		<target step="Validate_email_2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Prepare_values_for_tokenizer) --><step id="Prepare_values_for_tokenizer" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="substituteAll(@&quot; &quot;, &quot;  &quot;, pur_email)" column="pur_email">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="substituteAll(@&quot;([\[&lt;({])&quot;, &quot; $1&quot;, pur_email)" column="pur_email">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="substituteAll(@&quot;([&gt;)}\]])&quot;, &quot;$1 &quot;, pur_email)" column="pur_email">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Double original spaces, insert space in front of [, &lt;, (, { and behind  ], &gt;, ), }.</comm:comment>
+		</properties>
+		<visual-constraints bounds="792,1104,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Prepare_values_for_tokenizer" endpoint="out"/>
+		<target step="Replace_synonyms_with_dot_or_at" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Record_descriptor_column_is_null) --><step id="Record_descriptor_column_is_null" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="rd is null">
+			<comm:comment>Record is not part of any record descriptor group.</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,3912,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Record_descriptor_column_is_null" endpoint="out_false"/>
+		<target step="Select_the_best_proposal" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Record_descriptor_column_is_null" endpoint="out_true"/>
+		<target step="Union Same 9" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="862,3960"/>
+				<point location="862,4056"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove spaces before/after replacement) --><step id="Remove spaces before/after replacement" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="pur_email">
+					<expression>$before:=substituteAll(@&quot;\s*☃&quot;, &quot;&quot;, pur_email);
+
+substituteAll(@&quot;☠\s*&quot;, &quot;&quot;, $before)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Remove spaces before/after replacement</comm:comment>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="744,1224,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove spaces before/after replacement" endpoint="out"/>
+		<target step="Revert_changes_for_tokenizer" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove_internal_columns) --><step id="Remove_internal_columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="pur_regex_name"/>
+				<columnRef name="exp_pur_email"/>
+				<columnRef name="pur_email"/>
+				<columnRef name="exp_pur_email_validation"/>
+				<columnRef name="rd"/>
+				<columnRef name="tmp_stopword"/>
+				<columnRef name="tmp_stopword_remainder"/>
+				<columnRef name="tmp_email_local"/>
+				<columnRef name="tmp_email_domain"/>
+				<columnRef name="tmp_email_trailing"/>
+				<columnRef name="tmp_email_leading"/>
+				<columnRef name="pur_email_2"/>
+				<columnRef name="pur_email_local"/>
+				<columnRef name="pur_email_domain"/>
+				<columnRef name="pur_email_tld"/>
+				<columnRef name="sco_pur_email"/>
+				<columnRef name="in_email"/>
+				<columnRef name="pur_domain"/>
+			</removedColumns>
+			<comm:comment>Removes internal columns.</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,4488,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove_internal_columns" endpoint="out"/>
+		<target step="out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Removing_internal_columns) --><step id="Removing_internal_columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="rd_tld"/>
+				<columnRef name="tmp_tld_known_domain"/>
+				<columnRef name="tmp_tld_length"/>
+				<columnRef name="tmp_tld_guess"/>
+				<columnRef name="tmp_tld_matched"/>
+				<columnRef name="tmp_domain_guess"/>
+			</removedColumns>
+			<comm:comment>Removes internal columns.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,3768,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Removing_internal_columns" endpoint="out"/>
+		<target step="Union Same 6" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Removing_internal_columns_2) --><step id="Removing_internal_columns_2" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="tmp_tld_typo_corrected"/>
+				<columnRef name="tmp_tld_known_domain"/>
+			</removedColumns>
+			<comm:comment>Removes internal columns.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,3624,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Removing_internal_columns_2" endpoint="out"/>
+		<target step="Union Same 6" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Replace_synonyms_with_dot_or_at) --><step id="Replace_synonyms_with_dot_or_at" className="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm" disabled="false" mode="NORMAL">
+		<properties replacementsFileName="pathvar://DATA/ext/lkp/___email_at_dot_synonyms_replacements.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="pur_email" out="pur_email">
+			<scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+				<scoringEntries>
+					<scoringEntry score="1000" explainAs="EMAIL_AT_DOT_SYNONYMS" explain="true" key="AR_CHANGED"/>
+					<scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+					<scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+					<scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:][:digit:]" tokenCharacters="[:letter:][:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Replaces synonyms with their respective symbols.</comm:comment>
+		</properties>
+		<visual-constraints bounds="792,1176,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Replace_synonyms_with_dot_or_at" endpoint="out"/>
+		<target step="Remove spaces before/after replacement" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Revert_changes_for_tokenizer) --><step id="Revert_changes_for_tokenizer" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="pur_email">
+					<expression>substituteAll(@&quot;([^ ]) ([^ ])&quot;, &quot;$1$2&quot;, substituteAll(@&quot;([^ ]) ([^ ])&quot;, &quot;$1$2&quot;, pur_email))
+//sadly one substituteAll cant change eg. &quot;k k k&quot; to &quot;kkk&quot; but only to &quot;kk k&quot;</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="substituteAll(@&quot;  &quot;, &quot; &quot;, pur_email)" column="pur_email">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Revert changes made by preparation for tokenizer.</comm:comment>
+		</properties>
+		<visual-constraints bounds="792,1272,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Revert_changes_for_tokenizer" endpoint="out"/>
+		<target step="Email_does_not_contain_@_2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Score_TLD_correction) --><step id="Score_TLD_correction" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_pur_email" defaultExplainColumn="exp_pur_email">
+			<scoringCases>
+				<scoringCase condition="pur_email_tld = tmp_tld_known_domain" explanation="&quot;EMAIL_TLD_CORRECTED_KNOWN_PROVIDER&quot;" score="4000"/>
+				<scoringCase condition="pur_email_tld = tmp_tld_typo_corrected and tmp_tld_typo_corrected != tmp_tld_known_domain" explanation="&quot;EMAIL_TLD_CORRECTED_MISSPELLING&quot;" score="6000"/>
+			</scoringCases>
+			<comm:comment>Scores TLD correction.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,3552,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Score_TLD_correction" endpoint="out"/>
+		<target step="Removing_internal_columns_2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Score_email_extraction) --><step id="Score_email_extraction" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_pur_email" defaultExplainColumn="exp_pur_email">
+			<scoringCases>
+				<scoringCase condition="containsWord(pur_regex_name, &quot;EMAIL_WITHIN&quot;)" description="EMAIL_WITHIN" explanation="&quot;EMAIL_WITHIN&quot;">
+					<score>$trailing:=substituteAll(@&quot;[^-a-z0-9.]&quot;, &quot;&quot;, tmp_email_trailing, true);
+$lenTrail:=length($trailing);
+$leading:=substituteAll(@&quot;[^-a-z0-9._]&quot;, &quot;&quot;, tmp_email_leading, true);
+$lenLead:=length($leading);
+$sco:=$lenLead * 1000 + 10000 + iif($lenTrail &gt; 6 and $lenTrail &lt; 2, $lenTrail * 1000, 0);
+min(500000, $sco) // score cannot be unbounded, scores by the number of supported characters</score>
+				</scoringCase>
+				<scoringCase condition="containsWord(pur_regex_name, &quot;GUESS_EMAIL_WITHIN&quot;)" description="GUESS_EMAIL_WITHIN" explanation="&quot;EMAIL_GUESSED_WITHIN&quot;">
+					<score>$trailing:=substituteAll(@&quot;[^-a-z0-9.]&quot;, &quot;&quot;, tmp_email_trailing, true);
+$lenTrail:=length($trailing);
+$leading:=substituteAll(@&quot;[^-a-z0-9._!#$%&amp;&#39;*+/=?^`{|}~]&quot;, &quot;&quot;, tmp_email_leading, true);
+$lenLead:=length($leading);
+$sco := $lenLead * 1000 + 13000 + iif($lenTrail &gt; 6 and $lenTrail &lt; 2, $lenTrail * 1000, 0);
+min(1000000, $sco) // score cannot be unbounded, scores by the number of supported characters</score>
+				</scoringCase>
+			</scoringCases>
+			<comm:comment>Scores partial regexp email extraction.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,2280,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Score_email_extraction" endpoint="out"/>
+		<target step="Clean_explanations_for_next_email_validation_2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Score_unwrapping) --><step id="Score_unwrapping" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_pur_email" defaultExplainColumn="exp_pur_email">
+			<scoringCases>
+				<scoringCase condition="containsWord(pur_regex_name, &quot;NAME_LT_EMAIL_GT&quot;)" description="Non-standard `&quot;Name Surname&quot; &lt;email&gt;` format." explanation="&quot;EMAIL_NAME_MISSED_QUOTES&quot;" score="50"/>
+				<scoringCase condition="containsWord(pur_regex_name, &quot;ENC_EMAIL_CNE&quot;)" explanation="&quot;EMAIL_ENCAPSULED&quot;" score="500"/>
+			</scoringCases>
+			<comm:comment>Scores email unwrapping.</comm:comment>
+		</properties>
+		<visual-constraints bounds="528,960,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Score_unwrapping" endpoint="out"/>
+		<target step="Email_does_not_contain_@" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Select_the_best_proposal) --><step id="Select_the_best_proposal" className="com.ataccama.dqc.tasks.flow.Selector" disabled="false" mode="NORMAL">
+		<properties recordDescriptorColumn="rd">
+			<assignments>
+				<assignment expression="best.in_email" column="in_email"/>
+				<assignment expression="best.std_email" column="std_email"/>
+				<assignment expression="best.std_name" column="std_name"/>
+				<assignment expression="best.out_email" column="out_email"/>
+				<assignment expression="best.exp_email" column="exp_email"/>
+				<assignment expression="best.sco_email" column="sco_email"/>
+				<assignment expression="best.sco_pur_email" column="sco_pur_email"/>
+				<assignment expression="best.pur_email" column="pur_email"/>
+				<assignment expression="best.pur_regex_name" column="pur_regex_name"/>
+				<assignment expression="best.exp_pur_email" column="exp_pur_email"/>
+				<assignment expression="best.exp_pur_email_validation" column="exp_pur_email_validation"/>
+				<assignment expression="best.tmp_email_local" column="tmp_email_local"/>
+				<assignment expression="best.tmp_email_domain" column="tmp_email_domain"/>
+				<assignment expression="best.tmp_email_trailing" column="tmp_email_trailing"/>
+				<assignment expression="best.tmp_email_leading" column="tmp_email_leading"/>
+				<assignment expression="null" column="rd"/>
+				<assignment expression="best.tmp_stopword" column="tmp_stopword"/>
+				<assignment expression="best.tmp_stopword_remainder" column="tmp_stopword_remainder"/>
+				<assignment expression="best.pur_email_2" column="pur_email_2"/>
+				<assignment expression="best.pur_email_local" column="pur_email_local"/>
+				<assignment expression="best.pur_email_domain" column="pur_email_domain"/>
+				<assignment expression="best.pur_email_tld" column="pur_email_tld"/>
+			</assignments>
+			<selectionRules>
+				<orderBy orderDescending="false" nullsFirst="false">
+					<expression>sco_pur_email
++ iif(std_email is null, 10000000, 0) // we don&#39;t to choose invalid email by mistake
+
+//if record from two streams has same score, we prefer stream, which doesn&#39;t contain explanation &quot;EML_AMBIGUOUS_DOMAIN&quot;
++ iif(containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;), 1, 0)</expression>
+				</orderBy>
+			</selectionRules>
+			<comm:comment>Selects the best proposal (with the lowest score) from the group.</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,3984,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Select_the_best_proposal" endpoint="out"/>
+		<target step="Union Same 9" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Select_the_longest_matched_proposal) --><step id="Select_the_longest_matched_proposal" className="com.ataccama.dqc.tasks.flow.Selector" disabled="false" mode="NORMAL">
+		<properties recordDescriptorColumn="rd_tld">
+			<assignments>
+				<assignment column="std_email">
+					<expression>iif(best.tmp_tld_matched,
+		best.pur_email_local + &quot;@&quot; + best.tmp_domain_guess + &quot;.&quot; + best.tmp_tld_guess,
+		null
+)</expression>
+				</assignment>
+			</assignments>
+			<selectionRules>
+				<orderBy expression="iif(tmp_tld_matched, 1 ,0) * tmp_tld_length + iif(tmp_tld_known_domain, 100, 0)" orderDescending="true" nullsFirst="false"/>
+			</selectionRules>
+			<comm:comment>Selects the record with known domain and TLD or with the longest matched TLD from the group (in that order) and puts the whole email it into std_email.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,3696,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Select_the_longest_matched_proposal" endpoint="out"/>
+		<target step="Removing_internal_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Set_output_columns) --><step id="Set_output_columns" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="out_email">
+					<expression>nvl(std_email, iif(containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;), null, pur_email))
+</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Only valid or very close to valid email goes to out_email.</comm:comment>
+				</assignment>
+				<assignment expression="iif(sco_email &gt;= 10000, null, std_email)" column="std_email">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Only values with score less than 10 000 can be in std_email.</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Populates out_email.</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,4416,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Set_output_columns" endpoint="out"/>
+		<target step="Remove_internal_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Split_proposals) --><step id="Split_proposals" className="com.ataccama.dqc.tasks.text.Splitter" disabled="false" mode="NORMAL">
+		<properties recordDescriptorColumn="rd" oneWordColumn="pur_email">
+			<allSentenceColumn>pur_email + &quot;☠&quot;
+ +  pur_email_2</allSentenceColumn>
+			<separatorConfig includeSeparators="☠" lowerCaseLetters="false" excludeSeparators="-._!#$%&amp;&#39;*+/=?^`{|}~@" digits="false" upperCaseLetters="false"/>
+			<comm:comment>Splits the proposals to their own respective records, creating a record descriptor group.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,2424,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Split_proposals" endpoint="out"/>
+		<target step="Validate Email 3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Stopword_lookup) --><step id="Stopword_lookup" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_stopwords.lkp" prefix="false" foreignKeyColumn="tmp_stopword">
+			<columns>
+				<columnAssign expression="tmp_stopword_remainder" name="pur_email"/>
+			</columns>
+			<scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="1000" explainAs="EMAIL_STOPWORD_CLEANSED" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Looks up possible stopword in the dictionary.</comm:comment>
+		</properties>
+		<visual-constraints bounds="528,816,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Stopword_lookup" endpoint="out"/>
+		<target step="Unwrapping_&lt;email&gt;_etc." endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Stopword_parsing) --><step id="Stopword_parsing" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_email" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="^([^:]+): ?" name="STOPWORD_WITH_COLON" multiplicative="false" ignoreCase="true" partialMatch="true">
+					<resultColumns>
+						<regexOutputColumn name="tmp_stopword_remainder" substitution="$&#39;"/>
+						<regexOutputColumn name="tmp_stopword" substitution="$1"/>
+					</resultColumns>
+					<comm:comment>Assume that stopword is everything until the first colon (which is not supported in email address).</comm:comment>
+				</regExpression>
+				<regExpression pattern="^([^ ]+?)\.? " name="STOPWORD_WITHOUT_COLON" multiplicative="false" ignoreCase="true" partialMatch="true">
+					<resultColumns>
+						<regexOutputColumn name="tmp_stopword_remainder" substitution="$&#39;"/>
+						<regexOutputColumn name="tmp_stopword" substitution="$1"/>
+					</resultColumns>
+					<comm:comment>Assume that stopword is everything until the first space.</comm:comment>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Extracting leading stopword from email</comm:comment>
+		</properties>
+		<visual-constraints bounds="528,744,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Stopword_parsing" endpoint="out"/>
+		<target step="Stopword_lookup" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Temporary_domain_lookup) --><step id="Temporary_domain_lookup" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_temporary_domains.lkp" prefix="false" foreignKeyColumn="pur_domain">
+			<columns/>
+			<scorer explanationColumn="exp_email" scoreColumn="sco_email">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="100" explainAs="EMAIL_TMP_DOMAIN" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>checking standardized email domain against list of temporary domains</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,4272,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Temporary_domain_lookup" endpoint="out"/>
+		<target step="Final_scoring" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same) --><step id="Union Same" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union same.</comm:comment>
+		</properties>
+		<visual-constraints bounds="528,1416,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same" endpoint="out"/>
+		<target step="Email_contains_multiple_@" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same 2) --><step id="Union Same 2" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union invalid flows</comm:comment>
+		</properties>
+		<visual-constraints bounds="1344,2856,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same 2" endpoint="out"/>
+		<target step="Union Same 6" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1367,3840"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same 4) --><step id="Union Same 4" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union valid flows</comm:comment>
+		</properties>
+		<visual-constraints bounds="48,2928,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same 4" endpoint="out"/>
+		<target step="Union Same 6" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="71,3840"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same 5) --><step id="Union Same 5" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union valid flows</comm:comment>
+		</properties>
+		<visual-constraints bounds="48,2160,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same 5" endpoint="out"/>
+		<target step="Union Same 4" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same 6) --><step id="Union Same 6" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union all flows</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,3840,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same 6" endpoint="out"/>
+		<target step="Record_descriptor_column_is_null" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same 7) --><step id="Union Same 7" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union invalid flows</comm:comment>
+		</properties>
+		<visual-constraints bounds="1344,2568,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same 7" endpoint="out"/>
+		<target step="Union Same 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same 8) --><step id="Union Same 8" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union emails with:
+- two or more @ signs
+- no @ sign
+- empty
+- with valid TLD after @ (e.g. abc@com)</comm:comment>
+		</properties>
+		<visual-constraints bounds="1344,1944,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same 8" endpoint="out"/>
+		<target step="Union Same 7" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1367,2044"/>
+				<point location="1367,2280"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same 9) --><step id="Union Same 9" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union deduplicated multiple records flow and single record flow</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,4056,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same 9" endpoint="out"/>
+		<target step="Blacklist_lookup" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union same) --><step id="Union same" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union check flows for guessing TLD</comm:comment>
+		</properties>
+		<visual-constraints bounds="1200,2856,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union same" endpoint="out"/>
+		<target step="Unwrapping_email_1" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1223,3000"/>
+				<point location="1079,3000"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union same 2) --><step id="Union same 2" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union check flows for repairing TLD</comm:comment>
+		</properties>
+		<visual-constraints bounds="1056,2856,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union same 2" endpoint="out"/>
+		<target step="Unwrapping_email" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="591,2904"/>
+				<point location="503,2904"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union_Same_7) --><step id="Union_Same_7" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union emails on whitelist and valid (according Email Validate step)</comm:comment>
+		</properties>
+		<visual-constraints bounds="48,912,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union_Same_7" endpoint="out"/>
+		<target step="Union Same 5" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Unwrapping_<email>_etc.) --><step id="Unwrapping_&lt;email&gt;_etc." className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_email" regexNameColumn="pur_regex_name" appendRegexNameColumn="true" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="&quot;[a-z  \.]*&quot; ?&lt;(.*)&gt;" name="QUOT_NAME_QUOT_LT_EMAIL_GT" multiplicative="false" ignoreCase="true" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_email" substitution="$1"/>
+					</resultColumns>
+					<comm:comment>Extracting invalid email address from `&quot;Name Surname&quot; &lt;em@il&gt;` format.</comm:comment>
+				</regExpression>
+				<regExpression pattern="[a-z  \.]+ ?&lt;(.*)&gt;" name="NAME_LT_EMAIL_GT" multiplicative="false" ignoreCase="true" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_email" substitution="$1"/>
+					</resultColumns>
+					<comm:comment>Extracting invalid email address from `Name Surname &lt;em@il&gt;` format.</comm:comment>
+				</regExpression>
+				<regExpression pattern="(?:\[+(?=.*\]$)|\(+(?=.*\)$)|&lt;+(?=.*&gt;$)|&gt;+(?=.*&lt;$)|\{+(?=.*\}$)|&quot;+(?=.*&quot;$))(.*?)(.)\2*" name="ENC_EMAIL_CNE" multiplicative="false" ignoreCase="true" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_email" substitution="$1"/>
+					</resultColumns>
+					<comm:comment>Extracting email enclosed in [], (), &lt;&gt;, &gt;&lt;, {}, &quot;&quot; and their multiplied variants (&lt;&lt;em@il&gt;&gt;, ...).</comm:comment>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Extracting email address enclosed in brackets.</comm:comment>
+		</properties>
+		<visual-constraints bounds="528,888,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Unwrapping_&lt;email&gt;_etc." endpoint="out"/>
+		<target step="Score_unwrapping" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Unwrapping_email) --><step id="Unwrapping_email" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_email" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="&lt;([^&lt;&gt;]*)&gt;" name=".*&lt;email&gt;" multiplicative="false" ignoreCase="true" partialMatch="true">
+					<resultColumns>
+						<regexOutputColumn name="pur_email" substitution="$1"/>
+					</resultColumns>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Extracts email from &quot;Name Surname&quot; &lt;em@il&gt; format.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,3024,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Unwrapping_email" endpoint="out"/>
+		<target step="Internal_columns_2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Unwrapping_email_1) --><step id="Unwrapping_email_1" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_email" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="&lt;([^&lt;&gt;]*)&gt;" name=".*&lt;email&gt;" multiplicative="false" ignoreCase="true" partialMatch="true">
+					<resultColumns>
+						<regexOutputColumn name="pur_email" substitution="$1"/>
+					</resultColumns>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Extracts email from &quot;Name Surname&quot; &lt;em@il&gt; format.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1056,3024,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Unwrapping_email_1" endpoint="out"/>
+		<target step="Parse_email_to_local_and_domain_part" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Validate Email 3) --><step id="Validate Email 3" className="com.ataccama.dqc.tasks.clean.ValidateEmailAlgorithm" disabled="false" mode="NORMAL">
+		<properties outEmail="std_email" tldLookupFileName="pathvar://DATA/ext/lkp/___email_tld.lkp" in="pur_email">
+			<scorer explanationColumn="exp_pur_email_validation" scoreColumn="sco_pur_email">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="EML_NULL" explain="true" key="EML_NULL"/>
+					<scoringEntry score="0" explainAs="EML_ADDRESS" explain="true" key="EML_ADDRESS"/>
+					<scoringEntry score="0" explainAs="EML_TLD" explain="true" key="EML_TLD"/>
+					<scoringEntry score="0" explainAs="EML_AMBIGUOUS_DOMAIN" explain="true" key="EML_AMBIGUOUS_DOMAIN"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Validates proposed emails.</comm:comment>
+		</properties>
+		<visual-constraints bounds="480,2496,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Validate Email 3" endpoint="out"/>
+		<target step="Email_is_invalid_3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Validate_Email_1) --><step id="Validate_Email_1" className="com.ataccama.dqc.tasks.clean.ValidateEmailAlgorithm" disabled="false" mode="NORMAL">
+		<properties outEmail="std_email" outName="std_name" tldLookupFileName="pathvar://DATA/ext/lkp/___email_tld.lkp" in="pur_email">
+			<scorer explanationColumn="exp_pur_email_validation" scoreColumn="sco_pur_email">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="EML_NULL" explain="true" key="EML_NULL"/>
+					<scoringEntry score="0" explainAs="EML_ADDRESS" explain="true" key="EML_ADDRESS"/>
+					<scoringEntry score="0" explainAs="EML_TLD" explain="true" key="EML_TLD"/>
+					<scoringEntry score="0" explainAs="EML_AMBIGUOUS_DOMAIN" explain="true" key="EML_AMBIGUOUS_DOMAIN"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Validate precleansed email.</comm:comment>
+		</properties>
+		<visual-constraints bounds="696,456,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Validate_Email_1" endpoint="out"/>
+		<target step="Email_is_invalid_1" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Validate_email_2) --><step id="Validate_email_2" className="com.ataccama.dqc.tasks.clean.ValidateEmailAlgorithm" disabled="false" mode="NORMAL">
+		<properties outEmail="std_email" tldLookupFileName="pathvar://DATA/ext/lkp/___email_tld.lkp" in="pur_email">
+			<scorer explanationColumn="exp_pur_email_validation" scoreColumn="sco_pur_email">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="EML_NULL" explain="true" key="EML_NULL"/>
+					<scoringEntry score="0" explainAs="EML_ADDRESS" explain="true" key="EML_ADDRESS"/>
+					<scoringEntry score="0" explainAs="EML_TLD" explain="true" key="EML_TLD"/>
+					<scoringEntry score="0" explainAs="EML_AMBIGUOUS_DOMAIN" explain="true" key="EML_AMBIGUOUS_DOMAIN"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Validates the further cleansed email.</comm:comment>
+		</properties>
+		<visual-constraints bounds="504,1632,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Validate_email_2" endpoint="out"/>
+		<target step="Email_is_invalid_2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Whitelist_lookup) --><step id="Whitelist_lookup" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_whitelist.lkp" prefix="false" foreignKeyColumn="in_email">
+			<columns>
+				<columnAssign expression="in_email" name="std_email"/>
+			</columns>
+			<scorer explanationColumn="exp_email" scoreColumn="sco_email">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="EMAIL_WHITELISTED" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Looks up src email in whitelist dictionary.</comm:comment>
+		</properties>
+		<visual-constraints bounds="696,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Whitelist_lookup" endpoint="out"/>
+		<target step="Email_not_whitelisted" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="in_email" type="STRING">
+					<comm:comment>Source email address.</comm:comment>
+				</columnDef>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="696,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="Add Columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out) --><step id="out" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="std_email" type="STRING">
+					<comm:comment>Standardized value of the email address - contains only valid values.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_name" type="STRING">
+					<comm:comment>Column that stores the email address owner if recognised.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_email" type="STRING">
+					<comm:comment>The best existing value of email.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="exp_email" type="STRING">
+					<comm:comment>Explanations if invalid, cleansed or matched.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="sco_email" type="INTEGER">
+					<comm:comment>Data quality score for value of email.</comm:comment>
+				</requiredColumn>
+			</requiredColumns>
+		</properties>
+		<visual-constraints bounds="672,4560,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="696,2952,380,49" borderColor="168,168,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Validate Email parses only a fully valid email from &quot;Name Surname&quot; &lt;email&gt;</modelComment>
+
+
+
+<modelComment bounds="360,384,361,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">03. Squeezing whitespaces to a single space character,
+removing accents, replacing commas with dots, squeezing dots,
+removing leading and trailing dot.</modelComment>
+
+
+
+<modelComment bounds="360,456,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">04. Validate/parse email with TLD check</modelComment>
+
+
+
+<modelComment bounds="360,528,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">05. If the email is invalid, continue to step 6.
+Otherwise, skip remaining parsing options to step 48.</modelComment>
+
+
+
+<modelComment bounds="672,600,385,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">06. If the email is empty or its domain part is consisting only of TLD,
+   skip all parsing options to step 48.
+Otherwise, continue to step 7.</modelComment>
+
+
+
+<modelComment bounds="360,672,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">07. If the email address format is not invalid, continue to step 8.
+Otherwise, continue to step 9.</modelComment>
+
+
+
+<modelComment bounds="744,744,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">08. If the TLD is invalid, skip all parsing options to step 41.
+Otherwise, continue to step 34.</modelComment>
+
+
+
+<modelComment bounds="216,744,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">09. Extracting possible leading stopword from email.</modelComment>
+
+
+
+<modelComment bounds="216,816,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">10. Verifying stopword in dictionary.
+Removing the stopword in case of a match.</modelComment>
+
+
+
+<modelComment bounds="216,888,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">11. Extracting email encapsuled in brackets
+and &quot;Name Surname&quot; &lt;em@il&gt; format.</modelComment>
+
+
+
+<modelComment bounds="360,240,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">01. Looking for email in whitelist.</modelComment>
+
+
+
+<modelComment bounds="216,1032,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">13. If email doesn&#39;t contain &#39;@&#39;, go to step 14.
+Othewise, continue to step 16.</modelComment>
+
+
+
+<modelComment bounds="480,1104,361,217" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">14.  It is possible that &#39;@&#39; and/or &#39;.&#39; are encoded as textual
+synonyms, such as &lt;at&gt;, &lt;a&gt;, &lt;dot&gt;, {at} etc.
+Replace these values from dictionary  with the appropriate
+symbols.
+
+
+
+We use special symbols (&#39;☃&#39;, &#39;☠&#39;), so we can
+remove spaces before/after replaced symbol</modelComment>
+
+
+
+<modelComment bounds="480,1344,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">15. If email still doesn&#39;t contain &#39;@&#39;, skip to step 48.
+Othewise, continue to step 14.</modelComment>
+
+
+
+<modelComment bounds="216,1488,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">16. If email contains two &#39;@&#39; and more, continue to step 17.
+Othewise, continue to step 18.</modelComment>
+
+
+
+<modelComment bounds="192,1632,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">19. Validate/parse cleansed email with TLD check.</modelComment>
+
+
+
+<modelComment bounds="168,1896,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">22. If the email address format is not invalid, continue to step 23.
+Otherwise, continue to step 24.</modelComment>
+
+
+
+<modelComment bounds="192,1704,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">20. If the email is invalid, continue to step 21.
+Otherwise, skip remaining parsing options to step 48.</modelComment>
+
+
+
+<modelComment bounds="456,1800,385,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">21. If the email is empty or its domain part is consisting only of TLD,
+   skip remaining parsing options to step 48.
+Otherwise, continue to step 22.</modelComment>
+
+
+
+<modelComment bounds="552,1968,265,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">23. If the TLD is missing, continue to step 41.
+Otherwise, TLD is invalid, continue to step 34.</modelComment>
+
+
+
+<modelComment bounds="168,2040,361,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">24. Trying to extract anything that resembles an email
+ from within the input. TLD can be delimited by WS
+from the rest of the domain part.</modelComment>
+
+
+
+<modelComment bounds="168,2496,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">30. Validate/parse cleansed email with TLD check.</modelComment>
+
+
+
+<modelComment bounds="192,1560,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">18. Delete explanations from previous Validate Email,
+precleanse input by triming leading and trailing dots.</modelComment>
+
+
+
+<modelComment bounds="216,960,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">12. Set explanatians for results from previous step.</modelComment>
+
+
+
+<modelComment bounds="168,2280,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">27. Score email extraction.</modelComment>
+
+
+
+<modelComment bounds="168,2208,361,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">26. Trims whitespaces and dots from email parts.
+Builds up to 2 possible email proposals, from which
+the better one is later chosen.</modelComment>
+
+
+
+<modelComment bounds="168,2568,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">31. If the email is invalid, continue to step 32.
+Otherwise, skip remaining parsing options to step 48.</modelComment>
+
+
+
+<modelComment bounds="432,2664,409,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">32. If the email is empty or its domain part is consisting only of TLD,
+or the email format is invalid, skip remaining parsing options to step 48.
+Otherwise, continue to step 33.</modelComment>
+
+
+
+<modelComment bounds="432,2736,409,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">33. If the TLD is missing, continue to step 41.
+Otherwise, the TLD is not matched, continue to step 34.</modelComment>
+
+
+
+<modelComment bounds="504,2856,97,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Repairing TLD</modelComment>
+
+
+
+<modelComment bounds="1080,2952,97,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Guessing TLD</modelComment>
+
+
+
+<modelComment bounds="720,3096,385,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">42. Parsing email to local and domain part
+(there is no recognizable TLD).</modelComment>
+
+
+
+<modelComment bounds="144,3024,385,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">34. Extracting email from &quot;Name Surname&quot; &lt;em@il&gt; format.</modelComment>
+
+
+
+<modelComment bounds="168,2112,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">25. If no email is found, skip remaining parsing options.
+Otherwise, continue to step 48.</modelComment>
+
+
+
+<modelComment bounds="168,2352,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">28. Delete explanations from previous Validate Email.</modelComment>
+
+
+
+<modelComment bounds="168,2424,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">29. Split proposals into two respective records.</modelComment>
+
+
+
+<modelComment bounds="720,3024,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">41. Extracting email from &quot;Name Surname&quot; &lt;em@il&gt; format.</modelComment>
+
+
+
+<modelComment bounds="144,3168,385,121" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">35. Parsing email to local, domain and TLD part.
+Converting domain and TLD to lower case.</modelComment>
+
+
+
+<modelComment bounds="144,3312,385,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">36. Looking, if TLD part matches one of the common
+TLD misspelings.</modelComment>
+
+
+
+<modelComment bounds="144,3384,385,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">37. Looking, if domain part matches one of the well
+known email providers and if so, storing its TLD.</modelComment>
+
+
+
+<modelComment bounds="144,3456,385,74" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">38. Deciding between both TLD proposals. If the TLD of the well known
+email provider differs from the corrected one, trusts the the latter,
+if and only if the former differs too much from the original value.
+Otherwise takes the first not null.</modelComment>
+
+
+
+<modelComment bounds="144,3552,385,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">39. Scoring TLD selection.</modelComment>
+
+
+
+<modelComment bounds="720,3168,385,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">43. Looking up the domain name in the list of well known email providers.
+44. If match is found, populating output columns, scoring.</modelComment>
+
+
+
+<modelComment bounds="720,3240,385,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">45. If no known provider was found, continue to step 46.
+Otherwise, continue to step 48.</modelComment>
+
+
+
+<modelComment bounds="336,4416,385,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">53. Setting output columns.</modelComment>
+
+
+
+<modelComment bounds="336,3912,385,121" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">48. Selecting the proposal from step 29, if necessary.</modelComment>
+
+
+
+<modelComment bounds="312,4344,385,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">52. Setting final score and explanations.</modelComment>
+
+
+
+<modelComment bounds="840,3408,289,337" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">46. In case the dot before TLD is missing, 
+try to guess the TLD from the end of the 
+domain string. The best trailing substring
+that matches a TLD name is chosen.</modelComment>
+
+
+
+<modelComment bounds="24,864,97,121" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Valid email path</modelComment>
+
+
+
+<modelComment bounds="24,2880,97,121" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Valid email path</modelComment>
+
+
+
+<modelComment bounds="1320,1896,106,121" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="255,0,0">Invalid email path</modelComment>
+
+
+
+<modelComment bounds="1320,2520,106,121" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="255,0,0">Invalid email path</modelComment>
+
+
+
+<modelComment bounds="1320,2808,106,121" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="255,0,0">Invalid email path</modelComment>
+
+
+
+<modelComment bounds="336,4128,385,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">49. Looking for email in blacklist. If match is found,
+explanation and score is set.</modelComment>
+
+
+
+<modelComment bounds="528,3480,202,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">If proposal(s) exist, choose one</modelComment>
+
+
+
+<modelComment bounds="1128,3648,202,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">If tmp_tld_matched, check guess</modelComment>
+
+
+
+<modelComment bounds="624,336,67,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Valid flow</modelComment>
+
+
+
+<modelComment bounds="624,552,67,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Valid flow</modelComment>
+
+
+
+<modelComment bounds="1128,624,71,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Inalid flow</modelComment>
+
+
+
+<modelComment bounds="1128,768,148,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow - Guessing TLD</modelComment>
+
+
+
+<modelComment bounds="912,792,150,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow - Repairing TLD</modelComment>
+
+
+
+<modelComment bounds="912,1368,71,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Inalid flow</modelComment>
+
+
+
+<modelComment bounds="24,2112,97,121" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Valid email path</modelComment>
+
+
+
+<modelComment bounds="432,1752,67,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Valid flow</modelComment>
+
+
+
+<modelComment bounds="888,1824,71,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Inalid flow</modelComment>
+
+
+
+<modelComment bounds="600,1512,71,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Inalid flow</modelComment>
+
+
+
+<modelComment bounds="720,1848,74,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow</modelComment>
+
+
+
+<modelComment bounds="672,2064,150,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow - Repairing TLD</modelComment>
+
+
+
+<modelComment bounds="888,1992,148,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow - Guessing TLD</modelComment>
+
+
+
+<modelComment bounds="696,2832,150,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow - Repairing TLD</modelComment>
+
+
+
+<modelComment bounds="912,2760,148,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow - Guessing TLD</modelComment>
+
+
+
+<modelComment bounds="384,2616,67,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Valid flow</modelComment>
+
+
+
+<modelComment bounds="792,552,74,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow</modelComment>
+
+
+
+<modelComment bounds="792,696,74,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow</modelComment>
+
+
+
+<modelComment bounds="624,1728,74,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow</modelComment>
+
+
+
+<modelComment bounds="624,1920,74,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow</modelComment>
+
+
+
+<modelComment bounds="600,2136,71,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Inalid flow</modelComment>
+
+
+
+<modelComment bounds="600,2592,74,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Check flow</modelComment>
+
+
+
+<modelComment bounds="912,2688,71,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Inalid flow</modelComment>
+
+
+
+<modelComment bounds="360,312,361,35" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">02. If succesful, skipping all parsing options to step 48.</modelComment>
+
+
+
+<modelComment bounds="288,0,351,154" borderColor="0,0,0" backgroundColor="255,255,255" foregroundColor="51,51,51">LEGEND</modelComment>
+
+
+
+<modelComment bounds="299,58,330,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Detailed comments to solution areas - how it works.</modelComment>
+
+
+
+<modelComment bounds="299,24,330,35" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Comments to main solution areas.</modelComment>
+
+
+
+<modelComment bounds="299,90,330,48" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Additional info related to one step or group of steps - 
+not how it works but why it works like that.</modelComment>
+
+
+
+<modelComment bounds="312,4272,370,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">51. Looking for email&#39;s domain in list of temporary domains. 
+If match found, explanation and score is set.</modelComment>
+
+
+
+<modelComment bounds="312,4200,361,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">50. Get the domain part of the email.</modelComment>
+
+</purity-config>

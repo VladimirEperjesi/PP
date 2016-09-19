@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configDoc screen="images/screen____idc_validate.comp.png" cfgFilePath="workspace://T_component_manager/component/___idc_validate.comp" runtimeVersion="8.0.3.ga-2013-10-24" companyImage="images/logo_about.png" fileName="___idc_validate.comp" date="2013-10-30 15:45:04" xmlns:comm="http://www.ataccama.com/purity/comment" version="1.0">
+  <generatorMeta name="Master Data Center 8.0.3" company="Ataccama Corporation" about="{0}
+
+Version: {1}
+
+Copyright © 2002-{2} {3} All rights reserved.
+
+Your use of the product is subject to the {0} end user license agreement." date="2013-11-04 10:56:00"/>
+  <configAlg name="in (Integration Input)" image="images/InputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.InputStep">
+    <properties>
+      <columns>
+        <columnDef name="in_idc" type="STRING">
+          <comm:comment>Input value of internation dialing code. There are none unsuitable characters but idc code cannot contain comments or any other extra parts containing numbers (these numbers are considered part of the idc code). </comm:comment>
+        </columnDef>
+        <columnDef name="in_number" type="STRING">
+          <comm:comment>Input value of phone number. There are none unsuitable characters but number cannot contain comments or any other extra parts containing numbers (these numbers are considered part of the phone number).</comm:comment>
+        </columnDef>
+      </columns>
+      <shadowColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add Columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="out_idc" type="STRING">
+          <comm:comment>Output value of international dialing code. It is parsed value of IDC that is validated in etalon.</comm:comment>
+        </addedColumn>
+        <addedColumn name="exp_idc" type="STRING">
+          <comm:comment>Data quality explanation codes of international dialing code.</comm:comment>
+        </addedColumn>
+        <addedColumn name="sco_idc" type="INTEGER">
+          <comm:comment>Data quality score of international dialing code.</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Internal_columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="pur_idc_1" type="STRING">
+          <comm:comment>Stores the first digit from the pre-cleansed number, this column is then used for validation in etalon.</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_idc_2" type="STRING">
+          <comm:comment>Stores the first 2 digits from the pre-cleansed number, this column is then used for validation in etalon.</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_idc_3" type="STRING">
+          <comm:comment>Stores the first 3 digits from the pre-cleansed number, this column is then used for validation in etalon.</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_idc_4" type="STRING">
+          <comm:comment>Stores the first 4 digits from the pre-cleansed number, this column is then used for validation in etalon.</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_number" type="STRING">
+          <comm:comment>Pre-cleansed value of phone number.</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_idc" type="STRING">
+          <comm:comment>Pre-cleansed value of IDC code.</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_idc_number" type="STRING">
+          <comm:comment>Value of IDC code, that wasm derived from phone number and is validated in etalon.</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+      <comm:comment>Adding internal columns used only within this plan (they are not sent to output).</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Set_pur_values (Matching Values)" image="images/MatchingValues.large.png" class="com.ataccama.dqc.tasks.clean.MatchingValues">
+    <properties>
+      <columns>
+        <matchingColumn expression="in_number" name="pur_number">
+          <generator doRemoveRepeatedChars="false" doSqueezeWS="false" supportedCharacters="[:digit:]" doRemoveDia="false" doUpperCase="false"/>
+          <scorer explanationColumn="exp_idc" scoreColumn="sco_idc">
+            <scoringEntries>
+              <scoringEntry description="Input column contained non-digital characters, that were removed from pre-cleansed value" score="1" explainAs="IDC_NON_DIGIT_CHARS_REMOVED" explain="true" key="MV_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </matchingColumn>
+        <matchingColumn expression="in_idc" name="pur_idc">
+          <generator doRemoveRepeatedChars="false" doSqueezeWS="false" supportedCharacters="[:digit:]" doRemoveDia="false" doUpperCase="false"/>
+          <scorer explanationColumn="exp_idc" scoreColumn="sco_idc">
+            <scoringEntries>
+              <scoringEntry description="Input column contained non-digital characters, that were removed from pre-cleansed value" score="1" explainAs="IDC_NON_DIGIT_CHARS_REMOVED" explain="true" key="MV_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </matchingColumn>
+      </columns>
+      <comm:comment>Pre-cleansing of input values - all non-digital characters are removed.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove_011_from_beginning (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="pur_number">
+          <expression>case(
+find(&#39;^011&#39;,pur_number), substr(pur_number,3), 
+find(&#39;^00&#39;,pur_number), substr(pur_number,2), 
+pur_number
+)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment column="pur_idc">
+          <expression>case(
+find(&#39;^011&#39;,pur_idc), substr(pur_idc,3), 
+find(&#39;^00&#39;,pur_idc), substr(pur_idc,2), 
+pur_idc
+)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Remove 00 or 011 indicator of foreign IDC from pre-cleansed values</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Pur_idc_not_null (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="pur_idc is not null">
+      <comm:comment>Dividing the flow so records with non-nul pre-cleansed IDC code will be processed differently from pre-cleansed phone numbers.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Find_foreign_idc_from_idc (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___idc_codes.lkp" prefix="false" foreignKeyColumn="pur_idc">
+      <columns>
+        <columnAssign expression="lookup.key" name="out_idc"/>
+      </columns>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Validating IDC code (originated from input IDC code) in etalon. If it is found validated value is set.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Prepare_idc_for_lookup (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="left(pur_number,1)" column="pur_idc_1">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="left(pur_number,2)" column="pur_idc_2">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="left(pur_number,3)" column="pur_idc_3">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="left(pur_number,4)" column="pur_idc_4">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Prepare columns with first 1-4 digits from cleansed number (from previous step) to be validated in lookup (with etalon of foreign idc).  Because at this moment we only guess number of digits in IDC, we need to look for all possibilities (therefore 4 columns with different IDC length are created).</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Find_foreign_idc_1 (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___idc_codes.lkp" prefix="false" foreignKeyColumn="pur_idc_1">
+      <columns>
+        <columnAssign expression="lookup.key" name="pur_idc_number"/>
+      </columns>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Validating 1-digit IDC (originated from phone number) in etalon. If it is found validated value is set.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Find_foreign_idc_2 (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___idc_codes.lkp" prefix="false" foreignKeyColumn="pur_idc_2">
+      <columns>
+        <columnAssign expression="lookup.key" name="pur_idc_number"/>
+      </columns>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Validating 2-digit IDC (originated from phone number) in etalon. If it is found validated value is set (In case, that validated value was filled also in previous step, it is overwritten now by current value).</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Find_foreign_idc_3 (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___idc_codes.lkp" prefix="false" foreignKeyColumn="pur_idc_3">
+      <columns>
+        <columnAssign expression="lookup.key" name="pur_idc_number"/>
+      </columns>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Validating 3-digit IDC (originated from phone number) in etalon. If it is found validated value is set (In case, that validated value was filled also in previous step, it is overwritten now by current value).</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Find_foreign_idc_4 (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___idc_codes.lkp" prefix="false" foreignKeyColumn="pur_idc_4">
+      <columns>
+        <columnAssign expression="lookup.key" name="pur_idc_number"/>
+      </columns>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Validating 4-digit IDC (originated from phone number) in etalon. If it is found validated value is set (In case, that validated value was filled also in previous step, it is overwritten now by current value).</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Sink_pur_idc_not_null (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union the flow for the validated IDC code originated from IDC code and the validated IDC originated from phone number.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Set_output_values (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="nvl(out_idc, pur_idc_number)" column="out_idc">
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Setting output column of IDC code as the best existing value of IDC code, that is the first non-null value from (in this order): Validated IDC code originated in input IDC code value, Validated IDC code originated in phone number.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Set_scoring_explanations (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_idc" defaultExplainColumn="exp_idc">
+      <scoringCases>
+        <scoringCase condition="nvl(pur_idc, pur_number) is null" description="Input or pre-cleansed value of IDC code or phone number is null" explanation="&#39;IDC_EMPTY&#39;" score="10000000"/>
+        <scoringCase condition="out_idc is null and nvl(in_idc,in_number) is not null" description="IDC code was not found in etalon and is considered invalid." explanation="&#39;IDC_NOT_FOUND_IN_ETALON&#39;" score="10000"/>
+      </scoringCases>
+      <comm:comment>Set additonal scoring and explanantions.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove_internal_columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns/>
+      <removedColumns>
+        <columnRef name="pur_idc_1"/>
+        <columnRef name="pur_idc_2"/>
+        <columnRef name="pur_idc_3"/>
+        <columnRef name="pur_idc_4"/>
+        <columnRef name="pur_number"/>
+        <columnRef name="pur_idc"/>
+        <columnRef name="pur_idc_number"/>
+      </removedColumns>
+      <comm:comment>Removing all internal columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="out (Integration Output)" image="images/OutputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep">
+    <properties>
+      <requiredColumns>
+        <requiredColumn name="out_idc" type="STRING">
+          <comm:comment>Output value of international dialing code. It is parsed value of IDC that is validated in etalon.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="exp_idc" type="STRING">
+          <comm:comment>Data quality explanation codes of international dialing code.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="sco_idc" type="INTEGER">
+          <comm:comment>Data quality score of international dialing code.</comm:comment>
+        </requiredColumn>
+      </requiredColumns>
+    </properties>
+  </configAlg>
+</configDoc>

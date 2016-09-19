@@ -1,0 +1,581 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<component-id>idc_validate</component-id>
+	<icon type="5">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</icon>
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Add Columns) --><step id="Add Columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="out_idc" type="STRING">
+					<comm:comment>Output value of the international dialing code. It is a parsed value of the IDC validated in the etalon.</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_idc" type="STRING">
+					<comm:comment>Data quality explanation codes of the international dialing code.</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_idc" type="INTEGER">
+					<comm:comment>Data quality score of the international dialing code.</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="72,-168,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add Columns" endpoint="out"/>
+		<target step="Internal_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Find_foreign_idc_1) --><step id="Find_foreign_idc_1" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___idc_codes.lkp" prefix="false" foreignKeyColumn="pur_idc_1">
+			<columns>
+				<columnAssign expression="lookup.key" name="pur_idc_number"/>
+			</columns>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Validating 1-digit IDC (originated from phone number) in etalon. If it is found validated value is set.</comm:comment>
+		</properties>
+		<visual-constraints bounds="-96,264,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Find_foreign_idc_1" endpoint="out"/>
+		<target step="Find_foreign_idc_2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Find_foreign_idc_2) --><step id="Find_foreign_idc_2" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___idc_codes.lkp" prefix="false" foreignKeyColumn="pur_idc_2">
+			<columns>
+				<columnAssign expression="lookup.key" name="pur_idc_number"/>
+			</columns>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Validating 2-digit IDC (originated from phone number) in etalon. If it is found validated value is set (In case, that validated value was filled also in previous step, it is overwritten now by current value).</comm:comment>
+		</properties>
+		<visual-constraints bounds="-96,336,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Find_foreign_idc_2" endpoint="out"/>
+		<target step="Find_foreign_idc_3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Find_foreign_idc_3) --><step id="Find_foreign_idc_3" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___idc_codes.lkp" prefix="false" foreignKeyColumn="pur_idc_3">
+			<columns>
+				<columnAssign expression="lookup.key" name="pur_idc_number"/>
+			</columns>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Validating 3-digit IDC (originated from phone number) in etalon. If it is found validated value is set (In case, that validated value was filled also in previous step, it is overwritten now by current value).</comm:comment>
+		</properties>
+		<visual-constraints bounds="-96,408,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Find_foreign_idc_3" endpoint="out"/>
+		<target step="Find_foreign_idc_4" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Find_foreign_idc_4) --><step id="Find_foreign_idc_4" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___idc_codes.lkp" prefix="false" foreignKeyColumn="pur_idc_4">
+			<columns>
+				<columnAssign expression="lookup.key" name="pur_idc_number"/>
+			</columns>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Validating 4-digit IDC (originated from phone number) in etalon. If it is found validated value is set (In case, that validated value was filled also in previous step, it is overwritten now by current value).</comm:comment>
+		</properties>
+		<visual-constraints bounds="-96,480,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Find_foreign_idc_4" endpoint="out"/>
+		<target step="Sink_pur_idc_not_null" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-73,552"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Find_foreign_idc_from_idc) --><step id="Find_foreign_idc_from_idc" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___idc_codes.lkp" prefix="false" foreignKeyColumn="pur_idc">
+			<columns>
+				<columnAssign expression="lookup.key" name="out_idc"/>
+			</columns>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Validating IDC code (originated from input IDC code) in etalon. If it is found validated value is set.</comm:comment>
+		</properties>
+		<visual-constraints bounds="216,336,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Find_foreign_idc_from_idc" endpoint="out"/>
+		<target step="Sink_pur_idc_not_null" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="239,552"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Internal_columns) --><step id="Internal_columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="pur_idc_1" type="STRING">
+					<comm:comment>Stores the first digit from the pre-cleansed number, this column is then used for validation in etalon.</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_idc_2" type="STRING">
+					<comm:comment>Stores the first 2 digits from the pre-cleansed number, this column is then used for validation in etalon.</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_idc_3" type="STRING">
+					<comm:comment>Stores the first 3 digits from the pre-cleansed number, this column is then used for validation in etalon.</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_idc_4" type="STRING">
+					<comm:comment>Stores the first 4 digits from the pre-cleansed number, this column is then used for validation in etalon.</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_number" type="STRING">
+					<comm:comment>Pre-cleansed value of phone number.</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_idc" type="STRING">
+					<comm:comment>Pre-cleansed value of IDC code.</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_idc_number" type="STRING">
+					<comm:comment>Value of IDC code, that wasm derived from phone number and is validated in etalon.</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>Adding internal columns used only within this plan (they are not sent to output).</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,-96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Internal_columns" endpoint="out"/>
+		<target step="Set_pur_values" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Prepare_idc_for_lookup) --><step id="Prepare_idc_for_lookup" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="left(pur_number,1)" column="pur_idc_1">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="left(pur_number,2)" column="pur_idc_2">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="left(pur_number,3)" column="pur_idc_3">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="left(pur_number,4)" column="pur_idc_4">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Prepare columns with first 1-4 digits from cleansed number (from previous step) to be validated in lookup (with etalon of foreign idc).  Because at this moment we only guess number of digits in IDC, we need to look for all possibilities (therefore 4 columns with different IDC length are created).</comm:comment>
+		</properties>
+		<visual-constraints bounds="-96,192,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Prepare_idc_for_lookup" endpoint="out"/>
+		<target step="Find_foreign_idc_1" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Pur_idc_not_null) --><step id="Pur_idc_not_null" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="pur_idc is not null">
+			<comm:comment>Dividing the flow so records with non-nul pre-cleansed IDC code will be processed differently from pre-cleansed phone numbers.</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,120,48,48" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Pur_idc_not_null" endpoint="out_true"/>
+		<target step="Find_foreign_idc_from_idc" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="239,168"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Pur_idc_not_null" endpoint="out_false"/>
+		<target step="Prepare_idc_for_lookup" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-73,168"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove_011_from_beginning) --><step id="Remove_011_from_beginning" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="pur_number">
+					<expression>case(
+find(&#39;^011&#39;,pur_number), substr(pur_number,3), 
+find(&#39;^00&#39;,pur_number), substr(pur_number,2), 
+pur_number
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="pur_idc">
+					<expression>case(
+find(&#39;^011&#39;,pur_idc), substr(pur_idc,3), 
+find(&#39;^00&#39;,pur_idc), substr(pur_idc,2), 
+pur_idc
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Remove 00 or 011 indicator of foreign IDC from pre-cleansed values</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,48,48,48" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove_011_from_beginning" endpoint="out"/>
+		<target step="Pur_idc_not_null" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove_internal_columns) --><step id="Remove_internal_columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="pur_idc_1"/>
+				<columnRef name="pur_idc_2"/>
+				<columnRef name="pur_idc_3"/>
+				<columnRef name="pur_idc_4"/>
+				<columnRef name="pur_number"/>
+				<columnRef name="pur_idc"/>
+				<columnRef name="pur_idc_number"/>
+				<columnRef name="in_idc"/>
+				<columnRef name="in_number"/>
+			</removedColumns>
+			<comm:comment>Removing all internal columns</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,771,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove_internal_columns" endpoint="out"/>
+		<target step="out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Set_output_values) --><step id="Set_output_values" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="nvl(out_idc, pur_idc_number)" column="out_idc">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Setting output column of IDC code as the best existing value of IDC code, that is the first non-null value from (in this order): Validated IDC code originated in input IDC code value, Validated IDC code originated in phone number.</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,624,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Set_output_values" endpoint="out"/>
+		<target step="Set_scoring_explanations" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Set_pur_values) --><step id="Set_pur_values" className="com.ataccama.dqc.tasks.clean.MatchingValues" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<matchingColumn expression="in_number" name="pur_number">
+					<generator doRemoveRepeatedChars="false" doSqueezeWS="false" supportedCharacters="[:digit:]" doRemoveDia="false" doUpperCase="false"/>
+					<scorer explanationColumn="exp_idc" scoreColumn="sco_idc">
+						<scoringEntries>
+							<scoringEntry description="Input column contained non-digital characters, that were removed from pre-cleansed value" score="1" explainAs="IDC_NON_DIGIT_CHARS_REMOVED" explain="true" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</matchingColumn>
+				<matchingColumn expression="in_idc" name="pur_idc">
+					<generator doRemoveRepeatedChars="false" doSqueezeWS="false" supportedCharacters="[:digit:]" doRemoveDia="false" doUpperCase="false"/>
+					<scorer explanationColumn="exp_idc" scoreColumn="sco_idc">
+						<scoringEntries>
+							<scoringEntry description="Input column contained non-digital characters, that were removed from pre-cleansed value" score="1" explainAs="IDC_NON_DIGIT_CHARS_REMOVED" explain="true" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</matchingColumn>
+			</columns>
+			<comm:comment>Pre-cleansing of input values - all non-digital characters are removed.</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,-24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Set_pur_values" endpoint="out"/>
+		<target step="Remove_011_from_beginning" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Set_scoring_explanations) --><step id="Set_scoring_explanations" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_idc" defaultExplainColumn="exp_idc">
+			<scoringCases>
+				<scoringCase condition="nvl(pur_idc, pur_number) is null" description="Input or pre-cleansed value of IDC code or phone number is null" explanation="&#39;IDC_EMPTY&#39;" score="10000000"/>
+				<scoringCase condition="out_idc is null and nvl(in_idc,in_number) is not null" description="IDC code was not found in etalon and is considered invalid." explanation="&#39;IDC_NOT_FOUND_IN_ETALON&#39;" score="10000"/>
+			</scoringCases>
+			<comm:comment>Set additonal scoring and explanantions.</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,696,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Set_scoring_explanations" endpoint="out"/>
+		<target step="Remove_internal_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Sink_pur_idc_not_null) --><step id="Sink_pur_idc_not_null" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union the flow for the validated IDC code originated from IDC code and the validated IDC originated from phone number.</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,552,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Sink_pur_idc_not_null" endpoint="out"/>
+		<target step="Set_output_values" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="in_idc" type="STRING">
+					<comm:comment>Input value of the international dialing code. All characters are allowed, but the IDC cannot contain comments or any other extra parts containing numbers (these numbers are considered part of the IDC). </comm:comment>
+				</columnDef>
+				<columnDef name="in_number" type="STRING">
+					<comm:comment>Input value of the phone number. All characters are allowed, but the number cannot contain comments or any other extra parts containing numbers (these numbers are considered part of the phone number).</comm:comment>
+				</columnDef>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="72,-240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="Add Columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out) --><step id="out" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="out_idc" type="STRING">
+					<comm:comment>Output value of the international dialing code. It is a parsed value of the IDC validated in the etalon.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="exp_idc" type="STRING">
+					<comm:comment>Data quality explanation codes of the international dialing code.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="sco_idc" type="INTEGER">
+					<comm:comment>Data quality score of the international dialing code.</comm:comment>
+				</requiredColumn>
+			</requiredColumns>
+		</properties>
+		<visual-constraints bounds="72,840,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="-440,-24,519,48" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">1. Pre-cleansing of input values (removing all non-digital characters). 
+Set explanations and score according to executed modifications.</modelComment>
+
+
+
+<modelComment bounds="-440,192,369,48" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">4. Prepare IDC code values for etalon validation 
+by cutting first 1 to 4 digits.</modelComment>
+
+
+
+<modelComment bounds="-441,264,346,48" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">5. Try to find first cut digit in etalon of IDC codes. 
+If it is found, set it as validated value of IDC code (from number).</modelComment>
+
+
+
+<modelComment bounds="-442,331,357,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">6. Try to find first 2 cut digits in etalon of IDC codes. 
+If it is found, set it as validated value of IDC code (from number). 
+This operation overwrites validated value of IDC code in previous set.</modelComment>
+
+
+
+<modelComment bounds="-442,401,357,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">7. Try to find first 3 cut digits in etalon of IDC codes. 
+If it is found, set it as validated value of IDC code (from number). 
+This operation overwrites validated value of IDC code in previous set.</modelComment>
+
+
+
+<modelComment bounds="-441,478,357,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">8. Try to find first 4 cut digits in etalon of IDC codes. 
+If it is found, set it as validated value of IDC code (from number). 
+This operation overwrites validated value of IDC code in previous set.</modelComment>
+
+
+
+<modelComment bounds="247,325,330,95" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">
+
+
+
+3. Find IDC code in etalon. 
+Set validated value of IDC (from IDC) if it is verified.</modelComment>
+
+
+
+<modelComment bounds="-440,618,529,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">9. Set output value (the best existing value) of IDC code as the first non-null value from (in this order): 
+•	Validated value of IDC code (from IDC), 
+•	Validated value of IDC code (from number). </modelComment>
+
+
+
+<modelComment bounds="-440,700,522,35" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">10. Set additional explanantions and score.</modelComment>
+
+
+
+<modelComment bounds="216,120,330,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Divide flow for IDC originated from IDC code or phone number</modelComment>
+
+
+
+<modelComment bounds="-440,47,521,50" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">2. Remove indicator of foreign IDC (&quot;00&quot; or &quot;011&quot; - most used codes) code 
+from pre-cleansed values of IDC code and phone number.</modelComment>
+
+
+
+<modelComment bounds="240,-240,351,154" borderColor="0,0,0" backgroundColor="255,255,255" foregroundColor="51,51,51">LEGEND</modelComment>
+
+
+
+<modelComment bounds="251,-182,330,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Detailed comments to solution areas - how it works.</modelComment>
+
+
+
+<modelComment bounds="251,-216,330,35" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Comments to main solution areas.</modelComment>
+
+
+
+<modelComment bounds="251,-150,330,48" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Additional info related to one step or group of steps – 
+not how it works but why it works like that.</modelComment>
+
+</purity-config>

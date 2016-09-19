@@ -1,0 +1,1129 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<component-id>date_validate</component-id>
+	<icon type="5">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</icon>
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Add Columns) --><step id="Add Columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="std_date" type="DAY">
+					<comm:comment>Standardized value of the date: cleansed, parsed and validated by business logic.</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_datetime" type="DATETIME">
+					<comm:comment>Standardized value of the datetime: cleansed, parsed and validated by business logic.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_date" type="DAY">
+					<comm:comment>The best existing value of a date in the DAY format.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_datetime" type="DATETIME">
+					<comm:comment>The best existing value of a date in the DATETIME format.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_pattern" type="STRING">
+					<comm:comment>Parsed pattern of the date/datetime.</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_datetime" type="INTEGER">
+					<comm:comment>Data quality score penalizing the discrepancies in the date value.</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_datetime" type="STRING">
+					<comm:comment>Data quality explananation for the discrepancies in the date value.</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="288,-1176,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add Columns" endpoint="out"/>
+		<target step="Internal_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (All dates) --><step id="All dates" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union all input records</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,72,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="All dates" endpoint="out"/>
+		<target step="Check time validity" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Check non-numeric date validity ) --><step id="Check non-numeric date validity " className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="tmp_date_valid">
+					<expression>toDate(pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day, &#39;yyyy-MM-dd&#39;) is not null or
+toDate(pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day, &#39;yy-MM-dd&#39;) is not null
+</expression>
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+					<comm:comment>For 2-digit year, toDate function &quot;goes 20 years into the future or 80 years into the past&quot; from current date.
+E.g.:
+If today was 2014-10-13,
+input date 34-10-13 would be recognized as 2034-10-13
+input date 34-10-14 would be recognized as 1934-10-14</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Check if parsed parts compose valid date.
+
+It will invalidate dates like 30.2.2000</comm:comment>
+		</properties>
+		<visual-constraints bounds="144,-240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Check non-numeric date validity " endpoint="out"/>
+		<target step="Valid non-numeric date" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Check numeric date validity) --><step id="Check numeric date validity" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="tmp_date_valid">
+					<expression>toDate(pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day, &#39;yyyy-MM-dd&#39;) is not null or
+toDate(pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day, &#39;yy-MM-dd&#39;) is not null
+</expression>
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+					<comm:comment>For 2-digit year, toDate function &quot;goes 20 years into the future or 80 years into the past&quot; from current date.
+E.g.:
+If today was 2014-10-13,
+input date 34-10-13 would be recognized as 2034-10-13
+input date 34-10-14 would be recognized as 1934-10-14</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Check if parsed parts compose valid date</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,-528,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Check numeric date validity" endpoint="out"/>
+		<target step="Valid numeric date" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Check time validity) --><step id="Check time validity" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties whenCondition="pur_time is not null">
+			<assignments>
+				<assignment column="tmp_time_valid">
+					<expression>toDateTime(pur_time, &#39;HH:mm:ss.SSS&#39;) is not null or 
+toDateTime(pur_time, &#39;HH:mm:ss&#39;) is not null
+</expression>
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Check time validity when it was parsed
+
+24 hours time mode is checked.
+Hours, minutes and seconds are required.
+Milliseconds are optional</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,144,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Check time validity" endpoint="out"/>
+		<target step="Set out values" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Date/datetime parsed) --><step id="Date/datetime parsed" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>$digit_count:=length(trashNonDigits(pur_date));
+$special_char_count:=length(substituteAll(@&quot;[^\p{Punct}☃☠]&quot;, &#39;&#39;, pur_date));
+
+iif
+(
+	pat_datetime is null, 
+		false,
+	iif
+	(
+		$digit_count &lt; 8,
+			$special_char_count &gt; 1,
+			true
+	)
+)	
+	
+		</condition>
+			<comm:comment>Check, whether possible date was parsed</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,-672,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Date/datetime parsed" endpoint="out_true"/>
+		<target step="Parse numeric date" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Date/datetime parsed" endpoint="out_false"/>
+		<target step="Unparsed input" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Empty input) --><step id="Empty input" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_datetime" defaultExplainColumn="exp_datetime">
+			<scoringCases>
+				<scoringCase condition="true" explanation="&#39;DATE_EMPTY_INPUT&#39;" score="10000000"/>
+			</scoringCases>
+		</properties>
+		<visual-constraints bounds="-24,-984,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Empty input" endpoint="out"/>
+		<target step="Invalid dates" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-48,-936"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Internal_columns) --><step id="Internal_columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="pur_datetime" type="STRING">
+					<comm:comment>Cleansed datetime: squeezed spaces, replaced names of months, replaced ordinal numbers (e.g. 1st -&gt; 01)</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_date" type="STRING">
+					<comm:comment>Cleansed date part</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_time" type="STRING">
+					<comm:comment>Cleansed time part</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_date_day" type="STRING">
+					<comm:comment>Day number (1-31)</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_date_month" type="STRING">
+					<comm:comment>Month number (1-12)</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_date_year" type="STRING">
+					<comm:comment>2 or 4-digit long year</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_comment_before" type="STRING">
+					<comm:comment>Optional comment before datetime</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_comment_after" type="STRING">
+					<comm:comment>Optional comment after datetime</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_time_valid" type="BOOLEAN">
+					<comm:comment>Time validity flag</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_date_valid" type="BOOLEAN">
+					<comm:comment>Date validity flag</comm:comment>
+				</addedColumn>
+				<addedColumn name="pat_datetime" type="STRING">
+					<comm:comment>Pattern of datetime</comm:comment>
+				</addedColumn>
+				<addedColumn name="pat_date" type="STRING">
+					<comm:comment>Pattern of date</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>Add internal columns used only within this plan (They are not sent to output).</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,-1104,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Internal_columns" endpoint="out"/>
+		<target step="Not empty" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Invalid date) --><step id="Invalid date" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_datetime" defaultExplainColumn="exp_datetime">
+			<scoringCases>
+				<scoringCase condition="true" explanation="&#39;DATE_INVALID&#39;" score="100000"/>
+			</scoringCases>
+		</properties>
+		<visual-constraints bounds="-24,-96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Invalid date" endpoint="out"/>
+		<target step="Invalid dates" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-48,-48"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Invalid dates) --><step id="Invalid dates" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union invalid, unparsed, empty inputs</comm:comment>
+		</properties>
+		<visual-constraints bounds="-72,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Invalid dates" endpoint="out"/>
+		<target step="All dates" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="276,72"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Non numeric date) --><step id="Non numeric date" className="com.ataccama.dqc.tasks.parse.PatternParserAlgorithm" disabled="false" mode="NORMAL">
+		<properties fullTrashScope="false" in="pur_date" patternName="pat_date">
+			<parserConfig>
+				<components>
+					<component definition="{REGEXP: pattern=@&quot;☠(0?[1-9]|[12][0-9]|3[01])&quot;}" storeParsedInto="pur_date_day" name="DAY_ORDINAL">
+						<scorer>
+							<scoringEntries>
+								<scoringEntry score="0" explainAs="PPV_MISMATCH" explain="true" key="PPV_MISMATCH"/>
+							</scoringEntries>
+						</scorer>
+						<comm:comment>Day from 1 to 31, with skull char (☠) in front. It means, that there was ordinal number on the input (e.g. 1st, 2nd, ..)</comm:comment>
+					</component>
+					<component definition="{REGEXP: pattern=@&quot;(0?[1-9]|[12][0-9]|3[01])&quot;}" storeParsedInto="pur_date_day" name="DAY">
+						<scorer>
+							<scoringEntries>
+								<scoringEntry score="0" explainAs="PPV_MISMATCH" explain="true" key="PPV_MISMATCH"/>
+							</scoringEntries>
+						</scorer>
+						<comm:comment>Day from 1 to 31</comm:comment>
+					</component>
+					<component definition="{REGEXP: pattern=@&quot;☃(0?[1-9]|1[012])&quot;}" storeParsedInto="pur_date_month" name="MONTH_NAME">
+						<scorer>
+							<scoringEntries>
+								<scoringEntry score="0" explainAs="PPV_MISMATCH" explain="true" key="PPV_MISMATCH"/>
+							</scoringEntries>
+						</scorer>
+						<comm:comment>Month from 1 to 12, with required snowman char (☃) in front. This means, that there was month name on the input instead of the numeric month order.</comm:comment>
+					</component>
+					<component definition="{REGEXP: pattern=@&quot;(\d{4})&quot;}" storeParsedInto="pur_date_year" name="YEAR4">
+						<scorer>
+							<scoringEntries>
+								<scoringEntry score="0" explainAs="PPV_MISMATCH" explain="true" key="PPV_MISMATCH"/>
+							</scoringEntries>
+						</scorer>
+						<comm:comment>4-digit long year.</comm:comment>
+					</component>
+					<component definition="{REGEXP: pattern=@&quot;(\d{2})&quot;}" storeParsedInto="pur_date_year" name="YEAR2">
+						<scorer>
+							<scoringEntries>
+								<scoringEntry score="0" explainAs="PPV_MISMATCH" explain="true" key="PPV_MISMATCH"/>
+							</scoringEntries>
+						</scorer>
+						<comm:comment>2-digit long year</comm:comment>
+					</component>
+				</components>
+				<patternGroups>
+					<patternGroup>
+						<patterns>
+							<pattern definition="{DAY_ORDINAL}{MONTH_NAME}{YEAR4}" priority="1" name="Dth MMM(M) YYYY"/>
+							<pattern definition="{DAY_ORDINAL}{MONTH_NAME}{YEAR2}" priority="1" name="Dth MMM(M) YY"/>
+							<pattern definition="{DAY}{MONTH_NAME}{YEAR4}" priority="1" name="D MMM(M) YYYY"/>
+							<pattern definition="{MONTH_NAME}{DAY_ORDINAL}{YEAR4}" priority="1" name="MMM(M) Dth YYYY"/>
+							<pattern definition="{MONTH_NAME}{DAY_ORDINAL}{YEAR2}" priority="1" name="MMM(M) Dth YY"/>
+							<pattern definition="{MONTH_NAME}{DAY}{YEAR4}" priority="1" name="MMM(M) D YYYY"/>
+							<pattern definition="{YEAR4}{MONTH_NAME}{DAY_ORDINAL}" priority="1" name="YYYY MMM(M) Dth"/>
+							<pattern definition="{YEAR2}{MONTH_NAME}{DAY_ORDINAL}" priority="1" name="YY MMM(M) Dth"/>
+							<pattern definition="{YEAR4}{MONTH_NAME}{DAY}" priority="1" name="YYYY MMM(M) D"/>
+						</patterns>
+						<comm:comment>Arbitrary position of day, month and year.
+There has to be month name on input.
+If 2-digit long year is present, day had to be in ordinal number form on input.
+This means, that dates &quot;June 13 1997&quot; and &quot;June 13th 97&quot; would be parsed, but &quot;June 13 97&quot; would not.</comm:comment>
+					</patternGroup>
+				</patternGroups>
+			</parserConfig>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="PP_NULL" explain="false" key="PP_NULL"/>
+					<scoringEntry score="0" explainAs="DATE_NOT_PARSED" explain="false" key="PP_NO_PATTERN"/>
+					<scoringEntry score="0" explainAs="DATE_AMBIGUOUS" explain="false" key="PP_MORE_PATTERNS"/>
+					<scoringEntry score="0" explainAs="PP_TRASH" explain="false" key="PP_TRASH"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizerConfig whiteSpaceDefinition="[:white:]./,-">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]☠☃" tokenCharacters="[:digit:]"/>
+				</types>
+				<comm:comment>Date part can be separated by space, dot, forward slash or dash. They can be mixed.
+
+E.g. &quot;☠15.☃10/85&quot; - this would be created from input &quot;15th. October/1985&quot;</comm:comment>
+			</tokenizerConfig>
+			<comm:comment>If date wasn&#39;t parsed or valid using predefined patterns, try to find date parts with lesser format strictness</comm:comment>
+		</properties>
+		<visual-constraints bounds="144,-384,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Non numeric date" endpoint="out"/>
+		<target step="Remove snowman and skull" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Non-numeric date format) --><step id="Non-numeric date format" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_datetime" defaultExplainColumn="exp_datetime">
+			<scoringCases>
+				<scoringCase condition="true" explanation="&#39;DATE_WITH_MONTH_NAME&#39;" score="100"/>
+			</scoringCases>
+			<comm:comment>Benevolent date format - it won&#39;t be in std values</comm:comment>
+		</properties>
+		<visual-constraints bounds="168,-96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Non-numeric date format" endpoint="out"/>
+		<target step="Valid dates" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="192,-24"/>
+				<point location="192,0"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Not empty) --><step id="Not empty" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="in_datetime is not null">
+			<comm:comment>Check, whether input is empty</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,-1032,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Not empty" endpoint="out_false"/>
+		<target step="Empty input" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Not empty" endpoint="out_true"/>
+		<target step="Squeeze spaces" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Parse numeric date) --><step id="Parse numeric date" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_date" regexNameColumn="pat_date" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="(\d{1,2})\.\s?(\d{1,2})\.\s?(\d{2}|\d{4})" name="dd.MM.(yy)yy" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_date_day" substitution="$1">
+							<comm:comment>One or two digits</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_date_month" substitution="$2">
+							<comm:comment>One or two digits</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_date_year" substitution="$3">
+							<comm:comment>Two or four digits</comm:comment>
+						</regexOutputColumn>
+					</resultColumns>
+					<comm:comment>E.g. 
+15. 10. 1985</comm:comment>
+				</regExpression>
+				<regExpression pattern="(\d{1,2})/\s?(\d{1,2})/\s?(\d{2}|\d{4})" name="MM/dd/(yy)yy" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_date_day" substitution="$2">
+							<comm:comment>One or two digits</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_date_month" substitution="$1">
+							<comm:comment>One or two digits</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_date_year" substitution="$3">
+							<comm:comment>Two or four digits</comm:comment>
+						</regexOutputColumn>
+					</resultColumns>
+					<comm:comment>E.g.
+10/15/85</comm:comment>
+				</regExpression>
+				<regExpression pattern="(\d{2}|\d{4})\s?-\s?(\d{1,2})\s?-\s?(\d{1,2})" name="(yy)yy-MM-dd" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_date_day" substitution="$3">
+							<comm:comment>One or two digits</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_date_month" substitution="$2">
+							<comm:comment>One or two digits</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_date_year" substitution="$1">
+							<comm:comment>Two or four digits</comm:comment>
+						</regexOutputColumn>
+					</resultColumns>
+					<comm:comment>E.g.
+1985- 10 - 15</comm:comment>
+				</regExpression>
+				<regExpression pattern="(\d{4})(\d{2})(\d{2})" name="yyyyMMdd" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_date_day" substitution="$3">
+							<comm:comment>One or two digits</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_date_month" substitution="$2">
+							<comm:comment>One or two digits</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_date_year" substitution="$1">
+							<comm:comment>Two or four digits</comm:comment>
+						</regexOutputColumn>
+					</resultColumns>
+					<comm:comment>E.g.
+19851015</comm:comment>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Parse date part.
+
+Predefined formats are used.
+If you prefer different formats, e.g. instead of &quot;MM/dd/yyyy&quot; you need &quot;/dd/MM/yyyy&quot;, you need to make change here.</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,-600,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Parse numeric date" endpoint="out"/>
+		<target step="Check numeric date validity" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove internal columns) --><step id="Remove internal columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="pur_date"/>
+				<columnRef name="pur_date_day"/>
+				<columnRef name="pur_date_month"/>
+				<columnRef name="pur_date_year"/>
+				<columnRef name="pur_datetime"/>
+				<columnRef name="tmp_comment_before"/>
+				<columnRef name="pur_time"/>
+				<columnRef name="tmp_comment_after"/>
+				<columnRef name="tmp_time_valid"/>
+				<columnRef name="tmp_date_valid"/>
+				<columnRef name="pat_datetime"/>
+				<columnRef name="pat_date"/>
+			</removedColumns>
+			<comm:comment>Removing internal columns</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,432,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove internal columns" endpoint="out"/>
+		<target step="out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove snowman and skull) --><step id="Remove snowman and skull" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="pur_date_month">
+					<expression>replace(pur_date_month, &#39;☃&#39;, &#39;&#39;)
+
+</expression>
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+				<assignment expression="replace(pur_date_day, &#39;☠&#39;, &#39;&#39;)" column="pur_date_day">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Remove snowman char from month and skull from day</comm:comment>
+		</properties>
+		<visual-constraints bounds="144,-312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove snowman and skull" endpoint="out"/>
+		<target step="Check non-numeric date validity " endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Replace months names by order) --><step id="Replace months names by order" className="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm" disabled="false" mode="NORMAL">
+		<properties replacementsFileName="pathvar://DATA/ext/lkp/___month_replacement.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="pur_datetime" out="pur_datetime">
+			<scorer explanationColumn="exp_datetime" scoreColumn="sco_datetime">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="DATE_MONTH_NAME_REPLACED" explain="true" key="AR_CHANGED"/>
+					<scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+					<scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+					<scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Replace month name by its order. Snowman (☃) character is added before number, so we know later that this number represents month and not day or year.</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,-888,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Replace months names by order" endpoint="out"/>
+		<target step="Replace ordinal numbers" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Replace ordinal numbers) --><step id="Replace ordinal numbers" className="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm" disabled="false" mode="NORMAL">
+		<properties replacementsFileName="pathvar://DATA/ext/lkp/___ordinal_number_replacement.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="pur_datetime" out="pur_datetime">
+			<scorer explanationColumn="exp_datetime" scoreColumn="sco_datetime">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="DATE_ORDINAL_NUMBER_REPLACED" explain="true" key="AR_CHANGED"/>
+					<scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+					<scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+					<scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Replace ordinal numbers. Skull (☠) character is added before number, so we know later that this number represents day and not month or year.</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,-816,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Replace ordinal numbers" endpoint="out"/>
+		<target step="Separate date and time" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Separate date and time) --><step id="Separate date and time" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_datetime" regexNameColumn="pat_datetime" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="(.*?\D)??((?:☃?☠?\d\s?\p{Punct}?\s?☃?☠?){3,7}\d)(?:\s|T)(\d{1,2}:\d{1,2}:\d{1,2}(?:.\d{1,3})?)(\D.*)?" name="date_and_time" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="tmp_comment_before" substitution="$1">
+							<comm:comment>Optional comment, which doesn&#39;t end with digt</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_date" substitution="$2">
+							<comm:comment>4-8 digits, separated by special char, space or snowman. Last char must be digit</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_time" substitution="$3">
+							<comm:comment>Three groups of 1 or 2 digit long numbers separated by colon (:), plus optional 3-digit long number for milliseconds separated by dot (.)</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="tmp_comment_after" substitution="$4">
+							<comm:comment>Optional comment, which doesn&#39;t start with digit</comm:comment>
+						</regexOutputColumn>
+					</resultColumns>
+					<comm:comment>Minimal digit count for date is 4. 
+E.g. 10/15/85
+
+E.g. of parsable time:
+12:34:56.789
+
+Date and time have to be separated by space or character &#39;T&#39;</comm:comment>
+				</regExpression>
+				<regExpression pattern="(.*?\D)??((?:☃?☠?\d\s?\p{Punct}?\s?☃?☠?){3,7}\d)(\D.*)?" name="date" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="tmp_comment_before" substitution="$1">
+							<comm:comment>Optional comment, which doesn&#39;t end with digt</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="pur_date" substitution="$2">
+							<comm:comment>4-8 digits, separated by special char, space or snowman. Last char must be digit</comm:comment>
+						</regexOutputColumn>
+						<regexOutputColumn name="tmp_comment_after" substitution="$3">
+							<comm:comment>Optional comment, which doesn&#39;t start with digit</comm:comment>
+						</regexOutputColumn>
+					</resultColumns>
+					<comm:comment>Minimal digit count for date is 4. 
+E.g. 10/15/85</comm:comment>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>If there is datetime on input, separate date and time.
+For both date and datetime, remove possible comments before/after.</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,-744,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Separate date and time" endpoint="out"/>
+		<target step="Date/datetime parsed" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Set out values) --><step id="Set out values" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="out_date">
+					<expression>$date:=pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day;
+
+iif(
+	length(pur_date_year) is 4,
+		toDate($date, &#39;yyyy-MM-dd&#39;),
+		toDate($date, &#39;yy-MM-dd&#39;)
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Depending on digit count of year, use particular format for creating date.</comm:comment>
+				</assignment>
+				<assignment column="out_datetime">
+					<expression>$datetime:=pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day+&#39; &#39;+pur_time;
+
+case
+(
+	tmp_time_valid is null, //there was no time on input
+		toDateTime(out_date),
+	tmp_time_valid is false,//there was invalid time on input
+		null,
+	case( //there was valid time on input. 
+		//Depending on number of year digit and presence/absence of milliseconds, create datetime
+		length(pur_date_year) is 4 and indexOf(pur_time, &#39;.&#39;) is not null,
+			toDateTime($datetime, &#39;yyyy-MM-dd HH:mm:ss.SSS&#39;),
+		length(pur_date_year) is 4 and indexOf(pur_time, &#39;.&#39;) is null,
+			toDateTime($datetime, &#39;yyyy-MM-dd HH:mm:ss&#39;),
+		length(pur_date_year) is 2 and indexOf(pur_time, &#39;.&#39;) is not null,
+			toDateTime($datetime, &#39;yy-MM-dd HH:mm:ss.SSS&#39;),
+		length(pur_date_year) is 2 and indexOf(pur_time, &#39;.&#39;) is null,
+			toDateTime($datetime, &#39;yy-MM-dd HH:mm:ss&#39;)
+		)
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Depending on digit count of year and presence/absence of milliseconds, use particular format for creating date.</comm:comment>
+				</assignment>
+				<assignment column="out_pattern">
+					<expression>$pat_fixed_years:=iif(length(pur_date_year) is 4, 
+							replace(pat_date, &#39;(yy)yy&#39;, &#39;yyyy&#39;),
+							replace(pat_date, &#39;(yy)yy&#39;, &#39;yy&#39;)
+					);
+$pat_time:=iif(indexOf(pur_time, &#39;.&#39;) is not null, 
+					&#39;HH:mm:ss.SSS&#39;,
+					&#39;HH:mm:ss&#39;
+			);		
+							
+							
+case
+(
+	out_datetime is not null and tmp_time_valid is true,
+		$pat_fixed_years + &#39; &#39; + $pat_time,
+	out_date is not null,
+		$pat_fixed_years,
+	null
+)						</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Adjust actual format</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Setting output (the best existing) values of the date</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,216,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Set out values" endpoint="out"/>
+		<target step="Set score and explanations" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Set score and explanations) --><step id="Set score and explanations" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_datetime" defaultExplainColumn="exp_datetime">
+			<scoringCases>
+				<scoringCase description="The date is in the future" explanation="&#39;DATE_IN_FUTURE&#39;" score="10000">
+					<condition>$today:=today();
+out_date&gt;$today</condition>
+				</scoringCase>
+				<scoringCase description="The date is too far in the past" explanation="&#39;DATE_FAR_IN_PAST&#39;" score="10000">
+					<condition>$date_from:=toDate(&#39;1900-01-01&#39;,&#39;yyyy-MM-dd&#39;,&#39;en&#39;);
+
+out_date&lt;=$date_from</condition>
+				</scoringCase>
+				<scoringCase description="Date contains comments" explanation="&#39;DATE_COMMENTS_FOUND&#39;" score="min(length(tmp_comment_before) +  length(tmp_comment_after), 100)">
+					<condition>sco_datetime &lt;= 10000 and
+(tmp_comment_before is not null or tmp_comment_after is not null)</condition>
+				</scoringCase>
+				<scoringCase condition="tmp_time_valid is false" explanation="&#39;DATE_INVALID_TIME&#39;" score="5000"/>
+			</scoringCases>
+			<comm:comment>Setting additional score and explanantions for data quality discrepancies.</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,288,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Set score and explanations" endpoint="out"/>
+		<target step="Set std values" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Set std values) --><step id="Set std values" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="iif(sco_datetime&lt;10000,out_date,null)" column="std_date">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Null the std value in case that the score is 10 000 or higher. (e.g. it&#39;s in the future or far in the past)</comm:comment>
+				</assignment>
+				<assignment expression="iif(sco_datetime&lt;5000, out_datetime,null)" column="std_datetime">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Null the std value in case that the score is 5000 or higher. (e.g. it&#39;s in the future or far in the past or has invalid time part)</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Apply business validations for std values</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,360,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Set std values" endpoint="out"/>
+		<target step="Remove internal columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Squeeze spaces) --><step id="Squeeze spaces" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="squeezeSpaces(in_datetime)" column="pur_datetime">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Squeeze spaces</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,-960,48,48" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Squeeze spaces" endpoint="out"/>
+		<target step="Replace months names by order" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Unparsed input) --><step id="Unparsed input" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_datetime" defaultExplainColumn="exp_datetime">
+			<scoringCases>
+				<scoringCase condition="true" explanation="&#39;DATE_NOT_PARSED&#39;" score="1000000"/>
+			</scoringCases>
+		</properties>
+		<visual-constraints bounds="-24,-624,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Unparsed input" endpoint="out"/>
+		<target step="Invalid dates" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-48,-576"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Valid dates) --><step id="Valid dates" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union valid dates</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,0,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Valid dates" endpoint="out"/>
+		<target step="All dates" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Valid non-numeric date) --><step id="Valid non-numeric date" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="tmp_date_valid">
+			<comm:comment>Date in benevolent format is valid</comm:comment>
+		</properties>
+		<visual-constraints bounds="144,-168,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Valid non-numeric date" endpoint="out_false"/>
+		<target step="Invalid date" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="136,-120"/>
+				<point location="0,-120"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Valid non-numeric date" endpoint="out_true"/>
+		<target step="Non-numeric date format" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Valid numeric date) --><step id="Valid numeric date" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="tmp_date_valid">
+			<comm:comment>Input numeric date is valid</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,-456,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Valid numeric date" endpoint="out_false"/>
+		<target step="Non numeric date" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="253,-408"/>
+				<point location="168,-408"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Valid numeric date" endpoint="out_true"/>
+		<target step="Valid dates" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="601,-408"/>
+				<point location="601,-24"/>
+				<point location="601,0"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="in_datetime" type="STRING">
+					<comm:comment>Input STRING value of a date or datetime. Many patterns of the date(time) are supported (see in Functional description).</comm:comment>
+				</columnDef>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="288,-1248,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="Add Columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out) --><step id="out" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="std_date" type="DAY">
+					<comm:comment>Standardized value of the date: cleansed, parsed and validated by business logic.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_datetime" type="DATETIME">
+					<comm:comment>Standardized value of the datetime: cleansed, parsed and validated by business logic.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_date" type="DAY">
+					<comm:comment>The best existing value of a date in the DAY format.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_datetime" type="DATETIME">
+					<comm:comment>The best existing value of a date in the DATETIME format.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_pattern" type="STRING">
+					<comm:comment>Parsed pattern of the date/datetime.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="sco_datetime" type="INTEGER">
+					<comm:comment>Data quality score penalizing the discrepancies in the date value.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="exp_datetime" type="STRING">
+					<comm:comment>Data quality explananation for the discrepancies in the date value.</comm:comment>
+				</requiredColumn>
+			</requiredColumns>
+		</properties>
+		<visual-constraints bounds="288,504,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="-203,-1392,351,154" borderColor="0,0,0" backgroundColor="255,255,255" foregroundColor="51,51,51">LEGEND</modelComment>
+
+
+
+<modelComment bounds="-192,-1334,330,38" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Detailed comments to solution areas - how it works.</modelComment>
+
+
+
+<modelComment bounds="-192,-1368,330,38" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Comments to main solution areas.</modelComment>
+
+
+
+<modelComment bounds="-192,-1302,332,54" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Additional info related to one step or group of steps – 
+not how it works but why it works like that.</modelComment>
+
+
+
+<modelComment bounds="600,-912,313,73" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Replace months names or abbrev. for their order.
+E.g. &quot;Jan&quot; -&gt; ☃01  (snowman character is later
+	  	     used for month identification)</modelComment>
+
+
+
+<modelComment bounds="600,-744,313,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Parsed possible date part and time.
+Comments before/after are removed</modelComment>
+
+
+
+<modelComment bounds="600,-600,313,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Use predefined patterns for parsing date part</modelComment>
+
+
+
+<modelComment bounds="600,-528,313,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Check whether parsed parts compose valid date</modelComment>
+
+
+
+<modelComment bounds="336,-384,241,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">For unparsed or invalid inputs,
+try to use pattern with month name</modelComment>
+
+
+
+<modelComment bounds="408,-312,169,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Remove snowman from
+parsed month</modelComment>
+
+
+
+<modelComment bounds="408,-240,169,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Check whether parsed
+parts compose valid date</modelComment>
+
+
+
+<modelComment bounds="600,-816,313,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Replace ordinal numbers.
+E.g. &quot;1st&quot; -&gt; ☠01  (skull character is later
+		     used for day identification)</modelComment>
+
+
+
+<modelComment bounds="528,144,169,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Check whether parsed time
+represents valid 24hours format</modelComment>
+
+
+
+<modelComment bounds="528,216,205,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Set out values based on
+validity of date and time</modelComment>
+
+
+
+<modelComment bounds="528,360,265,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Apply business validations.
+(discard future dates and dates far in past)</modelComment>
+
+
+
+<modelComment bounds="384,-96,169,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Non-numeric dates get
+explanation and some score</modelComment>
+
+
+
+<modelComment bounds="48,144,225,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">We check time only if it was parsed</modelComment>
+
+</purity-config>

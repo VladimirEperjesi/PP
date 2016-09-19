@@ -1,0 +1,2281 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<component-id>FN M (guess)</component-id>
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Accusative suffix "", Vocative "") --><step id="Accusative suffix &quot;&quot;, Vocative &quot;&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="name" column="vocative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="name" column="accusative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>We don&#39;t decline one and two-letter names. There are exceptions of this rule.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1776,-1056,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;&quot;, Vocative &quot;&quot;" endpoint="out"/>
+		<target step="Short, special, Latin and Greek names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1920,-1008"/>
+				<point location="2112,-1008"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "(e)la", Vocative "(e)le", "(e)li") --><step id="Accusative suffix &quot;(e)la&quot;, Vocative &quot;(e)le&quot;, &quot;(e)li&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>$addedsuff:=left(name, length(name)-2) + &#39;le&#39;;
+$addedsuffi:=left(name, length(name)-2) + &#39;li&#39;;
+$addi:=name + &#39;i&#39;;
+$addedesuff:=left(name, length(name)-2) + &#39;ele&#39;;
+$addedesuffi:=left(name, length(name)-2) + &#39;eli&#39;;
+$trigram:=lower(left(right($addedsuff, 5), 3)) is in {&#39;přk&#39;, &#39;nzl&#39;, &#39;čml&#39;, &#39;abl&#39;, &#39;chm&#39;} or
+left(right(name, 4), 2) is in {&#39;rt&#39;, &#39;rk&#39;, &#39;vř&#39;, &#39;rh&#39;, &#39;tř&#39;, &#39;št&#39;, &#39;nš&#39;};
+$kolisajici:=name is in {&#39;Gabriel&#39;, &#39;Rafael&#39;, &#39;Nobel&#39;, &#39;Daniel&#39;, &#39;Samuel&#39;, &#39;Manuel&#39;, &#39;Emanuel&#39;, &#39;Marcel&#39;, &#39;Emmanuel&#39;, &#39;Immanuel&#39;, &#39;Miguel&#39;, &#39;Sámuel&#39;};
+$li:=name is in {&#39;Michael&#39;, &#39;Michel&#39;};
+$samohlaska:=removeAccents(lower(left(right(name, 3), 1))) is in {&#39;a&#39;, &#39;e&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;y&#39;};
+$gramEsuffe := left(right(name, 4), 2) is in {&#39;rc&#39;, &#39;it&#39;, &#39;om&#39;, &#39;sm&#39;} //om:Suchomel, sm:Kosmel
+			or left(right(name, 3), 1) is in {&#39;b&#39;, &#39;d&#39;, &#39;t&#39;, &#39;š&#39;, &#39;ž&#39;, &#39;ř&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;l&#39;, &#39;ň&#39;, &#39;h&#39;, &#39;c&#39;};
+//verbum := isInFile(name, &#39;pathvar://dictionaries/lkp/party/declension_verb.lkp&#39;);
+$isPytel:=name is in {&#39;Pytel&#39;, &#39;Datel&#39;, &#39;Kotel&#39;};
+//obtizne vyslovitelne hlaskove skupiny:
+$souhlSkupinaExc:=left(right(name, 4), 2) is in {&#39;bj&#39;, &#39;yj&#39;, &#39;ij&#39;}; //Dubjel, Nevyjel
+
+case (
+	$isPytel, $addedsuff,
+	$souhlSkupinaExc, $addedesuff,
+	right(name, 3)=&#39;ell&#39;, $addi,
+	$li, $addedesuffi,	
+//	verbum, addedesuffi,
+	$kolisajici, $addedesuffi+&#39;;&#39;+$addedesuff,
+	$gramEsuffe, $addedesuff,
+	$samohlaska, $addedesuffi,
+	//matches(&#39;[qwrtpsdfghjklzxcvbnm]{3}&#39;,trigram),
+	$trigram, $addedesuffi, //+&#39;;&#39;+addedsuff,
+	$addedsuff
+/*
+	right(name, 3)=&#39;ell&#39;, addi,
+	li, addedesuffi,
+	gramEsuffi, addedesuffi,
+	kolisajici, addedesuffi+&#39;;&#39;+addedesuff,
+	samohlaska, addedesuffi,
+	//matches(&#39;[qwrtpsdfghjklzxcvbnm]{3}&#39;,trigram),
+	trigram, addedesuff+&#39;;&#39;+addedsuff,
+	addedsuff
+*/
+)
+
+//TODO - jména končící na ell</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Vocative:
+- &quot;Pytel&quot; type gets &quot;le&quot; (without last 2 letters) -&gt; &quot;Pytle&quot;
+- names with &#39;bj&#39;, &#39;yj&#39;, &#39;ij&#39; on 4. and 3. position from right get &quot;ele&quot;. E.g. Dubjel -&gt; Dubjele
+- names end with &quot;ell&quot; - get &quot;i&quot;
+- &quot;Mich(a)el&quot; -&gt; Mich(a)eli
+- &quot;Gabriel&quot;, &quot;Rafael&quot;, ... -&gt; two forms: Gabrieli;Gabriele, Rafaeli;Rafaele, ...
+- names with &#39;rc&#39;, &#39;it&#39;, &#39;om&#39;, &#39;sm&#39; on 4. and 3. position from right or with &#39;b&#39;, &#39;d&#39;, &#39;t&#39;, ... on 3. position from right - get &quot;ele&quot;
+- names having vocal on 3. position from right - get &quot;eli
+- names having &#39;přk&#39;, &#39;nzl&#39;, &#39;čml&#39;, &#39;abl&#39;, &#39;chm&#39; on 5., 4., 3. position from right - get &quot;eli&quot;</comm:comment>
+				</assignment>
+				<assignment column="accusative">
+					<expression>$addedsuff:=left(name, length(name)-2) + &#39;la&#39;;
+$addedesuff:=left(name, length(name)-2) + &#39;ela&#39;;
+$adda:=name + &#39;a&#39;;
+$addedesuffi:=left(name, length(name)-2) + &#39;eli&#39;;
+$trigram:=lower(left(right($addedsuff, 5), 3)) is in {&#39;přk&#39;, &#39;nzl&#39;, &#39;čml&#39;, &#39;abl&#39;, &#39;chm&#39;};
+$samohlaska:=removeAccents(lower(left(right(name, 3), 1))) is in {&#39;a&#39;, &#39;e&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;y&#39;};
+$gramEsuffa := left(right(name, 4), 2) is in {&#39;rc&#39;, &#39;it&#39;, &#39;om&#39;, &#39;sm&#39;} //om:Suchomel, sm:Kosmel
+			or left(right(name, 3), 1) is in {&#39;b&#39;, &#39;d&#39;, &#39;t&#39;, &#39;š&#39;, &#39;ž&#39;, &#39;ř&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;l&#39;, &#39;ň&#39;, &#39;h&#39;, &#39;c&#39;};
+$isPytel:=name is in {&#39;Pytel&#39;, &#39;Datel&#39;, &#39;Kotel&#39;};
+//obtizne vyslovitelne hlaskove skupiny:
+$souhlSkupinaExc:=left(right(name, 4), 2) is in {&#39;bj&#39;, &#39;yj&#39;, &#39;ij&#39;}; //Dubjel, Nevyjel
+
+case (
+	$isPytel, $addedsuff,
+	$souhlSkupinaExc, $addedesuff,
+	$gramEsuffa, $addedesuff,
+	right(name, 3)=&#39;ell&#39;, $adda,
+	$samohlaska, $addedesuff,
+	$trigram, $addedesuff,
+	$addedsuff
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Accusative:
+- &quot;Pytel&quot; type gets &quot;la&quot; (without last 2 letters) -&gt; &quot;Pytla&quot;
+- names with &#39;bj&#39;, &#39;yj&#39;, &#39;ij&#39; on 4. and 3. position from right get &quot;ela&quot;. E.g. Dubjel -&gt; Dubjela
+- names with &#39;rc&#39;, &#39;it&#39;, &#39;om&#39;, &#39;sm&#39; on 4. and 3. position from right or with &#39;b&#39;, &#39;d&#39;, &#39;t&#39;, ... on 3. position from right - get &quot;ela&quot;
+- names end with &quot;ell&quot; - get &quot;a&quot;
+- names having vocal on 3. position from right - get &quot;ela&quot;
+- names having &#39;přk&#39;, &#39;nzl&#39;, &#39;čml&#39;, &#39;abl&#39;, &#39;chm&#39; on 5., 4., 3. position from right - get &quot;ela&quot;</comm:comment>
+				</assignment>
+				<assignment column="surness_level">
+					<expression>iif (
+	indexOf(vocative, &#39;;&#39;) is not null,
+	70,
+	100
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Decline according to rules - see Column comments</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,-648,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;(e)la&quot;, Vocative &quot;(e)le&quot;, &quot;(e)li&quot;" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1416,-600"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "(n)a", Vocative "(n)e") --><step id="Accusative suffix &quot;(n)a&quot;, Vocative &quot;(n)e&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>$isMonthLike:=lower(removeAccents(name)) in {&#39;leden&#39;, &#39;brezen&#39;, &#39;duben&#39;, &#39;buben&#39;, &#39;kveten&#39;, &#39;cerven&#39;, &#39;srpen&#39;, &#39;rijen&#39;};
+$addedsuff:=left(name, length(name)-2) + &#39;ne&#39;;
+$isKamen:=lower(removeAccents(name)) in {&#39;kamen&#39;}; //Kamen i Kámen
+
+case (
+	name=&#39;Lev&#39;, &#39;Lve&#39;,
+	$isMonthLike,$addedsuff,
+	$isKamen,removeAccents(name) + &#39;e&#39;,
+	name+&#39;e&#39;
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>1 Jména zakončená ve výslovnosti i v písmu na -a
+
+(Ondra, Hůla, Maxa, Gargantua, Baroja, Váša, Nohavica, Borgia, Lorca, Mantegna, Ma)
+
+Jména zakončená ve výslovnosti i v písmu na -a skloňujeme podle vzoru „předseda“ (Ondra, Jarda, Svoboda, Hůla, Maxa, Gargantua, Mircea, Baroja [barocha], La Mancha [manča], japonské jméno Akutagawa – 2. p. Ondry, Jardy, Svobody, Hůly, Maxy, Gargantuy, Mircey, Akutagawy). Pokud koncové hlásce -a předchází měkké souhláskové písmeno či i/y, je ve 2. p. koncovka -i (Váša, Váňa, Baťa, Nohavica, Goya [goja], Borgia [bordža], Mantegna [manteňa], Maria, García – 2. p. Váši, Váni, Bati, Nohavici, Goyi [goji], Borgii [bordži], Mantegni [manteni], Marii, Garcíi).
+
+Liší-li se psaná a vyslovované podoba (v psané podobě je měkké písmeno, které se vyslovuje tvrdě, či tvrdé písmeno, které se vyslovuje měkce), volíme koncovku podle podoby grafické: Např. je-li před koncovkou v grafické podobě měkké písmeno a v podobě vyslovované tvrdá souhláska, píšeme v koncovce 2. p. -i (Baroja [barocha] –  2. p. Baroji [barochy]). Je-li naopak před koncovkou v grafické podobě tvrdé nebo obojetné písmeno, které vyslovujeme měkce, píšeme v koncovce 2. p. -y (Klimsza [klimša], španělská jména La Mancha [manča], Zorilla [zorylja] – 2. p. Klimszy [klimši], La Manchy [manči], Zorilly [zoryly/zorylji]).
+
+Pokud koncovce předchází v písmu -c-, které se čte jako [k] (Lorca [lorka], Sica [sika]), v nepřímých pádech obvykle zaměňujeme v grafické podobě -c- za -k- (2. p. Lorky, Siky). Objevují se však i podoby, které zachovávají -c-, pokud pisatel chce, aby čtenář z příslušného tvaru mohl odvodit podobu v 1. p. (2. p. Lorcy, Sicy). Vzhledem k tendenci současné češtiny, aby ze všech pádových tvarů daného jména byla rozpoznatelná jeho základní podoba, se dnes stále více prosazuje (zvláště u méně známých jmen) spíše druhý postup. Viz kapitola Psaní i – y po písmenu c.
+
+U orientálních jmen kromě víceslabičných japonských (viz výše) se připojují koncovky podle vzoru „pán“ (čínské jméno Ma – 2. p. Maa; srov. jméno Mao v kapitole Osobní jména mužská zakončená ve výslovnosti na [-o, -ó]). Mají-li tato jména více částí, skloňujeme až poslední část jména nebo první a zároveň poslední (Jing Ša – 2. p. Jing Ša) – podrobněji viz kapitola Osobní jména víceslovná.</comm:comment>
+				</assignment>
+				<assignment column="accusative">
+					<expression>$isMonthLike:=lower(removeAccents(name)) in {&#39;leden&#39;, &#39;brezen&#39;, &#39;duben&#39;, &#39;buben&#39;, &#39;kveten&#39;, &#39;cerven&#39;, &#39;srpen&#39;, &#39;rijen&#39;};
+$addedsuff:=left(name, length(name)-2) + &#39;na&#39;;
+$isKamen:=lower(removeAccents(name)) in {&#39;kamen&#39;}; //Kamen i Kámen
+
+case (
+	name=&#39;Lev&#39;, &#39;Lva&#39;,
+	$isMonthLike, $addedsuff,
+	$isKamen,removeAccents(name) + &#39;a&#39;,
+	name+&#39;a&#39;
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>1 Jména zakončená ve výslovnosti i v písmu na -a
+
+(Ondra, Hůla, Maxa, Gargantua, Baroja, Váša, Nohavica, Borgia, Lorca, Mantegna, Ma)
+
+Jména zakončená ve výslovnosti i v písmu na -a skloňujeme podle vzoru „předseda“ (Ondra, Jarda, Svoboda, Hůla, Maxa, Gargantua, Mircea, Baroja [barocha], La Mancha [manča], japonské jméno Akutagawa – 2. p. Ondry, Jardy, Svobody, Hůly, Maxy, Gargantuy, Mircey, Akutagawy). Pokud koncové hlásce -a předchází měkké souhláskové písmeno či i/y, je ve 2. p. koncovka -i (Váša, Váňa, Baťa, Nohavica, Goya [goja], Borgia [bordža], Mantegna [manteňa], Maria, García – 2. p. Váši, Váni, Bati, Nohavici, Goyi [goji], Borgii [bordži], Mantegni [manteni], Marii, Garcíi).
+
+Liší-li se psaná a vyslovované podoba (v psané podobě je měkké písmeno, které se vyslovuje tvrdě, či tvrdé písmeno, které se vyslovuje měkce), volíme koncovku podle podoby grafické: Např. je-li před koncovkou v grafické podobě měkké písmeno a v podobě vyslovované tvrdá souhláska, píšeme v koncovce 2. p. -i (Baroja [barocha] –  2. p. Baroji [barochy]). Je-li naopak před koncovkou v grafické podobě tvrdé nebo obojetné písmeno, které vyslovujeme měkce, píšeme v koncovce 2. p. -y (Klimsza [klimša], španělská jména La Mancha [manča], Zorilla [zorylja] – 2. p. Klimszy [klimši], La Manchy [manči], Zorilly [zoryly/zorylji]).
+
+Pokud koncovce předchází v písmu -c-, které se čte jako [k] (Lorca [lorka], Sica [sika]), v nepřímých pádech obvykle zaměňujeme v grafické podobě -c- za -k- (2. p. Lorky, Siky). Objevují se však i podoby, které zachovávají -c-, pokud pisatel chce, aby čtenář z příslušného tvaru mohl odvodit podobu v 1. p. (2. p. Lorcy, Sicy). Vzhledem k tendenci současné češtiny, aby ze všech pádových tvarů daného jména byla rozpoznatelná jeho základní podoba, se dnes stále více prosazuje (zvláště u méně známých jmen) spíše druhý postup. Viz kapitola Psaní i – y po písmenu c.
+
+U orientálních jmen kromě víceslabičných japonských (viz výše) se připojují koncovky podle vzoru „pán“ (čínské jméno Ma – 2. p. Maa; srov. jméno Mao v kapitole Osobní jména mužská zakončená ve výslovnosti na [-o, -ó]). Mají-li tato jména více částí, skloňujeme až poslední část jména nebo první a zároveň poslední (Jing Ša – 2. p. Jing Ša) – podrobněji viz kapitola Osobní jména víceslovná.</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Accusative - add &quot;(n)a&quot;
+Vocative - add &quot;(n)e&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,120,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;(n)a&quot;, Vocative &quot;(n)e&quot;" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1416,168"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "a", Vocative "") --><step id="Accusative suffix &quot;a&quot;, Vocative &quot;&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>//Zatim nenalezeno jmeno, kde by stalo za to menit koncovku
+name
+/*
+case(right(name, 2) in {&#39;we&#39;, &#39;ue&#39;}, name, //Uwe, Crowe, Enrique, Dominique, atd.
+	left(name, length(name)-1) + &#39;i&#39;//Změň e na konci na i
+)
+*/</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Same as nominative</comm:comment>
+				</assignment>
+				<assignment column="accusative">
+					<expression>$souhlaskaTvrdaObojetna:=lower(left(right(name, 2), 1)) is in {&#39;h&#39;, &#39;k&#39;, &#39;r&#39;, &#39;d&#39;, &#39;t&#39;, &#39;n&#39;, &#39;b&#39;, &#39;f&#39;, &#39;l&#39;, &#39;m&#39;, &#39;p&#39;, &#39;v&#39;};
+$cizi:=lower(name) is in {&#39;šebrle&#39;, &#39;goethe&#39;, &#39;tille&#39;, &#39;dante&#39;, &#39;jorge&#39;, &#39;rjúnosuke&#39;, &#39;croce&#39;, &#39;nietzsche&#39;, &#39;puche&#39;, &#39;jorge&#39;, &#39;miškeje&#39;, &#39;cche&#39;};
+
+case($souhlaskaTvrdaObojetna and $cizi, left(name, length(name)-1) + &#39;a&#39;,
+	name
+	)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Hard or ambiguous consonant on last but one position in foreign names - suffix &quot;a&quot; (without last letter)
+Otherwise, same as nominative.
+
+Jména cizího původu zakončená ve výslovnosti i grafice na -e skloňujeme podle toho, jaká souhláska předchází koncovému -e. Předchází-li tvrdá nebo obojetná souhláska (kromě s, z), skloňujeme jména podle vzoru „pán“ nebo pomocí zájmenných koncovek. I když u jmen známých stále převládá spíše tradiční skloňování podle vzoru „pán“, zájmenné skloňování je dnes stále užívanější i u nich, protože je z pádových tvarů lépe rozpoznatelná základní podoba jména (Goethe, Niederle, Tille, Šebrle, Dante, Arne, Rilke, Teute, Eliade, španělské jméno Jorge [chorche], vietnamské jméno Rjúnosuke – 2. p.  Goetha i Goetheho, Niederla i Niederleho, Tilla (řidč.) i Tilleho, Šebrla i Šebrleho, Danta i Danteho, Arna i Arneho, Rilka i Rilkeho, Teiga i Teigeho, Eliada i (řidč.) Eliadeho, Jorga (řidč.) i Jorgeho, Rjúnosuka i Rjúnosukeho). Pokud koncovému -e předchází ve výslovnosti měkká souhláska nebo -s-, -z-, skloňujeme jméno buď podle vzoru „soudce“, nebo stejně jako u předchozího typu stále častěji i pomocí zájmenných koncovek (Croce, Veronese, Nietzsche, Schultze, Puche [puše], portugalské jméno Jorge [žorže], slovenské jméno Miškeje – 2. p. Croce i Croceho, Veronese i Veroneseho, Nietzsche i Nietzscheho, Schultze i Schultzeho, Puche i Pucheho, Jorge i Jorgeho, Miškeje i Miškejeho).</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Decline according to rules - see Column comments</comm:comment>
+		</properties>
+		<visual-constraints bounds="-384,-504,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;a&quot;, Vocative &quot;&quot;" endpoint="out"/>
+		<target step="Useless union 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-120,-456"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "a", Vocative "e" (2 letters)) --><step id="Accusative suffix &quot;a&quot;, Vocative &quot;e&quot; (2 letters)" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>case (
+//	right(removeAccents(name), 2) is in {&#39;us&#39;, &#39;os&#39;, &#39;as&#39;}, left(name, length(name)-2)+&#39;e&#39;,
+	left(name, length(name)-2)+&#39;e&#39;
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="accusative">
+					<expression>case (
+//	right(removeAccents(name), 2) is in {&#39;us&#39;, &#39;os&#39;, &#39;as&#39;}, left(name, length(name)-2)+&#39;a&#39;,
+	left(name, length(name)-2)+&#39;a&#39;
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Accusative - gets &#39;a&#39; without 2 last letters
+Vocative - gets &#39;e&#39; without 2 last letters</comm:comment>
+		</properties>
+		<visual-constraints bounds="1776,-912,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;a&quot;, Vocative &quot;e&quot; (2 letters)" endpoint="out"/>
+		<target step="Short, special, Latin and Greek names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="2112,-864"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "a", Vocative "u") --><step id="Accusative suffix &quot;a&quot;, Vocative &quot;u&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="name+&#39;u&#39;" column="vocative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="name+&#39;a&#39;" column="accusative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Accusative - suffix &quot;a&quot;
+Vocative - suffix &quot;u&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;a&quot;, Vocative &quot;u&quot;" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1416,72"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "a", Vocative "ěla", "ěli") --><step id="Accusative suffix &quot;a&quot;, Vocative &quot;ěla&quot;, &quot;ěli&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>$addedesuff:=left(name, length(name)-2) + &#39;ěle&#39;;
+$addedesuffi:=left(name, length(name)-2) + &#39;ěli&#39;;
+$kolisajici:=name is in {&#39;Anděl&#39;};
+$samohlaska:=removeAccents(lower(left(right(name, 3), 1))) is in {&#39;a&#39;, &#39;e&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;y&#39;};
+
+
+case (
+	$kolisajici, $addedesuff + &#39;;&#39; + $addedesuffi,
+	$addedesuffi
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Name &quot;Anděl&quot; can have 2 forms -&gt; &quot;Anděle&quot; and &quot;Anděli&quot;
+Normally, suffix &quot;ěli&quot; is added</comm:comment>
+				</assignment>
+				<assignment expression="name+&#39;a&#39;" column="accusative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Suffix &quot;a&quot;</comm:comment>
+				</assignment>
+				<assignment expression="80" column="surness_level">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Decline according to rules - see Column comments</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,-576,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;a&quot;, Vocative &quot;ěla&quot;, &quot;ěli&quot;" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1416,-528"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "a", Vocative "ře", "re") --><step id="Accusative suffix &quot;a&quot;, Vocative &quot;ře&quot;, &quot;re&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>$ře:=left(name, length(name)-1)+&#39;ře&#39;;
+$re:=name+&#39;e&#39;;
+
+case (
+	right(name, 2) is in {&#39;br&#39;, &#39;mr&#39;, &#39;pr&#39;, &#39;kr&#39;, &#39;tr&#39;}, $ře,
+	$re
+)
+</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="name+&#39;a&#39;" column="accusative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Accusative - suffix &quot;a&quot;
+Vocative - suffix &quot;re&quot; or &quot;ře&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="144,-240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;a&quot;, Vocative &quot;ře&quot;, &quot;re&quot;" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="168,504"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "ce", "e", Vocative "če", "i") --><step id="Accusative suffix &quot;ce&quot;, &quot;e&quot;, Vocative &quot;če&quot;, &quot;i&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>$če:=left(name, length(name)-2) + &#39;če&#39;;
+$ci:=name + &#39;i&#39;;
+$trigram:=lower(left(right(name, 5), 3));
+$bigram:=lower(left(right(name, 4), 2));
+$hlaska:=lower(left(right(name, 3), 1));
+$cigram:=$bigram is in {&#39;dl&#39;, &#39;bl&#39;, &#39;rl&#39;, &#39;rz&#39;, &#39;ac&#39;, &#39;dv&#39;, &#39;ec&#39;, &#39;šv&#39;, &#39;hl&#39;, &#39;gr&#39;, &#39;kl&#39;, &#39;km&#39;, &#39;st&#39;, &#39;sn&#39;, &#39;pi&#39;, &#39;rl&#39;, &#39;rz&#39;, &#39;uj&#39;, &#39;št&#39;} or
+//Kadlec, Brablec, Karlec, Clepacec, Medvec, Nemecec, Pošvec
+//Brychlec - i když tady je to na vážkách
+//Grec - jiný výskyt gr neobjeven, podobně Klec
+//Kmec, Stec
+//Czepiec - obávám se, že Čepíče není vhodný tvar
+//Krasnec, Karlec, Marzec, Zaujec
+//št:Štec
+matches(&#39;[i]&#39;, $hlaska);
+
+
+case (
+	right(name, 2) is in {&#39;tz&#39;}, $ci,
+	//Katz atp., nemají smysl ngramy před koncem
+	name = &#39;Švec&#39;, &#39;Ševče;Ševci&#39;, // tohle by skoro nemělo být takhle hardcodováno
+	//dvojí možnost je např. u jmen Kadlec, Švec (2. p. Kadlece, řidč. Kadlce, Švece i Ševce; 5. p. Kadl(e)ci, Ševče i Ševci i Šveci)
+	$cigram, $ci,
+	length(name)&lt;=3, $ci,
+	$če
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Vocative:
+- names end with &quot;tz&quot; -&gt; suffix &quot;i&quot;
+- name &quot;Švec&quot; -&gt; &quot;Ševče;Ševci&quot;
+- names with enumerated 2-letter couples on 4. and 3. position from right -&gt; suffix &quot;i&quot;
+- other names -&gt; suffix &quot;če&quot;</comm:comment>
+				</assignment>
+				<assignment column="accusative">
+					<expression>$ce:=left(name, length(name)-2) + &#39;ce&#39;;
+$ece:=name + &#39;e&#39;;
+$trigram:=lower(left(right(name, 5), 3));
+$bigram:=lower(left(right(name, 4), 2));
+$hlaska:=lower(left(right(name, 3), 1));
+$cigram:=$bigram is in {&#39;dl&#39;, &#39;bl&#39;, &#39;rl&#39;, &#39;rz&#39;, &#39;ac&#39;, &#39;dv&#39;, &#39;ec&#39;, &#39;šv&#39;, &#39;hl&#39;, &#39;gr&#39;, &#39;kl&#39;, &#39;km&#39;, &#39;st&#39;, &#39;sn&#39;, &#39;pi&#39;, &#39;rl&#39;, &#39;rz&#39;, &#39;uj&#39;, &#39;št&#39;} //št:Štec
+//Kadlec, Brablec, Karlec, Clepacec, Medvec, Nemecec, Pošvec
+//Brychlec - i když tady je to na vážkách
+//Grec - jiný výskyt gr neobjeven, podobně Klec
+//Kmec, Stec
+//Czepiec - obávám se, že Čepíče není vhodný tvar
+//Krasnec, Karlec, Marzec, Zaujec
+or matches(&#39;[i]&#39;, $hlaska);
+
+
+case (
+	right(name, 2) is in {&#39;tz&#39;}, $ece,
+	//Katz atp., nemají smysl ngramy před koncem
+	name = &#39;Švec&#39;, &#39;Ševce&#39;, // tohle by skoro nemělo být takhle hardcodováno
+	//dvojí možnost je např. u jmen Kadlec, Švec (2. p. Kadlece, řidč. Kadlce, Švece i Ševce; 5. p. Kadl(e)ci, Ševče i Ševci i Šveci)
+	$cigram, $ece,
+	length(name)&lt;=3, $ece,
+	$ce
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Accusative:
+- names end with &quot;tz&quot; -&gt; suffix &quot;e&quot;
+- name &quot;Švec&quot; -&gt; &quot;Ševče;Ševci&quot; ???
+- names with enumerated 2-letter couples on 4. and 3. position from right -&gt; suffix &quot;e&quot;
+- other names -&gt; suffix &quot;ce&quot;</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Decline according to rules - see Column comments</comm:comment>
+		</properties>
+		<visual-constraints bounds="-384,-720,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;ce&quot;, &quot;e&quot;, Vocative &quot;če&quot;, &quot;i&quot;" endpoint="out"/>
+		<target step="Useless union 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-249,-672"/>
+				<point location="-120,-672"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "e", Vocative "i") --><step id="Accusative suffix &quot;e&quot;, Vocative &quot;i&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="name+&#39;i&#39;" column="vocative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="name+&#39;e&#39;" column="accusative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Accusative - suffix &quot;e&quot;
+Vocative - suffix &quot;i&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,-72,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;e&quot;, Vocative &quot;i&quot;" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1416,-24"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "e", Vocative "i" ?) --><step id="Accusative suffix &quot;e&quot;, Vocative &quot;i&quot; ?" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>$zmekceni:=left(name, length(name)-1) + transliterate(right(name, 1), &#39;ďťň&#39;, &#39;dtn&#39;) + &#39;i&#39;;
+$zmekcit:=right(name, 1) is in {&#39;ď&#39;, &#39;ť&#39;, &#39;ň&#39;};
+
+case (
+	$zmekcit, $zmekceni,
+	name + &#39;i&#39;
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="accusative">
+					<expression>$zmekceni:=left(name, length(name)-1) + transliterate(right(name, 1), &#39;ďťň&#39;, &#39;dtn&#39;) + &#39;ě&#39;;
+$zmekcit:=right(name, 1) is in {&#39;ď&#39;, &#39;ť&#39;, &#39;ň&#39;};
+
+case (
+	$zmekcit, $zmekceni,
+	name + &#39;e&#39;
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Accusative - suffix &quot;e&quot; or &quot;ě&quot;
+Vocative - suffix &quot;i&quot; with possible &quot;softening&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="-384,-648,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;e&quot;, Vocative &quot;i&quot; ?" endpoint="out"/>
+		<target step="Useless union 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-244,-600"/>
+				<point location="-120,-600"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "eka", Vocative "eku") --><step id="Accusative suffix &quot;eka&quot;, Vocative &quot;eku&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>$addedku:=left(name, length(name)-2) + &#39;ku&#39;;
+$addedu:=name + &#39;u&#39;;
+$zmekceni:=left(name, length(name)-3) + transliterate(substr(name, length(name)-3, 1), &#39;dtn&#39;, &#39;ďťň&#39;) + &#39;ku&#39;;
+$zmekcit:=right(name, 2) is &#39;ěk&#39; and substr(name, length(name)-4, 2) is not in {&#39;zd&#39;};
+$addedeku:=left(name, length(name)-2) + &#39;eku&#39;;
+$trigram:=left(right($addedku, 5), 3);
+$bigram:=left(right(name, 4), 2);
+$ekgram:= $bigram is in {&#39;sn&#39;, &#39;sm&#39;};
+$ugram:= $bigram is in {&#39;zd&#39;, &#39;bč&#39;, &#39;dl&#39;}; //Bezděk, Jakubček/Dubček, Sadlek, Sedlek; tj.obecně -bček,-dlek
+
+case (
+	$zmekcit, $zmekceni,
+	$ekgram, $addedeku,
+	length(name)&lt;5, $addedeku,
+	matches(&#39;[qwtpsdfghjkzxcvbnm]{3}&#39;,$trigram), $addedeku,
+	$ugram, $addedu,
+	$addedku
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Vocative:
+- names end with &quot;ěk&quot; -&gt;suffix &quot;ku&quot;
+- names with &quot;sn&quot; or &quot;sm&quot; on 4. and 3. position from right -&gt; suffix &quot;eku&quot;
+- names with length 4 or less -&gt; suffix &quot;eku&quot;
+- if the name contains 3 subsequent consonants (after adding suffix &quot;ku&quot;), &quot;eku&quot; is added instead
+- names with &quot;zd&quot; or &quot;bč&quot; or &quot;dl&quot; on 4. and 3. position from right -&gt; suffix &quot;u&quot;
+- otherwise - suffix &quot;ku&quot;</comm:comment>
+				</assignment>
+				<assignment column="accusative">
+					<expression>$addedka:=left(name, length(name)-2) + &#39;ka&#39;;
+$addeda:=name + &#39;a&#39;;
+$addedeka:=left(name, length(name)-2) + &#39;eka&#39;;
+$zmekceni:=left(name, length(name)-3) + transliterate(substr(name, length(name)-3, 1), &#39;dtn&#39;, &#39;ďťň&#39;) + &#39;ka&#39;;
+$zmekcit:=right(name, 2) is &#39;ěk&#39; and substr(name, length(name)-4, 2) is not in {&#39;zd&#39;};
+$trigram:=left(right($addedka, 5), 3);
+$bigram:=left(right(name, 4), 2);
+$ekgram:= $bigram is in {&#39;sn&#39;, &#39;sm&#39;};
+$agram:= $bigram is in {&#39;zd&#39;, &#39;bč&#39;, &#39;dl&#39;}; //Bezděk, Jakubček/Dubček, Sadlek, Sedlek; tj.obecně -bček,-dlek
+
+case (
+	$zmekcit, $zmekceni,
+	$ekgram, $addedeka,
+	length(name)&lt;5, $addedeka,
+	matches(&#39;[qwtpsdfghjkzxcvbnm]{3}&#39;,$trigram), $addedeka,
+	$agram, $addeda,
+	$addedka
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Accusative:
+- names end with &quot;ěk&quot; -&gt;suffix &quot;ka&quot;
+- names with &quot;sn&quot; or &quot;sm&quot; on 4. and 3. position from right -&gt; suffix &quot;eka&quot;
+- names with length 4 or less -&gt; suffix &quot;eka&quot;
+- if the name contains 3 subsequent consonants (after adding suffix &quot;ka&quot;), &quot;eka&quot; is added instead
+- names with &quot;zd&quot; or &quot;bč&quot; or &quot;dl&quot; on 4. and 3. position from right -&gt; suffix &quot;a&quot;
+- otherwise - suffix &quot;ka&quot;</comm:comment>
+				</assignment>
+				<assignment column="surness_level">
+					<expression>iif (
+	indexOf(vocative, &#39;;&#39;) is not null,
+	70,
+	100
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Decline according to rules - see Column comments</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,-720,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;eka&quot;, Vocative &quot;eku&quot;" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1416,-672"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "ho") --><step id="Accusative suffix &quot;ho&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="accusative">
+					<expression>case(length(name)&lt;=3, name, //Bui, Hai, atd.
+	  name+&#39;ho&#39;
+	  )</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Add &quot;ho&quot; (if longer than 3 letter names)</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Add &quot;ho&quot; (if longer than 3 letter names)</comm:comment>
+		</properties>
+		<visual-constraints bounds="1680,-600,-1,-1" layout="horizontal"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;ho&quot;" endpoint="out"/>
+		<target step="Names ending with í, ý, i, y (with known rule)" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "ho" ?, Vocative "") --><step id="Accusative suffix &quot;ho&quot; ?, Vocative &quot;&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="name" column="vocative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Same as nominative</comm:comment>
+				</assignment>
+				<assignment column="accusative">
+					<expression>$ho:=right(name, 2) is in {&#39;ny&#39;, &#39;ly&#39;, &#39;ry&#39;, &#39;ey&#39;, &#39;dy&#39;, &#39;ky&#39;, &#39;zy&#39;, &#39;ty&#39;, &#39;wy&#39;, &#39;vy&#39;, &#39;hy&#39;, &#39;gy&#39;, &#39;my&#39;}
+or
+right(name, 2) is in {&#39;ay&#39;, &#39;by&#39;, &#39;cy&#39;, &#39;dy&#39;, &#39;ey&#39;, &#39;fy&#39;, &#39;gy&#39;, &#39;hy&#39;, &#39;iy&#39;, &#39;ky&#39;, &#39;ly&#39;, &#39;my&#39;, &#39;ny&#39;, &#39;oy&#39;, &#39;ry&#39;, &#39;sy&#39;, &#39;ty&#39;, &#39;uy&#39;,
+&#39;vy&#39;, &#39;wy&#39;, &#39;xy&#39;, &#39;yy&#39;, &#39;zy&#39;, &#39;žy&#39;, &#39;sy&#39;, &#39;py&#39;};
+//alias všechny končící na y
+$nesklonnovat:=right(name, 2) is in {&#39;ee&#39;};
+
+case (
+	length(name)&lt;=3, name,
+	$nesklonnovat, name,
+	$ho, name + &#39;ho&#39;,
+	null
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>suffix &quot;ho&quot; or same as nominative</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Decline according to rules - see Column comments</comm:comment>
+		</properties>
+		<visual-constraints bounds="-384,-360,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;ho&quot; ?, Vocative &quot;&quot;" endpoint="out"/>
+		<target step="Useless union 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-120,-312"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "ho", "ého") --><step id="Accusative suffix &quot;ho&quot;, &quot;ého&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="accusative">
+					<expression>$endsý:=right(name, 1) is in {&#39;ý&#39;};
+$ého:=left(name, length(name)-1) + &#39;ého&#39;;
+
+$endsí:=right(name, 1) is in {&#39;í&#39;};
+$ho:=name + &#39;ho&#39;;
+
+case (
+	$endsý, $ého,
+	$endsí, $ho,
+	null
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>When ends on ý -&gt; remove last letter and add &quot;ého&quot;
+When ends on í -&gt;  add &quot;ho&quot;</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>When ends on ý -&gt; remove last letter and add &quot;ého&quot;
+When ends on í -&gt;  add &quot;ho&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="1776,-768,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;ho&quot;, &quot;ého&quot;" endpoint="out"/>
+		<target step="Names ending with í, ý, i, y (with known rule)" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "ně", Vocative "ni") --><step id="Accusative suffix &quot;ně&quot;, Vocative &quot;ni&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>$lname:=length(name);
+$ni:=left(name, $lname-2)+&#39;ni&#39;;
+$eni:=left(name, $lname-1)+&#39;ni&#39;;
+$isSrsen:=lower(name) in {&#39;sršeň&#39;, &#39;učeň&#39;}; //Specificka jmena
+
+case (
+	$isSrsen,$ni,
+	$lname&lt;=4, $eni,
+	$ni
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="accusative">
+					<expression>$lname:=length(name);
+$ně:=left(name, $lname-2)+&#39;ně&#39;;
+$eně:=left(name, $lname-1)+&#39;ně&#39;;
+$isSrsen:=lower(name) in {&#39;sršeň&#39;, &#39;učeň&#39;}; //Specificka jmena
+
+case (
+	$isSrsen,$ně,
+	$lname&lt;=4, $eně,
+	$ně
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Accusative suffix &quot;ně&quot;, Vocative &quot;ni&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="-384,-432,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;ně&quot;, Vocative &quot;ni&quot;" endpoint="out"/>
+		<target step="Useless union 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-254,-384"/>
+				<point location="-120,-384"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "ra", "a", Vocative "ře", "ere") --><step id="Accusative suffix &quot;ra&quot;, &quot;a&quot;, Vocative &quot;ře&quot;, &quot;ere&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>$suffře := left(name, length(name)-2) + &#39;ře&#39;; //Winter, Peter
+$bigram := lower(left(right($suffře, 4), 2));
+$trigram := lower(left(right($suffře, 5), 3)) is in {&#39;gnř&#39;, &#39;mbl&#39;, &#39;sch&#39;, &#39;ckn&#39;, &#39;lkm&#39;, &#39;cht&#39;, &#39;eid&#39;, &#39;aid&#39;, &#39;ein&#39;, &#39;ejn&#39;, &#39;ajn&#39;, &#39;ain&#39;, &#39;ais&#39;, &#39;eis&#39;,
+&#39;eit&#39;, &#39;ait&#39;, &#39;eiz&#39;, &#39;aiz&#39;, &#39;obe&#39;, &#39;erg&#39;, &#39;nsk&#39;, &#39;ist&#39;, &#39;ksz&#39;, &#39;nth&#39;, &#39;lth&#39;}
+//Brückner, Richter, Hofrichter, Heider, Faifer, Steiner, Kleiner, Štainer, Kaiser, Raizer, Bober, Schober, Hakszer, Günther, Walther
+//Berger - celé to erg je diskutabilní a při nějaké diskusi se zákošem by to mělo být obsahem nějakých diskusí
+//Pinsker
+//ist je spíše motivace z eist (Meister), Cechmeister, 
+or $bigram is in {&#39;bl&#39;, &#39;dl&#39;, &#39;cn&#39;, &#39;cz&#39;, &#39;dn&#39;, &#39;er&#39;, &#39;fl&#39;, &#39;fn&#39;, &#39;gl&#39;, &#39;hl&#39;,
+&#39;hn&#39;, &#39;iv&#39;, &#39;iš&#39;, &#39;jf&#39;, &#39;ff&#39;, &#39;hm&#39;, &#39;bn&#39;, &#39;bt&#39;, &#39;gn&#39;, &#39;kn&#39;, &#39;lj&#39;, &#39;ll&#39;, &#39;kl&#39;, &#39;kv&#39;,
+&#39;lm&#39;, &#39;ln&#39;, &#39;lv&#39;, &#39;lw&#39;, &#39;ml&#39;, &#39;mm&#39;, &#39;nc&#39;, &#39;pl&#39;, &#39;pn&#39;, &#39;sl&#39;, &#39;sm&#39;, &#39;sn&#39;, &#39;sp&#39;, &#39;ss&#39;,
+&#39;tl&#39;, &#39;tn&#39;, &#39;un&#39;, &#39;il&#39;, &#39;im&#39;, &#39;iz&#39;, &#39;jb&#39;, &#39;jl&#39;, &#39;js&#39;, &#39;jz&#39;, &#39;jš&#39;, &#39;jž&#39;, &#39;ld&#39;, &#39;lc&#39;, &#39;lf&#39;, &#39;lg&#39;, &#39;lk&#39;, &#39;lt&#39;, &#39;lz&#39;, &#39;lš&#39;, &#39;mb&#39;, &#39;ms&#39;,
+&#39;mt&#39;, &#39;mz&#39;, &#39;nl&#39;, &#39;nn&#39;, &#39;ns&#39;, &#39;nv&#39;, &#39;nz&#39;, &#39;of&#39;, &#39;og&#39;, &#39;ol&#39;, &#39;os&#39;, &#39;ox&#39;, &#39;oš&#39;, &#39;pp&#39;, &#39;ps&#39;, &#39;rb&#39;, &#39;rc&#39;, &#39;rf&#39;, &#39;rl&#39;, &#39;rm&#39;,
+&#39;rn&#39;, &#39;rt&#39;, &#39;rz&#39;, &#39;sh&#39;, &#39;tc&#39;, &#39;tm&#39;, &#39;tt&#39;, &#39;tv&#39;, &#39;tz&#39;, &#39;ul&#39;, &#39;um&#39;, &#39;šř&#39;, &#39;vl&#39;, &#39;vn&#39;, &#39;wl&#39;, &#39;wn&#39;, &#39;xl&#39;, &#39;xn&#39;, &#39;zl&#39;,
+&#39;zm&#39;, &#39;zn&#39;, &#39;čm&#39;, &#39;čn&#39;, &#39;šl&#39;, &#39;šn&#39;, &#39;šp&#39;, &#39;žn&#39;
+} 
+//Buchmaier, Bergner, Kaucner, Menczer, Scheufler, Kufner, Stiegler, Aichler, Bouchner, Oliver, Fišer, Kratschmer
+//Mayerhofer, Ipser, Färber, Ehrler, Širmer, Kerner, Veinfurtře, Herzer
+//to ff není moc jisté, protože foneticky to je jedno f a tudíž záleží na hlásce před s výslovností,
+//ale vizuálně je lepší ere, tedy Hoffere nebo Hoffře
+//velmi podobné to je s mm, Strommer, ss Flusser
+//Fuljer, Brückler, Olmer, Illner, Lincer, Hyšpler, Klumpner, Dreksler, Kasper
+//Cvetler, Fechtner, Brauner, Špiler, Vimer, Fizer, Kolder, Wolker, Valter, Zomber, Genser, Kervitcer, Hetmer, Špitzer
+//fakticky neexistuje ve jménech trigram ilř
+//s bigramem nn je to diskutabilní, protože hláska je n, pouze grafická forma nnř nevypadá dobře
+//Propper, podobně pp, zdvojené souhlásky před ř se mi nějak nelíbí. Fakticky to evokuje spíš nepřejaté jméno a tudíž spíš člověka
+//zvyklého na nezměkčenou formu
+//Ditter, Haumře, Raušer, Havnře, Exler, Leixner, Kázmer, Lízner, Kráčmer, Pečner, Hašler, Češner, Cvešper, Lajžner
+or lower(left(right($suffře, 3), 1)) is in {&#39;ř&#39;, &#39;r&#39;, &#39;č&#39;}; 
+$samohlasky := matches(&#39;[aeiouy]&#39;, removeAccents(lower(left(right(name, 3), 1))))
+or matches(&#39;[aeiouy][aeiouyj]&#39;, removeAccents(lower(left(right(name, 4), 2))));
+// i když třeba Schier bych dal Schieře
+$suffere := left(name, length(name)-2) + &#39;ere&#39;;
+$overridere := name is in {&#39;Demeter&#39;, &#39;Christopher&#39;};
+
+case (
+	$overridere, $suffere,
+	length(name)&lt;=4 and name not in {&#39;Uher&#39;}, $suffere,
+	$trigram, $suffere,
+	$samohlasky, $suffere,
+	$suffře+&#39;;&#39;+$suffere
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Vocative:
+- names  &quot;Demeter&quot; or &quot;Christopher&quot; -&gt; &quot;Demetere&quot;, &quot;Christophere&quot;
+- names with length 4 or less (with &quot;Uher&quot; exception) -&gt; suffix &quot;ere&quot;
+- names with specific 3 letters on position 5., 4. and 3 from right -&gt; suffix &quot;ere&quot;
+- names with vovel(s) on 3. or 2. position from right -&gt; suffix &quot;ere&quot;
+- other names -&gt; both cases: suffix &quot;ře&quot; and &quot;ere&quot;
+
+c) Stejné pravidlo platí i pro jména zakončená na -er: Je-li nositelem jména cizinec, pohybné -e- obvykle ponecháváme: 2. p. Wintera, Fostera, Petera (stejný tvar pro angl. [pítra] i sloven. [petera]). Pokud je nositelem Čech, opět je rozhodující rodinná tradice nositele jména. Pokud se -e- ponechává ve výslovnosti, zachovává se v nepřímých pádech i v grafické podobě. Pokud se -e- nevyslovuje, v grafické podobě ho v nepřímých pádech vypouštíme. Z toho důvodu mohou některá jména kolísat (2. p. Wolkera i Wolkra, Langera i Langra, Richtera i Richtra). Pohybné -e- ponecháváme vždy tam, kde by jeho vypuštěním vznikla obtížně vyslovitelná souhlásková skupina (Vinkler – 2. p. Vinklera). Pokud rodinný úzus nositele jména neznáme, je vhodnější pohybné -e- v nepřímých pádech zachovat. Vlivem zmíněného kolísání může docházet v 5. p. k hláskovým změnám: Pokud vynecháme pohybné -e-, může dojít k měkčení r v ř: Wolker – Wolkře i Wolkre, Langer – Langře i Langre, Peter [pítr] – Petre [pítre] i Petře [pítře] (zde ovšem může dojít k záměně s tvarem odvozeným od české podoby jména Petr: Petře [petře]). Pokud pohybné -e- ponecháme, k měkčení v 5. p. nedochází: Peter – Petere [pítre], Wolker – Wolkere [volkre] či [volkere], Langer – Langere [langre] či [langere]. Ve jménech zakončených na souhlásku a -r dochází k měkčení v 5. p., pokud je taková rodinná tradice nositele jména:  Langr, Richtr, Zubr, Mistr, Šnajdr – 5. p. Langře i Langre, Richtře i Richtre, Zubře i Zubre, Mistře i Mistre, Šnajdře i Šnajdre.</comm:comment>
+				</assignment>
+				<assignment column="accusative">
+					<expression>$suffra := left(name, length(name)-2) + &#39;ra&#39;; //Winter, Peter
+$bigram := lower(left(right($suffra, 4), 2));
+$trigram := lower(left(right($suffra, 5), 3)) is in {&#39;gnř&#39;, &#39;mbl&#39;, &#39;sch&#39;, &#39;ckn&#39;, &#39;lkm&#39;, &#39;cht&#39;, &#39;eid&#39;, &#39;aid&#39;, &#39;ein&#39;, &#39;ejn&#39;, &#39;ajn&#39;, &#39;ain&#39;, &#39;ais&#39;, &#39;eis&#39;,
+&#39;eit&#39;, &#39;ait&#39;, &#39;eiz&#39;, &#39;aiz&#39;, &#39;obe&#39;, &#39;erg&#39;, &#39;nsk&#39;, &#39;ist&#39;, &#39;ksz&#39;, &#39;nth&#39;, &#39;lth&#39;}
+//Brückner, Richter, Hofrichter, Heider, Faifer, Steiner, Kleiner, Štainer, Kaiser, Raizer, Bober, Schober, Hakszer, Günther, Walther
+//Berger - celé to erg je diskutabilní a při nějaké diskusi se zákošem by to mělo být obsahem nějakých diskusí
+//Pinsker
+//ist je spíše motivace z eist (Meister), Cechmeister, 
+or $bigram is in {&#39;bl&#39;, &#39;dl&#39;, &#39;cn&#39;, &#39;cz&#39;, &#39;dn&#39;, &#39;er&#39;, &#39;fl&#39;, &#39;fn&#39;, &#39;gl&#39;, &#39;hl&#39;,
+&#39;hn&#39;, &#39;iv&#39;, &#39;iš&#39;, &#39;jf&#39;, &#39;ff&#39;, &#39;hm&#39;, &#39;bn&#39;, &#39;bt&#39;, &#39;gn&#39;, &#39;kn&#39;, &#39;lj&#39;, &#39;ll&#39;, &#39;kl&#39;, &#39;kv&#39;,
+&#39;lm&#39;, &#39;ln&#39;, &#39;lv&#39;, &#39;lw&#39;, &#39;ml&#39;, &#39;mm&#39;, &#39;nc&#39;, &#39;pl&#39;, &#39;pn&#39;, &#39;sl&#39;, &#39;sm&#39;, &#39;sn&#39;, &#39;sp&#39;, &#39;ss&#39;,
+&#39;tl&#39;, &#39;tn&#39;, &#39;un&#39;, &#39;il&#39;, &#39;im&#39;, &#39;iz&#39;, &#39;jb&#39;, &#39;jl&#39;, &#39;js&#39;, &#39;jz&#39;, &#39;jš&#39;, &#39;jž&#39;, &#39;ld&#39;, &#39;lc&#39;, &#39;lf&#39;, &#39;lg&#39;, &#39;lk&#39;, &#39;lt&#39;, &#39;lz&#39;, &#39;lš&#39;, &#39;mb&#39;, &#39;ms&#39;,
+&#39;mt&#39;, &#39;mz&#39;, &#39;nl&#39;, &#39;nn&#39;, &#39;ns&#39;, &#39;nv&#39;, &#39;nz&#39;, &#39;of&#39;, &#39;og&#39;, &#39;ol&#39;, &#39;os&#39;, &#39;ox&#39;, &#39;oš&#39;, &#39;pp&#39;, &#39;ps&#39;, &#39;rb&#39;, &#39;rc&#39;, &#39;rf&#39;, &#39;rl&#39;, &#39;rm&#39;,
+&#39;rn&#39;, &#39;rt&#39;, &#39;rz&#39;, &#39;sh&#39;, &#39;tc&#39;, &#39;tm&#39;, &#39;tt&#39;, &#39;tv&#39;, &#39;tz&#39;, &#39;ul&#39;, &#39;um&#39;, &#39;šř&#39;, &#39;vl&#39;, &#39;vn&#39;, &#39;wl&#39;, &#39;wn&#39;, &#39;xl&#39;, &#39;xn&#39;, &#39;zl&#39;,
+&#39;zm&#39;, &#39;zn&#39;, &#39;čm&#39;, &#39;čn&#39;, &#39;šl&#39;, &#39;šn&#39;, &#39;šp&#39;, &#39;žn&#39;
+} 
+//Buchmaier, Bergner, Kaucner, Menczer, Scheufler, Kufner, Stiegler, Aichler, Bouchner, Oliver, Fišer, Kratschmer
+//Mayerhofer, Ipser, Färber, Ehrler, Širmer, Kerner, Veinfurtře, Herzer
+//to ff není moc jisté, protože foneticky to je jedno f a tudíž záleží na hlásce před s výslovností,
+//ale vizuálně je lepší ere, tedy Hoffere nebo Hoffře
+//velmi podobné to je s mm, Strommer, ss Flusser
+//Fuljer, Brückler, Olmer, Illner, Lincer, Hyšpler, Klumpner, Dreksler, Kasper
+//Cvetler, Fechtner, Brauner, Špiler, Vimer, Fizer, Kolder, Wolker, Valter, Zomber, Genser, Kervitcer, Hetmer, Špitzer
+//fakticky neexistuje ve jménech trigram ilř
+//s bigramem nn je to diskutabilní, protože hláska je n, pouze grafická forma nnř nevypadá dobře
+//Propper, podobně pp, zdvojené souhlásky před ř se mi nějak nelíbí. Fakticky to evokuje spíš nepřejaté jméno a tudíž spíš člověka
+//zvyklého na nezměkčenou formu
+//Ditter, Haumře, Raušer, Havnře, Exler, Leixner, Kázmer, Lízner, Kráčmer, Pečner, Hašler, Češner, Cvešper, Lajžner
+or lower(left(right($suffra, 3), 1)) is in {&#39;ř&#39;, &#39;r&#39;, &#39;č&#39;}; 
+$samohlasky := matches(&#39;[aeiouy]&#39;, removeAccents(lower(left(right(name, 3), 1))))
+or matches(&#39;[aeiouy][aeiouyj]&#39;, removeAccents(lower(left(right(name, 4), 2))));
+// i když třeba Schier bych dal Schieře
+$suffera := name + &#39;a&#39;;
+$overridera := name is in {&#39;Demeter&#39;, &#39;Christopher&#39;};
+
+case (
+	$suffera
+/*
+	$overridera, $suffera,
+	length(name)&lt;=4 and name not in {&#39;Uher&#39;}, $suffera,
+	$trigram, $suffera,
+	samohlasky, $suffera,
+	$suffra
+*/
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Suffix &quot;a&quot; is added. 
+It might not be always correct. E.g. &quot;Peter&quot; is declined as &quot;Petera&quot;
+
+c) Stejné pravidlo platí i pro jména zakončená na -er: Je-li nositelem jména cizinec, pohybné -e- obvykle ponecháváme: 2. p. Wintera, Fostera, Petera (stejný tvar pro angl. [pítra] i sloven. [petera]). Pokud je nositelem Čech, opět je rozhodující rodinná tradice nositele jména. Pokud se -e- ponechává ve výslovnosti, zachovává se v nepřímých pádech i v grafické podobě. Pokud se -e- nevyslovuje, v grafické podobě ho v nepřímých pádech vypouštíme. Z toho důvodu mohou některá jména kolísat (2. p. Wolkera i Wolkra, Langera i Langra, Richtera i Richtra). Pohybné -e- ponecháváme vždy tam, kde by jeho vypuštěním vznikla obtížně vyslovitelná souhlásková skupina (Vinkler – 2. p. Vinklera). Pokud rodinný úzus nositele jména neznáme, je vhodnější pohybné -e- v nepřímých pádech zachovat. Vlivem zmíněného kolísání může docházet v 5. p. k hláskovým změnám: Pokud vynecháme pohybné -e-, může dojít k měkčení r v ř: Wolker – Wolkře i Wolkre, Langer – Langře i Langre, Peter [pítr] – Petre [pítre] i Petře [pítře] (zde ovšem může dojít k záměně s tvarem odvozeným od české podoby jména Petr: Petře [petře]). Pokud pohybné -e- ponecháme, k měkčení v 5. p. nedochází: Peter – Petere [pítre], Wolker – Wolkere [volkre] či [volkere], Langer – Langere [langre] či [langere]. Ve jménech zakončených na souhlásku a -r dochází k měkčení v 5. p., pokud je taková rodinná tradice nositele jména:  Langr, Richtr, Zubr, Mistr, Šnajdr – 5. p. Langře i Langre, Richtře i Richtre, Zubře i Zubre, Mistře i Mistre, Šnajdře i Šnajdre.</comm:comment>
+				</assignment>
+				<assignment expression="70" column="surness_level">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Decline according to rules - see Column comments</comm:comment>
+		</properties>
+		<visual-constraints bounds="1080,-504,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;ra&quot;, &quot;a&quot;, Vocative &quot;ře&quot;, &quot;ere&quot;" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1269,-456"/>
+				<point location="1416,-456"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "u", Vocative "o") --><step id="Accusative suffix &quot;u&quot;, Vocative &quot;o&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="left(name, length(name)-1)+&#39;o&#39;" column="vocative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>1 Jména zakončená ve výslovnosti i v písmu na -a
+
+(Ondra, Hůla, Maxa, Gargantua, Baroja, Váša, Nohavica, Borgia, Lorca, Mantegna, Ma)
+
+Jména zakončená ve výslovnosti i v písmu na -a skloňujeme podle vzoru „předseda“ (Ondra, Jarda, Svoboda, Hůla, Maxa, Gargantua, Mircea, Baroja [barocha], La Mancha [manča], japonské jméno Akutagawa – 2. p. Ondry, Jardy, Svobody, Hůly, Maxy, Gargantuy, Mircey, Akutagawy). Pokud koncové hlásce -a předchází měkké souhláskové písmeno či i/y, je ve 2. p. koncovka -i (Váša, Váňa, Baťa, Nohavica, Goya [goja], Borgia [bordža], Mantegna [manteňa], Maria, García – 2. p. Váši, Váni, Bati, Nohavici, Goyi [goji], Borgii [bordži], Mantegni [manteni], Marii, Garcíi).
+
+Liší-li se psaná a vyslovované podoba (v psané podobě je měkké písmeno, které se vyslovuje tvrdě, či tvrdé písmeno, které se vyslovuje měkce), volíme koncovku podle podoby grafické: Např. je-li před koncovkou v grafické podobě měkké písmeno a v podobě vyslovované tvrdá souhláska, píšeme v koncovce 2. p. -i (Baroja [barocha] –  2. p. Baroji [barochy]). Je-li naopak před koncovkou v grafické podobě tvrdé nebo obojetné písmeno, které vyslovujeme měkce, píšeme v koncovce 2. p. -y (Klimsza [klimša], španělská jména La Mancha [manča], Zorilla [zorylja] – 2. p. Klimszy [klimši], La Manchy [manči], Zorilly [zoryly/zorylji]).
+
+Pokud koncovce předchází v písmu -c-, které se čte jako [k] (Lorca [lorka], Sica [sika]), v nepřímých pádech obvykle zaměňujeme v grafické podobě -c- za -k- (2. p. Lorky, Siky). Objevují se však i podoby, které zachovávají -c-, pokud pisatel chce, aby čtenář z příslušného tvaru mohl odvodit podobu v 1. p. (2. p. Lorcy, Sicy). Vzhledem k tendenci současné češtiny, aby ze všech pádových tvarů daného jména byla rozpoznatelná jeho základní podoba, se dnes stále více prosazuje (zvláště u méně známých jmen) spíše druhý postup. Viz kapitola Psaní i – y po písmenu c.
+
+U orientálních jmen kromě víceslabičných japonských (viz výše) se připojují koncovky podle vzoru „pán“ (čínské jméno Ma – 2. p. Maa; srov. jméno Mao v kapitole Osobní jména mužská zakončená ve výslovnosti na [-o, -ó]). Mají-li tato jména více částí, skloňujeme až poslední část jména nebo první a zároveň poslední (Jing Ša – 2. p. Jing Ša) – podrobněji viz kapitola Osobní jména víceslovná.</comm:comment>
+				</assignment>
+				<assignment expression="left(name, length(name)-1)+&#39;u&#39;" column="accusative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>1 Jména zakončená ve výslovnosti i v písmu na -a
+
+(Ondra, Hůla, Maxa, Gargantua, Baroja, Váša, Nohavica, Borgia, Lorca, Mantegna, Ma)
+
+Jména zakončená ve výslovnosti i v písmu na -a skloňujeme podle vzoru „předseda“ (Ondra, Jarda, Svoboda, Hůla, Maxa, Gargantua, Mircea, Baroja [barocha], La Mancha [manča], japonské jméno Akutagawa – 2. p. Ondry, Jardy, Svobody, Hůly, Maxy, Gargantuy, Mircey, Akutagawy). Pokud koncové hlásce -a předchází měkké souhláskové písmeno či i/y, je ve 2. p. koncovka -i (Váša, Váňa, Baťa, Nohavica, Goya [goja], Borgia [bordža], Mantegna [manteňa], Maria, García – 2. p. Váši, Váni, Bati, Nohavici, Goyi [goji], Borgii [bordži], Mantegni [manteni], Marii, Garcíi).
+
+Liší-li se psaná a vyslovované podoba (v psané podobě je měkké písmeno, které se vyslovuje tvrdě, či tvrdé písmeno, které se vyslovuje měkce), volíme koncovku podle podoby grafické: Např. je-li před koncovkou v grafické podobě měkké písmeno a v podobě vyslovované tvrdá souhláska, píšeme v koncovce 2. p. -i (Baroja [barocha] –  2. p. Baroji [barochy]). Je-li naopak před koncovkou v grafické podobě tvrdé nebo obojetné písmeno, které vyslovujeme měkce, píšeme v koncovce 2. p. -y (Klimsza [klimša], španělská jména La Mancha [manča], Zorilla [zorylja] – 2. p. Klimszy [klimši], La Manchy [manči], Zorilly [zoryly/zorylji]).
+
+Pokud koncovce předchází v písmu -c-, které se čte jako [k] (Lorca [lorka], Sica [sika]), v nepřímých pádech obvykle zaměňujeme v grafické podobě -c- za -k- (2. p. Lorky, Siky). Objevují se však i podoby, které zachovávají -c-, pokud pisatel chce, aby čtenář z příslušného tvaru mohl odvodit podobu v 1. p. (2. p. Lorcy, Sicy). Vzhledem k tendenci současné češtiny, aby ze všech pádových tvarů daného jména byla rozpoznatelná jeho základní podoba, se dnes stále více prosazuje (zvláště u méně známých jmen) spíše druhý postup. Viz kapitola Psaní i – y po písmenu c.
+
+U orientálních jmen kromě víceslabičných japonských (viz výše) se připojují koncovky podle vzoru „pán“ (čínské jméno Ma – 2. p. Maa; srov. jméno Mao v kapitole Osobní jména mužská zakončená ve výslovnosti na [-o, -ó]). Mají-li tato jména více částí, skloňujeme až poslední část jména nebo první a zároveň poslední (Jing Ša – 2. p. Jing Ša) – podrobněji viz kapitola Osobní jména víceslovná.</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Accusative - suffix &quot;u&quot; (without last letter)
+Vocative - suffix &quot;o&quot; (without last letter)</comm:comment>
+		</properties>
+		<visual-constraints bounds="-384,-576,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;u&quot;, Vocative &quot;o&quot;" endpoint="out"/>
+		<target step="Useless union 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-278,-528"/>
+				<point location="-120,-528"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative various suffixes, Vocative "") --><step id="Accusative various suffixes, Vocative &quot;&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="name" column="vocative">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+					<comm:comment>Vocative is same as nominative.</comm:comment>
+				</assignment>
+				<assignment column="accusative">
+					<expression>$oa:=right(name, 2) is in {&#39;ao&#39;,&#39;äo&#39;,&#39;áo&#39;,&#39;âo&#39;,&#39;bo&#39;,&#39;co&#39;,&#39;čo&#39;,&#39;do&#39;,&#39;eo&#39;,&#39;éo&#39;,&#39;fo&#39;,&#39;go&#39;,&#39;ho&#39;,&#39;io&#39;,&#39;ío&#39;,&#39;jo&#39;,&#39;ko&#39;,&#39;lo&#39;,&#39;ło&#39;,
+&#39;mo&#39;,&#39;no&#39;,&#39;ńo&#39;,&#39;ňo&#39;,&#39;po&#39;,&#39;qo&#39;,&#39;ro&#39;,&#39;so&#39;,&#39;šo&#39;,&#39;to&#39;,&#39;ťo&#39;,&#39;uo&#39;,&#39;vo&#39;,&#39;wo&#39;,&#39;xo&#39;,&#39;yo&#39;,&#39;zo&#39;,&#39;žo&#39;, &#39;ďo&#39;, &#39;ľo&#39;, &#39;ĺo&#39;};
+$ho:=(right(name, 2) is in {&#39;ny&#39;, &#39;ly&#39;, &#39;ry&#39;, &#39;ey&#39;, &#39;dy&#39;, &#39;ky&#39;, &#39;zy&#39;, &#39;ty&#39;, &#39;wy&#39;, &#39;vy&#39;, &#39;hy&#39;, &#39;du&#39;, &#39;sy&#39;}) and (right(name, 3) not in {&#39;rey&#39;}) or lower(name) = &#39;jeffrey&#39;//Pozn.: nechceme sklonovat Andrey, Bailey, atd., Jeffrey ale ano
+//fakt to ně je tady a ne u Kuřete?
+//du
+or right(name, 1) is in {&#39;é&#39;, &#39;ö&#39;, &#39;u&#39;, &#39;ü&#39;, &#39;ő&#39;}; 
+//to u je k ověření
+//Jména zakončená ve výslovnosti na [ó], tj.Szabó, Miró, Rousseau, Vandeloo, Daa, Boo, Króo, Waugh, Shaw, Law, Basedov, Bülow
+$toend:=lower(name) is in {&#39;mao&#39;} or right(name, 2) in {&#39;au&#39;, &#39;oo&#39;} or right(name, 1) in {&#39;ó&#39;};
+//Nesklonna:Daa, atd.
+$nesklonne:=right(name, 2) is in {&#39;yy&#39;, &#39;aa&#39;, &#39;iu&#39;, &#39;ru&#39;, &#39;eu&#39;, &#39;cu&#39;, &#39;kó&#39;, &#39;ee&#39;, &#39;bě&#39;, &#39;ee&#39;, &#39;dě&#39;, &#39;pě&#39;, &#39;ně&#39;, &#39;uu&#39;, &#39;ou&#39;, &#39;oo&#39;, &#39;oé&#39;, &#39;mé&#39;, &#39;hu&#39;, &#39;gu&#39;, &#39;yu&#39;} or find(&quot;[´&#39;]o$&quot;, lower(name)) or
+//Hrabě
+right(name, 1) is in {&#39;ů&#39;, &#39;ú&#39;, &#39;ű&#39;}
+or
+name is in {&#39;Benoit&#39;, &#39;Dumas&#39;, &#39;Delacroix&#39;, &#39;Marat&#39;, &#39;François&#39;, 
+&#39;Bolstad&#39;, &#39;Noah&#39;, &#39;Jeremiah&#39;, &#39;Lee&#39;};
+
+$te:=right(name, 2) is in {&#39;tě&#39;};
+$adda:=right(name, 3) is in {&#39;ých&#39;}
+or right(name, 2) is in {&#39;ův&#39;, &#39;er&#39;, &#39;at&#39;}; //tohle sem dost architektonicky nepatří
+//vzor kuře
+$isVimmer:=name is in {&#39;Vimmer&#39;, &#39;Wimer&#39;, &#39;Wimmer&#39;, &#39;Vimer&#39;};
+$adde:=right(name, 3) in {&#39;rey&#39;}; //Andrey, Bailey, atd.
+
+case (
+	$isVimmer, name + &#39;a&#39;,
+	length(name) &lt;=2, name,
+	$nesklonne, name,
+	lower(name) is in {&#39;oto&#39;}, &#39;Otu&#39;,
+	lower(name) is in {&#39;otto&#39;}, &#39;Ottu&#39;,
+/* b) Specifický případ jsou křestní jména Oto/Otto a Ivo. Jméno Oto/Otto má pravidelné pádové tvary podle vzoru „předseda“
+(pod vlivem jména Ota) a teoreticky i podle vzoru „pán“, ale tento způsob se v praxi neužívá: 2. p. Oty/Otty (Ota/Otta),
+4. p. Otu/Ottu (Ota/Otta), 3., 6. p. Otovi/Ottovi, 7. p. Otou/Ottou (Otem/Ottem). Jméno Ivo se skloňuje podle vzoru „pán“
+(2. p. Iva), varianta Iva má tvary podle vzoru „předseda“ (2. p. Ivy). Tyto tvary se však v praxi vzájemně zaměňují (Ivo
+– 2. p. Ivy i Iva apod.). Ve spojení s příjmením zůstávají tato křestní jména často nesklonná (2. p. Oto/Otto Nováka, Ivo Ševčíka).*/
+	$toend, name + &#39;a&#39;,
+/* c) U orientálních jmen se rovněž připojují koncovky zpravidla až za celé jméno (japonské jméno Ono, čínské jméno
+Wo – 2. p. Onoa, Woa). Výjimkou je jméno Mao (Mao Ce-Tung), u něhož v nepřímých pádech koncové -o tradičně vypouštíme
+(2. p. Maa). Mají-li tato jména více částí, skloňujeme obvykle až poslední část jména či první a zároveň poslední
+(Li Chou, Li Tchaj-po – 2. p. Li Choua, Li Tchaj-poa) – podrobněji viz kapitola Osobní jména víceslovná. */
+	$oa, left(name, length(name)-1) + &#39;a&#39;,
+	$adda, name + &#39;a&#39;,
+	$te, name + &#39;ho&#39;, //pro Kotě, Balátě atd. je podle ÚJČ správný tvar Kotěho, Balátěho
+	$ho, name + &#39;ho&#39;,
+	$adde, name + &#39;e&#39;,
+/* 2 Jména zakončená ve výslovnosti na [i], ale v písmu na jiné samohláskové písmeno či skupinu písmen (Shelley,
+Tracey, Blanqui, Péguy, Raimu) Jména zakončená ve výslovnosti na [i], ale v grafice na jiné samohláskové písmeno či skupinu
+samohláskových písmen (-ey, -ui, -uy, -u apod.) se skloňují pomocí zájmenných koncovek: Shelley [šeli], Tracey [trejsi],
+Blanqui [blanki], Péguy [pégi], Raimu [remi] – 2. p. Shelleyho, Cheneyho, Blanquiho, Péguyho, Raimuho.
+*/
+	null
+)</expression>
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+					<comm:comment>Accusative:
+- &quot;Vimmer&quot; type gets &#39;a&#39;
+- 1 and 2-letter names, names end with &quot;yy&quot;, &quot;aa&quot;, ... - no declension
+- ot(t)o -&gt; Ot(t)u
+- name &quot;mao&quot;, names end with &quot;au&quot;, &quot;oo&quot; or &quot;ó&quot; -&gt; &quot;maa&quot;, &quot;aa&quot;, &quot;oa&quot;, &quot;a&quot;
+- names end with &quot;ao&quot;, &quot;bo&quot;, &quot;co&quot;, ... -&gt; &quot;aa&quot;, &quot;ba&quot;, &quot;ca&quot;, ...
+- names end with &quot;ých&quot; -&gt; get &#39;a&quot;
+- names end with &quot;tě&quot; -&gt; get &quot;ho&quot;
+- names end with &quot;ny&quot;, &quot;ly&quot;, &quot;ry&quot;, ... -&gt; get &quot;ho&quot;
+- names end with &quot;rey&quot; -&gt; get &quot;e&quot;</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Vocative is same as nominative.
+Accusative - see comment on column
+
+1.2 Příjmení s formou přídavného jména
+
+(Šerých, Tichých, Jakubův)
+
+Specifickým případem jsou příjmení, která mají formu přídavných jmen (Šerých, Tichých). Tato jména mohou zůstat nesklonná, méně často se skloňují podle vzoru „pán“, pokud už tvar není vnímán jako přídavné jméno (2. p. Šerýcha).
+
+Příjmení s formou přivlastňovacích přídavných jmen, která jsou zakončena na -ův (Jakubův) mohou zůstat nesklonná, řidčeji se skloňují; záleží na rodinné tradici (2., 4. p. Jakubův, řidčeji Jakubova, 3., 6. p. Jakubovu).</comm:comment>
+		</properties>
+		<visual-constraints bounds="1776,-984,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative various suffixes, Vocative &quot;&quot;" endpoint="out"/>
+		<target step="Short, special, Latin and Greek names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1954,-936"/>
+				<point location="2112,-936"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Acute í, ý) --><step id="Acute í, ý" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="right(name, 1) is in {&#39;í&#39;, &#39;ý&#39;}">
+			<comm:comment>Ends with &#39;í&#39; or &#39;ý&#39;</comm:comment>
+		</properties>
+		<visual-constraints bounds="1560,-816,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Acute í, ý" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;ho&quot;, &quot;ého&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1671,-768"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Acute í, ý" endpoint="out_false"/>
+		<target step="Surness level" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (All names) --><step id="All names" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union all names</comm:comment>
+		</properties>
+		<visual-constraints bounds="1392,504,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="All names" endpoint="out"/>
+		<target step="Remove internal columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Alter Format) --><step id="Alter Format" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="accusative" type="STRING"/>
+				<addedColumn name="vocative" type="STRING"/>
+				<addedColumn name="surness_level" type="INTEGER"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="1392,-1176,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Alter Format" endpoint="out"/>
+		<target step="It is short name" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Contains diacritics) --><step id="Contains diacritics" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="removeAccents(name)&lt;&gt;name">
+			<comm:comment>Contains diacritics</comm:comment>
+		</properties>
+		<visual-constraints bounds="600,-288,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Contains diacritics" endpoint="out_false"/>
+		<target step="Ends with &quot;ach&quot;, &quot;ech&quot;, &quot;ich&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="600,-192"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Contains diacritics" endpoint="out_true"/>
+		<target step="Use &quot;a&quot; (Accu), &quot;u&quot; (Voc) declension" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "a", "á") --><step id="Ends with &quot;a&quot;, &quot;á&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="right(name, 1) is in {&#39;a&#39;, &#39;á&#39;}">
+			<comm:comment>Ends with &quot;a&quot;, &quot;á&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="-648,-624,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;a&quot;, &quot;á&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;u&quot;, Vocative &quot;o&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-524,-576"/>
+				<point location="-456,-576"/>
+				<point location="-404,-576"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;a&quot;, &quot;á&quot;" endpoint="out_false"/>
+		<target step="Ends with &quot;e&quot; (except &quot;ee&quot;)" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "ach", "ech", "ich") --><step id="Ends with &quot;ach&quot;, &quot;ech&quot;, &quot;ich&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>nl:=length(name);
+x:=substr(name, nl-3, 1 );
+
+removeAccents(x) is in {&#39;a&#39;, &#39;e&#39;, &#39;i&#39;}</condition>
+			<comm:comment>Ends with &quot;ach&quot;, &quot;ech&quot;, &quot;ich&quot;  (&quot;ch&quot; branche)</comm:comment>
+		</properties>
+		<visual-constraints bounds="312,-192,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ach&quot;, &quot;ech&quot;, &quot;ich&quot;" endpoint="out_false"/>
+		<target step="Ends with &quot;ovych&quot;, &quot;tch&quot;, &quot;sch&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ach&quot;, &quot;ech&quot;, &quot;ich&quot;" endpoint="out_true"/>
+		<target step="Use &quot;a&quot; (Accu), &quot;u&quot; (Voc) declension" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="624,-144"/>
+				<point location="624,-46"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "ch") --><step id="Ends with &quot;ch&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="right(name, 2)=&#39;ch&#39;">
+			<comm:comment>Ends with &quot;ch&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="312,-336,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ch&quot;" endpoint="out_true"/>
+		<target step="Contains diacritics" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ch&quot;" endpoint="out_false"/>
+		<target step="Ends with consonant + &quot;r&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "e" (except "ee")) --><step id="Ends with &quot;e&quot; (except &quot;ee&quot;)" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 1) is in {&#39;e&#39;}
+and
+right(name, 2) is not in {&#39;ee&#39;}</condition>
+			<comm:comment>Ends with &quot;e&quot; (except &quot;ee&quot;)</comm:comment>
+		</properties>
+		<visual-constraints bounds="-648,-552,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;e&quot; (except &quot;ee&quot;)" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;a&quot;, Vocative &quot;&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-524,-504"/>
+				<point location="-457,-504"/>
+				<point location="-401,-504"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;e&quot; (except &quot;ee&quot;)" endpoint="out_false"/>
+		<target step="Ends with &quot;eň&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "ec") --><step id="Ends with &quot;ec&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 2) is in {&#39;ec&#39;}
+//or
+//right(name, 3) is in {&#39;etz&#39;, &#39;ets&#39;}</condition>
+			<comm:comment>Ends with &quot;ec&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="-648,-768,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ec&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;ce&quot;, &quot;e&quot;, Vocative &quot;če&quot;, &quot;i&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-529,-720"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ec&quot;" endpoint="out_false"/>
+		<target step="Ends with &quot;sch&quot; ... , &quot;š&quot;, ..., &quot;is&quot;, ..." endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "ek" or "ěk") --><step id="Ends with &quot;ek&quot; or &quot;ěk&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="right(name, 2) is in {&#39;ek&#39;, &#39;ěk&#39;}">
+			<comm:comment>Name ends with &quot;ek&quot; or &quot;ěk&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="888,-768,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ek&quot; or &quot;ěk&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;eka&quot;, Vocative &quot;eku&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ek&quot; or &quot;ěk&quot;" endpoint="out_false"/>
+		<target step="Ends with &quot;el&quot; or &quot;ell&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "el" or "ell") --><step id="Ends with &quot;el&quot; or &quot;ell&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 2) is in {&#39;el&#39;}
+or
+right(name, 3) is in {&#39;ell&#39;}</condition>
+			<comm:comment>Name ends with &quot;el&quot; or &quot;ell&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="888,-696,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;el&quot; or &quot;ell&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;(e)la&quot;, Vocative &quot;(e)le&quot;, &quot;(e)li&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="991,-648"/>
+				<point location="1050,-648"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;el&quot; or &quot;ell&quot;" endpoint="out_false"/>
+		<target step="Ends with &quot;ěl&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "er") --><step id="Ends with &quot;er&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="right(name, 2) is in {&#39;er&#39;}">
+			<comm:comment>Name ends with &quot;er&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="888,-552,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;er&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;ra&quot;, &quot;a&quot;, Vocative &quot;ře&quot;, &quot;ere&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;er&quot;" endpoint="out_false"/>
+		<target step="Ends with &quot;ík&quot;, &quot;ák&quot;, ... &quot;h&quot;, &quot;k&quot;, &quot;g&quot;, except (&quot;th&quot;, &quot;ph&quot;)" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "eň") --><step id="Ends with &quot;eň&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="right(name, 2) is in {&#39;eň&#39;}">
+			<comm:comment>Ends with &quot;eň&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="-648,-480,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;eň&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;ně&quot;, Vocative &quot;ni&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-458,-432"/>
+				<point location="-400,-432"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;eň&quot;" endpoint="out_false"/>
+		<target step="Ends with &quot;y&quot;, &quot;ee&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "ovych", "tch", "sch") --><step id="Ends with &quot;ovych&quot;, &quot;tch&quot;, &quot;sch&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 5) is in {&#39;ovich&#39;, &#39;ovych&#39;, &#39;evych&#39;}
+//Teslevych, i když tam bych byl obezřetný
+or
+right(name, 3) is in {&#39;tch&#39;, &#39;sch&#39;}
+/*LUSL
+or
+right(name, 4) is in {&#39;tsch&#39;}
+*/</condition>
+			<comm:comment>Ends with &quot;ovych&quot;, &quot;ovich&quot;, &quot;evych&quot;, &quot;tch&quot;, &quot;sch&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="312,-120,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ovych&quot;, &quot;tch&quot;, &quot;sch&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;e&quot;, Vocative &quot;i&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ovych&quot;, &quot;tch&quot;, &quot;sch&quot;" endpoint="out_false"/>
+		<target step="Use &quot;a&quot; (Accu), &quot;u&quot; (Voc) declension" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="312,-24"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "sch" ... , "š", ..., "is", ...) --><step id="Ends with &quot;sch&quot; ... , &quot;š&quot;, ..., &quot;is&quot;, ..." className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 3) is in {&#39;sch&#39;, &#39;iss&#39;, &#39;ess&#39;, &#39;uss&#39;, &#39;oss&#39;, &#39;ass&#39;, &#39;yss&#39;, &#39;anz&#39;, &#39;änz&#39;, &#39;enz&#39;, &#39;inz&#39;, &#39;onz&#39;, &#39;unz&#39;, &#39;ünz&#39;, &#39;űnz&#39;, &#39;ynz&#39;}
+or
+(right(name, 1) is in {&#39;š&#39;, &#39;č&#39;, &#39;j&#39;, &#39;ř&#39;, &#39;s&#39;, &#39;c&#39;, &#39;z&#39;, &#39;ž&#39;, &#39;x&#39;, &#39;ń&#39;, &#39;ň&#39;, &#39;ť&#39;, &#39;ď&#39;, &#39;ś&#39;, &#39;ć&#39;} and lower(name) is not in {&#39;sršeň&#39;, &#39;učeň&#39;}) //&#39;Sršeň&#39; nechceme, resi se dal
+or
+right(name, 2) is in {&#39;is&#39;, &#39;iß&#39;, &#39;oň&#39;, &#39;es&#39;, &#39;ic&#39;, &#39;os&#39;, &#39;us&#39;, &#39;as&#39;, &#39;nc&#39;, &#39;sz&#39;, &#39;iy&#39;, &#39;cz&#39;, &#39;áň&#39;, &#39;aň&#39;, &#39;ay&#39;, &#39;ys&#39;, &#39;sh&#39;, &#39;rz&#39;,
+&#39;aň&#39;, &#39;áň&#39;, &#39;éň&#39;, &#39;iň&#39;, &#39;íň&#39;, &#39;oň&#39;, &#39;óň&#39;, &#39;uň&#39;, &#39;úň&#39;, &#39;ůň&#39;, &#39;yň&#39;, &#39;ýň&#39;, &#39;ić&#39;, &#39;uß&#39;, &#39;dź&#39;}
+
+//Latinská a řecká jména se řeší v condition dopředu
+//nc - Pozn.: Lokvenc, Vokativ výhradně Lokvenci, nikoliv Lokvenče</condition>
+			<comm:comment>Ends with &quot;sch&quot; ... , &quot;š&quot;, ..., &quot;is&quot;, ...</comm:comment>
+		</properties>
+		<visual-constraints bounds="-648,-696,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;sch&quot; ... , &quot;š&quot;, ..., &quot;is&quot;, ..." endpoint="out_true"/>
+		<target step="Accusative suffix &quot;e&quot;, Vocative &quot;i&quot; ?" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-531,-648"/>
+				<point location="-406,-648"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;sch&quot; ... , &quot;š&quot;, ..., &quot;is&quot;, ..." endpoint="out_false"/>
+		<target step="Ends with &quot;a&quot;, &quot;á&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "y", "ee") --><step id="Ends with &quot;y&quot;, &quot;ee&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 1)=&#39;y&#39;
+or
+right(name, 2)=&#39;ee&#39;</condition>
+			<comm:comment>Ends with &quot;y&quot;, &quot;ee&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="-648,-408,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;y&quot;, &quot;ee&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;ho&quot; ?, Vocative &quot;&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-426,-360"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;y&quot;, &quot;ee&quot;" endpoint="out_false"/>
+		<target step="Unknown rule" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "í", "ý", "i") --><step id="Ends with &quot;í&quot;, &quot;ý&quot;, &quot;i&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 1) is in {&#39;i&#39;, &#39;í&#39;, &#39;ý&#39;}
+or
+name is in {&#39;Dupuis&#39;, &#39;Petit&#39;, &#39;Camus&#39;, &#39;Raleigh&#39;, &#39;Lee&#39;, &#39;Lie&#39;, &#39;Sue&#39;, &#39;Curie&#39;, &#39;Mackenzie&#39;, &#39;Attlee&#39;, &#39;Marie&#39;, &#39;Aabye&#39;, &#39;Leigh&#39;}</condition>
+			<comm:comment>Ends with í, ý, i, y
+or
+is in the list</comm:comment>
+		</properties>
+		<visual-constraints bounds="1392,-864,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;í&quot;, &quot;ý&quot;, &quot;i&quot;" endpoint="out_true"/>
+		<target step="Acute í, ý" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;í&quot;, &quot;ý&quot;, &quot;i&quot;" endpoint="out_false"/>
+		<target step="Hard and ambiguous consonants" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "ík", "ák", ... "h", "k", "g", except ("th", "ph")) --><step id="Ends with &quot;ík&quot;, &quot;ák&quot;, ... &quot;h&quot;, &quot;k&quot;, &quot;g&quot;, except (&quot;th&quot;, &quot;ph&quot;)" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 2) is in {&#39;ík&#39;, &#39;ák&#39;, &#39;ik&#39;, &#39;ak&#39;, &#39;yk&#39;, &#39;ýk&#39;, &#39;ok&#39;, &#39;uk&#39;, &#39;ng&#39;, &#39;nk&#39;,&#39;rk&#39;, &#39;ig&#39;, &#39;rg&#39;, &#39;ag&#39;, &#39;ág&#39;}
+or
+right(name, 3) is in {&#39;ack&#39;, &#39;äck&#39;, &#39;eck&#39;, &#39;ick&#39;, &#39;ock&#39;, &#39;öck&#39;, &#39;uck&#39;, &#39;ück&#39;, &#39;űck&#39;}
+or
+(
+	right(name, 1) is in {&#39;h&#39;, &#39;k&#39;, &#39;g&#39;}
+	and
+	right(name, 2) is not in {&#39;th&#39;, &#39;ph&#39;} //Joseph, Christoph, Ralph, ...
+)</condition>
+			<comm:comment>Ends with &quot;ík&quot;, &quot;ák&quot;, ... &quot;h&quot;, &quot;k&quot;, &quot;g&quot;, except (&quot;th&quot;, &quot;ph&quot;)</comm:comment>
+		</properties>
+		<visual-constraints bounds="888,-432,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ík&quot;, &quot;ák&quot;, ... &quot;h&quot;, &quot;k&quot;, &quot;g&quot;, except (&quot;th&quot;, &quot;ph&quot;)" endpoint="out_false"/>
+		<target step="Ends with: &quot;an&quot;, ..., &quot;t&quot;, &quot;n&quot;, .." endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ík&quot;, &quot;ák&quot;, ... &quot;h&quot;, &quot;k&quot;, &quot;g&quot;, except (&quot;th&quot;, &quot;ph&quot;)" endpoint="out_true"/>
+		<target step="Use &quot;a&quot; (Accu), &quot;u&quot; (Voc) declension" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "ěl") --><step id="Ends with &quot;ěl&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="right(name, 2) is in {&#39;ěl&#39;}">
+			<comm:comment>Name ends with &quot;ěl&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="888,-624,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ěl&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;a&quot;, Vocative &quot;ěla&quot;, &quot;ěli&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;ěl&quot;" endpoint="out_false"/>
+		<target step="Ends with &quot;er&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with consonant + "r") --><step id="Ends with consonant + &quot;r&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="right(name, 2) is in {&#39;gr&#39;, &#39;tr&#39;, &#39;dr&#39;, &#39;br&#39;, &#39;mr&#39;, &#39;hr&#39;, &#39;pr&#39;, &#39;kr&#39;, &#39;fr&#39;, &#39;zr&#39;, &#39;sr&#39;, &#39;cr&#39;, &#39;šr&#39;, &#39;vr&#39;, &#39;jr&#39;}">
+			<comm:comment>Ends with consonant + &quot;r&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="-24,-288,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with consonant + &quot;r&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;a&quot;, Vocative &quot;ře&quot;, &quot;re&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with consonant + &quot;r&quot;" endpoint="out_false"/>
+		<target step="Remaining vocal + &quot;r&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with: "an", ..., "t", "n", ..) --><step id="Ends with: &quot;an&quot;, ..., &quot;t&quot;, &quot;n&quot;, .." className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 2) is in {&#39;an&#39;, &#39;án&#39;, &#39;al&#39;, &#39;ál&#39;, &#39;ar&#39;, &#39;il&#39;, &#39;rt&#39;, &#39;in&#39;, &#39;ín&#39;, &#39;im&#39;, &#39;ír&#39;, &#39;ir&#39;, &#39;ov&#39;, &#39;or&#39;, &#39;ár&#39;, &#39;on&#39;, &#39;tl&#39;, &#39;gl&#39;, &#39;en&#39;, &#39;ld&#39;, &#39;bl&#39;,
+&#39;kl&#39;, &#39;dl&#39;, &#39;zl&#39;, &#39;ol&#39;, &#39;sl&#39;, &#39;av&#39;, &#39;af&#39;, &#39;ph&#39;, &#39;th&#39;, &#39;ur&#39;, &#39;cl&#39;, &#39;ev&#39;, &#39;pl&#39;, &#39;hl&#39;, &#39;yn&#39;, &#39;ym&#39;, &#39;ml&#39;, &#39;ad&#39;, &#39;nd&#39;, &#39;iv&#39;, &#39;fl&#39;, &#39;rd&#39;, &#39;úr&#39;,
+&#39;aw&#39;, &#39;rr&#39;}
+//Seidl
+//rr - nezměkčuji z důvodu, že jde patrně o cizince, kde necháme původní variantu
+or
+right(name, 3) is in {&#39;ann&#39;, &#39;ánn&#39;, &#39;all&#39;, &#39;äll&#39;, &#39;áll&#39;, &#39;ell&#39;, &#39;éll&#39;, &#39;ill&#39;, &#39;íll&#39;, &#39;nll&#39;, &#39;oll&#39;, &#39;öll&#39;, &#39;őll&#39;, &#39;ull&#39;, &#39;üll&#39;, &#39;úll&#39;,
+&#39;űll&#39;, &#39;yll&#39;, &#39;ýll&#39;}
+or
+right(name, 1) is in {&#39;t&#39;, &#39;n&#39;, &#39;f&#39;, &#39;l&#39;, &#39;m&#39;, &#39;d&#39;, &#39;p&#39;, &#39;b&#39;, &#39;ľ&#39;, &#39;v&#39;, &#39;w&#39;, &#39;ł&#39;, &#39;ĺ&#39;}
+//kouknout u flmd na krátká jména nebo nějaké zkracování navíc
+
+//čert ví s měkkým l, v cs ho nemáme a slováci na druhou stranu nemají vokativ
+//Jakl http://www.pravidla.cz/hledej.php?qr=jakl</condition>
+			<comm:comment>Ends with: &quot;an&quot;, ..., &quot;t&quot;, &quot;n&quot;, ..</comm:comment>
+		</properties>
+		<visual-constraints bounds="600,-384,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with: &quot;an&quot;, ..., &quot;t&quot;, &quot;n&quot;, .." endpoint="out_false"/>
+		<target step="Ends with &quot;ch&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with: &quot;an&quot;, ..., &quot;t&quot;, &quot;n&quot;, .." endpoint="out_true"/>
+		<target step="For &quot;a&quot; (Accu), &quot;e&quot; (Voc) declension" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="936,-336"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (For "a" (Accu), "e" (Voc) declension) --><step id="For &quot;a&quot; (Accu), &quot;e&quot; (Voc) declension" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="912,72,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="For &quot;a&quot; (Accu), &quot;e&quot; (Voc) declension" endpoint="out"/>
+		<target step="Accusative suffix &quot;(n)a&quot;, Vocative &quot;(n)e&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Hard and ambiguous consonants) --><step id="Hard and ambiguous consonants" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>(
+	right(name, 1) is in {&#39;h&#39;, &#39;k&#39;, &#39;r&#39;, &#39;d&#39;, &#39;t&#39;, &#39;n&#39;, &#39;b&#39;, &#39;f&#39;, &#39;l&#39;, &#39;m&#39;, &#39;p&#39;, &#39;v&#39;, &#39;g&#39;, &#39;w&#39;, &#39;ľ&#39;, &#39;ł&#39;, &#39;ĺ&#39;}
+)
+and
+right(name, 2) is not in {&#39;sh&#39;}
+and
+right(name, 3) is not in {&#39;sch&#39;}</condition>
+			<comm:comment>Name ends with hard or ambiguous consonant (with exception of sh and sch)</comm:comment>
+		</properties>
+		<visual-constraints bounds="360,-816,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Hard and ambiguous consonants" endpoint="out_false"/>
+		<target step="Ends with &quot;ec&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Hard and ambiguous consonants" endpoint="out_true"/>
+		<target step="Ends with &quot;ek&quot; or &quot;ěk&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (It is short name) --><step id="It is short name" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>$exception:=upper(name) in {&#39;ÁG&#39;, &#39;ÁČ&#39;, &#39;AČ&#39;, &#39;IŽ&#39;, &#39;IŠ&#39;};
+
+not $exception and (length(name) is 1 or length(name) is 2)</condition>
+			<comm:comment>We don&#39;t decline one and two-letter names. There are exceptions of this rule.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1392,-1104,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="It is short name" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;&quot;, Vocative &quot;&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1421,-1056"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="It is short name" endpoint="out_false"/>
+		<target step="It is undeclinable" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (It is undeclinable) --><step id="It is undeclinable" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>name is in {&#39;Vimmer&#39;, &#39;Wimer&#39;, &#39;Wimmer&#39;, &#39;Vimer&#39;,
+&#39;Benoit&#39;, &#39;Dumas&#39;, &#39;Delacroix&#39;, &#39;Marat&#39;, &#39;François&#39;, 
+&#39;Bolstad&#39;, &#39;Noah&#39;, &#39;Jeremiah&#39;, &#39;Lee&#39;
+}
+
+or 
+
+right(name, 3) is in {&#39;ých&#39;}
+or
+right(name, 2) is in {&#39;ův&#39;, &#39;ko&#39;, &#39;lo&#39;, &#39;ny&#39;, &#39;no&#39;, &#39;ro&#39;, &#39;čo&#39;, &#39;yy&#39;, &#39;ly&#39;, &#39;ně&#39;, &#39;tě&#39;, &#39;bě&#39;, &#39;dě&#39;, &#39;pě&#39;, &#39;ľo&#39;, &#39;ďo&#39;}
+or
+right(name, 1) is in {&#39;o&#39;, &#39;u&#39;, &#39;ů&#39;, &#39;ú&#39;, &#39;ó&#39;, &#39;é&#39;, &#39;ö&#39;, &#39;ü&#39;}
+or
+matches(&#39;[lrnzstendk]y&#39; , right(name, 2))
+//o chce kontrolu, těch jmen není tolik
+//u je zvláštní, patrně zakončení ui lze udělat, ale nemá to smysl
+//ó jsou patrně všechno cizinci
+//ny - poukazuje na cizince</condition>
+			<comm:comment>List of undeclinable words, and list of endings, when we don&#39;t decline.
+
+1.2 Příjmení s formou přídavného jména
+
+(Šerých, Tichých, Jakubův)
+
+Specifickým případem jsou příjmení, která mají formu přídavných jmen (Šerých, Tichých). Tato jména mohou zůstat nesklonná, méně často se skloňují podle vzoru „pán“, pokud už tvar není vnímán jako přídavné jméno (2. p. Šerýcha).
+
+Příjmení s formou přivlastňovacích přídavných jmen, která jsou zakončena na -ův (Jakubův) mohou zůstat nesklonná, řidčeji se skloňují; záleží na rodinné tradici (2., 4. p. Jakubův, řidčeji Jakubova, 3., 6. p. Jakubovu).</comm:comment>
+		</properties>
+		<visual-constraints bounds="1392,-1032,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="It is undeclinable" endpoint="out_true"/>
+		<target step="Accusative various suffixes, Vocative &quot;&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1525,-984"/>
+				<point location="1714,-984"/>
+				<point location="1777,-984"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="It is undeclinable" endpoint="out_false"/>
+		<target step="Latin or Greek name" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Known rule) --><step id="Known rule" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="surness_level is not 0">
+			<comm:comment>If surness level is 0, no rule was found.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1536,-624,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Known rule" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;ho&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Known rule" endpoint="out_false"/>
+		<target step="Useless union" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1465,-576"/>
+				<point location="1465,-767"/>
+				<point location="1102,-768"/>
+				<point location="1102,-865"/>
+				<point location="1102,-888"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Latin or Greek name) --><step id="Latin or Greek name" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>isInFile(name, &quot;pathvar://DATA/ext/lkp/cz_name_declension_latinnames.lkp&quot;)
+//false
+
+//lower(removeAccents(name)) is in {&#39;julius&#39;, &#39;titus&#39;, &#39;marsyas&#39;, &#39;herakles&#39;, &#39;ikaros&#39;, &#39;platon&#39;}
+// Anakreon, Atlas, Kramerius, Pistorius, Mathesius}</condition>
+			<comm:comment>Latin or Greek name</comm:comment>
+		</properties>
+		<visual-constraints bounds="1392,-960,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Latin or Greek name" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;a&quot;, Vocative &quot;e&quot; (2 letters)" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1775,-912"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Latin or Greek name" endpoint="out_false"/>
+		<target step="Ends with &quot;í&quot;, &quot;ý&quot;, &quot;i&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Names ending with í, ý, i, y (with known rule)) --><step id="Names ending with í, ý, i, y (with known rule)" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Names ending with í, ý, i, y (with known rule)</comm:comment>
+		</properties>
+		<visual-constraints bounds="1776,-576,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Names ending with í, ý, i, y (with known rule)" endpoint="out"/>
+		<target step="Vocative &quot;&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remaining vocal + "r") --><step id="Remaining vocal + &quot;r&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 2) is in {&#39;ér&#39;, &#39;ýr&#39;, &#39;yr&#39;, &#39;ůr&#39;, &#39;ór&#39;, &#39;ěr&#39;, &#39;ör&#39;, &#39;ür&#39;, &#39;űr&#39;, &#39;är&#39;}
+</condition>
+			<comm:comment>Remaining vocal + &quot;r&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="-48,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remaining vocal + &quot;r&quot;" endpoint="out_true"/>
+		<target step="For &quot;a&quot; (Accu), &quot;e&quot; (Voc) declension" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remaining vocal + &quot;r&quot;" endpoint="out_false"/>
+		<target step="Unknown rule" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove internal columns) --><step id="Remove internal columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="surness_level"/>
+			</removedColumns>
+		</properties>
+		<visual-constraints bounds="1392,576,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove internal columns" endpoint="out"/>
+		<target step="out 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Short, special, Latin and Greek names) --><step id="Short, special, Latin and Greek names" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Short, special, Latin and Greek names</comm:comment>
+		</properties>
+		<visual-constraints bounds="2088,-744,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Short, special, Latin and Greek names" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="2112,504"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Surness level) --><step id="Surness level" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="surness_level">
+					<expression>case (
+		//Ends with i
+		right(name, 1) is in {&#39;i&#39;}, 80,
+		//Pronunciation of &#39;i&#39; ends with consonant (written)
+		name is in {&#39;Dupuis&#39;, &#39;Petit&#39;, &#39;Camus&#39;, &#39;Raleigh&#39;}, 60,
+		surness_level)
+		
+
+/*		
+1 Jména zakončená v písmu i ve výslovnosti na -i
+
+(Darmopíši, Bezstarosti, Luigi, Bondy, Tony, Petöfi, Percy, Verdi, Vranitzky, Starsy, I, Li)
+
+Česká příjmení končící ve výslovnosti i v písmu na -i jsou spíše výjimečná (Darmopíši, Bezstarosti) a zůstávají nesklonná (pouze ve 3. a 6. p. se občas připojuje koncovka -ovi) nebo je lze skloňovat pomocí zájmenných koncovek (2. p. Bezstarosti i Bezstarostiho, 3., 6. p. Bezstarosti, Bezstarostovi i Bezstarostimu, 7. p. Bezstarosti i Bezstarostim). Ostatní jména zakončená na -i, -y jsou cizího původu a skloňují se pomocí zájmenných koncovek (Luigi, Bondy, Tony, Petöfi, Percy, Verdi – 2. p. Luigiho, Bondyho, Tonyho, Petöfiho, Percyho, Verdiho). Specifickým případem jsou příjmení slovanského původu, která mají formu přídavných jmen (Vranitzky, Duchovny, Brezinski). Ta se skloňují analogicky jako přídavná jména (2. p. Vranitzkého, Duchovného, Brezinského). Pokud je však původní adjektivní povaha tohoto jména zastřená, méně průhledná a uživatelé už v něm přídavné jméno nerozpoznávají nebo je pozměněna jeho výslovnost, je možné tato jména skloňovat podle jejich zakončení na [i] tzv. zájmenným způsobem: Starsy (původně ze jména Starší) – 2. p. Starsyho; Tichy [tyhy] – 2. p. Tichyho).
+
+U orientálních jmen se připojují zájmenné koncovky až za celé jméno (čínská jména I, Li – 2. p. Iho, Liho). Mají-li tato jména více částí, skloňujeme až poslední část jména nebo první a zároveň poslední (Čao Šu-Li, Ri I – 2. p. Čao/Čaa Šu-Liho, Ri Iho) – podrobněji viz kapitola Osobní jména víceslovná.		
+*/
+/*
+3 Jména zakončená ve výslovnosti na [i], ale v písmu na souhláskové písmeno
+
+(Dupuis, Petit, Camus, Raleigh)
+
+Pokud je jméno zakončeno ve výslovnosti na [i], ale v grafice na souhláskové písmeno, pádové koncovky nepřímých pádů se přidávají za celé jméno a podle koncové souhlásky se tato jména skloňují podle vzoru „muž“ nebo „pán“ (Dupuis [dypui], Petit [pty], Camus [kami] – 2. p. Dupuise [dypuize], Petita [ptyta], Camuse [kamise]). Výjimkou z tohoto typu jsou anglická jména zakončená na -gh, u kterých se ve vyslovované podobě tato hlásková skupina vypouští: Raleigh [roli] – 2. p. Raleigha [rolia] i [roliho] – 5. p. Raleighu [roli] (toto jméno je příkladem situace, ve které nelze dodržet korespondenci skloňovacích paradigmat (pádových tvarů) v psané a vyslovované formě, proto je zde nutné přijmout, že se psaná a vyslovovaná podoba bude lišit).
+*/</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Set surness level</comm:comment>
+		</properties>
+		<visual-constraints bounds="1536,-720,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Surness level" endpoint="out"/>
+		<target step="Known rule" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Unknown rule) --><step id="Unknown rule" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Unknown rule - no declension</comm:comment>
+		</properties>
+		<visual-constraints bounds="-672,72,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Unknown rule" endpoint="out"/>
+		<target step="Useless union 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-648,456"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Use "a" (Accu), "u" (Voc) declension) --><step id="Use &quot;a&quot; (Accu), &quot;u&quot; (Voc) declension" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Use &quot;a&quot; (Accu), &quot;u&quot; (Voc) declension</comm:comment>
+		</properties>
+		<visual-constraints bounds="624,-24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Use &quot;a&quot; (Accu), &quot;u&quot; (Voc) declension" endpoint="out"/>
+		<target step="Accusative suffix &quot;a&quot;, Vocative &quot;u&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Useless union) --><step id="Useless union" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Useless union</comm:comment>
+		</properties>
+		<visual-constraints bounds="-744,-888,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Useless union" endpoint="out"/>
+		<target step="Unknown rule" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="-720,72"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Useless union 2) --><step id="Useless union 2" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Useless union</comm:comment>
+		</properties>
+		<visual-constraints bounds="-144,456,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Useless union 2" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Vocative "") --><step id="Vocative &quot;&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="name" column="vocative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Jména zakončená ve výslovnosti na [í] a v písmu na -í, -ý
+
+(Jiří, Jiljí, Brixí, Ghándí, Zelí, Konopí, Pokorný, Dolejší, Tachecí, Kočí, Balý, Kubý)
+
+Jména zakončená v písmu i výslovnosti na -í, -ý se rovněž skloňují tzv. zájmenným způsobem (Jiří, Jiljí, Brixí, Ghándí, Kaddáfí, Alí – 2. p. Jiřího,  Jiljího, Brixího, Ghándího, Kaddáfího, Alího). Ojedinělá jména typu Zelí, Konopí, Štěstí apod. mohou zůstat i nesklonná (2. p. Zelí i Zelího, Konopí i Konopího, Štěstí i Štěstího). Výjimkou ze zájmenného skloňování jsou příjmení, která mají formu přídavných jmen. Ta skloňujeme podle příslušného adjektivního vzoru „mladý“ či „jarní“ (Novotný, Pokorný, Dolejší, Tachecí, Kočí apod. – 2. p. Novotného, Pokorného, Dolejšího, Tachecího, Kočího). Pokud je jméno etymologicky nejasné (není zcela zřejmé, zda jde o přídavné jméno), lze užít i zájmenné skloňování (mluvnice uvádějí jako příklady příjmení Balý/Ballý/Baly, Nesý/Nessy/Nesy, Kubý – 2. p. Bal(l)ého i Bal(l)ýho/Balyho, Nes(s)ého i Nes(s)ýho/Nes(s)yho, Kubého i Kubýho).</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Vocative is the same as nominative</comm:comment>
+		</properties>
+		<visual-constraints bounds="1776,-480,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Vocative &quot;&quot;" endpoint="out"/>
+		<target step="All names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1800,504"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="name" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="1392,-1248,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="Alter Format" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out 2) --><step id="out 2" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns/>
+		</properties>
+		<visual-constraints bounds="1392,648,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="960,-1104,364,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Length 1 or 2, with exception of &#39;ÁG&#39;, &#39;ÁČ&#39;, &#39;AČ&#39;, &#39;IŽ&#39;, &#39;IŠ&#39;</modelComment>
+
+
+
+<modelComment bounds="960,-1032,367,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">E.g. &quot;Dumas&quot;, suffix &quot;ých&quot;, &quot;ův&quot;, &#39;o&#39;, &#39;u&#39;, &#39;ů&#39;, &#39;ú&#39;, &#39;ó&#39;, &#39;é&#39;, &#39;ö&#39;, &#39;ü&#39;</modelComment>
+
+
+
+<modelComment bounds="2136,-1104,444,182" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Accusative - various suffixes:
+- &quot;Vimmer&quot; type gets &#39;a&#39;
+- 1 and 2-letter names, names end with &quot;yy&quot;, &quot;aa&quot;, ... - no declension
+- ot(t)o -&gt; Ot(t)u
+- name &quot;mao&quot;, names end with &quot;au&quot;, &quot;oo&quot; or &quot;ó&quot; -&gt; &quot;maa&quot;, &quot;aa&quot;, &quot;oa&quot;, &quot;a&quot;
+- names end with &quot;ao&quot;, &quot;bo&quot;, &quot;co&quot;, ... -&gt; &quot;aa&quot;, &quot;ba&quot;, &quot;ca&quot;, ...
+- names end with &quot;ých&quot; -&gt; get &#39;a&quot;
+- names end with &quot;tě&quot; -&gt; get &quot;ho&quot;
+- names end with &quot;ny&quot;, &quot;ly&quot;, &quot;ry&quot;, ... -&gt; get &quot;ho&quot;
+- names end with &quot;rey&quot; -&gt; get &quot;e&quot;</modelComment>
+
+
+
+<modelComment bounds="1824,-1104,196,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">No declension for short names</modelComment>
+
+
+
+<modelComment bounds="2136,-912,166,54" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Pr. Julius -&gt; Julia, Julie	
+</modelComment>
+
+
+
+<modelComment bounds="1200,-888,171,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Ends with í, ý, i, y
+or names like &quot;Dupuis&quot;, ..</modelComment>
+
+
+
+<modelComment bounds="191,-877,414,60" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Ends with &#39;h&#39;, &#39;k&#39;, &#39;r&#39;, &#39;d&#39;, &#39;t&#39;, &#39;n&#39;, &#39;b&#39;, &#39;f&#39;, &#39;l&#39;, &#39;m&#39;, &#39;p&#39;, &#39;v&#39;, &#39;g&#39;, &#39;w&#39;, &#39;ľ&#39;, &#39;ł&#39;, &#39;ĺ&#39;
+ (with exception of sh and sch)</modelComment>
+
+
+
+<modelComment bounds="1008,-408,385,97" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Ends with &#39;ík&#39;, &#39;ák&#39;, &#39;ik&#39;, &#39;ak&#39;, &#39;yk&#39;, &#39;ýk&#39;, &#39;ok&#39;, &#39;uk&#39;, &#39;ng&#39;, 
+               &#39;nk&#39;,&#39;rk&#39;, &#39;ig&#39;, &#39;rg&#39;, &#39;ag&#39;, &#39;ág&#39;
+or &#39;ack&#39;, &#39;äck&#39;, &#39;eck&#39;, &#39;ick&#39;, &#39;ock&#39;, &#39;öck&#39;, &#39;uck&#39;, &#39;ück&#39;, &#39;űck&#39;
+or &#39;h&#39;, &#39;k&#39;, &#39;g&#39; (except &#39;th&#39;, &#39;ph&#39; - eg. Joseph, Christoph, Ralph, ...)</modelComment>
+
+
+
+<modelComment bounds="263,-488,602,102" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Ends with &#39;an&#39;, &#39;án&#39;, &#39;al&#39;, &#39;ál&#39;, &#39;ar&#39;, &#39;il&#39;, &#39;rt&#39;, &#39;in&#39;, &#39;ín&#39;, &#39;im&#39;, &#39;ír&#39;, &#39;ir&#39;, &#39;ov&#39;, &#39;or&#39;, &#39;ár&#39;, &#39;on&#39;, &#39;tl&#39;, &#39;gl&#39;, &#39;en&#39;, &#39;ld&#39;, &#39;bl&#39;,
+&#39;kl&#39;, &#39;dl&#39;, &#39;zl&#39;, &#39;ol&#39;, &#39;sl&#39;, &#39;av&#39;, &#39;af&#39;, &#39;ph&#39;, &#39;th&#39;, &#39;ur&#39;, &#39;cl&#39;, &#39;ev&#39;, &#39;pl&#39;, &#39;hl&#39;, &#39;yn&#39;, &#39;ym&#39;, &#39;ml&#39;, &#39;ad&#39;, &#39;nd&#39;, &#39;iv&#39;, &#39;fl&#39;, &#39;rd&#39;, &#39;úr&#39;,
+&#39;aw&#39;, &#39;rr&#39;
+or &#39;ann&#39;, &#39;ánn&#39;, &#39;all&#39;, &#39;äll&#39;, &#39;áll&#39;, &#39;ell&#39;, &#39;éll&#39;, &#39;ill&#39;, &#39;íll&#39;, &#39;nll&#39;, &#39;oll&#39;, &#39;öll&#39;, &#39;őll&#39;, &#39;ull&#39;, &#39;üll&#39;, &#39;úll&#39;, &#39;űll&#39;, &#39;yll&#39;, &#39;ýll&#39;
+or &#39;t&#39;, &#39;n&#39;, &#39;f&#39;, &#39;l&#39;, &#39;m&#39;, &#39;d&#39;, &#39;p&#39;, &#39;b&#39;, &#39;ľ&#39;, &#39;v&#39;, &#39;w&#39;, &#39;ł&#39;, &#39;ĺ&#39;</modelComment>
+
+</purity-config>

@@ -1,0 +1,1360 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:def="http://www.ataccama.com/purity/defaults" xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<icon type="5">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</icon>
+	<references/>
+	<component-mappings>
+		<propertyMappings>
+			<property name="ico_search_only_parameter" mappedTo="Assign parameter/assignments[0]/expression" insert="false">
+				<def:default-value>
+					<expression>false</expression>
+				</def:default-value>
+				<description>Allows to search company only against reg. number. When parameter is true, the component validates only company with filled reg.number( recommended value is false).</description>
+			</property>
+		</propertyMappings>
+	</component-mappings>
+
+<!-- (Add Columns) --><step id="Add Columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="std_reg_number" type="STRING">
+					<comm:comment>Standardized and verified registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_company_name" type="STRING">
+					<comm:comment>Standardized company name from RES lookup</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_legal_form" type="STRING">
+					<comm:comment>Standardized legal form (in long form)</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_reg_number" type="STRING">
+					<comm:comment>Best available value of registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_company_name" type="STRING">
+					<comm:comment>Best available value of company name. When company name is validated against RES, it is assigned from RES, if we recognize major difference in name (including legal form), then value from input is assigned.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_company_name_base" type="STRING">
+					<comm:comment>Best available value of company name without legal form. (Value from RES lookup)</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_legal_form" type="STRING">
+					<comm:comment>Best available value of company legal form. Value is always standardized against RES legal form list.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_active" type="BOOLEAN">
+					<comm:comment>Boolean flag indicating, whether the company is active </comm:comment>
+				</addedColumn>
+				<addedColumn name="out_reg_num_comments" type="STRING">
+					<comm:comment>Comments found before/after registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_company" type="INTEGER">
+					<comm:comment>Data quality score of company registration number and name</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_company" type="STRING">
+					<comm:comment>Explanation codes of data quality problems in company registration number and name</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="424,-1133,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add Columns" endpoint="out"/>
+		<target step="Add internal columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Add internal columns) --><step id="Add internal columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="pur_in_reg_number" type="STRING">
+					<comm:comment>Cleansed input registration number.</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_reg_number_orig" type="STRING">
+					<comm:comment>Parsed registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_reg_number" type="STRING">
+					<comm:comment>Cleansed and normalized registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_company_name_base" type="STRING">
+					<comm:comment>Cleansed company name without legal form</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_comment" type="STRING">
+					<comm:comment>Parsed comments before/after registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="pat_reg_number" type="STRING">
+					<comm:comment>Pattern of parsed registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="mat_company_name_base" type="STRING">
+					<comm:comment>Input matching company name without legal form</comm:comment>
+				</addedColumn>
+				<addedColumn name="mat_form" type="STRING">
+					<comm:comment>Input matching legal form</comm:comment>
+				</addedColumn>
+				<addedColumn name="mat_residence_city" type="STRING">
+					<comm:comment>Input matching company city of residence</comm:comment>
+				</addedColumn>
+				<addedColumn name="res_matching_company_name" type="STRING">
+					<comm:comment>Register (RES) matching company name</comm:comment>
+				</addedColumn>
+				<addedColumn name="res_company_name_base" type="STRING">
+					<comm:comment>Register (RES) matching company name without legal form</comm:comment>
+				</addedColumn>
+				<addedColumn name="res_matching_form" type="STRING">
+					<comm:comment>Register (RES) matching legal form</comm:comment>
+				</addedColumn>
+				<addedColumn name="res_matching_city" type="STRING">
+					<comm:comment>Register (RES) matching company city of residence</comm:comment>
+				</addedColumn>
+				<addedColumn name="res_termination_date" type="DAY">
+					<comm:comment>Register (RES) company termination date</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_component_pattern" type="STRING">
+					<comm:comment>DLI component pattern</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_pattern" type="STRING">
+					<comm:comment>DLI pattern</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_proposal_count" type="INTEGER">
+					<comm:comment>DLI proposal count</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_vector" type="STRING">
+					<comm:comment>DLI vector</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_explanation" type="STRING">
+					<comm:comment>DLI explanation</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_score" type="INTEGER">
+					<comm:comment>DLI score</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_reg_number" type="STRING">
+					<comm:comment>DLI registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_matching_company_name_base" type="STRING">
+					<comm:comment>DLI matching company name without legal form</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_matching_form" type="STRING">
+					<comm:comment>DLI matching legal form</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_matching_city" type="STRING">
+					<comm:comment>DLI matching city</comm:comment>
+				</addedColumn>
+				<addedColumn name="dli_count_best" type="INTEGER">
+					<comm:comment>DLI count of companies with the best score</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_reg_number_company_name_based" type="STRING">
+					<comm:comment>Registration number based on company name, form and city</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_explanation" type="STRING">
+					<comm:comment>Registration number validity explanation</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_legal_form" type="STRING">
+					<comm:comment>Legal form taken from company name</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_name_matching_differs" type="FLOAT">
+					<comm:comment>Set name difference score</comm:comment>
+				</addedColumn>
+				<addedColumn name="lev_name_matching_differs" type="FLOAT">
+					<comm:comment>General name difference score</comm:comment>
+				</addedColumn>
+				<addedColumn name="ico_search_only_parameter" type="BOOLEAN">
+					<comm:comment>Search only reg.number (ICO) parameter.</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>Add internal columns</comm:comment>
+		</properties>
+		<visual-constraints bounds="424,-1061,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add internal columns" endpoint="out"/>
+		<target step="Assign parameter" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Assign parameter) --><step id="Assign parameter" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="false" column="ico_search_only_parameter">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Default value for parameter. Validates all input values against RES.</comm:comment>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="432,-984,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Assign parameter" endpoint="out"/>
+		<target step="Reg number filled" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Clean reg_number) --><step id="Clean reg_number" className="com.ataccama.dqc.tasks.clean.MatchingValues" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<matchingColumn expression="pur_reg_number_orig" name="pur_reg_number">
+					<generator doRemoveRepeatedChars="false" doSqueezeWS="false" supportedCharacters="[:digit:]" doRemoveDia="false" doUpperCase="false"/>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="MV_CHANGED" explain="true" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</matchingColumn>
+			</columns>
+			<comm:comment>Remove spaces</comm:comment>
+		</properties>
+		<visual-constraints bounds="568,-701,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Clean reg_number" endpoint="out"/>
+		<target step="Not dummy" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Cleanse input company name) --><component id="Cleanse input company name" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/internal/cz_company_reg_number_and_name/cleanse_company.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="src_company_name" from="in_company_name"/>
+						<columnsMapping to="src_city" from="in_residence_city"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="pur_company_name_base" from="pur_company_name_base"/>
+						<columnsMapping to="mat_company_name_base" from="mat_company_name_base"/>
+						<columnsMapping to="mat_form" from="mat_form"/>
+						<columnsMapping to="mat_city" from="mat_residence_city"/>
+						<columnsMapping to="std_form" from="tmp_legal_form"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<comm:comment>Cleanse and create matching values for name, form and city</comm:comment>
+			</mappings>
+			<comm:comment>Cleanse input company name, form and city</comm:comment>
+			<parameters/>
+		</properties>
+		<visual-constraints bounds="640,-149,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Cleanse input company name" endpoint="out"/>
+		<target step="Empty out_reg_number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Company name difference) --><step id="Company name difference" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="tmp_name_matching_differs">
+					<expression>//The function takes sets of words from mat_company_name_base and from res_matching_company_name; The match is expressed by relative percentage value.
+//and takes into account misspeling in each word.
+set.lcsIntersectionExp(mat_company_name_base, res_matching_company_name, &quot; &quot;, true, (x,y){editDistance(x,y)/max(length(x), length(y))&lt;=0.2})
+/
+max(wordCount(mat_company_name_base), wordCount(res_matching_company_name))
+
+</expression>
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+					<comm:comment>Percentage match of SET (company name from input and from RES).  See example below.
+
+For example when company name in input is &quot;Alfa Beta Gama&quot; and RES value is &quot;Alfa Beta Delta&quot;,
+then we can say those names have common company name &quot;Alfa Beta&quot; and third word is different (Delta).
+
+We have 2/3 match (in this case exact value of the function equals 0,6666). 
+
+Note: This function allows 20% misspelling (constant = 0.2)  in each word of the common company name to be considered the same.</comm:comment>
+				</assignment>
+				<assignment column="lev_name_matching_differs">
+					<expression>//The function looks for any relative difference between mat_company_name_base and res_matching_company_name.
+levenshtein(mat_company_name_base, res_matching_company_name)
+/
+max(length(mat_company_name_base), length(res_matching_company_name))</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>General percentage match of company name from input and from RES. See example below.
+
+For example we have company name Rapida in input and Rapid in RES. We can see that there is a difference between names (one extra character) 
+and based on this algorithm value of difference is calculated . 
+
+(in this case result is 1/6 and it reflects mismatch) 
+ 1 - how many changes to repair,
+/ 
+ 6 - number of characters from longer word)</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Match difference between company name from input and RES value.</comm:comment>
+		</properties>
+		<visual-constraints bounds="384,456,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Company name difference" endpoint="out"/>
+		<target step="Set score and explanation" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Company name filled) --><step id="Company name filled" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="in_company_name is not null">
+			<comm:comment>Company name is filled</comm:comment>
+		</properties>
+		<visual-constraints bounds="400,-197,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Company name filled" endpoint="out_true"/>
+		<target step="Cleanse input company name" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Company name filled" endpoint="out_false"/>
+		<target step="Union company names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Company name reg_number) --><step id="Company name reg_number" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties whenCondition="dli_count_best is 1">
+			<assignments>
+				<assignment expression="dli_reg_number" column="tmp_reg_number_company_name_based">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>If only one company in RES has best score, we use its reg. number</comm:comment>
+		</properties>
+		<visual-constraints bounds="760,43,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Company name reg_number" endpoint="out"/>
+		<target step="reg_number from company name" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Empty out_reg_number) --><step id="Empty out_reg_number" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="out_reg_number is null and mat_company_name_base is not null and ico_search_only_parameter is false">
+			<comm:comment>Input reg. number is not valid, company name is filled and parameter for search registration number only is set. We will use this name as lookup/DLI key.</comm:comment>
+		</properties>
+		<visual-constraints bounds="640,-77,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Empty out_reg_number" endpoint="out_true"/>
+		<target step="Search by company name, form and city" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Empty out_reg_number" endpoint="out_false"/>
+		<target step="Union company names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Legal form from input company name) --><step id="Legal form from input company name" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties whenCondition="std_legal_form is null">
+			<assignments>
+				<assignment expression="tmp_legal_form" column="out_legal_form">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Preserve legal form from input company name</comm:comment>
+		</properties>
+		<visual-constraints bounds="376,379,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Legal form from input company name" endpoint="out"/>
+		<target step="Company name difference" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Normalize short reg_number) --><step id="Normalize short reg_number" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="replicate(&#39;0&#39;,8-length(pur_reg_number)) + pur_reg_number" column="pur_reg_number">
+					<scorer explanationColumn="exp_company" scoreColumn="sco_company">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="COMPANY_REG_NUMBER_NORMALIZED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Add zeros before</comm:comment>
+		</properties>
+		<visual-constraints bounds="568,-557,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Normalize short reg_number" endpoint="out"/>
+		<target step="Validate IC CZ" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Not dummy) --><step id="Not dummy" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="substituteMany(@&quot;(\d)\1*&quot;, &#39;&#39;, pur_reg_number, 1) is not null">
+			<comm:comment>Don&#39;t continue with dummy reg. numbers.
+
+Dummy numbers consist of single digit, which is repeated zero to infinite times.
+E.g.:
+1
+3333
+666
+99999999</comm:comment>
+		</properties>
+		<visual-constraints bounds="568,-629,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Not dummy" endpoint="out_true"/>
+		<target step="Normalize short reg_number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Not dummy" endpoint="out_false"/>
+		<target step="Union all reg. numbers" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Output values) --><step id="Output values" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="nvl(std_reg_number, pur_reg_number, in_reg_number)" column="out_reg_number">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="out_company_name">
+					<expression>iif(indexOf(exp_company,&#39;COMPANY_NAME_MAJOR_DIFFERENCE&#39;) is not null or indexOf(exp_company,&#39;COMPANY_FORM_DIFFERS&#39;) is not null, 
+/* If major difference between input and RES company name occurs and record was found in RES then save input company name to output*/
+in_company_name,
+nvl(std_company_name, in_company_name)
+)
+</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="nvl(res_company_name_base, pur_company_name_base)" column="out_company_name_base">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="nvl(std_legal_form,tmp_legal_form)" column="out_legal_form">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="out_active">
+					<expression>case(std_reg_number is null,
+		null,
+	 std_reg_number is not null and res_termination_date is null,
+	 	true,
+	 today() &lt; res_termination_date
+	)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="pur_comment" column="out_reg_num_comments">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Set output (best available) values</comm:comment>
+		</properties>
+		<visual-constraints bounds="376,619,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Output values" endpoint="out"/>
+		<target step="Remove columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Parse reg_number) --><step id="Parse reg_number" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="in_reg_number" regexNameColumn="pat_reg_number" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="(.*?\D)?(\d{8})(\D.*)?" name="reg_number_strict" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_comment" substitution="$1$3"/>
+						<regexOutputColumn name="pur_reg_number_orig" substitution="$2"/>
+					</resultColumns>
+					<comm:comment>8-digit number with optional comments. No spaces inside allowed.
+E.g.
+&quot;ico:12345678xxx&quot;</comm:comment>
+				</regExpression>
+				<regExpression pattern="(.*?\D)?(\d(?:\s*\d){7})(\D.*)?" name="reg_number_benevolent" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_comment" substitution="$1$3"/>
+						<regexOutputColumn name="pur_reg_number_orig" substitution="$2"/>
+					</resultColumns>
+					<comm:comment>8-digit number with optional comments. Spaces inside are allowed.
+E.g.
+&quot;ico: 12 34  56  78xxx&quot;</comm:comment>
+				</regExpression>
+				<regExpression pattern="(.*?\D)?(\d{1,8})(\D.*)?" name="reg_number_short" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_comment" substitution="$1$3"/>
+						<regexOutputColumn name="pur_reg_number_orig" substitution="$2"/>
+					</resultColumns>
+					<comm:comment>1 to 8-digit number with optional comments. No spaces inside allowed.
+E.g.
+&quot;ico: 123xxx&quot;</comm:comment>
+				</regExpression>
+				<regExpression pattern="(.*?\D)?((?:\d\s*){1,8})(\D.*)?" name="reg_number_shor_benevolent" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns/>
+					<comm:comment>1 to 8-digit number with optional comments. Spaces inside allowed.
+E.g.
+&quot;ico: 123 xxx&quot;</comm:comment>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Parse input reg. number</comm:comment>
+		</properties>
+		<visual-constraints bounds="424,-821,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Parse reg_number" endpoint="out"/>
+		<target step="Reg number parsed" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Reg number filled) --><step id="Reg number filled" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="in_reg_number is not null">
+			<comm:comment>Registration number without spaces is not empty</comm:comment>
+		</properties>
+		<visual-constraints bounds="424,-893,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Reg number filled" endpoint="out_true"/>
+		<target step="Parse reg_number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Reg number filled" endpoint="out_false"/>
+		<target step="Union all reg. numbers" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="208,-845"/>
+				<point location="208,-269"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Reg number parsed) --><step id="Reg number parsed" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="pat_reg_number is not null">
+			<comm:comment>Reg number was parsed</comm:comment>
+		</properties>
+		<visual-constraints bounds="424,-749,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Reg number parsed" endpoint="out_true"/>
+		<target step="Clean reg_number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Reg number parsed" endpoint="out_false"/>
+		<target step="Union all reg. numbers" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove columns) --><step id="Remove columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="in_company_name"/>
+				<columnRef name="in_reg_number"/>
+				<columnRef name="in_residence_city"/>
+				<columnRef name="pur_in_reg_number"/>
+				<columnRef name="pur_reg_number_orig"/>
+				<columnRef name="pur_reg_number"/>
+				<columnRef name="pur_company_name_base"/>
+				<columnRef name="pur_comment"/>
+				<columnRef name="pat_reg_number"/>
+				<columnRef name="mat_company_name_base"/>
+				<columnRef name="mat_form"/>
+				<columnRef name="mat_residence_city"/>
+				<columnRef name="res_matching_company_name"/>
+				<columnRef name="res_company_name_base"/>
+				<columnRef name="res_matching_form"/>
+				<columnRef name="res_matching_city"/>
+				<columnRef name="dli_component_pattern"/>
+				<columnRef name="dli_pattern"/>
+				<columnRef name="dli_proposal_count"/>
+				<columnRef name="dli_vector"/>
+				<columnRef name="dli_explanation"/>
+				<columnRef name="dli_score"/>
+				<columnRef name="dli_reg_number"/>
+				<columnRef name="dli_matching_company_name_base"/>
+				<columnRef name="dli_matching_form"/>
+				<columnRef name="dli_matching_city"/>
+				<columnRef name="dli_count_best"/>
+				<columnRef name="tmp_reg_number_company_name_based"/>
+				<columnRef name="tmp_explanation"/>
+				<columnRef name="tmp_legal_form"/>
+				<columnRef name="tmp_name_matching_differs"/>
+				<columnRef name="lev_name_matching_differs"/>
+				<columnRef name="res_termination_date"/>
+				<columnRef name="ico_search_only_parameter"/>
+			</removedColumns>
+			<comm:comment>Remove internal columns</comm:comment>
+		</properties>
+		<visual-constraints bounds="376,691,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove columns" endpoint="out"/>
+		<target step="out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Search by company name, form and city) --><step id="Search by company name, form and city" className="com.ataccama.dqc.tasks.addresses.dictionary.DictionaryLookupIdentifier" disabled="false" mode="NORMAL">
+		<properties explanation="dli_explanation" score="dli_score" outPattern="dli_pattern" maxScoreToAcceptVector="1" referenceData="pathvar://DATA/ext/lkp/cz_res/dli" outComponentPattern="dli_component_pattern" outSupportingVectorName="dli_vector" outProposalCount="dli_proposal_count">
+			<componentOutputMapping>
+				<componentMapping column="dli_matching_company_name_base" componentId="matching_company_name_base"/>
+				<componentMapping column="dli_matching_form" componentId="matching_form"/>
+				<componentMapping column="dli_matching_city" componentId="matching_city"/>
+				<componentMapping column="dli_reg_number" componentId="reg_number"/>
+			</componentOutputMapping>
+			<components>
+				<entityComponentUsage id="matching_company_name_base" input="true" approximativeInputErrorLimit="0" approximativeExplainErrorRatio="1.0" mapToNumber="false" approximativeInputErrorRatio="1.0" approximativeExplainErrorLimit="0"/>
+				<entityComponentUsage id="matching_form" input="true" approximativeInputErrorLimit="0" approximativeExplainErrorRatio="1.0" mapToNumber="false" approximativeInputErrorRatio="1.0" approximativeExplainErrorLimit="0"/>
+				<entityComponentUsage id="matching_city" input="true" approximativeInputErrorLimit="0" approximativeExplainErrorRatio="1.0" mapToNumber="false" approximativeInputErrorRatio="1.0" approximativeExplainErrorLimit="0"/>
+			</components>
+			<expertSettings advancedScoring="false" approximativeSearchImmediately="false">
+				<evaluatorDefinition class="com.ataccama.dqc.tasks.addresses.dictionary.evaluation.SingleComponentElementEvaluatorDefinition"/>
+				<inputSearchMethod class="com.ataccama.dqc.tasks.addresses.dictionary.model.searching.SingleComponentElementSearchMethod"/>
+			</expertSettings>
+			<inputLayout>
+				<elements>
+					<inputElement expression="mat_residence_city" component="matching_city" name="matching_city"/>
+					<inputElement expression="mat_form" component="matching_form" name="matching_form"/>
+					<inputElement expression="mat_company_name_base" component="matching_company_name_base" name="matching_company_name_base"/>
+				</elements>
+			</inputLayout>
+			<limitOutputProposals/>
+			<limitRatedProposals/>
+			<ratings>
+				<ratingCase classificationColumn="dli_count_best">
+					<ratings>
+						<rating rate="scoring.count_best" when="true"/>
+					</ratings>
+				</ratingCase>
+			</ratings>
+			<scoring>
+				<scoring explanation="&#39;FORM_DIFFERENT&#39;" score="5">
+					<when>$pa_form:=pa.matching_form;
+
+//$pa_form is not mat_form .. $pa_form is not null and 
+//(mat_form is not null AND 
+$pa_form is not mat_form
+//)
+/*or
+($pa_form is null and mat_form is not null)
+and false */
+
+//expl.street is const.missing</when>
+				</scoring>
+				<scoring explanation="&#39;CITY_DIFFERENT&#39;" score="5">
+					<when>$pa_city:=pa.matching_city;
+
+//$pa_city is not pur_residence_city
+
+//$pa_city is null or 
+//(pur_residence_city is not null AND 
+$pa_city is not mat_residence_city
+//)
+/*
+and false
+*/</when>
+				</scoring>
+			</scoring>
+			<supportingVectorCases>
+				<supportingVectorCase name="N_F_C">
+					<when>mat_company_name_base is not null and
+mat_form is not null and
+mat_residence_city is not null</when>
+				</supportingVectorCase>
+				<supportingVectorCase name="N_F">
+					<when>mat_company_name_base is not null and
+mat_form is not null</when>
+				</supportingVectorCase>
+				<supportingVectorCase name="N_C">
+					<when>mat_company_name_base is not null and
+mat_residence_city is not null</when>
+				</supportingVectorCase>
+				<supportingVectorCase when="mat_company_name_base is not null" name="N"/>
+			</supportingVectorCases>
+			<comm:comment>Search by company name, form and city</comm:comment>
+		</properties>
+		<visual-constraints bounds="760,-29,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Search by company name, form and city" endpoint="out"/>
+		<target step="Company name reg_number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Search reg_number) --><step id="Search reg_number" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_res/cz_res.lkp" prefix="false" foreignKeyColumn="out_reg_number">
+			<columns>
+				<columnAssign expression="lookup.key" name="std_reg_number"/>
+				<columnAssign expression="lookup.company_name" name="std_company_name"/>
+				<columnAssign expression="lookup.mat_company_name_base" name="res_matching_company_name"/>
+				<columnAssign expression="lookup.mat_form" name="res_matching_form"/>
+				<columnAssign expression="lookup.mat_city" name="res_matching_city"/>
+				<columnAssign expression="lookup.company_name_base" name="res_company_name_base"/>
+				<columnAssign expression="lookup.termination_date" name="res_termination_date"/>
+			</columns>
+			<scorer explanationColumn="exp_company" scoreColumn="sco_company">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="20000" explainAs="COMPANY_REG_NUMBER_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND" explain="false" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+		</properties>
+		<visual-constraints bounds="760,-365,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Search reg_number" endpoint="out"/>
+		<target step="Union valid and invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Search reg_number based on company name) --><step id="Search reg_number based on company name" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_res/cz_res.lkp" prefix="false" foreignKeyColumn="std_reg_number">
+			<columns>
+				<columnAssign expression="lookup.company_name" name="std_company_name"/>
+				<columnAssign expression="lookup.mat_company_name_base" name="res_matching_company_name"/>
+				<columnAssign expression="lookup.mat_form" name="res_matching_form"/>
+				<columnAssign expression="lookup.mat_city" name="res_matching_city"/>
+				<columnAssign expression="lookup.company_name_base" name="res_company_name_base"/>
+				<columnAssign expression="lookup.termination_date" name="res_termination_date"/>
+			</columns>
+			<scorer explanationColumn="exp_company" scoreColumn="sco_company">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="1000" explainAs="COMPANY_REG_NUMBER_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND" explain="false" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Search reg_number based on company name</comm:comment>
+		</properties>
+		<visual-constraints bounds="760,187,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Search reg_number based on company name" endpoint="out"/>
+		<target step="Union All" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Set score and explanation) --><step id="Set score and explanation" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_company" defaultExplainColumn="exp_company">
+			<scoringCases>
+				<scoringCase condition="mat_company_name_base is null and out_reg_number is not null" description="Company name is missing and reg. number is present." explanation="&#39;COMPANY_NAME_MISSING&#39;" score="300">
+					<comm:comment>We have valid (not necessarily verified) reg. number, but there was no company name on input</comm:comment>
+				</scoringCase>
+				<scoringCase description="A difference is considered as minor when match between company name and company name from RES is higher and equal 80%. Max scoring 1620 in case of absolute mismatch (Relative scoring based on algorithm match is calculated.)" score="math.ceiling((8000*(1-tmp_name_matching_differs)+100*lev_name_matching_differs))">
+					<condition>res_matching_company_name is not null // only if company is found base on reg_number (ICO) in RES 
+and mat_company_name_base is not null 
+and (tmp_name_matching_differs &gt;= 0.8 and tmp_name_matching_differs &lt; 1) or (lev_name_matching_differs&lt;= 0.2 and lev_name_matching_differs &gt; 0)
+</condition>
+					<explanation>&#39;COMPANY_NAME_MINOR_DIFFERENCE&#39;
+</explanation>
+					<comm:comment>There is company name on input and company name in RES lookup, but difference is minor. (only if company is found base on reg_number (ICO) in RES )
+
+res_ attributes have point only when we have made search in lookup. Therefore we need &quot;std_reg_number is not null&quot; condition
+
+Relative scoring based on difference is applied with maximum of 1620.</comm:comment>
+				</scoringCase>
+				<scoringCase description="A difference is considered as major when match between company name and company name from RES is lower than 80%. Scores 10000." score="10000">
+					<condition>res_matching_company_name is not null // only if company is found base on reg_number (ICO) in RES 
+and mat_company_name_base is not null 
+and tmp_name_matching_differs &lt; 0.8</condition>
+					<explanation>&#39;COMPANY_NAME_MAJOR_DIFFERENCE&#39;
+</explanation>
+					<comm:comment>There is company name on input and company name in RES lookup, but difference is major.. (only if company is found base on reg_number (ICO) in RES ).</comm:comment>
+				</scoringCase>
+				<scoringCase description="Company legal form differs from RES." explanation="&#39;COMPANY_FORM_DIFFERS&#39;" score="10000">
+					<condition>mat_form is not null and
+mat_form is not res_matching_form
+and
+std_reg_number is not null</condition>
+					<comm:comment>There was legal form on input, which differs from legal form in RES lookup.
+
+res_ attributes have point only when we have made search in lookup. Therefore we need &quot;std_reg_number is not null&quot; condition</comm:comment>
+				</scoringCase>
+				<scoringCase description="There was legal form found in RES, but we found non in input value" explanation="&#39;COMPANY_FORM_MISSING&#39;" score="200">
+					<condition>mat_form is null and res_matching_form is not null
+and
+std_reg_number is not null  
+</condition>
+					<comm:comment>There was legal form found in RES, but we found non in input value</comm:comment>
+				</scoringCase>
+				<scoringCase explanation="&#39;COMPANY_CITY_DIFFERS&#39;" score="3000">
+					<condition>mat_residence_city is not null and 
+mat_residence_city is not res_matching_city
+and
+std_company_name is not null</condition>
+					<comm:comment>There was city on input, which differs from city in RES lookup.
+
+res_ attributes have point only when we have made search in lookup. Therefore we need &quot;std_reg_number is not null&quot; condition</comm:comment>
+				</scoringCase>
+				<scoringCase explanation="&#39;COMPANY_CITY_MISSING&#39;" score="100">
+					<condition>mat_residence_city is null and res_matching_city is not null
+and 
+std_reg_number is not null </condition>
+					<comm:comment>There was city found in RES, but we found non in input value</comm:comment>
+				</scoringCase>
+				<scoringCase condition="dli_count_best &gt; 1" explanation="&#39;COMPANY_AMBIGUOUS&#39;" score="10000">
+					<comm:comment>Input reg. number couldn&#39;t be used (dli_count_best would be null otherwise) and based on company name, form and city we could not decide, which company in RES lookup is the right one</comm:comment>
+				</scoringCase>
+				<scoringCase condition="dli_count_best is 0" explanation="&#39;COMPANY_NAME_NOT_FOUND&#39;" score="20000">
+					<comm:comment>Input reg. number couldn&#39;t be used (dli_count_best would be null otherwise) and based on company name, form and city we could not find any company in RES lookup</comm:comment>
+				</scoringCase>
+				<scoringCase condition="in_reg_number is null and mat_company_name_base is null" explanation="&#39;COMPANY_REG_NUMBER_AND_NAME_MISSING&#39;" score="10000000">
+					<comm:comment>Empty registration number and company name (after removing optional legal form)</comm:comment>
+				</scoringCase>
+				<scoringCase explanation="&#39;COMPANY_REG_NUMBER_INVALID_NAME_MISSING&#39;" score="1000000">
+					<condition>(	//filled reg. number but it was not parsed
+	(in_reg_number is not null and pat_reg_number is null)
+	//or there is problem with checksum
+	 or indexOf(tmp_explanation, &#39;COMPANY_REG_NUMBER_BAD_CHECKSUM&#39;) is not null
+) 
+and
+//company name is empty (after removing legal form)
+mat_company_name_base is null</condition>
+					<comm:comment>Reg. number is invalid and company name is missing.</comm:comment>
+				</scoringCase>
+				<scoringCase explanation="&#39;COMPANY_REG_NUMBER_DUMMY_NAME_MISSING&#39;" score="100000">
+					<condition>pur_reg_number is not null and
+substituteMany(@&quot;(\d)\1*&quot;, &#39;&#39;, pur_reg_number, 1) is null
+and
+mat_company_name_base is null</condition>
+					<comm:comment>Reg. numbers with single digit, which repeats zero to infinite times</comm:comment>
+				</scoringCase>
+				<scoringCase condition="in_reg_number is null and mat_company_name_base is not null" explanation="&#39;COMPANY_REG_NUMBER_MISSING&#39;" score="3000">
+					<comm:comment>Registration number is missing, but there is company name available</comm:comment>
+				</scoringCase>
+				<scoringCase explanation="&#39;COMPANY_REG_NUMBER_NOT_PARSED&#39;" score="3000">
+					<condition>in_reg_number is not null and pat_reg_number is null and
+
+mat_company_name_base is not null</condition>
+					<comm:comment>Registration number was not parsed, but there is company name available</comm:comment>
+				</scoringCase>
+				<scoringCase explanation="&#39;COMPANY_REG_NUMBER_INVALID_CHECKSUM&#39;" score="2000">
+					<condition>indexOf(tmp_explanation, &#39;COMPANY_REG_NUMBER_BAD_CHECKSUM&#39;) is not null and
+
+mat_company_name_base is not null</condition>
+					<comm:comment>Registration number has invalid checksum, but there is company name available</comm:comment>
+				</scoringCase>
+				<scoringCase explanation="&#39;COMPANY_REG_NUMBER_DUMMY&#39;" score="1000">
+					<condition>pur_reg_number is not null and
+substituteMany(@&quot;(\d)\1*&quot;, &#39;&#39;, pur_reg_number, 1) is null
+and
+mat_company_name_base is not null </condition>
+					<comm:comment>Registration number is dummy, but there is company name available</comm:comment>
+				</scoringCase>
+				<scoringCase condition="pur_comment is not null" explanation="&#39;COMPANY_REG_NUMBER_COMMENTS&#39;" score="min(length(pur_comment), 30)">
+					<comm:comment>If there were comments before/after input registration number, score 1 for every character. Maximum is 30</comm:comment>
+				</scoringCase>
+				<scoringCase condition="ico_search_only_parameter is true and in_reg_number is null" description="Reg.number is missing in ico_search_parameter true mode" score="10000000">
+					<explanation>&#39;COMPANY_VALIDATIONS_BASED_ON_ICO_ONLY&#39;
+</explanation>
+					<comm:comment>When ico_search_only_parameter is true then component validates only ICO</comm:comment>
+				</scoringCase>
+			</scoringCases>
+			<comm:comment>Set score and explanation</comm:comment>
+		</properties>
+		<visual-constraints bounds="376,547,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Set score and explanation" endpoint="out"/>
+		<target step="Output values" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Standardize legal form) --><step id="Standardize legal form" className="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm" disabled="false" mode="NORMAL">
+		<properties replacementsFileName="pathvar://DATA/ext/lkp/cz_standardized_legal_forms.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="res_matching_form" out="std_legal_form">
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="AR_CHANGED" explain="true" key="AR_CHANGED"/>
+					<scoringEntry score="0" explainAs="AR_NULL" explain="true" key="AR_NULL"/>
+					<scoringEntry score="0" explainAs="AR_MULTI" explain="true" key="AR_MULTI"/>
+					<scoringEntry score="0" explainAs="AR_MORE" explain="true" key="AR_MORE"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Standardize legal form
+
+E.g.: 
+AS -&gt;akciová společnost</comm:comment>
+		</properties>
+		<visual-constraints bounds="376,307,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Standardize legal form" endpoint="out"/>
+		<target step="Legal form from input company name" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union All) --><step id="Union All" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union all records</comm:comment>
+		</properties>
+		<visual-constraints bounds="376,235,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union All" endpoint="out"/>
+		<target step="Standardize legal form" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union all reg. numbers) --><step id="Union all reg. numbers" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union empty, unparsed, dummy, invalid and valid reg. numbers</comm:comment>
+		</properties>
+		<visual-constraints bounds="400,-269,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union all reg. numbers" endpoint="out"/>
+		<target step="Company name filled" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union company names) --><step id="Union company names" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union company names</comm:comment>
+		</properties>
+		<visual-constraints bounds="376,-29,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union company names" endpoint="out"/>
+		<target step="Union All" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union valid and invalid) --><step id="Union valid and invalid" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union invalid and valid reg. numbers</comm:comment>
+		</properties>
+		<visual-constraints bounds="544,-317,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union valid and invalid" endpoint="out"/>
+		<target step="Union all reg. numbers" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Valid reg_number) --><step id="Valid reg_number" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="out_reg_number is not null">
+			<comm:comment>Registration number is valid</comm:comment>
+		</properties>
+		<visual-constraints bounds="568,-413,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Valid reg_number" endpoint="out_true"/>
+		<target step="Search reg_number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Valid reg_number" endpoint="out_false"/>
+		<target step="Union valid and invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Validate IC CZ) --><step id="Validate IC CZ" className="com.ataccama.dqc.tasks.clean.ValidateICAlgorithm" disabled="false" mode="NORMAL">
+		<properties omitInvalidIC="true" preserveInputValue="false" allowCleaning="true" in="pur_reg_number" out="out_reg_number">
+			<scorer explanationColumn="tmp_explanation">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="COMPANY_REG_NUMBER_NULL" explain="false" key="IC_NULL"/>
+					<scoringEntry score="0" explainAs="COMPANY_REG_NUMBER_BAD_FORMAT" explain="false" key="IC_BAD_FORMAT"/>
+					<scoringEntry score="0" explainAs="COMPANY_REG_NUMBER_BAD_CHECKSUM" explain="true" key="IC_BAD_CHECKSUM"/>
+					<scoringEntry score="0" explainAs="COMPANY_REG_NUMBER_CLEANED" explain="false" key="IC_CLEANED"/>
+					<scoringEntry score="0" explainAs="COMPANY_REG_NUMBER_NORMALIZED" explain="false" key="IC_NORMALIZED"/>
+				</scoringEntries>
+				<comm:comment>The other explanations are covered in previous steps manually</comm:comment>
+			</scorer>
+			<comm:comment>Validate reg. number</comm:comment>
+		</properties>
+		<visual-constraints bounds="568,-485,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Validate IC CZ" endpoint="out"/>
+		<target step="Valid reg_number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="in_reg_number" type="STRING">
+					<comm:comment>Input registration number (in Czech &quot;IČO&quot;)</comm:comment>
+				</columnDef>
+				<columnDef name="in_company_name" type="STRING">
+					<comm:comment>Input company name</comm:comment>
+				</columnDef>
+				<columnDef name="in_residence_city" type="STRING">
+					<comm:comment>Input city of residence</comm:comment>
+				</columnDef>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="424,-1205,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="Add Columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out) --><step id="out" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="std_reg_number" type="STRING">
+					<comm:comment>Standardized and verified registration number</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_company_name" type="STRING">
+					<comm:comment>Standardized company name from RES lookup</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_legal_form" type="STRING">
+					<comm:comment>Standardized legal form (in long form)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_reg_number" type="STRING">
+					<comm:comment>Best available value of registration number</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_company_name" type="STRING">
+					<comm:comment>Best available value of company name. When company name is validated against RES, it is assigned from RES, if we recognize major difference in name (including legal form), then value from input is assigned.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_company_name_base" type="STRING">
+					<comm:comment>Best available value of company name without legal form. (Value from RES lookup)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_legal_form" type="STRING">
+					<comm:comment>Best available value of company legal form. Value is always standardized against RES legal form list.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_active" type="BOOLEAN">
+					<comm:comment>Boolean flag indicating, whether the company is active </comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_reg_num_comments" type="STRING">
+					<comm:comment>Comments found before/after registration number</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="sco_company" type="INTEGER">
+					<comm:comment>Data quality score of company registration number and name</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="exp_company" type="STRING">
+					<comm:comment>Explanation codes of data quality problems in company registration number and name</comm:comment>
+				</requiredColumn>
+			</requiredColumns>
+		</properties>
+		<visual-constraints bounds="376,763,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (reg_number from company name) --><step id="reg_number from company name" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="tmp_reg_number_company_name_based" column="std_reg_number">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>reg_number from company name</comm:comment>
+		</properties>
+		<visual-constraints bounds="760,115,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="reg_number from company name" endpoint="out"/>
+		<target step="Search reg_number based on company name" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<modelComment bounds="-8,379,357,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">If we didn&#39;t get legal form from company name
+in RES lookup, we preserve and save it in output value.</modelComment>
+
+
+
+<modelComment bounds="13,-1320,351,154" borderColor="0,0,0" backgroundColor="255,255,255" foregroundColor="51,51,51">LEGEND</modelComment>
+
+
+
+<modelComment bounds="24,-1262,330,38" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Detailed comments to solution areas - how it works.</modelComment>
+
+
+
+<modelComment bounds="24,-1296,330,38" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Comments to main solution areas.</modelComment>
+
+
+
+<modelComment bounds="24,-1230,330,54" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Additional info related to one step or group of steps - 
+not how it works but why it works like that.</modelComment>
+
+
+
+<modelComment bounds="72,466,286,111" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">When company name is filled, step matches difference 
+between company name from input against 
+RES value (company name base).
+
+Minor and major difference is recognized. </modelComment>
+
+
+
+<modelComment bounds="496,43,228,54" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">If only one company in RES has the 
+best score, we use its reg. number</modelComment>
+
+
+
+<modelComment bounds="616,-869,234,102" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">If reg number is filled, try to parse it.
+Allowed are: 
+- comments before/after
+- spaces inside number
+At least one digit is needed</modelComment>
+
+
+
+<modelComment bounds="648,360,313,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Use input company form for output value.</modelComment>
+
+
+
+<modelComment bounds="648,528,313,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Score found problems</modelComment>
+
+
+
+<modelComment bounds="648,600,313,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Set best output values</modelComment>
+
+
+
+<modelComment bounds="648,432,313,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Match difference between 
+company name from input and RES value.</modelComment>
+
+
+
+<modelComment bounds="808,-725,207,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">If registration number is parsed,
+remove spaces between digits.</modelComment>
+
+
+
+<modelComment bounds="808,-629,317,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Don&#39;t continue with normalization and validation
+process when dummy reg. numbers are recognized</modelComment>
+
+
+
+<modelComment bounds="808,-557,317,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Add zeros before reg. number, so that
+it contains 8 digits.</modelComment>
+
+
+
+<modelComment bounds="808,-485,317,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Validate reg. number by checksum algorithm</modelComment>
+
+
+
+<modelComment bounds="832,283,313,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Standardize legal form</modelComment>
+
+
+
+<modelComment bounds="952,-413,313,102" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">If reg. number is valid, search for it
+in RES lookup.</modelComment>
+
+
+
+<modelComment bounds="1072,-197,365,102" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">If company name is filled,
+
+
+cleanse and create matching values for name, form and city</modelComment>
+
+
+
+<modelComment bounds="1072,-77,365,102" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">If input reg. number is not valid and
+company name is filled,
+
+use this name as lookup/DLI key together with
+company form and city of residence</modelComment>
+
+
+
+<modelComment bounds="1072,67,365,97" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Use registration number based on input
+company name, form and city</modelComment>
+
+
+
+<modelComment bounds="1072,187,361,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Search for reg. number based on company
+name, form and city in RES lookup.</modelComment>
+
+
+
+<modelComment bounds="1456,-77,330,86" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">If input reg. number is valid but it is not in
+RES lookup (std_reg_number is empty), 
+we don&#39;t use company name in DLI step.
+</modelComment>
+
+
+
+<modelComment bounds="168,-984,234,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Setup of default value for 
+ ico_search_only_parameter = FALSE</modelComment>
+
+</purity-config>

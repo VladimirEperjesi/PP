@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+	<instanceLayer>
+		<entities>
+			<entity name="party">
+				<columns>
+					<column name="src_rod_cis" origin="source" type="string" size="200"/>
+					<column name="std_rod_cis" origin="clean" type="string" size="200"/>
+					<column name="cio_rod_cis" origin="clean" type="string" size="200"/>
+					<column name="sco_rod_cis" origin="clean" type="integer"/>
+					<column name="src_prijimeni" origin="source" type="string" size="200"/>
+					<column name="std_prijimeni" origin="clean" type="string" size="200"/>
+					<column name="cio_prijimeni" origin="clean" type="string" size="200"/>
+					<column name="sco_prijimeni" origin="clean" type="integer"/>
+					<column name="src_jmeno" origin="source" type="string" size="200"/>
+					<column name="std_jmeno" origin="clean" type="string" size="200"/>
+					<column name="cio_jmeno" origin="clean" type="string" size="200"/>
+					<column name="sco_jmeno" origin="clean" type="integer"/>
+					<column name="src_datnar" origin="source" type="string" size="100"/>
+					<column name="std_datnar" origin="clean" type="day"/>
+					<column name="cio_datnar" origin="clean" type="day"/>
+					<column name="src_pohlavi" origin="source" type="string" size="200"/>
+					<column name="std_pohlavi" origin="clean" type="string" size="200"/>
+					<column name="cio_pohlavi" origin="clean" type="string" size="200"/>
+					<column name="src_rematch" origin="source" type="string" size="200"/>
+					<column name="mat_rod_cis" origin="match" type="string" size="200"/>
+					<column name="mat_prijimeni" origin="match" type="string" size="200"/>
+					<column name="mat_jmeno" origin="match" type="string" size="200"/>
+					<column name="mat_id_column" origin="match" type="string" size="200"/>
+					<column name="mat_rule_name" origin="match" type="string" size="200"/>
+					<column name="obec" origin="copy_clean" type="string" size="200">
+						<valueSource columnName="src_mesto" relationshipName="rev_party_has_adresa">
+							<aggregation class="com.ataccama.nme.engine.model.ConcatenateDistinct" maxLength="200" separator="~"/>
+						</valueSource>
+					</column>
+				</columns>
+				<relationships/>
+				<matchingOperation enableIdentify="false" planFileName="../engine/trans/party/party_match.comp" class="com.ataccama.nme.dqc.mdu.MduMatchingPlan">
+					<matchings>
+						<matching name="k">
+							<masterIdColumn>master_id</masterIdColumn>
+							<isolateFlagColumn>isolate_flag</isolateFlagColumn>
+							<rematchFlagColumn>rematch_flag</rematchFlagColumn>
+						</matching>
+					</matchings>
+				</matchingOperation>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/party/party_clean.comp"/>
+			</entity>
+			<entity name="adresa">
+				<columns>
+					<column name="src_ruian" origin="source" type="string" size="200"/>
+					<column name="std_ruian" origin="clean" type="string" size="200"/>
+					<column name="cio_ruian" origin="clean" type="string" size="200"/>
+					<column name="src_ulice" origin="source" type="string" size="200"/>
+					<column name="std_ulice" origin="clean" type="string" size="200"/>
+					<column name="cio_ulice" origin="clean" type="string" size="200"/>
+					<column name="sco_ulice" origin="clean" type="integer"/>
+					<column name="src_cislop" origin="source" type="string" size="200"/>
+					<column name="std_cislop" origin="clean" type="string" size="200"/>
+					<column name="cio_cislop" origin="clean" type="string" size="200"/>
+					<column name="src_cisloev" origin="source" type="string" size="200"/>
+					<column name="std_cisloev" origin="clean" type="string" size="200"/>
+					<column name="cio_cisloev" origin="clean" type="string" size="200"/>
+					<column name="src_cisloor" origin="source" type="string" size="200"/>
+					<column name="std_cisloor" origin="clean" type="string" size="200"/>
+					<column name="cio_cisloor" origin="clean" type="string" size="200"/>
+					<column name="src_mesto" origin="source" type="string" size="200"/>
+					<column name="std_mesto" origin="clean" type="string" size="200"/>
+					<column name="cio_mesto" origin="clean" type="string" size="200"/>
+					<column name="src_psc_id" origin="source" type="string" size="200"/>
+					<column name="std_psc_id" origin="clean" type="string" size="200"/>
+					<column name="cio_psc_id" origin="clean" type="string" size="200"/>
+					<column name="sco_psc_id" origin="clean" type="integer"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="source_id" name="party_has_adresa" parentColumn="source_id" parentEntity="party" reverseName="rev_party_has_adresa">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/adresa/adresa_clean.comp"/>
+			</entity>
+			<entity name="contact">
+				<columns>
+					<column name="src_contact" origin="source" type="string" size="200"/>
+					<column name="std_contact" origin="clean" type="string" size="200"/>
+					<column name="cio_contact" origin="clean" type="string" size="200"/>
+					<column name="sco_contact" origin="clean" type="integer"/>
+					<column name="src_type" origin="source" type="string" size="200"/>
+					<column name="std_type" origin="clean" type="string" size="200"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="source_id" name="party_has_contact" parentColumn="source_id" parentEntity="party" reverseName="rev_party_has_contact">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/contact/contact_clean.comp"/>
+			</entity>
+		</entities>
+		<sourceSystems>
+			<system name="Golem">
+				<instanceMappings>
+					<originId entity="party" name="Golem#d_osoba#party"/>
+					<originId entity="adresa" name="Golem#d_osoba#adresa"/>
+					<originId entity="contact" name="Golem#d_osoba#contact"/>
+				</instanceMappings>
+			</system>
+			<system name="KoopGolem">
+				<instanceMappings>
+					<originId entity="party" name="KoopGolem#z_tz_party#party"/>
+					<originId entity="adresa" name="KoopGolem#z_tz_party#adresa"/>
+					<originId entity="contact" name="KoopGolem#z_tz_party#contact"/>
+				</instanceMappings>
+			</system>
+			<system name="TestBatchCSV">
+				<instanceMappings>
+					<originId entity="party" name="TestBatchCSV#testbatch#party"/>
+				</instanceMappings>
+			</system>
+		</sourceSystems>
+	</instanceLayer>
+	<masterLayers>
+		<masterLayer name="master_party">
+			<entities>
+				<entity class="com.ataccama.nme.engine.model.PersistentMasterEntity" groupingColumn="master_id" instanceEntity="party" name="party">
+					<columns>
+						<column name="cmo_jmeno" type="string" size="200"/>
+						<column name="cmo_prijimeni" type="string" size="200"/>
+						<column name="cmo_rod_cis" type="string" size="200"/>
+					</columns>
+					<relationships/>
+					<mergingOperation class="com.ataccama.nme.dqc.operations.MergingPlan" customActivityTracking="false" planFileName="../engine/trans/party/master_party_party_merge.comp"/>
+				</entity>
+			</entities>
+		</masterLayer>
+	</masterLayers>
+	<eventHandlersConfigFile>nme-event_handler.gen.xml</eventHandlersConfigFile>
+</model>

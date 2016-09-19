@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Calculate test result) --><step id="Calculate test result" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_std_idc is not std_idc, &#39; std_idc&#39;, &#39;&#39;) + 
+    iif(e_std_phone_number is not std_phone_number, &#39; std_phone_number&#39;, &#39;&#39;) + 
+    iif(e_std_extension is not std_extension, &#39; std_extension&#39;, &#39;&#39;) + 
+    iif(e_out_idc is not out_idc, &#39; out_idc&#39;, &#39;&#39;) + 
+    iif(e_out_phone_number is not out_phone_number, &#39; out_phone_number&#39;, &#39;&#39;) + 
+    iif(e_out_extension is not out_extension, &#39; out_extension&#39;, &#39;&#39;) + 
+    iif(e_out_number is not out_number, &#39; out_number&#39;, &#39;&#39;) + 
+    iif(e_out_comment is not out_comment, &#39; out_comment&#39;, &#39;&#39;) + 
+    iif(e_sco_number is not sco_number, &#39; sco_number&#39;, &#39;&#39;) + 
+    iif(e_exp_number is not exp_number, &#39; exp_number&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="24,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result" endpoint="out"/>
+		<target step="Sort" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Read test_cz_phone_numbers_in.xls) --><step id="Read test_cz_phone_numbers_in.xls" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader" disabled="false" mode="NORMAL">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/cz_phone_numbers/test_cz_phone_numbers_in.xls" startCell="A2" skipEmptyRows="true" sheet="0">
+			<columns>
+				<columnDef name="TC_ID" type="INTEGER"/>
+				<columnDef name="description" type="STRING"/>
+				<columnDef name="in_number" type="STRING"/>
+				<columnDef name="e_std_idc" type="STRING"/>
+				<columnDef name="e_std_phone_number" type="STRING"/>
+				<columnDef name="e_std_extension" type="STRING"/>
+				<columnDef name="e_out_idc" type="STRING"/>
+				<columnDef name="e_out_phone_number" type="STRING"/>
+				<columnDef name="e_out_extension" type="STRING"/>
+				<columnDef name="e_out_number" type="STRING"/>
+				<columnDef name="e_out_comment" type="STRING"/>
+				<columnDef name="e_sco_number" type="INTEGER"/>
+				<columnDef name="e_exp_number" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="24,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Read test_cz_phone_numbers_in.xls" endpoint="out"/>
+		<target step="add columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Sort) --><step id="Sort" className="com.ataccama.dqc.tasks.identify.sort.SortEngine" disabled="false" mode="NORMAL">
+		<properties>
+			<sort>
+				<orderBy expression="TC_ID" orderDescending="false" nullsFirst="false"/>
+			</sort>
+		</properties>
+		<visual-constraints bounds="24,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Sort" endpoint="out"/>
+		<target step="Write test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Write test result) --><step id="Write test result" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" mode="NORMAL">
+		<properties useStringQualifierOnAllColumns="false" stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator="^~" generateMetadata="true" fileName="pathvar://TESTS_ROOT/cz_phone_numbers/test_cz_phone_numbers_out.csv" encoding="UTF-8" writeHeader="true" writeAllColumns="false" compression="NONE">
+			<columns>
+				<textWriterColumn name="difference"/>
+				<textWriterColumn name="TC_ID"/>
+				<textWriterColumn name="description"/>
+				<textWriterColumn name="in_number"/>
+				<textWriterColumn name="std_idc"/>
+				<textWriterColumn name="e_std_idc"/>
+				<textWriterColumn name="std_phone_number"/>
+				<textWriterColumn name="e_std_phone_number"/>
+				<textWriterColumn name="std_extension"/>
+				<textWriterColumn name="e_std_extension"/>
+				<textWriterColumn name="out_idc"/>
+				<textWriterColumn name="e_out_idc"/>
+				<textWriterColumn name="out_phone_number"/>
+				<textWriterColumn name="e_out_phone_number"/>
+				<textWriterColumn name="out_extension"/>
+				<textWriterColumn name="e_out_extension"/>
+				<textWriterColumn name="out_number"/>
+				<textWriterColumn name="e_out_number"/>
+				<textWriterColumn name="out_comment"/>
+				<textWriterColumn name="e_out_comment"/>
+				<textWriterColumn name="sco_number"/>
+				<textWriterColumn name="e_sco_number"/>
+				<textWriterColumn name="exp_number"/>
+				<textWriterColumn name="e_exp_number"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss.SSS" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+		</properties>
+		<visual-constraints bounds="24,384,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (add columns) --><step id="add columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="std_idc" type="STRING">
+					<comm:comment>Standardized international dialing code</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_phone_number" type="STRING">
+					<comm:comment>Standardized phone number (without idc and extension)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_extension" type="STRING">
+					<comm:comment>Standardized extension</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_idc" type="STRING">
+					<comm:comment>Best existing international dialing code</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_phone_number" type="STRING">
+					<comm:comment>Best existing phone number (without idc and extension)</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_extension" type="STRING">
+					<comm:comment>Best existing extension</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_number" type="STRING">
+					<comm:comment>Best existing phone number (with idc and extension)</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_comment" type="STRING">
+					<comm:comment>Parsed comment before/after phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_number" type="INTEGER">
+					<comm:comment>Data quality score</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_number" type="STRING">
+					<comm:comment>Explanation codes</comm:comment>
+				</addedColumn>
+				<addedColumn name="difference" type="STRING"/>
+				<addedColumn name="message" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="24,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns" endpoint="out"/>
+		<target step="component" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component) --><component id="component" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/cz_phone_numbers.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_number" from="in_number"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="std_idc" from="std_idc"/>
+						<columnsMapping to="std_phone_number" from="std_phone_number"/>
+						<columnsMapping to="std_extension" from="std_extension"/>
+						<columnsMapping to="out_idc" from="out_idc"/>
+						<columnsMapping to="out_phone_number" from="out_phone_number"/>
+						<columnsMapping to="out_extension" from="out_extension"/>
+						<columnsMapping to="out_number" from="out_number"/>
+						<columnsMapping to="out_comment" from="out_comment"/>
+						<columnsMapping to="sco_number" from="sco_number"/>
+						<columnsMapping to="exp_number" from="exp_number"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters/>
+		</properties>
+		<visual-constraints bounds="24,168,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component" endpoint="out"/>
+		<target step="Calculate test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+</purity-config>

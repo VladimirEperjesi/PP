@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Calculate test result) --><step id="Calculate test result" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="normal">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_out_fn_accusative is not out_fn_accusative, &#39; out_fn_accusative&#39;, &#39;&#39;) + 
+    iif(e_out_fn_vocative is not out_fn_vocative, &#39; out_fn_vocative&#39;, &#39;&#39;) + 
+    iif(e_out_mn_accusative is not out_mn_accusative, &#39; out_mn_accusative&#39;, &#39;&#39;) + 
+    iif(e_out_mn_vocative is not out_mn_vocative, &#39; out_mn_vocative&#39;, &#39;&#39;) + 
+    iif(e_out_ln_accusative is not out_ln_accusative, &#39; out_ln_accusative&#39;, &#39;&#39;) + 
+    iif(e_out_ln_vocative is not out_ln_vocative, &#39; out_ln_vocative&#39;, &#39;&#39;) + 
+    iif(e_exp_declension is not exp_declension, &#39; exp_declension&#39;, &#39;&#39;) + 
+    iif(e_sco_declension is not sco_declension, &#39; sco_declension&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="24,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result" endpoint="out"/>
+		<target step="Sort" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Read test_cz_name_declension_simple_in.xls) --><step id="Read test_cz_name_declension_simple_in.xls" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/cz_name_declension_simple/test_cz_name_declension_simple_in.xls" startCell="A2" skipEmptyRows="true" sheet="0">
+			<columns>
+				<columnDef name="TC_ID" type="integer"/>
+				<columnDef name="description" type="string"/>
+				<columnDef name="src_first_name" type="STRING"/>
+				<columnDef name="src_middle_name" type="STRING"/>
+				<columnDef name="src_last_name" type="STRING"/>
+				<columnDef name="src_gender" type="STRING"/>
+				<columnDef name="e_out_fn_accusative" type="STRING"/>
+				<columnDef name="e_out_fn_vocative" type="STRING"/>
+				<columnDef name="e_out_mn_accusative" type="STRING"/>
+				<columnDef name="e_out_mn_vocative" type="STRING"/>
+				<columnDef name="e_out_ln_accusative" type="STRING"/>
+				<columnDef name="e_out_ln_vocative" type="STRING"/>
+				<columnDef name="e_exp_declension" type="STRING"/>
+				<columnDef name="e_sco_declension" type="INTEGER"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="24,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Read test_cz_name_declension_simple_in.xls" endpoint="out"/>
+		<target step="add columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Sort) --><step id="Sort" className="com.ataccama.dqc.tasks.identify.sort.SortEngine" disabled="false" mode="normal">
+		<properties>
+			<sort>
+				<orderBy expression="TC_ID" orderDescending="false" nullsFirst="false"/>
+			</sort>
+		</properties>
+		<visual-constraints bounds="24,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Sort" endpoint="out"/>
+		<target step="Write test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Write test result) --><step id="Write test result" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" mode="normal">
+		<properties useStringQualifierOnAllColumns="false" stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator="^~" generateMetadata="true" fileName="pathvar://TESTS_ROOT/cz_name_declension_simple/test_cz_name_declension_simple_out.csv" encoding="UTF-8" writeHeader="true" writeAllColumns="false">
+			<columns>
+				<textWriterColumn name="difference"/>
+				<textWriterColumn name="TC_ID"/>
+				<textWriterColumn name="description"/>
+				<textWriterColumn name="src_first_name"/>
+				<textWriterColumn name="src_middle_name"/>
+				<textWriterColumn name="src_last_name"/>
+				<textWriterColumn name="src_gender"/>
+				<textWriterColumn name="out_fn_accusative"/>
+				<textWriterColumn name="e_out_fn_accusative"/>
+				<textWriterColumn name="out_fn_vocative"/>
+				<textWriterColumn name="e_out_fn_vocative"/>
+				<textWriterColumn name="out_mn_accusative"/>
+				<textWriterColumn name="e_out_mn_accusative"/>
+				<textWriterColumn name="out_mn_vocative"/>
+				<textWriterColumn name="e_out_mn_vocative"/>
+				<textWriterColumn name="out_ln_accusative"/>
+				<textWriterColumn name="e_out_ln_accusative"/>
+				<textWriterColumn name="out_ln_vocative"/>
+				<textWriterColumn name="e_out_ln_vocative"/>
+				<textWriterColumn name="exp_declension"/>
+				<textWriterColumn name="e_exp_declension"/>
+				<textWriterColumn name="sco_declension"/>
+				<textWriterColumn name="e_sco_declension"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss.SSS" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+		</properties>
+		<visual-constraints bounds="24,384,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (add columns) --><step id="add columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="normal">
+		<properties>
+			<addedColumns>
+				<addedColumn name="out_fn_accusative" type="STRING">
+					<comm:comment>First name in acccusative</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_fn_vocative" type="STRING">
+					<comm:comment>First name in vocative</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_mn_accusative" type="STRING">
+					<comm:comment>Middle name in accusative</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_mn_vocative" type="STRING">
+					<comm:comment>Middle name in vocative</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_ln_accusative" type="STRING">
+					<comm:comment>Last name in accusative</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_ln_vocative" type="STRING">
+					<comm:comment>Last name in vocative</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_declension" type="STRING">
+					<comm:comment>Explains, why some (all) name parts were not declined</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_declension" type="INTEGER">
+					<comm:comment>Score of input values</comm:comment>
+				</addedColumn>
+				<addedColumn name="difference" type="string"/>
+				<addedColumn name="message" type="string"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="24,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns" endpoint="out"/>
+		<target step="component" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component) --><component id="component" disabled="false" mode="normal">
+		<properties fileName="pathvar://COMPONENTS/cz_name_declension_simple.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="src_first_name" from="src_first_name"/>
+						<columnsMapping to="src_middle_name" from="src_middle_name"/>
+						<columnsMapping to="src_last_name" from="src_last_name"/>
+						<columnsMapping to="src_gender" from="src_gender"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="out_fn_accusative" from="out_fn_accusative"/>
+						<columnsMapping to="out_fn_vocative" from="out_fn_vocative"/>
+						<columnsMapping to="out_mn_accusative" from="out_mn_accusative"/>
+						<columnsMapping to="out_mn_vocative" from="out_mn_vocative"/>
+						<columnsMapping to="out_ln_accusative" from="out_ln_accusative"/>
+						<columnsMapping to="out_ln_vocative" from="out_ln_vocative"/>
+						<columnsMapping to="exp_declension" from="exp_declension"/>
+						<columnsMapping to="sco_declension" from="sco_declension"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters/>
+		</properties>
+		<visual-constraints bounds="24,168,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component" endpoint="out"/>
+		<target step="Calculate test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+</purity-config>

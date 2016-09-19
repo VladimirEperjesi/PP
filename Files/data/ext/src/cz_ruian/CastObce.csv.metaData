@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<settings>
+  <connector>
+    <saved-state stringQualifier="&#39;" lineWithColumnNames="1" recordLength="-1" ignoredRowRegEx="" escapeSequence="" fixedSizes="false" fieldSeparator="," stringQualifierEscapeSequence="&#39;" numberOfLinesInHeader="1" recordSeparator="\n" encoding="UTF-8" numberOfLinesInFooter="0">
+      <columns>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="INTEGER" dateFormatLocale="en_US" name="Kod" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="Nazev" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="INTEGER" dateFormatLocale="en_US" name="Obec" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="INTEGER" dateFormatLocale="en_US" name="Pou" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="BOOLEAN" dateFormatLocale="en_US" name="Nespravny" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="DAY" dateFormatLocale="en_US" name="PlatiOd" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" dateFormat="yyyy-MM-dd" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="DAY" dateFormatLocale="en_US" name="PlatiDo" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" dateFormat="yyyy-MM-dd" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="INTEGER" dateFormatLocale="en_US" name="IdTransakce" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="INTEGER" dateFormatLocale="en_US" name="GlobalniIdNavrhuZmeny" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="NespravneUdaje" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="OznacenoDne" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="OznacenoInfo" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+      </columns>
+    </saved-state>
+  </connector>
+</settings>

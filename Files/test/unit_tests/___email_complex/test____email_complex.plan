@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Calculate test result) --><step id="Calculate test result" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_std_email is not std_email, &#39; std_email&#39;, &#39;&#39;) + 
+    iif(e_std_name is not std_name, &#39; std_name&#39;, &#39;&#39;) + 
+    iif(e_out_email is not out_email, &#39; out_email&#39;, &#39;&#39;) + 
+    iif(e_exp_email is not exp_email, &#39; exp_email&#39;, &#39;&#39;) + 
+    iif(e_sco_email is not sco_email, &#39; sco_email&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="24,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result" endpoint="out"/>
+		<target step="Sort" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Read test____email_complex_in.xls) --><step id="Read test____email_complex_in.xls" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader" disabled="false" mode="NORMAL">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/___email_complex/test____email_complex_in.xls" startCell="A2" skipEmptyRows="true" sheet="0">
+			<columns>
+				<columnDef name="TC_ID" type="integer"/>
+				<columnDef name="description" type="string"/>
+				<columnDef name="in_email" type="STRING"/>
+				<columnDef name="e_std_email" type="STRING"/>
+				<columnDef name="e_std_name" type="STRING"/>
+				<columnDef name="e_out_email" type="STRING"/>
+				<columnDef name="e_exp_email" type="STRING"/>
+				<columnDef name="e_sco_email" type="INTEGER"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="24,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Read test____email_complex_in.xls" endpoint="out"/>
+		<target step="add columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Sort) --><step id="Sort" className="com.ataccama.dqc.tasks.identify.sort.SortEngine" disabled="false" mode="NORMAL">
+		<properties>
+			<sort>
+				<orderBy expression="TC_ID" orderDescending="false" nullsFirst="false"/>
+			</sort>
+		</properties>
+		<visual-constraints bounds="24,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Sort" endpoint="out"/>
+		<target step="Write test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Write test result) --><step id="Write test result" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" mode="NORMAL">
+		<properties useStringQualifierOnAllColumns="false" stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator="^~" generateMetadata="true" fileName="pathvar://TESTS_ROOT/___email_complex/test____email_complex_out.csv" encoding="UTF-8" writeHeader="true" writeAllColumns="false">
+			<columns>
+				<textWriterColumn name="difference"/>
+				<textWriterColumn name="TC_ID"/>
+				<textWriterColumn name="description"/>
+				<textWriterColumn name="in_email"/>
+				<textWriterColumn name="std_email"/>
+				<textWriterColumn name="e_std_email"/>
+				<textWriterColumn name="std_name"/>
+				<textWriterColumn name="e_std_name"/>
+				<textWriterColumn name="out_email"/>
+				<textWriterColumn name="e_out_email"/>
+				<textWriterColumn name="exp_email"/>
+				<textWriterColumn name="e_exp_email"/>
+				<textWriterColumn name="sco_email"/>
+				<textWriterColumn name="e_sco_email"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss.SSS" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+		</properties>
+		<visual-constraints bounds="24,384,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (add columns) --><step id="add columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="std_email" type="STRING">
+					<comm:comment>Standardized value of the email address - contains only valid values.</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_name" type="STRING">
+					<comm:comment>Column that stores the email address owner if recognised.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_email" type="STRING">
+					<comm:comment>The best existing value of email.</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_email" type="STRING">
+					<comm:comment>Explanations if invalid, cleansed or matched.</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_email" type="INTEGER">
+					<comm:comment>Data quality score for value of email.</comm:comment>
+				</addedColumn>
+				<addedColumn name="difference" type="string"/>
+				<addedColumn name="message" type="string"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="24,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns" endpoint="out"/>
+		<target step="component" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component) --><component id="component" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/___email_complex.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_email" from="in_email"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="std_email" from="std_email"/>
+						<columnsMapping to="std_name" from="std_name"/>
+						<columnsMapping to="out_email" from="out_email"/>
+						<columnsMapping to="exp_email" from="exp_email"/>
+						<columnsMapping to="sco_email" from="sco_email"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters/>
+		</properties>
+		<visual-constraints bounds="24,168,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component" endpoint="out"/>
+		<target step="Calculate test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+</purity-config>

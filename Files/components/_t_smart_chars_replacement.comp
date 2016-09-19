@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:def="http://www.ataccama.com/purity/defaults" xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<component-id>smart_chars_replacement</component-id>
+	<icon type="5">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</icon>
+	<references/>
+	<component-mappings>
+		<propertyMappings>
+			<property name="letters" mappedTo="Add internal columns/addedColumns[0]/expression" insert="false">
+				<def:default-value>
+					<expression>false</expression>
+				</def:default-value>
+			</property>
+			<property name="digits" mappedTo="Add internal columns/addedColumns[1]/expression" insert="false">
+				<def:default-value>
+					<expression>false</expression>
+				</def:default-value>
+			</property>
+			<property name="special_chars" mappedTo="Add internal columns/addedColumns[2]/expression" insert="false">
+				<def:default-value>
+					<expression>false</expression>
+				</def:default-value>
+			</property>
+			<property name="defined_set" mappedTo="Add internal columns/addedColumns[3]/expression" insert="false">
+				<def:default-value>
+					<expression>&#39;&#39;</expression>
+				</def:default-value>
+			</property>
+		</propertyMappings>
+	</component-mappings>
+
+<!-- (Add Columns) --><step id="Add Columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="out_string" type="STRING">
+					<comm:comment>String with replaced chars</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="72,120,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add Columns" endpoint="out"/>
+		<target step="Add internal columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Add internal columns) --><step id="Add internal columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="false" name="par_letters" type="BOOLEAN"/>
+				<addedColumn expression="false" name="par_digits" type="BOOLEAN"/>
+				<addedColumn expression="false" name="par_special_chars" type="BOOLEAN"/>
+				<addedColumn expression="&#39;&#39;" name="par_defined_set" type="STRING"/>
+				<addedColumn name="tmp_char_sequence" type="STRING">
+					<comm:comment>Chars defined by params will get sequence number</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_order_and_char" type="STRING">
+					<comm:comment>From sequence, order will be calculated</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_check_sequence_overflow" type="STRING">
+					<comm:comment>Usefull only in situation, when integer sequence would overflow because of too many records (hundrets of milions)</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>Add internal columns</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,192,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add internal columns" endpoint="out"/>
+		<target step="Integer overflow check" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Integer overflow check) --><step id="Integer overflow check" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="tmp_check_sequence_overflow">
+					<expression>$long_sequence:=toLong(namedSequence(&#39;char_sequence&#39;, 0, 1)) + length(in_string);
+$integer_sequence:=toInteger($long_sequence);
+
+iif($long_sequence is not $integer_sequence, 									//if there would be overflow
+		set.mapExp(substituteAll(&#39;(.)(?!$)&#39;, &#39;$1☃&#39;, in_string), &#39;☃&#39;, (x){
+						toString(namedSequence(&#39;char_sequence&#39;, 0, 1))			//force it to overflow						
+					}
+		),
+		&#39;&#39;
+	)
+
+</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>For too many records (hundreds of milions), integer overflow might happen.
+We don&#39;t mind, if it happens bewteen records because sequence/order of chars in one string would be still correct. 
+However, when it overflows &quot;inside&quot; string processing, order wouldn&#39;t be calculated correctly.
+Therefore, if the sequence is close to overflowing (its value plus lenght of comming string would overflow), we call it few times, so it will overflow and we can continue normally.</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Integer overflow control.
+
+If overflow of the sequence is about to happen, we force it to overflow &quot;between records&quot; and not inside one record.</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,264,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Integer overflow check" endpoint="out"/>
+		<target step="Sequence and Order" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove internal columns) --><step id="Remove internal columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="par_letters"/>
+				<columnRef name="par_digits"/>
+				<columnRef name="par_special_chars"/>
+				<columnRef name="par_defined_set"/>
+				<columnRef name="tmp_char_sequence"/>
+				<columnRef name="tmp_order_and_char"/>
+				<columnRef name="tmp_check_sequence_overflow"/>
+				<columnRef name="in_string"/>
+				<columnRef name="in_replacement"/>
+			</removedColumns>
+			<comm:comment>Remove internal columns</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,480,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove internal columns" endpoint="out"/>
+		<target step="out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Replace chars) --><step id="Replace chars" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="out_string">
+					<expression>$replacement:=substituteAll(&#39;(.)(?!$)&#39;, &#39;$1☃&#39;, in_replacement);
+
+replace(set.mapExp(tmp_order_and_char, &#39;☃&#39;, (x){	//for every char
+				iif(
+					indexOf(x, &#39;☠&#39;) is null,		//if it has not order
+						x,							//keep as it is
+						word($replacement, toInteger(word(x, 0, &#39;☠&#39;)), &#39;☃&#39;) /*else get its order and replace it with char
+					 														   in replacing string on this position */
+				)
+									
+			}
+	)
+, &#39;☃&#39;, &#39;&#39;)</expression>
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+					<comm:comment>Eg.
+input: a☃*☃0☠1 and 9
+output: a*9   (digit &#39;1&#39; is replaced with digit &#39;9&#39; )</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Replace chars having order with chars from replacing string</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,408,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Replace chars" endpoint="out"/>
+		<target step="Remove internal columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Sequence and Order) --><step id="Sequence and Order" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="tmp_char_sequence">
+					<expression>set.mapExp(substituteAll(&#39;(.)(?!$)&#39;, &#39;$1☃&#39;, in_string), &#39;☃&#39;, (x){
+				iif(
+					(par_digits and isNumber(x)) or								//digits should be replaced
+					(par_letters and trashNonLetters(x) is not null) or			//letters should be replaced
+					(par_special_chars and matches(@&quot;\p{Punct}&quot;, x)) or 		//special chars should be replaced
+					 indexOf(par_defined_set, x) is not null,					//chars in defined set should be replaced
+					 toString(namedSequence(&#39;char_sequence&#39;, 0, 1)) + &#39;☠&#39; + x,	//add sequence before char
+					 x
+				)
+									
+			}
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Chars defined by params will get sequence number. Separator between chars (with order) is snowman. Separator between order and char is skull.
+
+E.g. for replacing digit only
+input: a*1
+output: a☃*☃2☠1</comm:comment>
+				</assignment>
+				<assignment column="tmp_order_and_char">
+					<expression>$sequences:=tmp_char_sequence;
+
+function calculate_order(string x, string sequences){	
+	toString(set.sumExp(sequences, &#39;☃&#39;, (y) {
+				//if char y in string has sequence and it is less than sequence of x, add one
+				iif(indexOf(y, &#39;☠&#39;) is not null and toInteger(word(y, 0, &#39;☠&#39;))&lt;toInteger(word(x, 0, &#39;☠&#39;)), 1, 0)})
+			)	
+	+ &#39;☠&#39; + word(x, 1, &#39;☠&#39;)
+}
+
+set.mapExp($sequences, &#39;☃&#39;, (x){						//for every char
+				iif(indexOf(x, &#39;☠&#39;) is null, 			//if it has sequence generated
+				x, 										//keep as it is
+				calculate_order(x, $sequences))})		//else: calculate, how many defined chars are before it (by using sequence)
+</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>From sequence, order is calculated
+E.g.
+input: a☃*☃2☠1
+output: a☃*☃0☠1</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Chars defined by params will get sequence number
+
+From sequence, order is calculated</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,336,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Sequence and Order" endpoint="out"/>
+		<target step="Replace chars" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="in_string" type="STRING">
+					<comm:comment>Any string with chars to be replaced</comm:comment>
+				</columnDef>
+				<columnDef name="in_replacement" type="STRING">
+					<comm:comment>String with replacing chars</comm:comment>
+				</columnDef>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="72,48,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="Add Columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out) --><step id="out" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="out_string" type="STRING">
+					<comm:comment>String with replaced chars</comm:comment>
+				</requiredColumn>
+			</requiredColumns>
+		</properties>
+		<visual-constraints bounds="72,552,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="-275,-130,351,154" borderColor="0,0,0" backgroundColor="255,255,255" foregroundColor="51,51,51">LEGEND</modelComment>
+
+
+
+<modelComment bounds="-264,-72,330,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Detailed comments to solution areas - how it works.</modelComment>
+
+
+
+<modelComment bounds="-264,-106,330,35" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Comments to main solution areas.</modelComment>
+
+
+
+<modelComment bounds="-264,-40,330,48" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Additional info related to one step or group of steps - 
+not how it works but why it works like that.</modelComment>
+
+
+
+<modelComment bounds="288,336,361,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Sequence for defined chars is generated.
+Order of defined chars is calculated.</modelComment>
+
+
+
+<modelComment bounds="288,408,364,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Replace chars having order with chars from replacing string</modelComment>
+
+
+
+<modelComment bounds="288,264,361,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Integer overflow control</modelComment>
+
+
+
+<modelComment bounds="-336,120,381,457" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Let&#39;s say we want to replace &#39;x&#39; chars with digits
+Input:
+in_string = &#39;x-x*y/x&#39;
+in_replacement = &#39;123&#39;
+par_defined_set = &#39;x&#39;
+out_string = &#39;1-2*y/3&#39;
+
+Algorithm:
+1. sequence
+For every &#39;x&#39; char generate sequence number and put before it
+tmp_char_sequence would contain: 0_x - 2_x * y 4_x
+Sequence don&#39;t have to be continuous 
+(e.g. because of multiple paralell component processing)
+
+2. order
+When we have ascendantly numbered characters,
+we can calculate theirs order.
+tmp_char_order will contain: 0_x - 1_x * y 2_x
+
+3. replacement
+Now we can iterate through elements inside string .
+If it has order (meaning we want to replace it),
+we return value on position from replacing string determined
+by order.
+If it hasn&#39;t, we keep character as it is.
+
+Since underscores and spaces could be inside input string, 
+we use snowman and skull characters as separators instead.</modelComment>
+
+</purity-config>

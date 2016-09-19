@@ -1,0 +1,740 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Active companies) --><step id="Active companies" className="com.ataccama.dqc.tasks.io.dbf.read.DbfFileReader" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://DATA/ext/src/cz_res/DBF_files/RESAza__.DBF" encoding="windows-1250">
+			<columns>
+				<columnDef name="ICOF" type="STRING"/>
+				<columnDef name="DDATVZN" type="DAY"/>
+				<columnDef name="DDATZAN" type="DAY"/>
+				<columnDef name="ZPZANF" type="STRING"/>
+				<columnDef name="DDATPAKT" type="DAY"/>
+				<columnDef name="FORMAF" type="STRING"/>
+				<columnDef name="NACEF" type="STRING"/>
+				<columnDef name="KATPOF" type="STRING"/>
+				<columnDef name="ICZUJF" type="STRING"/>
+				<columnDef name="OKRESLAUF" type="STRING"/>
+				<columnDef name="FIRMA" type="STRING"/>
+				<columnDef name="ROSFORMAF" type="STRING"/>
+				<columnDef name="ISEKTORF" type="STRING"/>
+				<columnDef name="CISS2010F" type="STRING"/>
+				<columnDef name="KODADM" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="480,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Active companies" endpoint="out"/>
+		<target step="Join" endpoint="in_left"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="504,192"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Add columns) --><step id="Add columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="pur_company_name_base" type="STRING"/>
+				<addedColumn name="pur_form" type="STRING"/>
+				<addedColumn name="mat_company_name_base" type="STRING"/>
+				<addedColumn name="mat_form" type="STRING"/>
+				<addedColumn name="mat_city" type="STRING"/>
+				<addedColumn name="std_form" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="624,696,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add columns" endpoint="out"/>
+		<target step="Cleanse company name, form and city" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Addresses of active companies) --><step id="Addresses of active companies" className="com.ataccama.dqc.tasks.io.dbf.read.DbfFileReader" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://DATA/ext/src/cz_res/DBF_files/RESAzc__.DBF" encoding="windows-1250">
+			<columns>
+				<columnDef name="ICOF" type="STRING"/>
+				<columnDef name="TEXTADR" type="STRING"/>
+				<columnDef name="PSC" type="STRING"/>
+				<columnDef name="OBEC" type="STRING"/>
+				<columnDef name="COBCE" type="STRING"/>
+				<columnDef name="ULICE" type="STRING"/>
+				<columnDef name="TYPCDOM" type="STRING"/>
+				<columnDef name="CDOM" type="STRING"/>
+				<columnDef name="COR" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="744,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Addresses of active companies" endpoint="out"/>
+		<target step="Join" endpoint="in_right"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="768,192"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Addresses of inactive companies) --><step id="Addresses of inactive companies" className="com.ataccama.dqc.tasks.io.dbf.read.DbfFileReader" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://DATA/ext/src/cz_res/DBF_files/RESAmc__.DBF" encoding="windows-1250">
+			<columns>
+				<columnDef name="ICOF" type="STRING"/>
+				<columnDef name="TEXTADR" type="STRING"/>
+				<columnDef name="PSC" type="STRING"/>
+				<columnDef name="OBEC" type="STRING"/>
+				<columnDef name="COBCE" type="STRING"/>
+				<columnDef name="ULICE" type="STRING"/>
+				<columnDef name="TYPCDOM" type="STRING"/>
+				<columnDef name="CDOM" type="STRING"/>
+				<columnDef name="COR" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="1248,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Addresses of inactive companies" endpoint="out"/>
+		<target step="Join 2" endpoint="in_right"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1272,192"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Cleanse company name, form and city) --><component id="Cleanse company name, form and city" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/internal/cz_company_reg_number_and_name/cleanse_company.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="src_company_name" from="src_company_name"/>
+						<columnsMapping to="src_city" from="src_city"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="pur_company_name_base" from="pur_company_name_base"/>
+						<columnsMapping to="mat_company_name_base" from="mat_company_name_base"/>
+						<columnsMapping to="mat_form" from="mat_form"/>
+						<columnsMapping to="mat_city" from="mat_city"/>
+						<columnsMapping to="std_form" from="std_form"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters/>
+		</properties>
+		<visual-constraints bounds="624,768,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Cleanse company name, form and city" endpoint="out"/>
+		<target step="Multiplicator" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Deduplicate by reg. number) --><step id="Deduplicate by reg. number" className="com.ataccama.dqc.tasks.identify.bob.RepresentativeCreator" disabled="false" mode="NORMAL">
+		<properties defaultLocale="cs_CZ">
+			<groupingStrategy class="com.ataccama.dqc.tasks.common.group.KeyGroupingStrategy">
+				<groupBy>
+					<keyComponent expression="ICOF"/>
+				</groupBy>
+			</groupingStrategy>
+			<rules>
+				<rule>
+					<attributeSets>
+						<attributeSetCfg>
+							<instanceAttributes/>
+							<representativeAttributes>
+								<attributeCfgRepr expression="best.ICOF" name="ICOF"/>
+								<attributeCfgRepr expression="best.DDATVZN" name="DDATVZN"/>
+								<attributeCfgRepr expression="best.DDATZAN" name="DDATZAN"/>
+								<attributeCfgRepr expression="best.ZPZANF" name="ZPZANF"/>
+								<attributeCfgRepr expression="best.DDATPAKT" name="DDATPAKT"/>
+								<attributeCfgRepr expression="best.FORMAF" name="FORMAF"/>
+								<attributeCfgRepr expression="best.NACEF" name="NACEF"/>
+								<attributeCfgRepr expression="best.KATPOF" name="KATPOF"/>
+								<attributeCfgRepr expression="best.ICZUJF" name="ICZUJF"/>
+								<attributeCfgRepr expression="best.OKRESLAUF" name="OKRESLAUF"/>
+								<attributeCfgRepr expression="best.FIRMA" name="FIRMA"/>
+								<attributeCfgRepr expression="best.ROSFORMAF" name="ROSFORMAF"/>
+								<attributeCfgRepr expression="best.ISEKTORF" name="ISEKTORF"/>
+								<attributeCfgRepr expression="best.CISS2010F" name="CISS2010F"/>
+								<attributeCfgRepr expression="best.KODADM" name="KODADM"/>
+								<attributeCfgRepr expression="best.TEXTADR" name="TEXTADR"/>
+								<attributeCfgRepr expression="best.PSC" name="PSC"/>
+								<attributeCfgRepr expression="best.OBEC" name="OBEC"/>
+								<attributeCfgRepr expression="best.COBCE" name="COBCE"/>
+								<attributeCfgRepr expression="best.ULICE" name="ULICE"/>
+								<attributeCfgRepr expression="best.TYPCDOM" name="TYPCDOM"/>
+								<attributeCfgRepr expression="best.CDOM" name="CDOM"/>
+								<attributeCfgRepr expression="best.COR" name="COR"/>
+							</representativeAttributes>
+							<selectionRules>
+								<aggregatingOrderBy expression="DDATPAKT" orderDescending="true" nullsFirst="false"/>
+							</selectionRules>
+						</attributeSetCfg>
+					</attributeSets>
+					<comm:comment>
+Original groupBy key: ( ICOF )
+key of 1st rule has been converted into grouping strategy.
+		</comm:comment>
+				</rule>
+			</rules>
+		</properties>
+		<visual-constraints bounds="624,480,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Deduplicate by reg. number" endpoint="out_merged"/>
+		<target step="Multiplicator 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Dictionary Lookup Builder) --><step id="Dictionary Lookup Builder" className="com.ataccama.dqc.tasks.addresses.dictionary.DictionaryLookupBuilder" disabled="false" mode="NORMAL">
+		<properties>
+			<componentMappings>
+				<componentMapping column="src_reg_number" componentId="reg_number"/>
+				<componentMapping column="mat_company_name_base" componentId="matching_company_name_base"/>
+				<componentMapping column="mat_form" componentId="matching_form"/>
+				<componentMapping column="mat_city" componentId="matching_city"/>
+			</componentMappings>
+			<referenceData folder="pathvar://DATA/ext/lkp/cz_res/dli" primaryKeyComponentId="reg_number" createWordLookups="false">
+				<components>
+					<entityComponent id="reg_number" class="com.ataccama.dqc.addresses.commons.model.components.DictionaryEntityComponent"/>
+					<entityComponent id="matching_company_name_base" class="com.ataccama.dqc.addresses.commons.model.components.DictionaryEntityComponent"/>
+					<entityComponent id="matching_form" class="com.ataccama.dqc.addresses.commons.model.components.DictionaryEntityComponent"/>
+					<entityComponent id="matching_city" class="com.ataccama.dqc.addresses.commons.model.components.DictionaryEntityComponent"/>
+				</components>
+				<matchingValue doRemoveRepeatedChars="false" doSqueezeWS="false" doRemoveDia="false" doUpperCase="false"/>
+				<supportingVectors>
+					<supportingVectorDefinition name="N_F_C">
+						<inComponents>
+							<entityComponentReference id="matching_company_name_base"/>
+							<entityComponentReference id="matching_form"/>
+							<entityComponentReference id="matching_city"/>
+						</inComponents>
+					</supportingVectorDefinition>
+					<supportingVectorDefinition name="N_F">
+						<inComponents>
+							<entityComponentReference id="matching_company_name_base"/>
+							<entityComponentReference id="matching_form"/>
+						</inComponents>
+					</supportingVectorDefinition>
+					<supportingVectorDefinition name="N_C">
+						<inComponents>
+							<entityComponentReference id="matching_company_name_base"/>
+							<entityComponentReference id="matching_city"/>
+						</inComponents>
+					</supportingVectorDefinition>
+					<supportingVectorDefinition name="N">
+						<inComponents>
+							<entityComponentReference id="matching_company_name_base"/>
+						</inComponents>
+					</supportingVectorDefinition>
+				</supportingVectors>
+				<tokenizerConfig whiteSpaceDefinition="[:white:]" class="com.ataccama.dqc.tasks.common.parse.ConfigurableTokenizerConfig">
+					<types>
+						<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+						<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+					</types>
+				</tokenizerConfig>
+			</referenceData>
+		</properties>
+		<visual-constraints bounds="768,888,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (Inactive companies) --><step id="Inactive companies" className="com.ataccama.dqc.tasks.io.dbf.read.DbfFileReader" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://DATA/ext/src/cz_res/DBF_files/RESAma__.DBF" encoding="windows-1250">
+			<columns>
+				<columnDef name="ICOF" type="STRING"/>
+				<columnDef name="DDATVZN" type="DAY"/>
+				<columnDef name="DDATZAN" type="DAY"/>
+				<columnDef name="ZPZANF" type="STRING"/>
+				<columnDef name="DDATPAKT" type="DAY"/>
+				<columnDef name="FORMAF" type="STRING"/>
+				<columnDef name="NACEF" type="STRING"/>
+				<columnDef name="KATPOF" type="STRING"/>
+				<columnDef name="ICZUJF" type="STRING"/>
+				<columnDef name="OKRESLAUF" type="STRING"/>
+				<columnDef name="FIRMA" type="STRING"/>
+				<columnDef name="ROSFORMAF" type="STRING"/>
+				<columnDef name="ISEKTORF" type="STRING"/>
+				<columnDef name="CISS2010F" type="STRING"/>
+				<columnDef name="KODADM" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="984,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Inactive companies" endpoint="out"/>
+		<target step="Join 2" endpoint="in_left"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1008,192"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Join) --><step id="Join" className="com.ataccama.dqc.tasks.merge.Join" disabled="false" mode="NORMAL">
+		<properties leftKey="ICOF" matchStrategy="MERGE" rightKey="ICOF" joinType="LEFT">
+			<columnDefinitions>
+				<columnDefinition expression="in_left.ICOF" name="ICOF"/>
+				<columnDefinition expression="in_left.DDATVZN" name="DDATVZN"/>
+				<columnDefinition expression="in_left.DDATZAN" name="DDATZAN"/>
+				<columnDefinition expression="in_left.ZPZANF" name="ZPZANF"/>
+				<columnDefinition expression="in_left.DDATPAKT" name="DDATPAKT"/>
+				<columnDefinition expression="in_left.FORMAF" name="FORMAF"/>
+				<columnDefinition expression="in_left.NACEF" name="NACEF"/>
+				<columnDefinition expression="in_left.KATPOF" name="KATPOF"/>
+				<columnDefinition expression="in_left.ICZUJF" name="ICZUJF"/>
+				<columnDefinition expression="in_left.OKRESLAUF" name="OKRESLAUF"/>
+				<columnDefinition expression="in_left.FIRMA" name="FIRMA"/>
+				<columnDefinition expression="in_left.ROSFORMAF" name="ROSFORMAF"/>
+				<columnDefinition expression="in_left.ISEKTORF" name="ISEKTORF"/>
+				<columnDefinition expression="in_left.CISS2010F" name="CISS2010F"/>
+				<columnDefinition expression="in_left.KODADM" name="KODADM"/>
+				<columnDefinition expression="in_right.TEXTADR" name="TEXTADR"/>
+				<columnDefinition expression="in_right.PSC" name="PSC"/>
+				<columnDefinition expression="in_right.OBEC" name="OBEC"/>
+				<columnDefinition expression="in_right.COBCE" name="COBCE"/>
+				<columnDefinition expression="in_right.ULICE" name="ULICE"/>
+				<columnDefinition expression="in_right.TYPCDOM" name="TYPCDOM"/>
+				<columnDefinition expression="in_right.CDOM" name="CDOM"/>
+				<columnDefinition expression="in_right.COR" name="COR"/>
+			</columnDefinitions>
+		</properties>
+		<visual-constraints bounds="624,192,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Join" endpoint="out"/>
+		<target step="Union active and inactive subjects" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Join 2) --><step id="Join 2" className="com.ataccama.dqc.tasks.merge.Join" disabled="false" mode="NORMAL">
+		<properties leftKey="ICOF" matchStrategy="MERGE" rightKey="ICOF" joinType="LEFT">
+			<columnDefinitions>
+				<columnDefinition expression="in_left.ICOF" name="ICOF"/>
+				<columnDefinition expression="in_left.DDATVZN" name="DDATVZN"/>
+				<columnDefinition expression="in_left.DDATZAN" name="DDATZAN"/>
+				<columnDefinition expression="in_left.ZPZANF" name="ZPZANF"/>
+				<columnDefinition expression="in_left.DDATPAKT" name="DDATPAKT"/>
+				<columnDefinition expression="in_left.FORMAF" name="FORMAF"/>
+				<columnDefinition expression="in_left.NACEF" name="NACEF"/>
+				<columnDefinition expression="in_left.KATPOF" name="KATPOF"/>
+				<columnDefinition expression="in_left.ICZUJF" name="ICZUJF"/>
+				<columnDefinition expression="in_left.OKRESLAUF" name="OKRESLAUF"/>
+				<columnDefinition expression="in_left.FIRMA" name="FIRMA"/>
+				<columnDefinition expression="in_left.ROSFORMAF" name="ROSFORMAF"/>
+				<columnDefinition expression="in_left.ISEKTORF" name="ISEKTORF"/>
+				<columnDefinition expression="in_left.CISS2010F" name="CISS2010F"/>
+				<columnDefinition expression="in_left.KODADM" name="KODADM"/>
+				<columnDefinition expression="in_right.TEXTADR" name="TEXTADR"/>
+				<columnDefinition expression="in_right.PSC" name="PSC"/>
+				<columnDefinition expression="in_right.OBEC" name="OBEC"/>
+				<columnDefinition expression="in_right.COBCE" name="COBCE"/>
+				<columnDefinition expression="in_right.ULICE" name="ULICE"/>
+				<columnDefinition expression="in_right.TYPCDOM" name="TYPCDOM"/>
+				<columnDefinition expression="in_right.CDOM" name="CDOM"/>
+				<columnDefinition expression="in_right.COR" name="COR"/>
+			</columnDefinitions>
+		</properties>
+		<visual-constraints bounds="1128,192,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Join 2" endpoint="out"/>
+		<target step="Union active and inactive subjects" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Multiplicator) --><step id="Multiplicator" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="624,840,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Multiplicator" endpoint="out"/>
+		<target step="Dictionary Lookup Builder" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Multiplicator" endpoint="out"/>
+		<target step="buildResCZ" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Multiplicator 2) --><step id="Multiplicator 2" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="624,552,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Multiplicator 2" endpoint="out"/>
+		<target step="Remap columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="true">
+		<source step="Multiplicator 2" endpoint="out"/>
+		<target step="cz_res current" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="617,600"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Normalize reg. number) --><step id="Normalize reg. number" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="replicate(&#39;0&#39;, 8-length(ICOF)) + ICOF" column="ICOF">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Add zeros before reg. number, so that it has 8 digits</comm:comment>
+		</properties>
+		<visual-constraints bounds="864,384,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Normalize reg. number" endpoint="out"/>
+		<target step="Union previous RES and new increment" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remap columns) --><step id="Remap columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="ICOF" name="src_reg_number" type="STRING"/>
+				<addedColumn expression="DDATVZN" name="src_establishment_date" type="DAY"/>
+				<addedColumn expression="DDATZAN" name="src_termination_date" type="DAY"/>
+				<addedColumn expression="DDATPAKT" name="src_meta_date_updated" type="DAY"/>
+				<addedColumn expression="FIRMA" name="src_company_name" type="STRING"/>
+				<addedColumn expression="PSC" name="src_zip" type="STRING"/>
+				<addedColumn expression="OBEC" name="src_city" type="STRING"/>
+				<addedColumn expression="COBCE" name="src_cityDistrict" type="STRING"/>
+				<addedColumn expression="ULICE" name="src_street" type="STRING"/>
+				<addedColumn expression="CDOM" name="src_lrn" type="STRING"/>
+				<addedColumn expression="COR" name="src_sn" type="STRING"/>
+			</addedColumns>
+			<removedColumns>
+				<columnRef name="ICOF"/>
+				<columnRef name="DDATVZN"/>
+				<columnRef name="DDATZAN"/>
+				<columnRef name="ZPZANF"/>
+				<columnRef name="DDATPAKT"/>
+				<columnRef name="FORMAF"/>
+				<columnRef name="NACEF"/>
+				<columnRef name="KATPOF"/>
+				<columnRef name="ICZUJF"/>
+				<columnRef name="OKRESLAUF"/>
+				<columnRef name="FIRMA"/>
+				<columnRef name="ROSFORMAF"/>
+				<columnRef name="ISEKTORF"/>
+				<columnRef name="CISS2010F"/>
+				<columnRef name="KODADM"/>
+				<columnRef name="TEXTADR"/>
+				<columnRef name="PSC"/>
+				<columnRef name="OBEC"/>
+				<columnRef name="COBCE"/>
+				<columnRef name="ULICE"/>
+				<columnRef name="TYPCDOM"/>
+				<columnRef name="CDOM"/>
+				<columnRef name="COR"/>
+			</removedColumns>
+		</properties>
+		<visual-constraints bounds="624,624,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remap columns" endpoint="out"/>
+		<target step="Add columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Trash) --><step id="Trash" className="com.ataccama.dqc.tasks.io.Trash" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="456,960,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (Union active and inactive subjects) --><step id="Union active and inactive subjects" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="864,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union active and inactive subjects" endpoint="out"/>
+		<target step="Normalize reg. number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union previous RES and new increment) --><step id="Union previous RES and new increment" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="384,432,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union previous RES and new increment" endpoint="out"/>
+		<target step="Deduplicate by reg. number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (buildResCZ) --><step id="buildResCZ" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="NORMAL">
+		<properties approximativeIndex="false" compressed="false" duplicities="OMIT" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_res/cz_res.lkp" bidirectApproximativeIndex="false" key="src_reg_number">
+			<additionalColumns>
+				<columnExprDef name="mat_company_name_base"/>
+				<columnExprDef name="mat_form"/>
+				<columnExprDef name="mat_city"/>
+				<columnExprDef expression="src_company_name" name="company_name"/>
+				<columnExprDef expression="pur_company_name_base" name="company_name_base"/>
+				<columnExprDef expression="std_form" name="legal_form"/>
+				<columnExprDef expression="src_street" name="street"/>
+				<columnExprDef expression="src_lrn" name="lrn"/>
+				<columnExprDef expression="src_sn" name="sn"/>
+				<columnExprDef expression="src_city" name="city"/>
+				<columnExprDef expression="src_cityDistrict" name="cityDistrict"/>
+				<columnExprDef expression="src_zip" name="zip"/>
+				<columnExprDef expression="src_establishment_date" name="establishment_date"/>
+				<columnExprDef expression="src_termination_date" name="termination_date"/>
+				<columnExprDef expression="src_meta_date_updated" name="meta_date_updated"/>
+			</additionalColumns>
+			<matchingValue doRemoveRepeatedChars="false" doSqueezeWS="false" supportedCharacters="[:digit:]" doRemoveDia="false" doUpperCase="false"/>
+			<userMetadata>
+				<items/>
+			</userMetadata>
+		</properties>
+		<visual-constraints bounds="456,888,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="buildResCZ" endpoint="rejected"/>
+		<target step="Trash" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (cz_res current) --><step id="cz_res current" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="true" mode="NORMAL">
+		<properties useStringQualifierOnAllColumns="false" stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" generateMetadata="true" fileName="pathvar://DATA/ext/src/cz_res/cz_res.csv" encoding="UTF-8" writeHeader="true" writeAllColumns="false" compression="NONE" stringQualifierEscape="&quot;">
+			<columns>
+				<textWriterColumn name="ICOF"/>
+				<textWriterColumn name="DDATVZN"/>
+				<textWriterColumn name="DDATZAN"/>
+				<textWriterColumn name="ZPZANF"/>
+				<textWriterColumn name="DDATPAKT"/>
+				<textWriterColumn name="FORMAF"/>
+				<textWriterColumn name="NACEF"/>
+				<textWriterColumn name="KATPOF"/>
+				<textWriterColumn name="ICZUJF"/>
+				<textWriterColumn name="OKRESLAUF"/>
+				<textWriterColumn name="FIRMA"/>
+				<textWriterColumn name="ROSFORMAF"/>
+				<textWriterColumn name="ISEKTORF"/>
+				<textWriterColumn name="CISS2010F"/>
+				<textWriterColumn name="KODADM"/>
+				<textWriterColumn name="TEXTADR"/>
+				<textWriterColumn name="PSC"/>
+				<textWriterColumn name="OBEC"/>
+				<textWriterColumn name="COBCE"/>
+				<textWriterColumn name="ULICE"/>
+				<textWriterColumn name="TYPCDOM"/>
+				<textWriterColumn name="CDOM"/>
+				<textWriterColumn name="COR"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+		</properties>
+		<visual-constraints bounds="264,600,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (cz_res_previous) --><step id="cz_res_previous" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="true" mode="NORMAL">
+		<properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_res/cz_res_previous.csv" encoding="UTF-8" numberOfLinesInFooter="0" compression="NONE" stringQualifierEscape="&quot;">
+			<columns>
+				<textReaderColumn name="ICOF" type="STRING" ignore="false"/>
+				<textReaderColumn name="DDATVZN" type="DAY" ignore="false">
+					<dataFormatParameters dateFormatLocale="en_US" dayFormat="yyyy-MM-dd"/>
+				</textReaderColumn>
+				<textReaderColumn name="DDATZAN" type="DAY" ignore="false">
+					<dataFormatParameters dateFormatLocale="en_US" dayFormat="yyyy-MM-dd"/>
+				</textReaderColumn>
+				<textReaderColumn name="ZPZANF" type="STRING" ignore="false"/>
+				<textReaderColumn name="DDATPAKT" type="DAY" ignore="false">
+					<dataFormatParameters dateFormatLocale="en_US" dayFormat="yyyy-MM-dd"/>
+				</textReaderColumn>
+				<textReaderColumn name="FORMAF" type="STRING" ignore="false"/>
+				<textReaderColumn name="NACEF" type="STRING" ignore="false"/>
+				<textReaderColumn name="KATPOF" type="STRING" ignore="false"/>
+				<textReaderColumn name="ICZUJF" type="STRING" ignore="false"/>
+				<textReaderColumn name="OKRESLAUF" type="STRING" ignore="false"/>
+				<textReaderColumn name="FIRMA" type="STRING" ignore="false"/>
+				<textReaderColumn name="ROSFORMAF" type="STRING" ignore="false"/>
+				<textReaderColumn name="ISEKTORF" type="STRING" ignore="false"/>
+				<textReaderColumn name="CISS2010F" type="STRING" ignore="false"/>
+				<textReaderColumn name="KODADM" type="STRING" ignore="false"/>
+				<textReaderColumn name="TEXTADR" type="STRING" ignore="false"/>
+				<textReaderColumn name="PSC" type="STRING" ignore="false"/>
+				<textReaderColumn name="OBEC" type="STRING" ignore="false"/>
+				<textReaderColumn name="COBCE" type="STRING" ignore="false"/>
+				<textReaderColumn name="ULICE" type="STRING" ignore="false"/>
+				<textReaderColumn name="TYPCDOM" type="STRING" ignore="false"/>
+				<textReaderColumn name="CDOM" type="STRING" ignore="false"/>
+				<textReaderColumn name="COR" type="STRING" ignore="false"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd"/>
+			<errorHandlingStrategy rejectFileName="rejected.txt">
+				<errorInstructions>
+					<errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+				</errorInstructions>
+			</errorHandlingStrategy>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="264,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="true">
+		<source step="cz_res_previous" endpoint="out"/>
+		<target step="Union previous RES and new increment" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="288,432"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<modelComment bounds="72,96,168,553" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">When historical RES is
+needed, custom (shell)
+script should rename
+file with current RES
+&quot;cz_res.csv&quot; to
+&quot;cz_res_previous.csv&quot;
+and run this plan
+with enabled steps 
+&quot;cz_res_previous&quot;
+and &quot;cz_res_current&quot;.
+
+When only full DBF files
+are used, no changes are
+needed and no renaming
+is desired.</modelComment>
+
+
+
+<modelComment bounds="264,0,145,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Previous cz_res</modelComment>
+
+
+
+<modelComment bounds="480,0,337,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Active subjects</modelComment>
+
+
+
+<modelComment bounds="864,480,193,54" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Records with the most recent
+actualization date is selected</modelComment>
+
+
+
+<modelComment bounds="984,0,337,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Inactive subjects</modelComment>
+
+
+
+<modelComment bounds="1512,92,256,317" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Since May 2013, monthly RES update
+consists of 6 DBF files. From their 
+names, one can determine month and
+year they are from.
+
+E.g.
+RESAza3a.DBF 
+
+&#39;3&#39; means year 2013
+&#39;a&#39; means October
+(first 9 months correspond to their order,
+10th month has &#39;a&#39;
+11th month has &#39;b&#39; and
+12th month has &#39;c&#39;)
+
+Before running this plan on new update,
+DBF files have to be renamed in such way,
+that year and month digits are replaced
+with underscores.
+
+E.g.
+RESAza__.DBF</modelComment>
+
+
+
+<modelComment bounds="456,216,139,25" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">There is 1:1 relation</modelComment>
+
+
+
+<modelComment bounds="1224,216,139,38" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">There is 1:1 relation</modelComment>
+
+</purity-config>

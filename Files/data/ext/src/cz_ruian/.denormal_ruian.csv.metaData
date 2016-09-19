@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<settings>
+  <connector>
+    <saved-state stringQualifier="&quot;" lineWithColumnNames="1" recordLength="-1" ignoredRowRegEx="" escapeSequence="" fixedSizes="false" fieldSeparator=";" stringQualifierEscapeSequence="&quot;" numberOfLinesInHeader="1" recordSeparator="\r\n" encoding="UTF-8" numberOfLinesInFooter="0">
+      <columns>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="ADRESA_KOD" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="PSC" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="CISLO_POPISNE" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="COBCE_NAZEV" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="MCAST_NAZEV" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="ULICE_NAZEV" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="OBEC_NAZEV" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="OKRES_NAZEV" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="KRAJ_NAZEV" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="POSTA_NAZEV" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="CISLO_ORIENTACNI" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="CISLO_POPISNE_TYP" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="CISLO_EVIDENCNI" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+      </columns>
+    </saved-state>
+  </connector>
+</settings>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<purity-config version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (UIR ADR Generator CZ) --><step id="UIR ADR Generator CZ" className="com.ataccama.dqc.tasks.addresses.uiradr.UirAdrGenerator" disabled="false" mode="NORMAL">
+		<properties uirAdrEncoding="UTF-8" destFolder="pathvar://DATA/ext/lkp/cz_address_identifier/ai" sourceFolder="pathvar://DATA/ext/src/cz_ruian" workFolder="pathvar://DATA/../temp/cz_address_identifier" activeAddressesOnly="true" generateExactIndices="false" mode="RUIAN">
+			<replacements>
+				<replacement addressComponent="STREET" fullReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_street_full.lkp" partialReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_street_partial.lkp">
+					<tokenizer whiteSpaceDefinition="[:white:]">
+						<types>
+							<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+							<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+						</types>
+					</tokenizer>
+				</replacement>
+				<replacement addressComponent="CITY" fullReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_city_full.lkp" partialReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_city_partial.lkp">
+					<tokenizer whiteSpaceDefinition="[:white:]">
+						<types>
+							<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+							<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+						</types>
+					</tokenizer>
+				</replacement>
+				<replacement addressComponent="CITY_DISTRICT" fullReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_city_district_full.lkp" partialReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_city_district_partial.lkp">
+					<tokenizer whiteSpaceDefinition="[:white:]">
+						<types>
+							<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+							<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+						</types>
+					</tokenizer>
+				</replacement>
+				<replacement addressComponent="POST_OFFICE" fullReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_post_office_full.lkp" partialReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_ua_post_office_partial.lkp">
+					<tokenizer whiteSpaceDefinition="[:white:]">
+						<types>
+							<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+							<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+						</types>
+					</tokenizer>
+				</replacement>
+			</replacements>
+		</properties>
+		<visual-constraints bounds="48,24,-1,-1" layout="vertical"/>
+	</step>
+
+</purity-config>

@@ -1,0 +1,570 @@
+<html xmlns:comm="http://www.ataccama.com/purity/comment" xmlns:ver="http://www.ataccama.com/purity/version">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">			
+				table.smpl {
+						border-width: 0 0 1px 1px;
+						border-spacing: 0;
+						border-collapse: collapse;
+						width: 90%;
+				}
+
+				table.outer {
+						border-width: 1px 1px 1px 1px;
+						border-spacing: 0;
+						border-collapse: collapse;
+						border-color: #0;
+						border-style: solid;
+				}
+				
+				table td
+				{
+					margin: 0;
+					padding: 4px;
+					border-width: 1px 1px 0 0;
+				}
+				
+				table.smpl, table.smpl td
+				{
+					border-color: #0;
+					border-style: solid;
+				}
+				
+				pre.nonprop {
+					font-family: Arial;
+				}	
+			
+				
+				.cell_hdr {
+				font-weight:bold;
+				}
+				.cell_hdr { 
+					background-color: #D0D0F0; 
+					font-weight: bold; 
+					font-family: Arial; 		
+					font-size: 16px; 
+					}
+				.cell_val { 
+					background-color: #F0F0F0; 
+					font-family: Arial; 
+					font-size: 12px;
+					}
+				.cell_extra_val { 
+					background-color: #F0F0F0;
+					color: #A00000; 
+					}
+				.cell_hdr_red { 
+					background-color: #D0E0F0; 
+					font-weight: bold; 
+					font-family: Arial;
+					font-size: 16px; 
+					}	
+				.cell_line_hdr { 
+					background-color: #D0D0F0; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}
+				.cell_line_val {
+					background-color: #F0F0F0; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}	 
+				.cell_hdr_comment { 
+					background-color: #E0E0E0; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}
+				.cell_val_comment { 
+					background-color: #F0F0F0; 
+					color: #808080; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}	
+				
+				.table_90 { 
+					width: 90%; }
+				
+				li { font-family: Arial; font-size: 12px; }
+				
+				H1 { font-family: Arial; font-size: 25px; }
+				H2 { font-family: Arial; font-size: 20px; }
+				H3 { font-family: Arial; font-size: 15px; text-decoration: underline; margin: 20px, 0, 0, 0; padding: 0; }
+				p { font-family: Arial; font-size: 12px; margin: 0; padding: 2px; }				
+				pre {font-family: Arial; font-size: 12px; margin: 0; padding: 2px;				 				 
+ 				 white-space: pre-wrap;       /* css-3 */
+ 				 white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ 				 white-space: -pre-wrap;      /* Opera 4-6 */
+ 				 white-space: -o-pre-wrap;    /* Opera 7 */
+ 				 word-wrap: break-word;       /* Internet Explorer 5.5+ */
+					}
+		</style><title>Documentation of Component Definition : cz_company_reg_number_and_name</title>
+   </head>
+   <body>
+      <table class="outer" width="90%">
+         <tr>
+            <td rowspan="3"><img src="images/logo_about.png"></td>
+            <td>
+               <H1>Component Documentation</H1>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <H2>Cleanse Company Name and Registration Number CZ (cz_company_reg_number_and_name.comp)</H2>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <table width="100%">
+                  <tr>
+                     <td class="cell_hdr">Minimum Engine Version Required</td>
+                     <td class="cell_val">engine v8.0.3 or higher</td>
+                     <td class="cell_hdr">Last Update Date</td>
+                     <td class="cell_val">2015-08-07+02:00</td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <div id="l_contents">
+         <H1>Contents</H1>
+      </div>
+      <ul>
+         <li><a href="#l_fdesc">Functional Description</a></li>
+         <li><a href="#l_tdesc">Technical Description</a></li>
+         <li><a href="#l_params">Parameters</a></li>
+         <li><a href="#l_pathv">Path Variables</a></li>
+         <li><a href="#l_lkps">Lookups</a></li>
+         <li><a href="#l_inputs">Input Attributes</a></li>
+         <li><a href="#l_outputs">Output Attributes</a></li>
+         <li><a href="#l_details">Attribute Details</a></li>
+      </ul><br><table id="l_desc" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Functional Description</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <div><pre><fdescription><h4>Component Goals</h4>
+The purpose of this component is to validate and standardize company registration number and company name.
+
+<h4>Interface</h4>
+Input: registration number, company name, city of residence
+Output: 
+standardized reg. number, company name and legal form (they all have to be verified in RES lookup)
+Best existing value of registration number (verified, valid, parsed or input), company name, company name without legal form, legal form and active flag
+Score and explanation of data discrepancies. Input record gets score 0 when it has valid/verified reg. number and corresponding company name and city with RES values.
+
+Standardized registration number is in dddddddd format (8 digits) 
+
+<h4>Component Behaviour</h4>
+Component checks, whether the input registration number is filled. If so, it tries to parse it. After that, it cleanses and normalizes it. Dummy values are discarded (dummy = numbers made of one (repetitive) digit, e.g. 1, 22, 333, 4444, 88888888)
+In the end, validity is checked and lookup in RES is made.
+
+For filled company name, these steps are made:
+<ul>
+	<li>separate legal form from company name</li>
+	<li>cleanse company name (after removal of legal form, special characters might have stayed)</li>
+	<li>standardize legal form (long form is used here)</li>
+	<li>create matching values of company base name and city of residence</li>
+	<li>match difference between company name from input and company name from RES</li>
+</ul>
+
+When input registration number was not valid, we try to find company reg. number based on its name, form and city of residence.
+When dictionary-based search returns one record with the best score (meaning no ambiguity), we use its reg. number for lookup in RES. Otherwise, we cannot use any (no record found or ambiguous records).
+
+E.g.
+if there were two companies in RES with the same name but different city of residence, input record without city filled would return no record because of ambiguity. However with city filled, corresponding company would be picked.
+
+Based on result of RES lookup, std_ and out_ values are filled.
+
+Difference between company name from input and company name from RES is recognized only when reg.number and company name is filled. There are two difference,  
+<i>Major difference</i> is recognized when match between company name and company name from RES is lower than 80%. <i>Minor difference</i> is recognized when match between company name and company name from RES is higher or equal 80%. Algorithm input values for match are based on company_name_base.
+
+E.g.  	
+<u>Minor difference</u>
+					Rapid  (RES value)
+					Rapida
+		When input company name is ‘Rapida‘ and looked up name by company registration number is ‘Rapid‘ then difference is minor because there is more than 80% match in the name.
+	
+<u>Major difference</u>
+   					Rapid Alfa Beta Gama (RES value)
+  					Rapid Alfa Beta Delta
+	 	When input company name is ‘Rapid Alfa Beta‘ and looked up name by company registration number is ‘Rapid Alfa Delta‘ then difference is major becasue there is lower match than 80% in the name.
+
+Score and data discrepancies are set
+
+<h4>Lookup files and external sources</h4>
+Component uses lookup for replacing legal forms, standardization of legal forms and RES lookup with registration number as key. 
+Beside that, DLI lookups with these vectors (N=company name without form, F=legal form, C=city) are used: 
+N_F_C
+N_F
+N_C
+N
+<h4>Summary of testing data</h4>
+Testing data contains valid, invalid, missing values of company registration number, name, form, city and theirs combination. Some combinations of name, form and city represent unique and some ambiguous companies.
+
+</fdescription></pre></div><br><table id="l_tdesc" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Technical Description</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>For detailed technical description see <a href="./technical/cz_company_reg_number_and_name.html">doc / cz_company_reg_number_and_name / technical / cz_company_reg_number_and_name.html</a></p><br><table id="l_params" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Parameters</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Parameter name</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="30%">ico_search_only_parameter</td>
+            <td class="cell_line_val" width="70%">Allows to search company only against reg. number. When parameter is true, the component
+               validates only company with filled reg.number( recommended value is false).
+            </td>
+         </tr>
+      </table><br><table id="l_pathv" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Path Variables</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table>
+         <tr>
+            <td class="cell_hdr" width="20%">Pathvar Name</td>
+            <td class="cell_hdr" width="40%">Folder</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">COMPONENTS</td>
+            <td class="cell_line_val">/ [ your project folder ] / components</td>
+            <td class="cell_line_val">all components folder</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">TESTS_ROOT</td>
+            <td class="cell_line_val">/ [ your project folder ] / unit_tests</td>
+            <td class="cell_line_val">all unit tests folder</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">DATA</td>
+            <td class="cell_line_val">/ [ your project folder ] / data</td>
+            <td class="cell_line_val">dictionaries e.g Data/ext/src</td>
+         </tr>
+      </table><br><table id="l_lkps" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Lookups</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Lookup name/folder</td>
+            <td class="cell_hdr">Build plan name</td>
+            <td class="cell_hdr">Source name/folder</td>
+            <td class="cell_hdr">Initial content</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">cz_replacements_legal_forms.lkp</td>
+            <td class="cell_line_val" width="150">cz_01_replacements_legal_forms.plan</td>
+            <td class="cell_line_val" width="150">cz_lov_replacements_legal_forms.csv</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">Replaces legal form shortcuts with matching value (e.g.: "a.s." -> "AS")</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">cz_standardized_legal_forms.lkp</td>
+            <td class="cell_line_val" width="150">cz_01_standardized_legal_forms.plan</td>
+            <td class="cell_line_val" width="150">cz_lov_standardize_legal_forms.csv</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">Replaces matching legal forms with standardized form names (e.g.: "AS" -> "Akciová společnost") from RES (http://wwwinfo.mfcr.cz/ares/aresPrFor.html.cz)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">cz_res.lkp</td>
+            <td class="cell_line_val" width="150">cz_02_res.plan</td>
+            <td class="cell_line_val" width="150">cz_res</td>
+            <td class="cell_line_val" width="30">short</td>
+            <td class="cell_line_val">Company attributes from reg. number</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">cz_res</td>
+            <td class="cell_line_val" width="150">cz_02_res.plan</td>
+            <td class="cell_line_val" width="150">cz_res</td>
+            <td class="cell_line_val" width="30">short</td>
+            <td class="cell_line_val">Lookup by company name, form and city</td>
+         </tr>
+      </table><br><table id="l_sComps" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Included Components</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>There are no included non-internal components in this component.</p><br><table id="l_inputs" width="90%">
+         <tr>
+            <td>
+               <H2>Input Attributes</H2>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Attribute</td>
+            <td class="cell_hdr">DQC type</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">in_reg_number</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Input registration number (in Czech "IČO")</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">in_company_name</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Input company name</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">in_residence_city</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Input city of residence</td>
+         </tr>
+      </table><br><table id="l_outputs" width="90%">
+         <tr>
+            <td>
+               <H2>Output Attributes</H2>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Attribute</td>
+            <td class="cell_hdr">DQC type</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">std_reg_number</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Standardized and verified registration number</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">std_company_name</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Standardized company name from RES lookup</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">std_legal_form</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Standardized legal form (in long form)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">out_reg_number</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Best available value of registration number</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">out_company_name</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Best available value of company name. When company name is validated against RES,
+               it is assigned from RES, if we recognize major difference in name (including legal
+               form), then value from input is assigned.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">out_company_name_base</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Best available value of company name without legal form. (Value from RES lookup)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">out_legal_form</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Best available value of company legal form. Value is always standardized against RES
+               legal form list.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">out_active</td>
+            <td class="cell_line_val" width="150">BOOLEAN</td>
+            <td class="cell_line_val">Boolean flag indicating, whether the company is active </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">out_reg_num_comments</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Comments found before/after registration number</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150"><a href="#sco_company">sco_company</a></td>
+            <td class="cell_line_val" width="150">INTEGER</td>
+            <td class="cell_line_val">Data quality score of company registration number and name</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150"><a href="#exp_company">exp_company</a></td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Explanation codes of data quality problems in company registration number and name</td>
+         </tr>
+      </table><br><H2 id="l_details">Attribute Details</H2>
+      <table id="sco_company" width="90%">
+         <tr>
+            <td>
+               <H3>Data quality score of company registration number and name (sco_company)</H3>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr" width="300">Value</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">0</td>
+            <td class="cell_val">Valid value. No modification was done to the input value, it was correct on input</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">&lt; 10 000</td>
+            <td class="cell_val">Corrected value. Small modification was done to the input value (remove special characters,
+               remove comment) but resulting value is still valid and verified
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">&lt; 10 000 000</td>
+            <td class="cell_val">Unsafe/Unknown value. Value does not verified in RES lookup, legal forms differs or
+               major difference in company name is recognized.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">&gt;= 10 000 000</td>
+            <td class="cell_val">Null value. Input value is null or is text with letters.</td>
+         </tr>
+      </table>
+      <table id="exp_company" width="90%">
+         <tr>
+            <td>
+               <H3>Explanation codes of data quality problems in company registration number and name (exp_company)</H3>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr" width="300">Value</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_REG_NUMBER_AND_NAME_MISSING</td>
+            <td class="cell_val">Scored 10000000. Input company reg. number and name are empty</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_REG_NUMBER_INVALID_NAME_MISSING</td>
+            <td class="cell_val">Scored 1000000. Input company reg. number is invalid, name is empty</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_REG_NUMBER_DUMMY_NAME_MISSING</td>
+            <td class="cell_val">Scored 100000. Input company reg. number is dummy, name is empty</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_REG_NUMBER_MISSING</td>
+            <td class="cell_val">Scored 3000. Input company reg. number is empty (name is filled)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_REG_NUMBER_NOT_PARSED</td>
+            <td class="cell_val">Scored 3000. Input company reg. number was not parsed (name is filled)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_REG_NUMBER_INVALID_CHECKSUM</td>
+            <td class="cell_val">Scored 2000. Input company reg. number has invalid checksum (name is filled)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_REG_NUMBER_DUMMY</td>
+            <td class="cell_val">Scored 1000. Input company reg. number is dummy (name is filled)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_NAME_NOT_FOUND</td>
+            <td class="cell_val">Scored 20000. Company could not be found by name, form and/or city (reg. number was
+               not used)
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_AMBIGUOUS</td>
+            <td class="cell_val">Scored 10000. Multiple companies passed by searching criteria (name, form, city) with
+               the same score
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_NAME_MINOR_DIFFERENCE</td>
+            <td class="cell_val">Scored 1620 (max). Relative scoring based on algorithm match between input and RES
+               name (minor difference) only when reg.number (ICO) and company name is filled. Minor
+               difference is when match between company name and company name from RES is higher
+               or equal 80%.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_NAME_MAJOR_DIFFERENCE</td>
+            <td class="cell_val">Scored 10000. Scoring based on match between input and RES name (major difference)
+               only when reg.number (ICO) and company name is filled. Major difference is when match
+               between company name and company name from RES is lower than 80%.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_NAME_MISSING</td>
+            <td class="cell_val">Scored 300. Input company name is missing</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_FORM_DIFFERS</td>
+            <td class="cell_val">Scored 10000. Input legal forms and form from RES differ</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_FORM_MISSING</td>
+            <td class="cell_val">Scored 200. Input legal form is missing</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_CITY_DIFFERS</td>
+            <td class="cell_val">Scored 3000. Input city and city from RES differ</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_CITY_MISSING</td>
+            <td class="cell_val">Scored 100. Input city is missing</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_REG_NUMBER_COMMENTS</td>
+            <td class="cell_val">Scored 30. Input company reg. number contained commets</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_REG_NUMBER_NORMALIZED</td>
+            <td class="cell_val">Scored 10. Input company reg. number was normalized (zeros before it were added)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">COMPANY_VALIDATIONS_BASED_ON_ICO_ONLY</td>
+            <td class="cell_val">Scored 10000000. Input company reg.number is missing when ico_search_only_parameter
+               is true.
+            </td>
+         </tr>
+      </table><br></body>
+</html>

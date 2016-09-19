@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Add columns) --><step id="Add columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="pur_company_name_base" type="STRING"/>
+				<addedColumn name="mat_company_name_base" type="STRING"/>
+				<addedColumn name="mat_form" type="STRING"/>
+				<addedColumn name="mat_city" type="STRING"/>
+				<addedColumn name="std_form" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="552,120,48,48" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add columns" endpoint="out"/>
+		<target step="Strip legal forms" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Cleanse company base name) --><step id="Cleanse company base name" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="pur_company_name_base">
+					<expression>squeezeSpaces(
+	substituteAll(@&quot;^[\s\p{Punct}]*(.*?)[\s\p{Punct}]*$&quot;, &quot;$1&quot;, pur_company_name_base)
+	)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>e.g.:
+
+&quot;Rapid, .&quot; -&gt; &quot;Rapid&quot;</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Cleanse company base name</comm:comment>
+		</properties>
+		<visual-constraints bounds="552,264,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Cleanse company base name" endpoint="out"/>
+		<target step="Standardize legal form" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Matching company name and city) --><step id="Matching company name and city" className="com.ataccama.dqc.tasks.clean.MatchingValues" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<matchingColumn expression="pur_company_name_base" name="mat_company_name_base">
+					<generator substituteWith=" " doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" [:letter:][:digit:]" doRemoveDia="true" doUpperCase="true"/>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="MV_CHANGED" explain="false" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</matchingColumn>
+				<matchingColumn expression="src_city" name="mat_city">
+					<generator substituteWith=" " doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" [:letter:],.-/" doRemoveDia="true" doUpperCase="true"/>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="MV_CHANGED" explain="false" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</matchingColumn>
+			</columns>
+			<comm:comment>Matching company name and city</comm:comment>
+		</properties>
+		<visual-constraints bounds="552,408,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Matching company name and city" endpoint="out"/>
+		<target step="Remove columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove columns) --><step id="Remove columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="src_company_name"/>
+				<columnRef name="src_city"/>
+			</removedColumns>
+		</properties>
+		<visual-constraints bounds="552,480,48,48" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove columns" endpoint="out"/>
+		<target step="out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Standardize legal form) --><step id="Standardize legal form" className="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm" disabled="false" mode="NORMAL">
+		<properties replacementsFileName="pathvar://DATA/ext/lkp/cz_standardized_legal_forms.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="mat_form" out="std_form">
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="AR_CHANGED" explain="true" key="AR_CHANGED"/>
+					<scoringEntry score="0" explainAs="AR_NULL" explain="true" key="AR_NULL"/>
+					<scoringEntry score="0" explainAs="AR_MULTI" explain="true" key="AR_MULTI"/>
+					<scoringEntry score="0" explainAs="AR_MORE" explain="true" key="AR_MORE"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Standardize legal form</comm:comment>
+		</properties>
+		<visual-constraints bounds="552,336,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Standardize legal form" endpoint="out"/>
+		<target step="Matching company name and city" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Strip legal forms) --><step id="Strip legal forms" className="com.ataccama.dqc.tasks.clean.StripTitlesAlgorithm" disabled="false" mode="NORMAL">
+		<properties titleLookupFileName="pathvar://DATA/ext/lkp/cz_replacements_legal_forms.lkp" preserveUnsupportedChars="true" titlesOut="mat_form" in="src_company_name" separator="," out="pur_company_name_base" minWordCount="0">
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="ST_CHANGED" explain="true" key="ST_CHANGED"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Strip legal forms</comm:comment>
+		</properties>
+		<visual-constraints bounds="552,192,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Strip legal forms" endpoint="out"/>
+		<target step="Cleanse company base name" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="src_company_name" type="STRING"/>
+				<columnDef name="src_city" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="552,48,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="Add columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out) --><step id="out" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns/>
+		</properties>
+		<visual-constraints bounds="552,552,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="816,192,289,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Strip form from name</modelComment>
+
+
+
+<modelComment bounds="816,264,289,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Remove special characters at the 
+beginning and the end of company name</modelComment>
+
+
+
+<modelComment bounds="816,336,289,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Standardize legal form
+E.g.: &quot;AS&quot; -&gt; &quot;akciová společnost&quot;</modelComment>
+
+
+
+<modelComment bounds="816,408,289,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Prepare matching values</modelComment>
+
+</purity-config>

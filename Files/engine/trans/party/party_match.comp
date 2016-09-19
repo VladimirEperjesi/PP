@@ -1,0 +1,362 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (3 keys) --><step id="3 keys" className="com.ataccama.mdu.MdUnify" disabled="true" mode="NORMAL">
+		<properties matchIdColumn="mat_id_column" ruleNameColumn="mat_rule_name">
+			<keeperSelectionRule/>
+			<matchFunctions/>
+			<matchingMeasures/>
+			<partitions>
+				<mduPartition>
+					<keeperSelectionRule/>
+					<rules>
+						<mduKeyRule noEmptyComponent="true">
+							<components>
+								<unionKeyComponent expression="mat_rod_cis" behaveAsSet="false" separator=" ">
+									<comm:comment>Zhoda v MAT rodnom cisle</comm:comment>
+								</unionKeyComponent>
+							</components>
+							<matchingRules/>
+							<comm:comment>Porovnava MAT rodne cislo</comm:comment>
+						</mduKeyRule>
+						<mduKeyRule noEmptyComponent="true">
+							<components>
+								<unionKeyComponent expression="mat_jmeno" behaveAsSet="false" separator=" "/>
+								<unionKeyComponent expression="mat_prijimeni" behaveAsSet="false" separator=" "/>
+							</components>
+							<matchingRules/>
+							<comm:comment>Kdyz neni rodne cislo porovnava jmeno a prijimeni</comm:comment>
+						</mduKeyRule>
+						<mduKeyRule noEmptyComponent="true">
+							<components>
+								<unionKeyComponent expression="mat_prijimeni" behaveAsSet="false" separator=" ">
+									<comm:comment>Kdyz neni jmeno tak porovna aspon prijimeni</comm:comment>
+								</unionKeyComponent>
+							</components>
+							<matchingRules/>
+							<comm:comment>Kdyz neni jmeno tak porovna aspon prijimeni</comm:comment>
+						</mduKeyRule>
+					</rules>
+				</mduPartition>
+			</partitions>
+		</properties>
+		<visual-constraints bounds="672,600,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (Match Year) --><step id="Match Year" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="BYPASS">
+		<properties>
+			<assignments>
+				<assignment expression="left(mat_rod_cis, 2)" column="mat_rod_cis">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="216,600,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Match Year" endpoint="out"/>
+		<target step="Matching" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Matching) --><step id="Matching" className="com.ataccama.mdu.MdUnify" disabled="false" mode="NORMAL">
+		<properties matchIdColumn="mat_id_column" ruleNameColumn="mat_rule_name">
+			<keeperSelectionRule/>
+			<matchFunctions/>
+			<matchingMeasures/>
+			<partitions>
+				<mduPartition>
+					<keeperSelectionRule/>
+					<rules>
+						<mduKeyRule noEmptyComponent="false">
+							<components>
+								<unionKeyComponent expression="mat_rod_cis" behaveAsSet="false" separator=" ">
+									<comm:comment>Zhoda v MAT rodnom cisle</comm:comment>
+								</unionKeyComponent>
+								<unionKeyComponent expression="mat_jmeno" behaveAsSet="false" separator=" "/>
+								<unionKeyComponent expression="mat_prijimeni" behaveAsSet="false" separator=" "/>
+							</components>
+							<matchingRules/>
+							<comm:comment>Porovnava MAT rodne cislo</comm:comment>
+						</mduKeyRule>
+					</rules>
+				</mduPartition>
+			</partitions>
+		</properties>
+		<visual-constraints bounds="216,696,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Matching" endpoint="out"/>
+		<target step="counter_party_match_out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Matching 2) --><step id="Matching 2" className="com.ataccama.mdu.MdUnify" disabled="true" mode="NORMAL">
+		<properties>
+			<keeperSelectionRule/>
+			<matchFunctions/>
+			<matchingMeasures/>
+			<partitions>
+				<mduPartition when="true">
+					<keeperSelectionRule/>
+					<rules>
+						<mduKeyRule noKeyCond="mat_rod_cis is not null" noEmptyComponent="true">
+							<components>
+								<unionKeyComponent expression="mat_rod_cis" behaveAsSet="false" separator=" "/>
+							</components>
+							<matchingRules>
+								<mduMatchRule name="rodcis+jm+pr">
+									<tests>
+										<mduMatchTest column="mat_jmeno" relative="false" function="equality">
+											<comm:comment>Jmeno je stejne</comm:comment>
+										</mduMatchTest>
+										<mduMatchTest column="mat_prijimeni" relative="false" function="equality">
+											<comm:comment>Prijimeni je stejne</comm:comment>
+										</mduMatchTest>
+									</tests>
+								</mduMatchRule>
+							</matchingRules>
+						</mduKeyRule>
+					</rules>
+				</mduPartition>
+			</partitions>
+		</properties>
+		<visual-constraints bounds="456,600,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (Matching Values) --><step id="Matching Values" className="com.ataccama.dqc.tasks.clean.MatchingValues" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<matchingColumn expression="src_rod_cis" name="mat_rod_cis">
+					<generator doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters="[:digit:]" doRemoveDia="true" doUpperCase="true"/>
+					<scorer scoreColumn="sco_rod_cis">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="MV_CHANGED" explain="false" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</matchingColumn>
+				<matchingColumn expression="src_jmeno" name="mat_jmeno">
+					<generator doRemoveRepeatedChars="false" doSqueezeWS="true" doRemoveDia="true" doUpperCase="true"/>
+					<scorer scoreColumn="sco_jmeno">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="MV_CHANGED" explain="false" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</matchingColumn>
+				<matchingColumn expression="src_prijimeni" name="mat_prijimeni">
+					<generator doRemoveRepeatedChars="false" doSqueezeWS="true" doRemoveDia="true" doUpperCase="true"/>
+					<scorer scoreColumn="sco_prijimeni">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="MV_CHANGED" explain="false" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</matchingColumn>
+			</columns>
+		</properties>
+		<visual-constraints bounds="216,504,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Matching Values" endpoint="out"/>
+		<target step="Match Year" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Rematch flag assigner) --><step id="Rematch flag assigner" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="src_rematch == &#39;1&#39;" column="rematch_flag">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="216,432,48,48" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Rematch flag assigner" endpoint="out"/>
+		<target step="Matching Values" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Rematch flag assigner 2 old) --><step id="Rematch flag assigner 2 old" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="true" mode="BYPASS">
+		<properties>
+			<assignments>
+				<assignment expression="src_rematch == &#39;1&#39;" column="rematch_flag">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="624,360,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (counter_party_match_in) --><step id="counter_party_match_in" className="com.ataccama.dqc.tasks.flow.RecordCounter" disabled="false" mode="NORMAL">
+		<properties reportPerfPerBatch="true" append="true" reportFileName="\\logger" timeStampFormat="yyyy-MM-dd HH:mm:ss" batchSize="100000" reportPerfPerSecond="true">
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="216,336,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="counter_party_match_in" endpoint="out"/>
+		<target step="Rematch flag assigner" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (counter_party_match_out) --><step id="counter_party_match_out" className="com.ataccama.dqc.tasks.flow.RecordCounter" disabled="false" mode="NORMAL">
+		<properties reportPerfPerBatch="true" append="true" reportFileName="\\logger" timeStampFormat="yyyy-MM-dd HH:mm:ss" batchSize="100000" reportPerfPerSecond="true">
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="216,792,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="counter_party_match_out" endpoint="out"/>
+		<target step="out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="id" type="LONG"/>
+				<columnDef name="eng_source_timestamp" type="DATETIME"/>
+				<columnDef name="eng_active" type="BOOLEAN"/>
+				<columnDef name="eng_origin" type="STRING"/>
+				<columnDef name="eng_source_system" type="STRING"/>
+				<columnDef name="eng_last_update_date" type="DATETIME"/>
+				<columnDef name="eng_last_source_update_date" type="DATETIME"/>
+				<columnDef name="eng_creation_date" type="DATETIME"/>
+				<columnDef name="eng_deletion_date" type="DATETIME"/>
+				<columnDef name="eng_activation_date" type="DATETIME"/>
+				<columnDef name="eng_deactivation_date" type="DATETIME"/>
+				<columnDef name="source_id" type="STRING"/>
+				<columnDef name="src_rod_cis" type="STRING"/>
+				<columnDef name="std_rod_cis" type="STRING"/>
+				<columnDef name="cio_rod_cis" type="STRING"/>
+				<columnDef name="sco_rod_cis" type="INTEGER"/>
+				<columnDef name="src_prijimeni" type="STRING"/>
+				<columnDef name="std_prijimeni" type="STRING"/>
+				<columnDef name="cio_prijimeni" type="STRING"/>
+				<columnDef name="sco_prijimeni" type="INTEGER"/>
+				<columnDef name="src_jmeno" type="STRING"/>
+				<columnDef name="std_jmeno" type="STRING"/>
+				<columnDef name="cio_jmeno" type="STRING"/>
+				<columnDef name="sco_jmeno" type="INTEGER"/>
+				<columnDef name="src_datnar" type="STRING"/>
+				<columnDef name="std_datnar" type="DAY"/>
+				<columnDef name="cio_datnar" type="DAY"/>
+				<columnDef name="src_pohlavi" type="STRING"/>
+				<columnDef name="std_pohlavi" type="STRING"/>
+				<columnDef name="cio_pohlavi" type="STRING"/>
+				<columnDef name="src_rematch" type="STRING"/>
+				<columnDef name="obec" type="STRING"/>
+				<columnDef name="master_id" type="LONG"/>
+				<columnDef name="eng_external_record" type="BOOLEAN"/>
+				<columnDef name="eng_change_type" type="STRING"/>
+				<columnDef name="eng_activity_change_type" type="STRING"/>
+				<columnDef name="isolate_flag" type="BOOLEAN"/>
+				<columnDef name="mat_rod_cis" type="STRING"/>
+				<columnDef name="mat_prijimeni" type="STRING"/>
+				<columnDef name="mat_jmeno" type="STRING"/>
+				<columnDef name="mat_id_column" type="STRING"/>
+				<columnDef name="mat_rule_name" type="STRING"/>
+				<columnDef name="rematch_flag" type="BOOLEAN"/>
+			</columns>
+			<shadowColumns/>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="216,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="counter_party_match_in" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out) --><step id="out" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="id" type="LONG"/>
+				<requiredColumn name="master_id" type="LONG"/>
+				<requiredColumn name="isolate_flag" type="BOOLEAN"/>
+				<requiredColumn name="mat_rod_cis" type="STRING"/>
+				<requiredColumn name="mat_prijimeni" type="STRING"/>
+				<requiredColumn name="mat_jmeno" type="STRING"/>
+				<requiredColumn name="mat_id_column" type="STRING"/>
+				<requiredColumn name="mat_rule_name" type="STRING"/>
+			</requiredColumns>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="216,888,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (rematch assignment cdi) --><step id="rematch assignment cdi" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="true" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="rematch_flag">
+					<expression>party_chngd:= old_party_master_id != party_master_id and old_party_master_id is not null and party_master_id is not null;
+
+iif(party_chngd is true ,true,rematch_flag)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="432,432,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="68,20,913,169" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Please insert Matching step and follow the instructions below:
+•	Almost all Column Bindings are used according to the Match operation definition of this entity in the Logical Model/Instance Model.
+•	It is recommended to choose the appropriate column and map it to the Rule Name (e.g. rule_name) on the Column Bindings tab in the Matching step. 
+Warning: there shouldn’t be any aggregation logic used
+</modelComment>
+
+</purity-config>

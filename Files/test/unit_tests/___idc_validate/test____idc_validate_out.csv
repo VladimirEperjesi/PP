@@ -1,0 +1,9 @@
+"difference"^~"TC_ID"^~"description"^~"in_idc"^~"in_number"^~"out_idc"^~"e_out_idc"^~"exp_idc"^~"e_exp_idc"^~"sco_idc"^~"e_sco_idc"
+^~1^~"valid IDC from number +"^~^~"+420 723 789 673"^~"420"^~"420"^~"IDC_NON_DIGIT_CHARS_REMOVED"^~"IDC_NON_DIGIT_CHARS_REMOVED"^~1^~1
+^~2^~"invalid IDC from number"^~^~"0088123"^~^~^~"IDC_NOT_FOUND_IN_ETALON"^~"IDC_NOT_FOUND_IN_ETALON"^~10000^~10000
+^~3^~"valid IDC from number 00"^~^~"00420 723789630"^~"420"^~"420"^~"IDC_NON_DIGIT_CHARS_REMOVED"^~"IDC_NON_DIGIT_CHARS_REMOVED"^~1^~1
+^~4^~"valid IDC from IDC"^~"+421"^~^~"421"^~"421"^~"IDC_NON_DIGIT_CHARS_REMOVED"^~"IDC_NON_DIGIT_CHARS_REMOVED"^~1^~1
+^~5^~"valid IDC from IDC"^~"00421"^~^~"421"^~"421"^~^~^~0^~0
+^~6^~"invalid IDC from IDC"^~"88"^~^~^~^~"IDC_NOT_FOUND_IN_ETALON"^~"IDC_NOT_FOUND_IN_ETALON"^~10000^~10000
+^~7^~"record with both IDC and number on input"^~"00421"^~"00420 723789631"^~"421"^~"421"^~"IDC_NON_DIGIT_CHARS_REMOVED"^~"IDC_NON_DIGIT_CHARS_REMOVED"^~1^~1
+^~8^~"NULL"^~^~^~^~^~"IDC_EMPTY"^~"IDC_EMPTY"^~10000000^~10000000

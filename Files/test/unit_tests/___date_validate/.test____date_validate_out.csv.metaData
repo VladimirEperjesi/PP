@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<settings>
+  <connector>
+    <saved-state stringQualifier="&quot;" lineWithColumnNames="1" recordLength="-1" ignoredRowRegEx="" escapeSequence="" fixedSizes="false" fieldSeparator="^~" numberOfLinesInHeader="1" recordSeparator="\r\n" encoding="UTF-8" numberOfLinesInFooter="0">
+      <columns>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="difference" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="INTEGER" dateFormatLocale="en_US" name="TC_ID" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="description" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="in_datetime" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="DAY" dateFormatLocale="en_US" name="std_date" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" dateFormat="yyyy-MM-dd" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="DAY" dateFormatLocale="en_US" name="e_std_date" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" dateFormat="yyyy-MM-dd" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="DATETIME" dateFormatLocale="en_US" name="std_datetime" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" dateFormat="yyyy-MM-dd HH:mm:ss.SSS" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="DATETIME" dateFormatLocale="en_US" name="e_std_datetime" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" dateFormat="yyyy-MM-dd HH:mm:ss.SSS" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="DAY" dateFormatLocale="en_US" name="out_date" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" dateFormat="yyyy-MM-dd" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="DAY" dateFormatLocale="en_US" name="e_out_date" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" dateFormat="yyyy-MM-dd" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="DATETIME" dateFormatLocale="en_US" name="out_datetime" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" dateFormat="yyyy-MM-dd HH:mm:ss.SSS" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="DATETIME" dateFormatLocale="en_US" name="e_out_datetime" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" dateFormat="yyyy-MM-dd HH:mm:ss.SSS" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="out_pattern" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="e_out_pattern" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="INTEGER" dateFormatLocale="en_US" name="sco_datetime" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="INTEGER" dateFormatLocale="en_US" name="e_sco_datetime" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="exp_datetime" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+        <textColumnMetaData maxDecimalPlaces="0" dataType="STRING" dateFormatLocale="en_US" name="e_exp_datetime" maxWidth="-1" columnWidth="0" booleanTrueValue="true" useInReaderOut="true" numberGroupSeparator="" decimalSeparator="." booleanFalseValue="false"/>
+      </columns>
+    </saved-state>
+  </connector>
+</settings>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata version="10.5.0.ga-2016-06-24">
+	<referenceData primaryKeyComponentId="reg_number" class="com.ataccama.dqc.addresses.commons.model.etalon.ReferenceDataDefinition" createWordLookups="false">
+		<components>
+			<entityComponent id="reg_number" class="com.ataccama.dqc.addresses.commons.model.components.DictionaryEntityComponent"/>
+			<entityComponent id="matching_company_name_base" class="com.ataccama.dqc.addresses.commons.model.components.DictionaryEntityComponent"/>
+			<entityComponent id="matching_form" class="com.ataccama.dqc.addresses.commons.model.components.DictionaryEntityComponent"/>
+			<entityComponent id="matching_city" class="com.ataccama.dqc.addresses.commons.model.components.DictionaryEntityComponent"/>
+		</components>
+		<matchingValue doRemoveRepeatedChars="false" doSqueezeWS="false" doRemoveDia="false" doUpperCase="false"/>
+		<supportingVectors>
+			<supportingVectorDefinition name="N_F_C">
+				<inComponents>
+					<entityComponentReference id="matching_company_name_base"/>
+					<entityComponentReference id="matching_form"/>
+					<entityComponentReference id="matching_city"/>
+				</inComponents>
+			</supportingVectorDefinition>
+			<supportingVectorDefinition name="N_F">
+				<inComponents>
+					<entityComponentReference id="matching_company_name_base"/>
+					<entityComponentReference id="matching_form"/>
+				</inComponents>
+			</supportingVectorDefinition>
+			<supportingVectorDefinition name="N_C">
+				<inComponents>
+					<entityComponentReference id="matching_company_name_base"/>
+					<entityComponentReference id="matching_city"/>
+				</inComponents>
+			</supportingVectorDefinition>
+			<supportingVectorDefinition name="N">
+				<inComponents>
+					<entityComponentReference id="matching_company_name_base"/>
+				</inComponents>
+			</supportingVectorDefinition>
+		</supportingVectors>
+		<tokenizerConfig whiteSpaceDefinition="[:white:]" class="com.ataccama.dqc.tasks.common.parse.ConfigurableTokenizerConfig">
+			<types>
+				<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+				<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+			</types>
+		</tokenizerConfig>
+	</referenceData>
+</metadata>

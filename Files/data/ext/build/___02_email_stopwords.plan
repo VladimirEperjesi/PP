@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Stopwords lookup builder) --><step id="Stopwords lookup builder" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="NORMAL">
+		<properties approximativeIndex="false" compressed="false" duplicities="FIRST" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/___email_stopwords.lkp" bidirectApproximativeIndex="false" key="stopword">
+			<additionalColumns/>
+			<matchingValue doRemoveRepeatedChars="false" doSqueezeWS="true" doRemoveDia="true" doUpperCase="true"/>
+			<userMetadata>
+				<items/>
+			</userMetadata>
+			<comm:comment>Stopwords lookup builder.</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,120,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Stopwords lookup builder" endpoint="rejected"/>
+		<target step="Trash" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Trash) --><step id="Trash" className="com.ataccama.dqc.tasks.io.Trash" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Trash.</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,192,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (___email_stopwords) --><step id="___email_stopwords" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="NORMAL">
+		<properties stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/___email_stopwords.csv" encoding="UTF-8" numberOfLinesInFooter="0" compression="NONE" stringQualifierEscape="&quot;">
+			<columns>
+				<textReaderColumn name="stopword" type="STRING" ignore="false"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd"/>
+			<errorHandlingStrategy rejectFileName="rejected.txt">
+				<errorInstructions>
+					<errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+				</errorInstructions>
+			</errorHandlingStrategy>
+			<shadowColumns/>
+			<comm:comment>Source file.</comm:comment>
+		</properties>
+		<visual-constraints bounds="72,48,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="___email_stopwords" endpoint="out"/>
+		<target step="Stopwords lookup builder" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<modelComment bounds="288,48,312,74" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Description
+1. Source file contains one column 
+ - stopwords
+2. Set lookup - stopwords</modelComment>
+
+</purity-config>

@@ -1,0 +1,734 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configDoc screen="images/screen_cz_company_reg_number_and_name.comp.png" cfgFilePath="pathvar://COMPONENTS/cz_company_reg_number_and_name.comp" runtimeVersion="9.0.0.daily-2014-09-22" companyImage="images/logo_about.png" fileName="cz_company_reg_number_and_name.comp" date="2015-01-29 14:50:50" xmlns:comm="http://www.ataccama.com/purity/comment" version="1.0">
+  <generatorMeta name="Master Data Center 9.0.0" company="Ataccama Corporation" about="{0}
+
+Version: {1}
+
+Copyright © 2002-{2} {3} All rights reserved.
+
+Your use of the product is subject to the {0} end user license agreement." date="2015-01-29 15:28:35"/>
+  <configAlg name="in (Integration Input)" image="images/InputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.InputStep">
+    <properties>
+      <columns>
+        <columnDef name="in_reg_number" type="STRING">
+          <comm:comment>Input registration number (in Czech &quot;IČO&quot;)</comm:comment>
+        </columnDef>
+        <columnDef name="in_company_name" type="STRING">
+          <comm:comment>Input company name</comm:comment>
+        </columnDef>
+        <columnDef name="in_residence_city" type="STRING">
+          <comm:comment>Input city of residence</comm:comment>
+        </columnDef>
+      </columns>
+      <shadowColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add Columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="std_reg_number" type="STRING">
+          <comm:comment>Standardized and verified registration number</comm:comment>
+        </addedColumn>
+        <addedColumn name="std_company_name" type="STRING">
+          <comm:comment>Standardized company name from RES lookup</comm:comment>
+        </addedColumn>
+        <addedColumn name="std_legal_form" type="STRING">
+          <comm:comment>Standardized legal form (in long form)</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_reg_number" type="STRING">
+          <comm:comment>Best available value of registration number</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_company_name" type="STRING">
+          <comm:comment>Best available value of company name</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_company_name_base" type="STRING">
+          <comm:comment>Best available value of company name without legal form</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_active" type="BOOLEAN">
+          <comm:comment>Boolean flag indicating, whether the company is active </comm:comment>
+        </addedColumn>
+        <addedColumn name="out_reg_num_comments" type="STRING">
+          <comm:comment>Comments found before/after registration number</comm:comment>
+        </addedColumn>
+        <addedColumn name="sco_company" type="INTEGER">
+          <comm:comment>Data quality score of company registration number and name</comm:comment>
+        </addedColumn>
+        <addedColumn name="exp_company" type="STRING">
+          <comm:comment>Explanation codes of data quality problems in company registration number and name</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add internal columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="pur_reg_number_orig" type="STRING">
+          <comm:comment>Parsed registration number</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_reg_number" type="STRING">
+          <comm:comment>Cleansed and normalized registration number</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_company_name_base" type="STRING">
+          <comm:comment>Cleansed company name without legal form</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_comment" type="STRING">
+          <comm:comment>Parsed comments before/after registration number</comm:comment>
+        </addedColumn>
+        <addedColumn name="pat_reg_number" type="STRING">
+          <comm:comment>Pattern of parsed registration number</comm:comment>
+        </addedColumn>
+        <addedColumn name="mat_company_name_base" type="STRING">
+          <comm:comment>Input matching company name without legal form</comm:comment>
+        </addedColumn>
+        <addedColumn name="mat_form" type="STRING">
+          <comm:comment>Input matching legal form</comm:comment>
+        </addedColumn>
+        <addedColumn name="mat_residence_city" type="STRING">
+          <comm:comment>Input matching company city of residence</comm:comment>
+        </addedColumn>
+        <addedColumn name="res_matching_company_name" type="STRING">
+          <comm:comment>Register (RES) matching company name</comm:comment>
+        </addedColumn>
+        <addedColumn name="res_company_name_base" type="STRING">
+          <comm:comment>Register (RES) matching company name without legal form</comm:comment>
+        </addedColumn>
+        <addedColumn name="res_matching_form" type="STRING">
+          <comm:comment>Register (RES) matching legal form</comm:comment>
+        </addedColumn>
+        <addedColumn name="res_matching_city" type="STRING">
+          <comm:comment>Register (RES) matching company city of residence</comm:comment>
+        </addedColumn>
+        <addedColumn name="res_termination_date" type="DAY">
+          <comm:comment>Register (RES) company termination date</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_component_pattern" type="STRING">
+          <comm:comment>DLI component pattern</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_pattern" type="STRING">
+          <comm:comment>DLI pattern</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_proposal_count" type="INTEGER">
+          <comm:comment>DLI proposal count</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_vector" type="STRING">
+          <comm:comment>DLI vector</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_explanation" type="STRING">
+          <comm:comment>DLI explanation</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_score" type="INTEGER">
+          <comm:comment>DLI score</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_reg_number" type="STRING">
+          <comm:comment>DLI registration number</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_matching_company_name_base" type="STRING">
+          <comm:comment>DLI matching company name without legal form</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_matching_form" type="STRING">
+          <comm:comment>DLI matching legal form</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_matching_city" type="STRING">
+          <comm:comment>DLI matching city</comm:comment>
+        </addedColumn>
+        <addedColumn name="dli_count_best" type="INTEGER">
+          <comm:comment>DLI count of companies with the best score</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_reg_number_company_name_based" type="STRING">
+          <comm:comment>Registration number based on company name, form and city</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_explanation" type="STRING">
+          <comm:comment>Registration number validity explanation</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_legal_form" type="STRING">
+          <comm:comment>Legal form taken from company name</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+      <comm:comment>Add internal columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Reg number filled (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="in_reg_number is not null">
+      <comm:comment>Registration number is not empty</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Parse reg_number (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="in_reg_number" regexNameColumn="pat_reg_number" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="(.*?\D)?(\d{8})(\D.*)?" name="reg_number_strict" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_comment" substitution="$1$3"/>
+            <regexOutputColumn name="pur_reg_number_orig" substitution="$2"/>
+          </resultColumns>
+          <comm:comment>8-digit number with optional comments. No spaces inside allowed.
+E.g.
+&quot;ico:12345678xxx&quot;</comm:comment>
+        </regExpression>
+        <regExpression pattern="(.*?\D)?(\d(?:\s*\d){7})(\D.*)?" name="reg_number_benevolent" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_comment" substitution="$1$3"/>
+            <regexOutputColumn name="pur_reg_number_orig" substitution="$2"/>
+          </resultColumns>
+          <comm:comment>8-digit number with optional comments. Spaces inside are allowed.
+E.g.
+&quot;ico: 12 34  56  78xxx&quot;</comm:comment>
+        </regExpression>
+        <regExpression pattern="(.*?\D)?(\d{1,8})(\D.*)?" name="reg_number_short" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_comment" substitution="$1$3"/>
+            <regexOutputColumn name="pur_reg_number_orig" substitution="$2"/>
+          </resultColumns>
+          <comm:comment>1 to 8-digit number with optional comments. No spaces inside allowed.
+E.g.
+&quot;ico: 123 xxx&quot;</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Parse input reg. number</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Reg number parsed (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="pat_reg_number is not null">
+      <comm:comment>Reg number was parsed</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Clean reg_number (Matching Values)" image="images/MatchingValues.large.png" class="com.ataccama.dqc.tasks.clean.MatchingValues">
+    <properties>
+      <columns>
+        <matchingColumn expression="pur_reg_number_orig" name="pur_reg_number">
+          <generator doRemoveRepeatedChars="false" doSqueezeWS="false" supportedCharacters="[:digit:]" doRemoveDia="false" doUpperCase="false"/>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="MV_CHANGED" explain="true" key="MV_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </matchingColumn>
+      </columns>
+      <comm:comment>Remove spaces</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Not dummy (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="substituteMany(@&quot;(\d)\1*&quot;, &#39;&#39;, pur_reg_number, 1) is not null">
+      <comm:comment>Don&#39;t continue with dummy reg. numbers.
+
+Dummy numbers consist of single digit, which is repeated zero to infinite times.
+E.g.:
+1
+3333
+666
+99999999</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Normalize short reg_number (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="replicate(&#39;0&#39;,8-length(pur_reg_number)) + pur_reg_number" column="pur_reg_number">
+          <scorer explanationColumn="exp_company" scoreColumn="sco_company">
+            <scoringEntries>
+              <scoringEntry score="10" explainAs="COMPANY_REG_NUMBER_NORMALIZED" explain="true" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Add zeros before</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Validate IC CZ (Validate IC CZ)" image="images/ValidateICAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ValidateICAlgorithm">
+    <properties omitInvalidIC="true" preserveInputValue="false" allowCleaning="true" in="pur_reg_number" out="out_reg_number">
+      <scorer explanationColumn="tmp_explanation">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="COMPANY_REG_NUMBER_NULL" explain="false" key="IC_NULL"/>
+          <scoringEntry score="0" explainAs="COMPANY_REG_NUMBER_BAD_FORMAT" explain="false" key="IC_BAD_FORMAT"/>
+          <scoringEntry score="0" explainAs="COMPANY_REG_NUMBER_BAD_CHECKSUM" explain="true" key="IC_BAD_CHECKSUM"/>
+          <scoringEntry score="0" explainAs="COMPANY_REG_NUMBER_CLEANED" explain="false" key="IC_CLEANED"/>
+          <scoringEntry score="0" explainAs="COMPANY_REG_NUMBER_NORMALIZED" explain="false" key="IC_NORMALIZED"/>
+        </scoringEntries>
+        <comm:comment>The other explanations are covered in previous steps manually</comm:comment>
+      </scorer>
+      <comm:comment>Validate reg. number</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Valid reg_number (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="out_reg_number is not null">
+      <comm:comment>Registration number is valid</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Search reg_number (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_res/cz_res.lkp" prefix="false" foreignKeyColumn="out_reg_number">
+      <columns>
+        <columnAssign expression="lookup.key" name="std_reg_number"/>
+        <columnAssign expression="lookup.company_name" name="std_company_name"/>
+        <columnAssign expression="lookup.mat_company_name_base" name="res_matching_company_name"/>
+        <columnAssign expression="lookup.mat_form" name="res_matching_form"/>
+        <columnAssign expression="lookup.mat_city" name="res_matching_city"/>
+        <columnAssign expression="lookup.company_name_base" name="res_company_name_base"/>
+        <columnAssign expression="lookup.termination_date" name="res_termination_date"/>
+      </columns>
+      <scorer explanationColumn="exp_company" scoreColumn="sco_company">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="20000" explainAs="COMPANY_REG_NUMBER_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND" explain="false" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+    </properties>
+  </configAlg>
+  <configAlg name="Union valid and invalid (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union invalid and valid reg. numbers</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union all reg. numbers (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union empty, unparsed, dummy, invalid and valid reg. numbers</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Company name filled (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="in_company_name is not null">
+      <comm:comment>Company name is filled</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg definitionFile="cleanse_company" name="Cleanse input company name (Component)" image="images/componentStep.png" class="com.ataccama.dqc.tasks.common.usersteps.ComponentStep">
+    <properties fileName="pathvar://COMPONENTS/internal/cz_company_reg_number_and_name/cleanse_company.comp">
+      <mappings>
+        <mappingEndPoint name="in">
+          <columnMappings>
+            <columnsMapping to="src_company_name" from="in_company_name"/>
+            <columnsMapping to="src_city" from="in_residence_city"/>
+          </columnMappings>
+        </mappingEndPoint>
+        <mappingEndPoint name="out">
+          <columnMappings>
+            <columnsMapping to="pur_company_name_base" from="pur_company_name_base"/>
+            <columnsMapping to="mat_company_name_base" from="mat_company_name_base"/>
+            <columnsMapping to="mat_form" from="mat_form"/>
+            <columnsMapping to="mat_city" from="mat_residence_city"/>
+            <columnsMapping to="std_form" from="tmp_legal_form"/>
+          </columnMappings>
+        </mappingEndPoint>
+        <comm:comment>Cleanse and create matching values for name, form and city</comm:comment>
+      </mappings>
+      <comm:comment>Cleanse input company name, form and city</comm:comment>
+      <parameters/>
+    </properties>
+  </configAlg>
+  <reference name="cleanse_company"/>
+  <configAlg name="Empty out_reg_number (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="out_reg_number is null and mat_company_name_base is not null">
+      <comm:comment>Input reg. number is not valid and company name is filled. We will used this name as lookup/DLI key</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union company names (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union company names</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Search by company name, form and city (Dictionary Lookup Identifier)" image="images/DictionaryLookupIdentifier.large.png" class="com.ataccama.dqc.tasks.addresses.dictionary.DictionaryLookupIdentifier">
+    <properties explanation="dli_explanation" score="dli_score" outPattern="dli_pattern" maxScoreToAcceptVector="1" referenceData="pathvar://DATA/ext/lkp/cz_res/dli" outComponentPattern="dli_component_pattern" outSupportingVectorName="dli_vector" outProposalCount="dli_proposal_count">
+      <componentOutputMapping>
+        <componentMapping column="dli_matching_company_name_base" componentId="matching_company_name_base"/>
+        <componentMapping column="dli_matching_form" componentId="matching_form"/>
+        <componentMapping column="dli_matching_city" componentId="matching_city"/>
+        <componentMapping column="dli_reg_number" componentId="reg_number"/>
+      </componentOutputMapping>
+      <components>
+        <entityComponentUsage id="matching_company_name_base" input="true" approximativeInputErrorLimit="0" approximativeExplainErrorRatio="1.0" mapToNumber="false" approximativeInputErrorRatio="1.0" approximativeExplainErrorLimit="0"/>
+        <entityComponentUsage id="matching_form" input="true" approximativeInputErrorLimit="0" approximativeExplainErrorRatio="1.0" mapToNumber="false" approximativeInputErrorRatio="1.0" approximativeExplainErrorLimit="0"/>
+        <entityComponentUsage id="matching_city" input="true" approximativeInputErrorLimit="0" approximativeExplainErrorRatio="1.0" mapToNumber="false" approximativeInputErrorRatio="1.0" approximativeExplainErrorLimit="0"/>
+      </components>
+      <expertSettings advancedScoring="false" approximativeSearchImmediately="false">
+        <evaluatorDefinition class="com.ataccama.dqc.tasks.addresses.dictionary.evaluation.SingleComponentElementEvaluatorDefinition"/>
+        <inputSearchMethod class="com.ataccama.dqc.tasks.addresses.dictionary.model.searching.SingleComponentElementSearchMethod"/>
+      </expertSettings>
+      <inputLayout>
+        <elements>
+          <inputElement expression="mat_residence_city" component="matching_city" name="matching_city"/>
+          <inputElement expression="mat_form" component="matching_form" name="matching_form"/>
+          <inputElement expression="mat_company_name_base" component="matching_company_name_base" name="matching_company_name_base"/>
+        </elements>
+      </inputLayout>
+      <limitOutputProposals/>
+      <limitRatedProposals/>
+      <ratings>
+        <ratingCase classificationColumn="dli_count_best">
+          <ratings>
+            <rating rate="scoring.count_best" when="true"/>
+          </ratings>
+        </ratingCase>
+      </ratings>
+      <scoring>
+        <scoring explanation="&#39;FORM_DIFFERENT&#39;" score="5">
+          <when>$pa_form:=pa.matching_form;
+
+//$pa_form is not mat_form .. $pa_form is not null and 
+//(mat_form is not null AND 
+$pa_form is not mat_form
+//)
+/*or
+($pa_form is null and mat_form is not null)
+and false */
+
+//expl.street is const.missing</when>
+        </scoring>
+        <scoring explanation="&#39;CITY_DIFFERENT&#39;" score="5">
+          <when>$pa_city:=pa.matching_city;
+
+//$pa_city is not pur_residence_city
+
+//$pa_city is null or 
+//(pur_residence_city is not null AND 
+$pa_city is not mat_residence_city
+//)
+/*
+and false
+*/</when>
+        </scoring>
+      </scoring>
+      <supportingVectorCases>
+        <supportingVectorCase name="N_F_C">
+          <when>mat_company_name_base is not null and
+mat_form is not null and
+mat_residence_city is not null</when>
+        </supportingVectorCase>
+        <supportingVectorCase name="N_F">
+          <when>mat_company_name_base is not null and
+mat_form is not null</when>
+        </supportingVectorCase>
+        <supportingVectorCase name="N_C">
+          <when>mat_company_name_base is not null and
+mat_residence_city is not null</when>
+        </supportingVectorCase>
+        <supportingVectorCase when="mat_company_name_base is not null" name="N"/>
+      </supportingVectorCases>
+      <comm:comment>Search by company name, form and city</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Company name reg_number (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties whenCondition="dli_count_best is 1">
+      <assignments>
+        <assignment expression="dli_reg_number" column="tmp_reg_number_company_name_based">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>If only one company in RES has best score, we use its reg. number</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="reg_number from company name (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="tmp_reg_number_company_name_based" column="std_reg_number">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>reg_number from company name</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Search reg_number based on company name (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_res/cz_res.lkp" prefix="false" foreignKeyColumn="std_reg_number">
+      <columns>
+        <columnAssign expression="lookup.company_name" name="std_company_name"/>
+        <columnAssign expression="lookup.mat_company_name_base" name="res_matching_company_name"/>
+        <columnAssign expression="lookup.mat_form" name="res_matching_form"/>
+        <columnAssign expression="lookup.mat_city" name="res_matching_city"/>
+        <columnAssign expression="lookup.company_name_base" name="res_company_name_base"/>
+        <columnAssign expression="lookup.termination_date" name="res_termination_date"/>
+      </columns>
+      <scorer explanationColumn="exp_company" scoreColumn="sco_company">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="1000" explainAs="COMPANY_REG_NUMBER_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND" explain="false" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Search reg_number based on company name</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union All (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union all records</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Standardize legal form (Apply Replacements)" image="images/ApplyReplacementsAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm">
+    <properties replacementsFileName="pathvar://DATA/ext/lkp/cz_standardized_legal_forms.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="res_matching_form" out="std_legal_form">
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="AR_CHANGED" explain="true" key="AR_CHANGED"/>
+          <scoringEntry score="0" explainAs="AR_NULL" explain="true" key="AR_NULL"/>
+          <scoringEntry score="0" explainAs="AR_MULTI" explain="true" key="AR_MULTI"/>
+          <scoringEntry score="0" explainAs="AR_MORE" explain="true" key="AR_MORE"/>
+        </scoringEntries>
+      </scorer>
+      <tokenizer whiteSpaceDefinition="[:white:]">
+        <types>
+          <tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+          <tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+        </types>
+      </tokenizer>
+      <comm:comment>Standardize legal form
+
+E.g.: 
+AS -&gt;akciová společnost</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Legal form from input company name (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties whenCondition="std_legal_form is null">
+      <assignments>
+        <assignment expression="tmp_legal_form" column="std_legal_form">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Legal form from input company name</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Set score and explanation (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_company" defaultExplainColumn="exp_company">
+      <scoringCases>
+        <scoringCase explanation="&#39;COMPANY_NAME_DIFFERS&#39;" score="min(1000 * editDistance(mat_company_name_base, res_matching_company_name), 3000)">
+          <condition>mat_company_name_base is not null and
+mat_company_name_base is not res_matching_company_name
+
+and
+std_reg_number is not null</condition>
+          <comm:comment>There is company name on input and company name in RES lookup, but they differ.
+
+res_ attributes have point only when we have made search in lookup. Therefore we need &quot;std_reg_number is not null&quot; condition
+
+Score 1000 for every difference in characters with maximum of 3000.</comm:comment>
+        </scoringCase>
+        <scoringCase condition="mat_company_name_base is null and out_reg_number is not null" explanation="&#39;COMPANY_NAME_MISSING&#39;" score="300">
+          <comm:comment>We have valid (not necessarily verified) reg. number, but there was no company name on input</comm:comment>
+        </scoringCase>
+        <scoringCase explanation="&#39;COMPANY_FORM_DIFFERS&#39;" score="3000">
+          <condition>mat_form is not null and
+mat_form is not res_matching_form
+and
+std_reg_number is not null</condition>
+          <comm:comment>There was legal form on input, which differs from legal form in RES lookup.
+
+res_ attributes have point only when we have made search in lookup. Therefore we need &quot;std_reg_number is not null&quot; condition</comm:comment>
+        </scoringCase>
+        <scoringCase explanation="&#39;COMPANY_FORM_MISSING&#39;" score="200">
+          <condition>mat_form is null and res_matching_form is not null
+and
+std_reg_number is not null  
+</condition>
+          <comm:comment>There was legal form found in RES, but we found non in input value</comm:comment>
+        </scoringCase>
+        <scoringCase explanation="&#39;COMPANY_CITY_DIFFERS&#39;" score="3000">
+          <condition>mat_residence_city is not null and 
+mat_residence_city is not res_matching_city
+and
+std_company_name is not null</condition>
+          <comm:comment>There was city on input, which differs from city in RES lookup.
+
+res_ attributes have point only when we have made search in lookup. Therefore we need &quot;std_reg_number is not null&quot; condition</comm:comment>
+        </scoringCase>
+        <scoringCase explanation="&#39;COMPANY_CITY_MISSING&#39;" score="100">
+          <condition>mat_residence_city is null and res_matching_city is not null
+and 
+std_reg_number is not null </condition>
+          <comm:comment>There was city found in RES, but we found non in input value</comm:comment>
+        </scoringCase>
+        <scoringCase condition="dli_count_best &gt; 1" explanation="&#39;COMPANY_AMBIGUOUS&#39;" score="10000">
+          <comm:comment>Input reg. number couldn&#39;t be used (dli_count_best would be null otherwise) and based on company name, form and city we could not decide, which company in RES lookup is the right one</comm:comment>
+        </scoringCase>
+        <scoringCase condition="dli_count_best is 0" explanation="&#39;COMPANY_NAME_NOT_FOUND&#39;" score="20000">
+          <comm:comment>Input reg. number couldn&#39;t be used (dli_count_best would be null otherwise) and based on company name, form and city we could not find any company in RES lookup</comm:comment>
+        </scoringCase>
+        <scoringCase condition="in_reg_number is null and mat_company_name_base is null" explanation="&#39;COMPANY_REG_NUMBER_AND_NAME_MISSING&#39;" score="10000000">
+          <comm:comment>Empty registration number and company name (after removing optional legal form)</comm:comment>
+        </scoringCase>
+        <scoringCase explanation="&#39;COMPANY_REG_NUMBER_INVALID_NAME_MISSING&#39;" score="1000000">
+          <condition>(	//filled reg. number but it was not parsed
+	(in_reg_number is not null and pat_reg_number is null)
+	//or there is problem with checksum
+	 or indexOf(tmp_explanation, &#39;COMPANY_REG_NUMBER_BAD_CHECKSUM&#39;) is not null
+) 
+and
+//company name is empty (after removing legal form)
+mat_company_name_base is null</condition>
+        </scoringCase>
+        <scoringCase explanation="&#39;COMPANY_REG_NUMBER_DUMMY_NAME_MISSING&#39;" score="100000">
+          <condition>pur_reg_number is not null and
+substituteMany(@&quot;(\d)\1*&quot;, &#39;&#39;, pur_reg_number, 1) is null
+and
+mat_company_name_base is null</condition>
+          <comm:comment>Reg. numbers with single digit, which repeats zero to infinite times</comm:comment>
+        </scoringCase>
+        <scoringCase condition="in_reg_number is null and mat_company_name_base is not null" explanation="&#39;COMPANY_REG_NUMBER_MISSING&#39;" score="3000">
+          <comm:comment>Registration number is missing, but there is company name available</comm:comment>
+        </scoringCase>
+        <scoringCase explanation="&#39;COMPANY_REG_NUMBER_NOT_PARSED&#39;" score="3000">
+          <condition>in_reg_number is not null and pat_reg_number is null and
+
+mat_company_name_base is not null</condition>
+          <comm:comment>Registration number was not parsed, but there is company name available</comm:comment>
+        </scoringCase>
+        <scoringCase explanation="&#39;COMPANY_REG_NUMBER_INVALID_CHECKSUM&#39;" score="2000">
+          <condition>indexOf(tmp_explanation, &#39;COMPANY_REG_NUMBER_BAD_CHECKSUM&#39;) is not null and
+
+mat_company_name_base is not null</condition>
+          <comm:comment>Registration number has invalid checksum, but there is company name available</comm:comment>
+        </scoringCase>
+        <scoringCase explanation="&#39;COMPANY_REG_NUMBER_DUMMY&#39;" score="1000">
+          <condition>pur_reg_number is not null and
+substituteMany(@&quot;(\d)\1*&quot;, &#39;&#39;, pur_reg_number, 1) is null
+and
+mat_company_name_base is not null </condition>
+          <comm:comment>Registration number is dummy, but there is company name available</comm:comment>
+        </scoringCase>
+        <scoringCase condition="pur_comment is not null" explanation="&#39;COMPANY_REG_NUMBER_COMMENTS&#39;" score="min(length(pur_comment), 30)">
+          <comm:comment>If there were comments before/after input registration number, score 1 for every character. Maximum is 30</comm:comment>
+        </scoringCase>
+      </scoringCases>
+      <comm:comment>Set score and explanation</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Output values (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="nvl(std_reg_number, pur_reg_number, in_reg_number)" column="out_reg_number">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="nvl(std_company_name, in_company_name)" column="out_company_name">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="nvl(res_company_name_base, pur_company_name_base)" column="out_company_name_base">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment column="out_active">
+          <expression>case(std_reg_number is null,
+		null,
+	 std_reg_number is not null and res_termination_date is null,
+	 	true,
+	 today() &lt; res_termination_date
+	)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="pur_comment" column="out_reg_num_comments">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Set output (best available) values</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns/>
+      <removedColumns>
+        <columnRef name="in_company_name"/>
+        <columnRef name="in_reg_number"/>
+        <columnRef name="in_residence_city"/>
+        <columnRef name="pur_reg_number_orig"/>
+        <columnRef name="pur_reg_number"/>
+        <columnRef name="pur_company_name_base"/>
+        <columnRef name="pur_comment"/>
+        <columnRef name="pat_reg_number"/>
+        <columnRef name="mat_company_name_base"/>
+        <columnRef name="mat_form"/>
+        <columnRef name="mat_residence_city"/>
+        <columnRef name="res_matching_company_name"/>
+        <columnRef name="res_company_name_base"/>
+        <columnRef name="res_matching_form"/>
+        <columnRef name="res_matching_city"/>
+        <columnRef name="dli_component_pattern"/>
+        <columnRef name="dli_pattern"/>
+        <columnRef name="dli_proposal_count"/>
+        <columnRef name="dli_vector"/>
+        <columnRef name="dli_explanation"/>
+        <columnRef name="dli_score"/>
+        <columnRef name="dli_reg_number"/>
+        <columnRef name="dli_matching_company_name_base"/>
+        <columnRef name="dli_matching_form"/>
+        <columnRef name="dli_matching_city"/>
+        <columnRef name="dli_count_best"/>
+        <columnRef name="tmp_reg_number_company_name_based"/>
+        <columnRef name="tmp_explanation"/>
+        <columnRef name="tmp_legal_form"/>
+        <columnRef name="res_termination_date"/>
+      </removedColumns>
+      <comm:comment>Remove internal columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="out (Integration Output)" image="images/OutputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep">
+    <properties>
+      <requiredColumns>
+        <requiredColumn name="std_reg_number" type="STRING">
+          <comm:comment>Standardized and verified registration number</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="std_company_name" type="STRING">
+          <comm:comment>Standardized company name from RES lookup</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="std_legal_form" type="STRING">
+          <comm:comment>Standardized legal form (in long form)</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_reg_number" type="STRING">
+          <comm:comment>Best available value of registration number</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_company_name" type="STRING">
+          <comm:comment>Best available value of company name</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_company_name_base" type="STRING">
+          <comm:comment>Best available value of company name without legal form</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_active" type="BOOLEAN">
+          <comm:comment>Boolean flag indicating, whether the company is active </comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_reg_num_comments" type="STRING">
+          <comm:comment>Data quality score of company registration number and name</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="sco_company" type="INTEGER">
+          <comm:comment>Explanation codes of data quality problems in company registration number and name</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="exp_company" type="STRING"/>
+      </requiredColumns>
+    </properties>
+  </configAlg>
+</configDoc>

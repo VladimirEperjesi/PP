@@ -1,0 +1,1294 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:def="http://www.ataccama.com/purity/defaults" xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<component-id>phone_numbers</component-id>
+	<icon type="5">iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAMDklEQVR4nM2aCVAUVxrHMclaMXE152piEjUmpsyha1wTY5LNmmQTd9UVTzzwwgtBEPDCBVEkch8OlxxyywjCcDvcCKKcH8PM0DPAx43DjaBioiGH+15j0yMOkoRxy6n6iuqp7uH36/n3e1+/aZ27d+/qGBsbjyf1MaltpHY95rWR1HxSz1J2Cj/BYp+5UUUynL9e2KboK2jHG/mteD1Phb05V7EnuwmvZTVid1YDdmXUY0daLbaLEdtSqrA1qRJViQxejavAJpEMG2Ok2BAtwbpzpVh7thhrIgqxOrwQq0LysTI4HxWBucj456D8dBbKfbNQ6pOB5V7pKPEUY9mpCwgeF7DUNZlUIha7kHIeqCLHOCx0iMN82yhMNwuShejbRZsY7jWi7FRgQUVcaWxfUQf2FRP4KwT+Ig/fndFAqh470+qwQ1yD7SnV2JpciS0JClTFM9gskmPTPfB6IWBdJAEPL0IMo+BXWHBlYB4LXuHLgadjuWcaSgQUXIzgloIlrklYcg+42CmeQMdjIS0CXmAfi1e+i8H8o0JM3xOAIl0n9F9uHUvZqYBBb5ZKeeNSK97Ia8GedAKdTIATarFDVI3tMeRMxxDgqApURcqwKaIcG0MJbDCBDSKw/gVY7UdAfQmo10VkBNkod89EqSuBdE5FiUMKgn0yltgRMFsCdCwGC47G4BWrKMy3FOKlw5GYd+gs5h4IxxyLMFLBmG0ejFlmpPYFYZZpIGbeq4y9gZiw1g1jVjhilK69krJTgV294ibsTSXgSfXYLiTAoQpsCZKjKlCKTf4SbPAFrPcqwlpBAaJ7Pla55qHSMRsZ+0yU26Wh1DYVy2ySsNQqHosPi7DwIAG0iMbLZgTOJBxzjQjYbgK0k0BsD8D0racxdbMPivW9MGWDAJPXeWCSnjsmrnHD+NXOGL/KFUUrHVG0wmGgdOlfZ/a9WAJPBaLJ+5SdFeiOr8PuhDrsjKl5POF1eQkqcJ7WKkdeoEtUi50iku/oyscafqCcWPgYsv+gAD3zHTFkZBEqHmv4OFqrnFl40RoXXqAjugrbz5Psn2VGDd+UKusi4/Pdq9mKHm3D0/3iVruw8KK1rrxAu1CJbeeUqAqXj/rMN4oHBJqzKnq0DR+/mtQasr8eqXVqAq2RDLYIyZgeWj7q2DSklLMCTZkVPSPBi5Y5Vgu/OloZ/skhRfBccybgHeOK09N2ybxfNZAKXt5W7jFxk8T9z/oS92c2lrmOW1/mNm4DuD2zARyfXQcuE/VhUEAVQS7cs2RCCiobdebrUyQDAhnyHg4+Wc+jOnbxycrIT60VwR9YyE9P3SkVvLBV4jR2VZnjGF1gS0etxqxmy+mJNeDylB64jNUDt6fXg8czG8FjvD64TNgE7s9v5gWuhsqwOawcGwJKHwoPRxOwo6i+51ZL7+27I7zu9H7/U018SVfwu+Yyn79sl9B/TiFcxq5moRyfXAG/F14wfhOcmrgZPJ7bDKdeNOAFmkIk2BhShnV+xcPCSx3Edbe7+n4cCXzoq7eu/XbAdCOpNuC9JmwB7+e3sfCek3fyAg2BgA1nSFvgWzhsbHqVbX0U6GZj9w9yz4xmGpsMfb/KhG+cK87N+6808HUT8J+8G3xf3sH+E9ESh8p2qLtJj2lIl/ZoA97nBQPy+btZeJ9XDXmBOv9irAsoxmrv/GEz33/rzs8Upujw+VrxSgET+6mdNOytA2XBU00gYMre++A9J26BU8/qw5mZpjJ6zA/dN/u1Ae/3siH4vWIEvlP2gN/rxrxA7ekCrCENWZUgb9gLlotE9N9sJBEzD8FI0eEyz21rA95/shEEvmZC4E0h8M19vAD6XMZqUkr3iw/AXzQIVVz4t0DGgVD40OkWIwpwmR8U0AJ80GumEPSGBQsfNPMgL0DPfKUn6dldswfh83aEKcRLPWUxH56A6NnWgyAUnsZmJAEu8/cJjBI+ZJo5hLxpzsKHzjrMC1SeykWlIBflzul42ShSma7rIxN9fBI4+Mh3LQdBuMyPKHAv84MCWoAPn3EAImZasvARs614AcY9B2X2qZVXDCPlSX93LhN9dD+8eua5C3YkAS7zDwiMAl74jhUI37Nm4YVzbXiBkkMiJm9bWHnaEi/QBK+eeW60GVHgXubvExglfNR7RyFqzjE49+ExiCacgwJZK/wgc+VpuLD4lEZ49cxzQ+VvEtBRE9ACfOwcW4idZ8fCixY68QJpy7whbZkXJH7tqhFePfPcOD+igM6DAqOFj5v3HcQvcGLhE75w5QXE/xLAhaUCSFjkqBFePfPcJPVbexvuOG3AJy5whuTP3Fj4xC8FvEDSt+6QvNgV4j4/qRFePfMcPLc9dKgcmnn1/UYLf+EzdxAvEkDSV54g/taHF0j80onExwliFp7QCK+eeU0zrDr00MwPCmgBPm2RJ6R/7Qup3/hC+lJ/XiDhCweIW2QPUfNtNMKrZ/73dpXqx40WPuuf/pC9OBAylpC/ukG8QMxndhD7uR0Zno4M25jxZ/LBGVbTN8BlXv2bGy187pJgyF0eAjnLgyB3VQQvEL3gOEQvtIGzcw5rhB+a+YfFZmjmuW1twOfrhsFlAp67JgIu6UXyAlHzreDcAmsI/+CwRvjRdJXccdqAL1wdCYXroiF/nRAKNsXyApEfkql5/lEIeddCI7ymrnK42AzNPLetDfiS9bFQsjEWCvXPQ/HWeF4gfI4lhM89BMHvmGmE19RVDheboZnntrUBX6YfB5ItCVCyJR7KdqXwAmHvH4Cwvx6EM2+bDjtJfd9xvZ+C0GWP39qYhb2/f+COrOtmvzbgZQbJINshBsnOFJDuSeUFaHRCP9gPAdONh51ha1Ogh8I05zE3fF/fIRsJPmSWuazlSvUNegxdIxoOPnt9IJO7KZSh8JmLfSXFhrEMmCQwEvNkRn5AzDCWWYzM6IKUwjM700FhmAEyozSoMM3gBYJm7oPgWWbgP81o2PZA8NLm8puq7jt3f+frVlvvncjZR8qHwrfmVV8bum9XUdMD77HfYMP1PgpfZZwNVSY5wOzLBIVZDi8Q+JYJnJm1D06/YfjQScpr8lZpXWp5D71JHwn8ds+t/uYcRY9wrrV0KHx/38ACAV3pyFzmJ+XOvHpsYEu8hPus2hMFDIWvMc2FGos8UJrnQtXBS7xAwIy9EDjTlNztb9fK0sfDLtistf4Mhfql/+dfH5b5Hzu/ZxfPegtbOzn4+v0FUHeoAKoP5UONZSEv4D9tNwS8bQI+rxo8Unia+ZqzRa0UTJWu7BwOvtEf6rizrw7fZFkCjUeKofZIEdQfLeUF/KbuAb8ZxuD9yrZHCk9Hm1phKSvQklHVOdxow8Ff9ZFWqcOrrMrgqk05NNgANB2X8AI0+34zDMF70vZHCk+HypIDcVVchDTB35C2sxdyf/cPt4fCt9nIodVWDs225XD1hJwX8HltO/hNNwKvSVseKTyXee4M99V098F2kZTCK62yGTyexwxeuPsvSYbCd9opocNeASq7Cmh1UPACXpMMwHuKAZx6Uf+Rw9PYXNkolN5u73tghfvXn375VdOI9nPPj7cp/DXHauh0qIY2eyW0u1TxAq7j1rI/HLA/Hjxi+KGxoWdeYZYhpeN8jWW+tNkJGJWbjGkTMEyHt5Lp9kWm2x2lFP6acy10OSML3+FaMyiw2f5PKy7b6/wH7HVWwHdjBurkEyvB4anV4DB2DTg9rQeu49aD2/iN4D5xEwhe2ApeL+0E30nk2pliBGemmkLwDHMIm3kYzr5HOtvZNnB+ni2IPnKAxIUukPwPD0j92ovMtP6QsywILq0gbbHeOSjccB5KNydAuUEKyHengWJvJlTty4GaA5ehnow0TdZloDomhVY7BbQ7VA7UPfgW16rLlJ0KfGQ9ff2ZEzpL4fiY5WzZPqELdk+thJNkUnN4ei04jtMb+Flnwkb2lxFufZ4ucdNVYm6tklsxo4tO3NIHdwNO72HpbSC9k6I3I7Sfpy0x7SppY0Z7G9oe0BmWTlJ0nKdDJR1t6AVLM8/Bd7nXQcHJrGDC/vHAkyq7jPZYvbEm9PiTukWPO7zKrfJSoX12sJmJ2R72YY+7A4/bPEdqIX324P/86MwfqU2kPmHhyet/M7fpeoAJaUEAAAAASUVORK5CYII=</icon>
+	<references/>
+	<component-mappings>
+		<propertyMappings>
+			<property name="Phone_number_output_format" mappedTo="Add internal columns/addedColumns[17]/expression" insert="false">
+				<def:default-value/>
+				<description>Phone number output format definition. Default value is empty which means that the original component logic will be used. Example of unique format including extension is &#39;+ddd ddddddddd ext. dddddd&#39;. &quot;d&quot; is successively replaced by phone number digits. Other characters will be left as they are. Only OUT_NUMBER for identified values (STD value is available) is standardized in that way.</description>
+			</property>
+		</propertyMappings>
+	</component-mappings>
+
+<!-- (9 digits) --><step id="9 digits" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="length(pur_national_number) is 9">
+			<comm:comment>Check whether national czech number has 9 digits</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,1080,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="9 digits" endpoint="out_false"/>
+		<target step="Invalid digit count" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="9 digits" endpoint="out_true"/>
+		<target step="Prefixes" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Add Columns) --><step id="Add Columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="std_idc" type="STRING">
+					<comm:comment>Standardized international dialing code</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_phone_number" type="STRING">
+					<comm:comment>Standardized phone number (without idc and extension)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_extension" type="STRING">
+					<comm:comment>Standardized extension</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_idc" type="STRING">
+					<comm:comment>Best existing international dialing code</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_phone_number" type="STRING">
+					<comm:comment>Best existing phone number (without idc and extension)</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_extension" type="STRING">
+					<comm:comment>Best existing extension</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_number" type="STRING">
+					<comm:comment>Best existing phone number (with idc and extension)</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_comment" type="STRING">
+					<comm:comment>Parsed comment before/after phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_number" type="INTEGER">
+					<comm:comment>Data quality score</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_number" type="STRING">
+					<comm:comment>Explanation codes</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="408,-48,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add Columns" endpoint="out"/>
+		<target step="Add internal columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Add internal columns) --><step id="Add internal columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="pur_number_orig" type="STRING">
+					<comm:comment>Parsed phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_number" type="STRING">
+					<comm:comment>Cleansed digit-only phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_exit_code" type="STRING">
+					<comm:comment>Cleansed digit-only exit code</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_idc" type="STRING">
+					<comm:comment>Cleansed digit-only international dialing code</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_national_number" type="STRING">
+					<comm:comment>Cleansed digit-only national phone number (without idc prefix)</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_extension" type="STRING">
+					<comm:comment>Cleansed digit-only phone extension number</comm:comment>
+				</addedColumn>
+				<addedColumn name="pat_number" type="STRING">
+					<comm:comment>Pattern of parsed phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="pat_national_number" type="STRING">
+					<comm:comment>Pattern of parsed national number</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_comment_before" type="STRING">
+					<comm:comment>Comments found before phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_comment_after" type="STRING">
+					<comm:comment>Comments found after phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_prefix_1" type="STRING">
+					<comm:comment>First digit of (national) phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_prefix_2" type="STRING">
+					<comm:comment>First two digits of (national) phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_prefix_3" type="STRING">
+					<comm:comment>First three digits of (national) phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_prefix_4" type="STRING">
+					<comm:comment>First four digits of (national) phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_old_prefix" type="STRING">
+					<comm:comment>Old format prefix phone</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_explanation" type="STRING">
+					<comm:comment>Temporary explanation</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_foreign_idc" type="STRING">
+					<comm:comment>International dialing code of foreign phone number</comm:comment>
+				</addedColumn>
+				<addedColumn name="par_output_format" type="STRING">
+					<comm:comment>Phone number output format definition. Default value is empty which means that the original component logic will be used. Example of unique format including extension is &#39;+ddd ddddddddd ext. dddddd&#39;. &quot;d&quot; is successively replaced by phone number digits. Other characters will be left as they are. Only OUT_NUMBER for identified values (STD value is available) is standardized in that way.</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>Add internal columns</comm:comment>
+		</properties>
+		<visual-constraints bounds="408,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add internal columns" endpoint="out"/>
+		<target step="Phone not empty" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Area prefix 1) --><step id="Area prefix 1" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_phone_area_prefixes.lkp" prefix="false" foreignKeyColumn="tmp_prefix_1">
+			<columns/>
+			<scorer explanationColumn="exp_number" scoreColumn="sco_number">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="PHONE_LANDLINE" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<whenCondition>indexOf(exp_number, &#39;CZ_PHONE_MOBILE&#39;) is null and
+indexOf(exp_number, &#39;CZ_PHONE_LANDLINE&#39;) is null</whenCondition>
+		</properties>
+		<visual-constraints bounds="696,1416,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Area prefix 1" endpoint="out"/>
+		<target step="Special prefix 3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Area prefix 2) --><step id="Area prefix 2" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_phone_area_prefixes.lkp" prefix="false" whenCondition="indexOf(exp_number, &#39;CZ_PHONE_MOBILE&#39;) is null" foreignKeyColumn="tmp_prefix_2">
+			<columns/>
+			<scorer explanationColumn="exp_number" scoreColumn="sco_number">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="PHONE_LANDLINE" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+		</properties>
+		<visual-constraints bounds="696,1344,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Area prefix 2" endpoint="out"/>
+		<target step="Area prefix 1" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Convert Old Phone Numbers) --><step id="Convert Old Phone Numbers" className="com.ataccama.dqc.tasks.clean.ConvertPhoneNumbersAlgorithm" disabled="false" mode="NORMAL">
+		<properties conversionTableFileName="pathvar://DATA/ext/lkp/cz_phone_repl.lkp" phoneNumber="pur_national_number" areaCode="&quot;&quot;" omitIfNotConverted="false" nationalNumber="pur_national_number">
+			<scorer explanationColumn="exp_number" scoreColumn="sco_number">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="CPN_PN_NULL" explain="false" key="CPN_PN_NULL"/>
+					<scoringEntry score="0" explainAs="CPN_AC_NULL" explain="false" key="CPN_AC_NULL"/>
+					<scoringEntry score="0" explainAs="CPN_PN_UNKNOWN" explain="false" key="CPN_PN_UNKNOWN"/>
+					<scoringEntry score="0" explainAs="CPN_PN_NONSENSE" explain="false" key="CPN_PN_NONSENSE"/>
+					<scoringEntry score="0" explainAs="CPN_AC_NONSENSE" explain="false" key="CPN_AC_NONSENSE"/>
+					<scoringEntry score="0" explainAs="CPN_PN_LENGTH" explain="false" key="CPN_PN_LENGTH"/>
+					<scoringEntry score="0" explainAs="CPN_PN_NEW_FORMAT" explain="false" key="CPN_PN_NEW_FORMAT"/>
+					<scoringEntry score="100" explainAs="PHONE_OLD_FORMAT_FIXED" explain="true" key="CPN_PN_CONVERTED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Convert old format phone numbers</comm:comment>
+		</properties>
+		<visual-constraints bounds="720,744,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Convert Old Phone Numbers" endpoint="out"/>
+		<target step="Union old and new" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="744,1008"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Czech number) --><step id="Czech number" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>pat_national_number is not null
+</condition>
+			<comm:comment>If phone number hasn&#39;t czech IDC and has more than 9 digits, we consider it to be foreign number</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,576,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Czech number" endpoint="out_false"/>
+		<target step="Has exit code" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Czech number" endpoint="out_true"/>
+		<target step="Old format" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Foreign IDC) --><step id="Foreign IDC" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+			<scoringCases>
+				<scoringCase condition="tmp_foreign_idc is not null" explanation="&#39;PHONE_FOREIGN_IDC&#39;" score="100000"/>
+				<scoringCase condition="tmp_foreign_idc is null" explanation="&#39;PHONE_UNKNOWN_IDC&#39;" score="300000"/>
+			</scoringCases>
+			<comm:comment>Score phone with foreign and unknown IDCs</comm:comment>
+		</properties>
+		<visual-constraints bounds="216,1032,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Foreign IDC" endpoint="out"/>
+		<target step="Union Invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="192,1080"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Has exit code) --><step id="Has exit code" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="pur_exit_code is not null">
+			<comm:comment>Check whether phone has exit code</comm:comment>
+		</properties>
+		<visual-constraints bounds="456,624,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Has exit code" endpoint="out_false"/>
+		<target step="Unknown number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Has exit code" endpoint="out_true"/>
+		<target step="Validate_idc" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Invalid digit count) --><step id="Invalid digit count" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+			<scoringCases>
+				<scoringCase condition="true" explanation="&#39;PHONE_INVALID_DIGIT_COUNT&#39;" score="200000"/>
+			</scoringCases>
+			<comm:comment>Score czech phones with invalid length</comm:comment>
+		</properties>
+		<visual-constraints bounds="216,1128,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Invalid digit count" endpoint="out"/>
+		<target step="Union Invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="192,1176"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Mobile prefix 3) --><step id="Mobile prefix 3" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_phone_mobile_prefixes.lkp" prefix="false" foreignKeyColumn="tmp_prefix_3">
+			<columns/>
+			<scorer explanationColumn="exp_number" scoreColumn="sco_number">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="PHONE_MOBILE" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<comm:comment>Check 3-digit long mobile prefix</comm:comment>
+		</properties>
+		<visual-constraints bounds="696,1248,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Mobile prefix 3" endpoint="out"/>
+		<target step="Area prefix 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Old format) --><step id="Old format" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="left(pur_national_number, 1) is &#39;0&#39;">
+			<comm:comment>Old format phones started with zero</comm:comment>
+		</properties>
+		<visual-constraints bounds="696,648,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Old format" endpoint="out_true"/>
+		<target step="Convert Old Phone Numbers" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Old format" endpoint="out_false"/>
+		<target step="Union old and new" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Parse phone number) --><step id="Parse phone number" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_number_orig" regexNameColumn="pat_number" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="(.*?)\p{Space}*(00|\+)?\p{Space}*((?:\p{Digit}[/\s()-]*){6,15})\s*☃.+?☠\.?\s*(\p{Digit}{1,5})(\D.*)?" name="phone_with_extension" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="tmp_comment_before" substitution="$1"/>
+						<regexOutputColumn name="pur_exit_code" substitution="$2"/>
+						<regexOutputColumn name="pur_number_orig" substitution="$3"/>
+						<regexOutputColumn name="pur_extension" substitution="$4"/>
+						<regexOutputColumn name="tmp_comment_after" substitution="$5"/>
+					</resultColumns>
+					<comm:comment>Optional comment, optional exit code (&quot;00&quot; or &quot;+&quot;), six-fifteen-digit long international phone number, snowman character (meaning start of extension synonym), extension synonym, skull (meaning end of extension synonym), one-five-digit long extension, optional comment</comm:comment>
+				</regExpression>
+				<regExpression pattern="(.*?)\p{Space}*(00|\+)?\p{Space}*((?:\p{Digit}[/\s()-]*){6,15})(\D.*)?" name="phone_without_extension" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="tmp_comment_before" substitution="$1"/>
+						<regexOutputColumn name="pur_exit_code" substitution="$2"/>
+						<regexOutputColumn name="pur_number_orig" substitution="$3"/>
+						<regexOutputColumn name="tmp_comment_after" substitution="$4"/>
+					</resultColumns>
+					<comm:comment>Optional comment, optional exit code (&quot;00&quot; or &quot;+&quot;), six-fifteen-digit long international phone number, optional comment</comm:comment>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Parse phone number.
+International phone can have maximally 15 digits.</comm:comment>
+		</properties>
+		<visual-constraints bounds="552,216,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Parse phone number" endpoint="out"/>
+		<target step="Remove snowman and skull characters" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Phone empty) --><step id="Phone empty" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+			<scoringCases>
+				<scoringCase condition="true" explanation="&#39;PHONE_EMPTY&#39;" score="10000000"/>
+			</scoringCases>
+			<comm:comment>Score empty phone</comm:comment>
+		</properties>
+		<visual-constraints bounds="216,144,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Phone empty" endpoint="out"/>
+		<target step="Union Invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="192,192"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Phone not empty) --><step id="Phone not empty" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="in_number is not null">
+			<comm:comment>Check whether phone is empty</comm:comment>
+		</properties>
+		<visual-constraints bounds="408,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Phone not empty" endpoint="out_false"/>
+		<target step="Phone empty" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Phone not empty" endpoint="out_true"/>
+		<target step="Replace extension synonym" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Phone not parsed) --><step id="Phone not parsed" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+			<scoringCases>
+				<scoringCase condition="true" explanation="&#39;PHONE_NOT_PARSED&#39;" score="1000000">
+					<comm:comment>Score unparsed phones</comm:comment>
+				</scoringCase>
+			</scoringCases>
+		</properties>
+		<visual-constraints bounds="216,408,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Phone not parsed" endpoint="out"/>
+		<target step="Union Invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="192,456"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Phone parsed) --><step id="Phone parsed" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="pat_number is not null">
+			<comm:comment>Phone was parsed</comm:comment>
+		</properties>
+		<visual-constraints bounds="552,360,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Phone parsed" endpoint="out_false"/>
+		<target step="Phone not parsed" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Phone parsed" endpoint="out_true"/>
+		<target step="Trash non-digits" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Prefixes) --><step id="Prefixes" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="left(pur_national_number, 1)" column="tmp_prefix_1">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+				<assignment expression="left(pur_national_number, 2)" column="tmp_prefix_2">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+				<assignment expression="left(pur_national_number, 3)" column="tmp_prefix_3">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Prepare 1-3-digit long prefixes of czech national phone number</comm:comment>
+		</properties>
+		<visual-constraints bounds="696,1176,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Prefixes" endpoint="out"/>
+		<target step="Mobile prefix 3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove +) --><step id="Remove +" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="trashNonDigits(out_number)" column="out_number">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="600,1896,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove +" endpoint="out"/>
+		<target step="_t_smart_chars_replacement" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove internal columns) --><step id="Remove internal columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="in_number"/>
+				<columnRef name="pur_number_orig"/>
+				<columnRef name="pur_number"/>
+				<columnRef name="pur_exit_code"/>
+				<columnRef name="pur_idc"/>
+				<columnRef name="pur_national_number"/>
+				<columnRef name="pur_extension"/>
+				<columnRef name="pat_number"/>
+				<columnRef name="pat_national_number"/>
+				<columnRef name="tmp_comment_before"/>
+				<columnRef name="tmp_comment_after"/>
+				<columnRef name="tmp_prefix_1"/>
+				<columnRef name="tmp_prefix_2"/>
+				<columnRef name="tmp_prefix_3"/>
+				<columnRef name="tmp_prefix_4"/>
+				<columnRef name="tmp_old_prefix"/>
+				<columnRef name="tmp_explanation"/>
+				<columnRef name="tmp_foreign_idc"/>
+				<columnRef name="par_output_format"/>
+			</removedColumns>
+			<comm:comment>Remove internal columns</comm:comment>
+		</properties>
+		<visual-constraints bounds="504,2136,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove internal columns" endpoint="out"/>
+		<target step="out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove snowman and skull characters) --><step id="Remove snowman and skull characters" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="substituteAll(&#39;[☃☠]&#39;, &#39;&#39;, tmp_comment_before)" column="tmp_comment_before">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="substituteAll(&#39;[☃☠]&#39;, &#39;&#39;, tmp_comment_after)" column="tmp_comment_after">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>When there was replacement of extension synonyms, but these extensions were not parsed/recognized, we remove special chars which wrapped them.</comm:comment>
+		</properties>
+		<visual-constraints bounds="552,288,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove snowman and skull characters" endpoint="out"/>
+		<target step="Phone parsed" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Replace extension synonym) --><step id="Replace extension synonym" className="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm" disabled="false" mode="NORMAL">
+		<properties replacementsFileName="pathvar://DATA/ext/lkp/___extension_snowman.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="in_number" out="pur_number_orig">
+			<scorer explanationColumn="tmp_explanation">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="EXTENSION_REPLACED" explain="true" key="AR_CHANGED"/>
+					<scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+					<scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+					<scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Wraps words such as &quot;ext.&quot;, &quot;extension&quot;, &quot;klapka&quot; with snowman and skull character. It will be later used as separator between phone number and its extension number</comm:comment>
+		</properties>
+		<visual-constraints bounds="552,144,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Replace extension synonym" endpoint="out"/>
+		<target step="Parse phone number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Score phone number) --><step id="Score phone number" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+			<scoringCases>
+				<scoringCase condition="pat_number is &#39;phone_with_extension&#39;" explanation="&#39;PHONE_EXTENSION&#39;" score="0">
+					<comm:comment>Phone contains extension</comm:comment>
+				</scoringCase>
+				<scoringCase explanation="&#39;PHONE_INVALID_EXTENSION&#39;" score="1000">
+					<condition>tmp_explanation is &#39;EXTENSION_REPLACED&#39; and
+pat_number is &#39;phone_without_extension&#39;</condition>
+					<comm:comment>There was extension synonym found, but extension number was invalid (e.g. too long).
+
+E.g.: 111111111 ext. 2222222</comm:comment>
+				</scoringCase>
+				<scoringCase explanation="&#39;PHONE_PREFIX_NOT_FOUND&#39;" score="10000">
+					<condition>sco_number &lt; 10000 and
+set.intersection(exp_number, &#39;PHONE_LANDLINE PHONE_MOBILE PHONE_SPECIAL&#39;) is 0</condition>
+					<comm:comment>Phone prefix is mobile, landline or special.</comm:comment>
+				</scoringCase>
+				<scoringCase condition="tmp_comment_before is not null or tmp_comment_after is not null" explanation="&#39;PHONE_COMMENTS&#39;" score="min(length(tmp_comment_before) + length(tmp_comment_after), 100)">
+					<comm:comment>There was comment found before/after phone number</comm:comment>
+				</scoringCase>
+				<scoringCase condition="substituteAll(@&quot;[^\p{Punct}]&quot;, &#39;&#39;, pur_number_orig) is not null" explanation="&#39;PHONE_SPECIAL_CHARS&#39;" score="min(100 * length(substituteAll(@&quot;[^\p{Punct}]&quot;, &#39;&#39;, pur_number_orig)), 500)">
+					<comm:comment>There were special characters inside phone number.
+Score every special character with 100</comm:comment>
+				</scoringCase>
+				<scoringCase condition="pur_exit_code is null and pur_idc is not null" explanation="&#39;PHONE_MISSING_EXIT_CODE&#39;" score="2000">
+					<comm:comment>We found idc code, however required exit code is missing</comm:comment>
+				</scoringCase>
+				<scoringCase condition="pur_exit_code is not null and pur_idc is null and pat_national_number is not null" explanation="&#39;PHONE_MISSING_IDC&#39;" score="5000">
+					<comm:comment>There was exit code, however idc is missing</comm:comment>
+				</scoringCase>
+			</scoringCases>
+			<comm:comment>Set score</comm:comment>
+		</properties>
+		<visual-constraints bounds="504,1704,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Score phone number" endpoint="out"/>
+		<target step="Set std and out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Set std and out) --><step id="Set std and out" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="out_phone_number">
+					<expression>nvl
+(
+	pur_national_number, //Czech local number
+	substr(pur_number, length(tmp_foreign_idc)), //foreign number with idc removed
+	iif(pat_number is not null, in_number, null)
+)
+
+</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="out_idc">
+					<expression>case
+(
+	pur_national_number is not null,
+		&#39;+420&#39;,
+	pur_number is not null,
+		iif(pur_exit_code is not null and tmp_foreign_idc is not null, &#39;+&#39;, &#39;&#39;) + tmp_foreign_idc,
+	null
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="out_extension">
+					<expression>iif(out_phone_number is not null, pur_extension, null)
+
+//pur_extension</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="out_number">
+					<expression>
+		nvl(out_idc, pur_exit_code)+
+		out_phone_number+
+		iif(out_extension is not null, 
+				&#39; ext. &#39; + out_extension,
+				null)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="tmp_comment_before + &#39; &#39; + tmp_comment_after" column="out_comment">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="iif(sco_number &lt; 10000, out_idc, &#39;&#39;)" column="std_idc">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="iif(sco_number &lt; 10000, out_phone_number, &#39;&#39;)" column="std_phone_number">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="iif(sco_number &lt; 10000, out_extension, &#39;&#39;)" column="std_extension">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Set std and out</comm:comment>
+		</properties>
+		<visual-constraints bounds="504,1776,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Set std and out" endpoint="out"/>
+		<target step="par_output_format is not null" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Special prefix 2) --><step id="Special prefix 2" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_phone_special_prefixes.lkp" prefix="false" foreignKeyColumn="tmp_prefix_2">
+			<columns/>
+			<scorer explanationColumn="exp_number" scoreColumn="sco_number">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="PHONE_SPECIAL" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<whenCondition>indexOf(exp_number, &#39;CZ_PHONE_MOBILE&#39;) is null and
+indexOf(exp_number, &#39;CZ_PHONE_LANDLINE&#39;) is null and
+indexOf(exp_number, &#39;CZ_PHONE_SPECIAL&#39;) is null</whenCondition>
+		</properties>
+		<visual-constraints bounds="696,1584,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Special prefix 2" endpoint="out"/>
+		<target step="Union valid and invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Special prefix 3) --><step id="Special prefix 3" className="com.ataccama.dqc.tasks.clean.LookupAlgorithm" disabled="false" mode="NORMAL">
+		<properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/cz_phone_special_prefixes.lkp" prefix="false" foreignKeyColumn="tmp_prefix_3">
+			<columns/>
+			<scorer explanationColumn="exp_number" scoreColumn="sco_number">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+					<scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+					<scoringEntry score="0" explainAs="PHONE_SPECIAL" explain="true" key="LKP_FOUND"/>
+					<scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+					<scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+				</scoringEntries>
+			</scorer>
+			<selectBestMatch/>
+			<whenCondition>indexOf(exp_number, &#39;CZ_PHONE_MOBILE&#39;) is null and
+indexOf(exp_number, &#39;CZ_PHONE_LANDLINE&#39;) is null</whenCondition>
+		</properties>
+		<visual-constraints bounds="696,1512,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Special prefix 3" endpoint="out"/>
+		<target step="Special prefix 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Trash non-digits) --><step id="Trash non-digits" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="trashNonDigits(pur_number_orig)" column="pur_number">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Trash non-digits</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,408,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Trash non-digits" endpoint="out"/>
+		<target step="idc and national number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Invalid) --><step id="Union Invalid" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union empty, unparsed, foreign, uknown and invalid numbers</comm:comment>
+		</properties>
+		<visual-constraints bounds="168,1584,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Invalid" endpoint="out"/>
+		<target step="Union valid and invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same) --><step id="Union Same" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="504,2064,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same" endpoint="out"/>
+		<target step="Remove internal columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union old and new) --><step id="Union old and new" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union old and new phone numbers</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,1008,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union old and new" endpoint="out"/>
+		<target step="9 digits" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union valid and invalid) --><step id="Union valid and invalid" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union valid and invalid phone numbers</comm:comment>
+		</properties>
+		<visual-constraints bounds="504,1632,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union valid and invalid" endpoint="out"/>
+		<target step="Score phone number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Unknown number) --><step id="Unknown number" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_number" defaultExplainColumn="exp_number">
+			<scoringCases>
+				<scoringCase condition="true" explanation="&#39;PHONE_UNKNOWN&#39;" score="500000"/>
+			</scoringCases>
+			<comm:comment>Score unknown phone numbers (not czech, without exit code)</comm:comment>
+		</properties>
+		<visual-constraints bounds="216,672,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Unknown number" endpoint="out"/>
+		<target step="Union Invalid" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="192,720"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Validate_idc) --><component id="Validate_idc" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/___idc_validate.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_idc"/>
+						<columnsMapping to="in_number" from="pur_number"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="out_idc" from="tmp_foreign_idc"/>
+						<columnsMapping to="exp_idc"/>
+						<columnsMapping to="sco_idc"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<comm:comment>Find out if a number contains foreign idc code</comm:comment>
+			<parameters/>
+		</properties>
+		<visual-constraints bounds="480,816,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Validate_idc" endpoint="out"/>
+		<target step="Foreign IDC" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="503,1032"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (_t_smart_chars_replacement) --><component id="_t_smart_chars_replacement" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/_t_smart_chars_replacement.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_string" from="par_output_format"/>
+						<columnsMapping to="in_replacement" from="out_number"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="out_string" from="out_number"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters>
+				<letters>false</letters>
+				<digits>false</digits>
+				<special_chars>false</special_chars>
+				<defined_set>&#39;d&#39;</defined_set>
+			</parameters>
+		</properties>
+		<visual-constraints bounds="600,1944,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="_t_smart_chars_replacement" endpoint="out"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="623,2064"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (idc and national number) --><step id="idc and national number" className="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm" disabled="false" mode="NORMAL">
+		<properties expression="pur_number" regexNameColumn="pat_national_number" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+			<noMatchColumns/>
+			<regExpressions>
+				<regExpression pattern="(420)?(0?\d{0,9})" name="phone_czech_valid" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_idc" substitution="$1"/>
+						<regexOutputColumn name="pur_national_number" substitution="$2"/>
+					</resultColumns>
+					<comm:comment>Maximally 9-digit long number can be valid</comm:comment>
+				</regExpression>
+				<regExpression pattern="(420)(\d*)" name="phone_czech_too_long" multiplicative="false" ignoreCase="false" partialMatch="false">
+					<resultColumns>
+						<regexOutputColumn name="pur_idc" substitution="$1"/>
+						<regexOutputColumn name="pur_national_number" substitution="$2"/>
+					</resultColumns>
+					<comm:comment>Longer numbers with czech idc will be invalidated later</comm:comment>
+				</regExpression>
+			</regExpressions>
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+					<scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+					<scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Separate optional idc (&quot;420&quot;) from national part</comm:comment>
+		</properties>
+		<visual-constraints bounds="672,480,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="idc and national number" endpoint="out"/>
+		<target step="Czech number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="in_number" type="STRING">
+					<comm:comment>Input phone number</comm:comment>
+				</columnDef>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="408,-120,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="Add Columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out) --><step id="out" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="std_idc" type="STRING">
+					<comm:comment>Standardized international dialing code</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_phone_number" type="STRING">
+					<comm:comment>Standardized phone number (without idc and extension)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_extension" type="STRING">
+					<comm:comment>Standardized extension</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_idc" type="STRING">
+					<comm:comment>Best existing international dialing code</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_phone_number" type="STRING">
+					<comm:comment>Best existing phone number (without idc and extension)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_extension" type="STRING">
+					<comm:comment>Best existing extension</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_number" type="STRING">
+					<comm:comment>Best existing phone number (with idc and extension)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_comment" type="STRING">
+					<comm:comment>Parsed comment before/after phone number</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="sco_number" type="INTEGER">
+					<comm:comment>Data quality score</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="exp_number" type="STRING">
+					<comm:comment>Explanation codes</comm:comment>
+				</requiredColumn>
+			</requiredColumns>
+		</properties>
+		<visual-constraints bounds="504,2208,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (par_output_format is not null) --><step id="par_output_format is not null" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="par_output_format is not null and std_phone_number is not null and std_idc is not null"/>
+		<visual-constraints bounds="504,1848,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="par_output_format is not null" endpoint="out_true"/>
+		<target step="Remove +" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="par_output_format is not null" endpoint="out_false"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="504,2064"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<modelComment bounds="61,-298,351,154" borderColor="0,0,0" backgroundColor="255,255,255" foregroundColor="51,51,51">LEGEND</modelComment>
+
+
+
+<modelComment bounds="72,-240,330,38" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Detailed comments to solution areas - how it works.</modelComment>
+
+
+
+<modelComment bounds="72,-274,330,38" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Comments to main solution areas.</modelComment>
+
+
+
+<modelComment bounds="72,-208,330,54" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Additional info related to one step or group of steps - 
+not how it works but why it works like that.</modelComment>
+
+
+
+<modelComment bounds="840,144,330,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Wrap extension synonyms/abbrevs with
+snowman and skull character for parsing purposes</modelComment>
+
+
+
+<modelComment bounds="840,216,330,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Parse input phone number</modelComment>
+
+
+
+<modelComment bounds="960,408,330,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Cleanse phone number by trashing
+non-digits</modelComment>
+
+
+
+<modelComment bounds="960,480,330,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Separate czech IDC if found</modelComment>
+
+
+
+<modelComment bounds="960,648,330,145" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Phone numbers in old format begins with zero.
+
+
+
+
+
+Use specific step for conversion into new format</modelComment>
+
+
+
+<modelComment bounds="288,552,330,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">If phone number hasn&#39;t czech IDC and has more 
+than 9 digits, we consider it not to be czech number</modelComment>
+
+
+
+<modelComment bounds="216,744,241,265" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">If number had exit code and it is
+not czech, we check existence of
+foreign IDC, which can be 1-4
+digit long</modelComment>
+
+
+
+<modelComment bounds="864,1152,385,481" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Check national phone prefixes
+
+
+
+Mobile phone numbers have 3-digit prefix
+
+
+
+
+
+
+
+
+
+Landlines 1-2-digit long prefix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Special numbers 2-3-digit long prefix</modelComment>
+
+
+
+<modelComment bounds="1032,1392,193,121" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">If we find mobile prefix
+or longer landline/special prefix,
+we don&#39;t continue with
+searching for shorter
+prefixes</modelComment>
+
+
+
+<modelComment bounds="720,1704,330,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Set score and explanations</modelComment>
+
+
+
+<modelComment bounds="720,1776,330,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Set out and std values</modelComment>
+
+
+
+<modelComment bounds="840,288,330,54" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Remove snowman and skull characters</modelComment>
+
+
+
+<modelComment bounds="120,1848,673,193" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Set custom output phone number format.
+If format not set, default formating is used.
+Only valid phone numbers are formated.</modelComment>
+
+</purity-config>

@@ -1,0 +1,1 @@
+"id";"cmo_jmeno";"cmo_prijimeni";"cmo_rod_cis"

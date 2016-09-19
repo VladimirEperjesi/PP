@@ -1,0 +1,1223 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configDoc screen="images/screen____email_complex.comp.png" cfgFilePath="workspace://Component_manager/component/___email_complex.comp" runtimeVersion="10.4.0.ga-2016-03-30" companyImage="images/logo_about.png" fileName="___email_complex.comp" date="2016-04-28 12:37:29" xmlns:comm="http://www.ataccama.com/purity/comment" version="1.0">
+  <generatorMeta name="Data Quality Center 10.4.0" company="Ataccama Corporation" about="{4}
+
+Version: {1}
+
+Copyright © 2002-{2} Ataccama Corporation. All rights reserved.
+
+Your use of the product is subject to the {4} end user license agreement." date="2016-04-28 12:38:09"/>
+  <configAlg name="in (Integration Input)" image="images/InputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.InputStep">
+    <properties>
+      <columns>
+        <columnDef name="in_email" type="STRING">
+          <comm:comment>Source email address.</comm:comment>
+        </columnDef>
+      </columns>
+      <shadowColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add Columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="std_email" type="STRING">
+          <comm:comment>Standardized value of the email address - contains only valid values.</comm:comment>
+        </addedColumn>
+        <addedColumn name="std_name" type="STRING">
+          <comm:comment>Column that stores the email address owner if recognised.</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_email" type="STRING">
+          <comm:comment>The best existing value of email.</comm:comment>
+        </addedColumn>
+        <addedColumn name="exp_email" type="STRING">
+          <comm:comment>Explanations if invalid, cleansed or matched.</comm:comment>
+        </addedColumn>
+        <addedColumn name="sco_email" type="INTEGER">
+          <comm:comment>Data quality score for value of email.</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Internal_columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="pur_email" type="STRING"/>
+        <addedColumn name="pur_regex_name" type="STRING"/>
+        <addedColumn name="sco_pur_email" type="INTEGER"/>
+        <addedColumn name="exp_pur_email" type="STRING"/>
+        <addedColumn name="exp_pur_email_validation" type="STRING"/>
+        <addedColumn name="rd" type="STRING"/>
+        <addedColumn name="tmp_stopword" type="STRING"/>
+        <addedColumn name="tmp_stopword_remainder" type="STRING"/>
+        <addedColumn name="tmp_email_local" type="STRING"/>
+        <addedColumn name="tmp_email_domain" type="STRING"/>
+        <addedColumn name="tmp_email_trailing" type="STRING"/>
+        <addedColumn name="tmp_email_leading" type="STRING"/>
+        <addedColumn name="pur_email_2" type="STRING"/>
+        <addedColumn name="pur_email_local" type="STRING"/>
+        <addedColumn name="pur_email_domain" type="STRING"/>
+        <addedColumn name="pur_email_tld" type="STRING"/>
+        <addedColumn name="pur_domain" type="STRING"/>
+      </addedColumns>
+      <removedColumns/>
+      <comm:comment>Internal_columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Whitelist_lookup (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_whitelist.lkp" prefix="false" foreignKeyColumn="in_email">
+      <columns>
+        <columnAssign expression="in_email" name="std_email"/>
+      </columns>
+      <scorer explanationColumn="exp_email" scoreColumn="sco_email">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="EMAIL_WHITELISTED" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Looks up src email in whitelist dictionary.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_not_whitelisted (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="std_email is null">
+      <comm:comment>Email_not_whitelisted</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Pre_cleanse (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="in_email" column="pur_email">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Populates operational column to preserve source value.</comm:comment>
+        </assignment>
+        <assignment column="pur_email">
+          <expression>squeezeSpaces(pur_email)
+</expression>
+          <scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+            <scoringEntries>
+              <scoringEntry score="1" explainAs="EMAIL_WS_SQUEEZED" explain="true" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Trims and squeezes all whitespaces.</comm:comment>
+        </assignment>
+        <assignment expression="removeAccents(pur_email)" column="pur_email">
+          <scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+            <scoringEntries>
+              <scoringEntry score="5" explainAs="EMAIL_ACCENTS_REMOVED" explain="true" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Removes accents.</comm:comment>
+        </assignment>
+        <assignment expression="substituteAll(@&quot;,&quot;, &#39;.&#39;, pur_email)" column="pur_email">
+          <scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+            <scoringEntries>
+              <scoringEntry score="150" explainAs="EMAIL_COMMAS_REPLACED" explain="true" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Replacing commas with dots.</comm:comment>
+        </assignment>
+        <assignment expression="substituteAll(@&quot;\.\.+&quot;, &#39;.&#39;, pur_email)" column="pur_email">
+          <scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+            <scoringEntries>
+              <scoringEntry score="100" explainAs="EMAIL_DOTS_REDUCED" explain="true" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Squeezes multiple dots to a single dot.</comm:comment>
+        </assignment>
+        <assignment expression="substituteMany(@&quot;^\.?(.*?)\.?$&quot;, &quot;$1&quot;, pur_email, 1, true)" column="pur_email">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Removes leading and trailing dot.</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Squeezing all whitespaces into single space character, removing accents, squeezing dots, replacing commas with dots, removing leading and trailing dot.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Validate_Email_1 (Validate Email)" image="images/ValidateEmailAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ValidateEmailAlgorithm">
+    <properties outEmail="std_email" outName="std_name" tldLookupFileName="pathvar://DATA/ext/lkp/___email_tld.lkp" in="pur_email">
+      <scorer explanationColumn="exp_pur_email_validation" scoreColumn="sco_pur_email">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="EML_NULL" explain="true" key="EML_NULL"/>
+          <scoringEntry score="0" explainAs="EML_ADDRESS" explain="true" key="EML_ADDRESS"/>
+          <scoringEntry score="0" explainAs="EML_TLD" explain="true" key="EML_TLD"/>
+          <scoringEntry score="0" explainAs="EML_AMBIGUOUS_DOMAIN" explain="true" key="EML_AMBIGUOUS_DOMAIN"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Validate precleansed email.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_is_invalid_1 (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="exp_pur_email_validation is not null">
+      <comm:comment>Sends valid emails directly to output, invalid for further parsing and cleansing.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union_Same_7 (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union emails on whitelist and valid (according Email Validate step)</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_is_empty_or_suspicious (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties>
+      <condition>containsWord(exp_pur_email_validation, &quot;EML_NULL&quot;)
+or
+(
+  containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)
+  and
+  not containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+)  </condition>
+      <comm:comment>Email that is empty or of which domain part consists only of a valid TLD is invalid.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_format_is_not_invalid (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="not containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;)">
+      <comm:comment>Email has problems with format as a whole, not domain part problems.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_TLD_is_invalid_and_domain_ambiguous (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties>
+      <condition>containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+and 
+containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)</condition>
+      <comm:comment>Email with invalid TLD and ambiguous domain is an email without proper</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Stopword_parsing (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_email" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="^([^:]+): ?" name="STOPWORD_WITH_COLON" multiplicative="false" ignoreCase="true" partialMatch="true">
+          <resultColumns>
+            <regexOutputColumn name="tmp_stopword_remainder" substitution="$&#39;"/>
+            <regexOutputColumn name="tmp_stopword" substitution="$1"/>
+          </resultColumns>
+          <comm:comment>Assume that stopword is everything until the first colon (which is not supported in email address).</comm:comment>
+        </regExpression>
+        <regExpression pattern="^([^ ]+?)\.? " name="STOPWORD_WITHOUT_COLON" multiplicative="false" ignoreCase="true" partialMatch="true">
+          <resultColumns>
+            <regexOutputColumn name="tmp_stopword_remainder" substitution="$&#39;"/>
+            <regexOutputColumn name="tmp_stopword" substitution="$1"/>
+          </resultColumns>
+          <comm:comment>Assume that stopword is everything until the first space.</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Extracting leading stopword from email</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Stopword_lookup (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_stopwords.lkp" prefix="false" foreignKeyColumn="tmp_stopword">
+      <columns>
+        <columnAssign expression="tmp_stopword_remainder" name="pur_email"/>
+      </columns>
+      <scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="1000" explainAs="EMAIL_STOPWORD_CLEANSED" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Looks up possible stopword in the dictionary.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Unwrapping_&lt;email&gt;_etc. (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_email" regexNameColumn="pur_regex_name" appendRegexNameColumn="true" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="&quot;[a-z  \.]*&quot; ?&lt;(.*)&gt;" name="QUOT_NAME_QUOT_LT_EMAIL_GT" multiplicative="false" ignoreCase="true" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_email" substitution="$1"/>
+          </resultColumns>
+          <comm:comment>Extracting invalid email address from `&quot;Name Surname&quot; &lt;em@il&gt;` format.</comm:comment>
+        </regExpression>
+        <regExpression pattern="[a-z  \.]+ ?&lt;(.*)&gt;" name="NAME_LT_EMAIL_GT" multiplicative="false" ignoreCase="true" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_email" substitution="$1"/>
+          </resultColumns>
+          <comm:comment>Extracting invalid email address from `Name Surname &lt;em@il&gt;` format.</comm:comment>
+        </regExpression>
+        <regExpression pattern="(?:\[+(?=.*\]$)|\(+(?=.*\)$)|&lt;+(?=.*&gt;$)|&gt;+(?=.*&lt;$)|\{+(?=.*\}$)|&quot;+(?=.*&quot;$))(.*?)(.)\2*" name="ENC_EMAIL_CNE" multiplicative="false" ignoreCase="true" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_email" substitution="$1"/>
+          </resultColumns>
+          <comm:comment>Extracting email enclosed in [], (), &lt;&gt;, &gt;&lt;, {}, &quot;&quot; and their multiplied variants (&lt;&lt;em@il&gt;&gt;, ...).</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Extracting email address enclosed in brackets.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Score_unwrapping (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_pur_email" defaultExplainColumn="exp_pur_email">
+      <scoringCases>
+        <scoringCase condition="containsWord(pur_regex_name, &quot;NAME_LT_EMAIL_GT&quot;)" description="Non-standard `&quot;Name Surname&quot; &lt;email&gt;` format." explanation="&quot;EMAIL_NAME_MISSED_QUOTES&quot;" score="50"/>
+        <scoringCase condition="containsWord(pur_regex_name, &quot;ENC_EMAIL_CNE&quot;)" explanation="&quot;EMAIL_ENCAPSULED&quot;" score="500"/>
+      </scoringCases>
+      <comm:comment>Scores email unwrapping.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_does_not_contain_@ (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="indexOf(pur_email, &#39;@&#39;) is null">
+      <comm:comment>Email does not contain @.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Prepare_values_for_tokenizer (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="substituteAll(@&quot; &quot;, &quot;  &quot;, pur_email)" column="pur_email">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="substituteAll(@&quot;([\[&lt;({])&quot;, &quot; $1&quot;, pur_email)" column="pur_email">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="substituteAll(@&quot;([&gt;)}\]])&quot;, &quot;$1 &quot;, pur_email)" column="pur_email">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Double original spaces, insert space in front of [, &lt;, (, { and behind  ], &gt;, ), }.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Replace_synonyms_with_dot_or_at (Apply Replacements)" image="images/ApplyReplacementsAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm">
+    <properties replacementsFileName="pathvar://DATA/ext/lkp/___email_at_dot_synonyms_replacements.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="pur_email" out="pur_email">
+      <scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+        <scoringEntries>
+          <scoringEntry score="1000" explainAs="EMAIL_AT_DOT_SYNONYMS" explain="true" key="AR_CHANGED"/>
+          <scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+          <scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+          <scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+        </scoringEntries>
+      </scorer>
+      <tokenizer whiteSpaceDefinition="[:white:]">
+        <types>
+          <tokenType tokenStartCharacters="[:letter:][:digit:]" tokenCharacters="[:letter:][:digit:]"/>
+        </types>
+      </tokenizer>
+      <comm:comment>Replaces synonyms with their respective symbols.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove spaces before/after replacement (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="pur_email">
+          <expression>$before:=substituteAll(@&quot;\s*☃&quot;, &quot;&quot;, pur_email);
+
+substituteAll(@&quot;☠\s*&quot;, &quot;&quot;, $before)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Remove spaces before/after replacement</comm:comment>
+        </assignment>
+      </assignments>
+    </properties>
+  </configAlg>
+  <configAlg name="Revert_changes_for_tokenizer (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="pur_email">
+          <expression>substituteAll(@&quot;([^ ]) ([^ ])&quot;, &quot;$1$2&quot;, substituteAll(@&quot;([^ ]) ([^ ])&quot;, &quot;$1$2&quot;, pur_email))
+//sadly one substituteAll cant change eg. &quot;k k k&quot; to &quot;kkk&quot; but only to &quot;kk k&quot;</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="substituteAll(@&quot;  &quot;, &quot; &quot;, pur_email)" column="pur_email">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Revert changes made by preparation for tokenizer.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_does_not_contain_@_2 (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="indexOf(pur_email, &#39;@&#39;) is null">
+      <comm:comment>Email does not contain @.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union Same (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union same.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_contains_multiple_@ (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="indexOf(pur_email, &#39;@&#39;) != lastIndexOf(pur_email, &#39;@&#39;)">
+      <comm:comment>Email contains multiple &#39;@&#39;.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union Same 8 (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union emails with:
+- two or more @ signs
+- no @ sign
+- empty
+- with valid TLD after @ (e.g. abc@com)</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Precleanse_for_next_email_validation (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="null" column="exp_pur_email_validation">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Deletes explanations from previous Validate Email step.</comm:comment>
+        </assignment>
+        <assignment expression="substituteMany(@&quot;^\.?(.*?)\.?$&quot;, &quot;$1&quot;, pur_email, 1, true)" column="pur_email">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Removes trailing and leading dot from input.</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Prepares columns for next Email validation.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Validate_email_2 (Validate Email)" image="images/ValidateEmailAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ValidateEmailAlgorithm">
+    <properties outEmail="std_email" tldLookupFileName="pathvar://DATA/ext/lkp/___email_tld.lkp" in="pur_email">
+      <scorer explanationColumn="exp_pur_email_validation" scoreColumn="sco_pur_email">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="EML_NULL" explain="true" key="EML_NULL"/>
+          <scoringEntry score="0" explainAs="EML_ADDRESS" explain="true" key="EML_ADDRESS"/>
+          <scoringEntry score="0" explainAs="EML_TLD" explain="true" key="EML_TLD"/>
+          <scoringEntry score="0" explainAs="EML_AMBIGUOUS_DOMAIN" explain="true" key="EML_AMBIGUOUS_DOMAIN"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Validates the further cleansed email.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_is_invalid_2 (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="exp_pur_email_validation is not null">
+      <comm:comment>Sends valid emails directly to output, invalid for further parsing and cleansing.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union Same 5 (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union valid flows</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_is_empty_or_suspicious_2 (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties>
+      <condition>containsWord(exp_pur_email_validation, &quot;EML_NULL&quot;)
+or
+(
+  containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)
+  and
+  not containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+)  </condition>
+      <comm:comment>Email that is empty or of which domain part consists only of a valid TLD is invalid.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_format_is_invalid 2 (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="not containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;)">
+      <comm:comment>Email has problems with format as a whole, not domain part problems.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Match_email_within_the_input (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_email" regexNameColumn="pur_regex_name" appendRegexNameColumn="true" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns>
+        <columnAssign expression="pur_email" name="out_email"/>
+      </noMatchColumns>
+      <regExpressions>
+        <regExpression pattern="([-a-z0-9._!#$%&amp;&#39;*+/=?^`{|}~]+)@([-a-z0-9.]+\.[a-z]+)" name="EMAIL_WITHIN" multiplicative="false" ignoreCase="true" partialMatch="true">
+          <resultColumns>
+            <regexOutputColumn name="tmp_email_local" substitution="$1"/>
+            <regexOutputColumn name="tmp_email_domain" substitution="$2"/>
+            <regexOutputColumn name="tmp_email_trailing" substitution="$&#39;"/>
+            <regexOutputColumn name="tmp_email_leading" substitution="$`"/>
+          </resultColumns>
+          <comm:comment>Extracting any email from within the input string.</comm:comment>
+        </regExpression>
+        <regExpression pattern="([-a-z0-9._!#$%&amp;&#39;*+/=?^`{|}~]+) ?@ ?([-a-z0-9.]+)" name="GUESS_EMAIL_WITHIN" multiplicative="false" ignoreCase="true" partialMatch="true">
+          <resultColumns>
+            <regexOutputColumn name="tmp_email_local" substitution="$1"/>
+            <regexOutputColumn name="tmp_email_domain" substitution="$2"/>
+            <regexOutputColumn name="tmp_email_trailing" substitution="$&#39;"/>
+            <regexOutputColumn name="tmp_email_leading" substitution="$`"/>
+          </resultColumns>
+          <comm:comment>Extracting anything that at least a little resembles an email.</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Tries to extract an email from any kind of string using strickter and looser form of regular expression.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Not_matched (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="tmp_email_domain is null">
+      <comm:comment>Regulax expression did not match.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union Same 7 (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union invalid flows</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Cleanse_possible_email_parts (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="substituteMany(@&quot;^\.?(.*?)\.?$&quot;, &quot;$1&quot;, trim(tmp_email_domain), 1, true)" column="tmp_email_domain">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Trims and removes leading and trailing dots.</comm:comment>
+        </assignment>
+        <assignment expression="substituteMany(@&quot;^\.?(.*?)\.?$&quot;, &quot;$1&quot;, trim(tmp_email_local), 1, true)" column="tmp_email_local">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Trims and removes leading and trailing dots.</comm:comment>
+        </assignment>
+        <assignment expression="substituteMany(@&quot;^\.?(.*?)\.?$&quot;, &quot;$1&quot;, trim(tmp_email_trailing), 1, true)" column="tmp_email_trailing">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Trims and removes leading and trailing dots.</comm:comment>
+        </assignment>
+        <assignment expression="tmp_email_local + &quot;@&quot; + tmp_email_domain" column="pur_email">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="iif(matches(@&quot;[.a-z]{2,6}&quot;, tmp_email_trailing, true), tmp_email_local + &quot;@&quot; + tmp_email_domain + &quot;.&quot; + tmp_email_trailing, &quot;&quot;)" column="pur_email_2">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>If regexp matched only partially and the trailing part consists only of letters and dots with length of 2-6 characters, assume that part is TLD and create a new proposal.</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Precleanses email parts and proposes upto 2 possible email addresses.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Score_email_extraction (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_pur_email" defaultExplainColumn="exp_pur_email">
+      <scoringCases>
+        <scoringCase condition="containsWord(pur_regex_name, &quot;EMAIL_WITHIN&quot;)" description="EMAIL_WITHIN" explanation="&quot;EMAIL_WITHIN&quot;">
+          <score>$trailing:=substituteAll(@&quot;[^-a-z0-9.]&quot;, &quot;&quot;, tmp_email_trailing, true);
+$lenTrail:=length($trailing);
+$leading:=substituteAll(@&quot;[^-a-z0-9._]&quot;, &quot;&quot;, tmp_email_leading, true);
+$lenLead:=length($leading);
+$sco:=$lenLead * 1000 + 10000 + iif($lenTrail &gt; 6 and $lenTrail &lt; 2, $lenTrail * 1000, 0);
+min(500000, $sco) // score cannot be unbounded, scores by the number of supported characters</score>
+        </scoringCase>
+        <scoringCase condition="containsWord(pur_regex_name, &quot;GUESS_EMAIL_WITHIN&quot;)" description="GUESS_EMAIL_WITHIN" explanation="&quot;EMAIL_GUESSED_WITHIN&quot;">
+          <score>$trailing:=substituteAll(@&quot;[^-a-z0-9.]&quot;, &quot;&quot;, tmp_email_trailing, true);
+$lenTrail:=length($trailing);
+$leading:=substituteAll(@&quot;[^-a-z0-9._!#$%&amp;&#39;*+/=?^`{|}~]&quot;, &quot;&quot;, tmp_email_leading, true);
+$lenLead:=length($leading);
+$sco := $lenLead * 1000 + 13000 + iif($lenTrail &gt; 6 and $lenTrail &lt; 2, $lenTrail * 1000, 0);
+min(1000000, $sco) // score cannot be unbounded, scores by the number of supported characters</score>
+        </scoringCase>
+      </scoringCases>
+      <comm:comment>Scores partial regexp email extraction.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Clean_explanations_for_next_email_validation_2 (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="null" column="exp_pur_email_validation">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Empties explanation column for the next Email Validate step.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Split_proposals (Splitter)" image="images/Splitter.large.png" class="com.ataccama.dqc.tasks.text.Splitter">
+    <properties recordDescriptorColumn="rd" oneWordColumn="pur_email">
+      <allSentenceColumn>pur_email + &quot;☠&quot;
+ +  pur_email_2</allSentenceColumn>
+      <separatorConfig includeSeparators="☠" lowerCaseLetters="false" excludeSeparators="-._!#$%&amp;&#39;*+/=?^`{|}~@" digits="false" upperCaseLetters="false"/>
+      <comm:comment>Splits the proposals to their own respective records, creating a record descriptor group.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Validate Email 3 (Validate Email)" image="images/ValidateEmailAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ValidateEmailAlgorithm">
+    <properties outEmail="std_email" tldLookupFileName="pathvar://DATA/ext/lkp/___email_tld.lkp" in="pur_email">
+      <scorer explanationColumn="exp_pur_email_validation" scoreColumn="sco_pur_email">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="EML_NULL" explain="true" key="EML_NULL"/>
+          <scoringEntry score="0" explainAs="EML_ADDRESS" explain="true" key="EML_ADDRESS"/>
+          <scoringEntry score="0" explainAs="EML_TLD" explain="true" key="EML_TLD"/>
+          <scoringEntry score="0" explainAs="EML_AMBIGUOUS_DOMAIN" explain="true" key="EML_AMBIGUOUS_DOMAIN"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Validates proposed emails.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_is_invalid_3 (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="exp_pur_email_validation is not null">
+      <comm:comment>Sends valid emails directly to output, invalid for further parsing and cleansing.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union Same 4 (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union valid flows</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_is_empty_or_suspicious_or_invalid (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties>
+      <condition>containsWord(exp_pur_email_validation, &quot;EML_NULL&quot;)
+or
+(
+  containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)
+  and
+  not containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+)
+or
+containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;)</condition>
+      <comm:comment>Email that is empty or of which domain part consists only of a valid TLD is invalid.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union Same 2 (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union invalid flows</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_TLD_is_invalid_and_domain_ambiguous 3 (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties>
+      <condition>containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+and 
+containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)</condition>
+      <comm:comment>Email with invalid TLD and ambiguous domain is an email without proper</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_TLD_is_invalid_and_domain_ambiguous 2 (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties>
+      <condition>containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;)
+and 
+containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)</condition>
+      <comm:comment>Email with invalid TLD and ambiguous domain is an email without proper</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union same 2 (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union check flows for repairing TLD</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Unwrapping_email (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_email" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="&lt;([^&lt;&gt;]*)&gt;" name=".*&lt;email&gt;" multiplicative="false" ignoreCase="true" partialMatch="true">
+          <resultColumns>
+            <regexOutputColumn name="pur_email" substitution="$1"/>
+          </resultColumns>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Extracts email from &quot;Name Surname&quot; &lt;em@il&gt; format.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Internal_columns_2 (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="tmp_tld_typo_corrected" type="STRING"/>
+        <addedColumn name="tmp_tld_known_domain" type="STRING"/>
+      </addedColumns>
+      <removedColumns/>
+      <comm:comment>Adds internal columns.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Parse_local_domain_tld_parts (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_email" regexNameColumn="pur_regex_name" appendRegexNameColumn="true" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="(.*)@(.*)\.(.*)$" name="TLD_MISSPELLED" multiplicative="false" ignoreCase="true" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_email_local" substitution="$1"/>
+            <regexOutputColumn name="pur_email_domain" substitution="$2"/>
+            <regexOutputColumn name="pur_email_tld" substitution="$3"/>
+          </resultColumns>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Splits email to local, domain without TLD and TLD parts.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Domain and TLD to lower case (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="lower(pur_email_domain)" column="pur_email_domain">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="lower(pur_email_tld)" column="pur_email_tld">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Converting domain and TLD to lower case.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Lookup_missspelled_tld (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_tld_misspellings.lkp" prefix="false" foreignKeyColumn="pur_email_tld">
+      <columns>
+        <columnAssign expression="lower(lookup.tld)" name="tmp_tld_typo_corrected"/>
+      </columns>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Looks for correct form of misspelled TLD.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Lookup_domain (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_known_providers.lkp" prefix="false" foreignKeyColumn="pur_email_domain">
+      <columns>
+        <columnAssign expression="lookup.tld" name="tmp_tld_known_domain"/>
+      </columns>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Looks for a well known domain.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Populates_std_email_if_email_is_valid (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties whenCondition="tmp_tld_known_domain is not null or tmp_tld_typo_corrected is not null">
+      <assignments>
+        <assignment column="pur_email_tld">
+          <expression>case(
+	tmp_tld_typo_corrected is null,
+			tmp_tld_known_domain,
+	
+	tmp_tld_known_domain is null,
+			tmp_tld_typo_corrected,
+	
+	tmp_tld_known_domain != tmp_tld_typo_corrected,
+			iif(levenshtein(tmp_tld_known_domain, pur_email_tld) &lt; 2,
+					tmp_tld_known_domain,
+					tmp_tld_typo_corrected
+			),
+
+	tmp_tld_known_domain
+)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+        <assignment expression="pur_email_local + &quot;@&quot; + pur_email_domain + &quot;.&quot; + pur_email_tld" column="std_email">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Decides between the two TLD proposals if at least one is present, populates output column.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Score_TLD_correction (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_pur_email" defaultExplainColumn="exp_pur_email">
+      <scoringCases>
+        <scoringCase condition="pur_email_tld = tmp_tld_known_domain" explanation="&quot;EMAIL_TLD_CORRECTED_KNOWN_PROVIDER&quot;" score="4000"/>
+        <scoringCase condition="pur_email_tld = tmp_tld_typo_corrected and tmp_tld_typo_corrected != tmp_tld_known_domain" explanation="&quot;EMAIL_TLD_CORRECTED_MISSPELLING&quot;" score="6000"/>
+      </scoringCases>
+      <comm:comment>Scores TLD correction.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Removing_internal_columns_2 (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns/>
+      <removedColumns>
+        <columnRef name="tmp_tld_typo_corrected"/>
+        <columnRef name="tmp_tld_known_domain"/>
+      </removedColumns>
+      <comm:comment>Removes internal columns.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union same (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union check flows for guessing TLD</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Unwrapping_email_1 (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_email" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="&lt;([^&lt;&gt;]*)&gt;" name=".*&lt;email&gt;" multiplicative="false" ignoreCase="true" partialMatch="true">
+          <resultColumns>
+            <regexOutputColumn name="pur_email" substitution="$1"/>
+          </resultColumns>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Extracts email from &quot;Name Surname&quot; &lt;em@il&gt; format.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Parse_email_to_local_and_domain_part (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_email" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="@" name="local@domain" multiplicative="false" ignoreCase="true" partialMatch="true">
+          <resultColumns>
+            <regexOutputColumn name="pur_email_local" substitution="$`"/>
+            <regexOutputColumn name="pur_email_domain" substitution="$&#39;"/>
+          </resultColumns>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Splits email to local, domain parts.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Look_for_known_domain (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_known_providers.lkp" prefix="false" foreignKeyColumn="lower(pur_email_domain)">
+      <columns>
+        <columnAssign expression="pur_email_local + &quot;@&quot; + lower(pur_email_domain) + &quot;.&quot; + lower(lookup.tld)" name="std_email"/>
+      </columns>
+      <scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="5000" explainAs="EMAIL_TLD_APPENDED_KNOWN_PROVIDER" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Looks for a well known domain.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email_is_invalid (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="std_email is null">
+      <comm:comment>Email is invalid.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Internal_columns_3 (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="rd_tld" type="STRING"/>
+        <addedColumn name="tmp_tld_known_domain" type="BOOLEAN"/>
+        <addedColumn name="tmp_tld_length" type="INTEGER"/>
+        <addedColumn name="tmp_tld_guess" type="STRING"/>
+        <addedColumn name="tmp_tld_matched" type="BOOLEAN"/>
+        <addedColumn name="tmp_domain_guess" type="STRING"/>
+      </addedColumns>
+      <removedColumns/>
+      <comm:comment>Adds internal columns.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Lookup_all_TLD_lengths (Multiplicative Lookup)" image="images/MultiplicativeLookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.MultiplicativeLookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_tld_lengths.lkp" prefix="false" foreignKeyColumn="true" bestsOnly="false" recordDescriptorColumn="rd_tld">
+      <columns>
+        <columnAssign expression="lookup.tld_length" name="tmp_tld_length"/>
+      </columns>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="true" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="true" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="true" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="true" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Multiply record, so each has its own unique TLD lenght found in the lookup.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Guesses_TLD_from_the_end_of_domain (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="lower(iif(length(pur_email_domain) &gt; tmp_tld_length , right(pur_email_domain, tmp_tld_length), null))" column="tmp_tld_guess">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>The lenght of domain must be greater than that of the TLD, SLD must have at least one character.</comm:comment>
+        </assignment>
+        <assignment expression="lower(iif(length(pur_email_domain) &gt; tmp_tld_length , left(pur_email_domain, length(pur_email_domain) - tmp_tld_length), null))" column="tmp_domain_guess">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>The lenght of domain must be greater than that of the TLD, SLD must have at least one character.</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Takes a trailing substring of the domain name of the lenght of tmp_tld_lenght as a possible TLD.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Check_TLD_proposal (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_tld.lkp" prefix="false" foreignKeyColumn="tmp_tld_guess">
+      <columns>
+        <columnAssign expression="true" name="tmp_tld_matched"/>
+      </columns>
+      <scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="TLD_GUESS_FAILED" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="TLD_GUESS_FAILED" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="7000" explainAs="EMAIL_TLD_MISSING_LAST_DOT" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Tries to match the proposed TLD.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Check_guess_for_known_provider (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_known_providers.lkp" prefix="false" whenCondition="tmp_tld_matched" foreignKeyColumn="tmp_domain_guess" matchCondition="lookup.tld = tmp_tld_guess">
+      <columns>
+        <columnAssign expression="true " name="tmp_tld_known_domain"/>
+      </columns>
+      <scorer explanationColumn="exp_pur_email" scoreColumn="sco_pur_email">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="-3000" explainAs="EMAIL_TLD_MISSING_LAST_DOT_KNOWN_PROVIDER" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Tries to match the domain and TLD guess against known email providers.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Select_the_longest_matched_proposal (Selector)" image="images/Selector.large.png" class="com.ataccama.dqc.tasks.flow.Selector">
+    <properties recordDescriptorColumn="rd_tld">
+      <assignments>
+        <assignment column="std_email">
+          <expression>iif(best.tmp_tld_matched,
+		best.pur_email_local + &quot;@&quot; + best.tmp_domain_guess + &quot;.&quot; + best.tmp_tld_guess,
+		null
+)</expression>
+        </assignment>
+      </assignments>
+      <selectionRules>
+        <orderBy expression="iif(tmp_tld_matched, 1 ,0) * tmp_tld_length + iif(tmp_tld_known_domain, 100, 0)" orderDescending="true" nullsFirst="false"/>
+      </selectionRules>
+      <comm:comment>Selects the record with known domain and TLD or with the longest matched TLD from the group (in that order) and puts the whole email it into std_email.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Removing_internal_columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns/>
+      <removedColumns>
+        <columnRef name="rd_tld"/>
+        <columnRef name="tmp_tld_known_domain"/>
+        <columnRef name="tmp_tld_length"/>
+        <columnRef name="tmp_tld_guess"/>
+        <columnRef name="tmp_tld_matched"/>
+        <columnRef name="tmp_domain_guess"/>
+      </removedColumns>
+      <comm:comment>Removes internal columns.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union Same 6 (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union all flows</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Record_descriptor_column_is_null (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="rd is null">
+      <comm:comment>Record is not part of any record descriptor group.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Select_the_best_proposal (Selector)" image="images/Selector.large.png" class="com.ataccama.dqc.tasks.flow.Selector">
+    <properties recordDescriptorColumn="rd">
+      <assignments>
+        <assignment expression="best.in_email" column="in_email"/>
+        <assignment expression="best.std_email" column="std_email"/>
+        <assignment expression="best.std_name" column="std_name"/>
+        <assignment expression="best.out_email" column="out_email"/>
+        <assignment expression="best.exp_email" column="exp_email"/>
+        <assignment expression="best.sco_email" column="sco_email"/>
+        <assignment expression="best.sco_pur_email" column="sco_pur_email"/>
+        <assignment expression="best.pur_email" column="pur_email"/>
+        <assignment expression="best.pur_regex_name" column="pur_regex_name"/>
+        <assignment expression="best.exp_pur_email" column="exp_pur_email"/>
+        <assignment expression="best.exp_pur_email_validation" column="exp_pur_email_validation"/>
+        <assignment expression="best.tmp_email_local" column="tmp_email_local"/>
+        <assignment expression="best.tmp_email_domain" column="tmp_email_domain"/>
+        <assignment expression="best.tmp_email_trailing" column="tmp_email_trailing"/>
+        <assignment expression="best.tmp_email_leading" column="tmp_email_leading"/>
+        <assignment expression="null" column="rd"/>
+        <assignment expression="best.tmp_stopword" column="tmp_stopword"/>
+        <assignment expression="best.tmp_stopword_remainder" column="tmp_stopword_remainder"/>
+        <assignment expression="best.pur_email_2" column="pur_email_2"/>
+        <assignment expression="best.pur_email_local" column="pur_email_local"/>
+        <assignment expression="best.pur_email_domain" column="pur_email_domain"/>
+        <assignment expression="best.pur_email_tld" column="pur_email_tld"/>
+      </assignments>
+      <selectionRules>
+        <orderBy orderDescending="false" nullsFirst="false">
+          <expression>sco_pur_email
++ iif(std_email is null, 10000000, 0) // we don&#39;t to choose invalid email by mistake
+
+//if record from two streams has same score, we prefer stream, which doesn&#39;t contain explanation &quot;EML_AMBIGUOUS_DOMAIN&quot;
++ iif(containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;), 1, 0)</expression>
+        </orderBy>
+      </selectionRules>
+      <comm:comment>Selects the best proposal (with the lowest score) from the group.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union Same 9 (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union deduplicated multiple records flow and single record flow</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Blacklist_lookup (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_blacklist.lkp" prefix="false" foreignKeyColumn="std_email">
+      <columns/>
+      <scorer explanationColumn="exp_email" scoreColumn="sco_email">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="2000000" explainAs="EMAIL_BLACKLISTED" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>Check if cleansed email is on blacklist</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Get_email&#39;s_domain (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="substr(std_email, indexOf(std_email, &#39;@&#39;, 0)+1, lastIndexOf(std_email, &#39;.&#39;) - indexOf(std_email, &#39;@&#39;, 0)-1)" column="pur_domain">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="true" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>get the domain from standardized value. Substring from @ to last dot.</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Get the part of the domain from the standardized email input</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Temporary_domain_lookup (Lookup)" image="images/LookupAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.LookupAlgorithm">
+    <properties maxDifference="0" tableFileName="pathvar://DATA/ext/lkp/___email_temporary_domains.lkp" prefix="false" foreignKeyColumn="pur_domain">
+      <columns/>
+      <scorer explanationColumn="exp_email" scoreColumn="sco_email">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="LKP_NULL_ID" explain="false" key="LKP_NULL_ID"/>
+          <scoringEntry score="0" explainAs="LKP_NOT_FOUND" explain="false" key="LKP_NOT_FOUND"/>
+          <scoringEntry score="100" explainAs="EMAIL_TMP_DOMAIN" explain="true" key="LKP_FOUND"/>
+          <scoringEntry score="0" explainAs="LKP_FOUND_DUPL" explain="false" key="LKP_FOUND_DUPL"/>
+          <scoringEntry score="0" explainAs="LKP_APPROX_USED" explain="false" key="LKP_APPROX_USED"/>
+        </scoringEntries>
+      </scorer>
+      <selectBestMatch/>
+      <comm:comment>checking standardized email domain against list of temporary domains</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Final_scoring (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_email" defaultExplainColumn="exp_email">
+      <scoringCases>
+        <scoringCase explanation="&quot;EMAIL_EMPTY&quot;" score="10000000">
+          <condition>std_email is null
+and
+containsWord(exp_pur_email_validation, &quot;EML_NULL&quot;)</condition>
+        </scoringCase>
+        <scoringCase explanation="&quot;EMAIL_INVALID&quot;" score="5000000">
+          <condition>std_email is null
+and
+(
+	containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;)
+)</condition>
+        </scoringCase>
+        <scoringCase explanation="&quot;EMAIL_TLD_NOT_MATCHED&quot;" score="5000000">
+          <condition>std_email is null
+and
+containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;) and not containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)</condition>
+        </scoringCase>
+        <scoringCase explanation="&quot;EMAIL_TLD_MISSING&quot;" score="5000000">
+          <condition>std_email is null
+and
+containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;) and containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)</condition>
+        </scoringCase>
+        <scoringCase condition="not containsWord(exp_pur_email_validation, &quot;EML_TLD&quot;) and containsWord(exp_pur_email_validation, &quot;EML_AMBIGUOUS_DOMAIN&quot;)" explanation="&quot;EMAIL_SUSPICIOUS&quot;" score="5000000"/>
+        <scoringCase condition="not(containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;) or containsWord(exp_pur_email_validation, &quot;EML_NULL&quot;))" score="sco_pur_email">
+          <explanation>// union of minor explanations
+$expl:=set.distinct(substituteAll(@&quot;EMAIL_WS_SQUEEZED|EMAIL_ACCENTS_REMOVED|EMAIL_COMMAS_REPLACED|EMAIL_DOTS_REDUCED|EMAIL_NAME_MISSED_QUOTES|EMAIL_ENCAPSULED&quot;, &quot;EMAIL_CLEANSED&quot;, exp_pur_email));
+// remove general explanation if more specific is present
+iif(containsWord(exp_pur_email, &quot;EMAIL_TLD_MISSING_LAST_DOT_KNOWN_PROVIDER&quot;), substituteAll(@&quot;\bEMAIL_TLD_MISSING_LAST_DOT\b&quot;, &quot;&quot;, $expl), $expl)</explanation>
+        </scoringCase>
+      </scoringCases>
+      <comm:comment>Set final explanations and score.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Set_output_columns (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="out_email">
+          <expression>nvl(std_email, iif(containsWord(exp_pur_email_validation, &quot;EML_ADDRESS&quot;), null, pur_email))
+</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Only valid or very close to valid email goes to out_email.</comm:comment>
+        </assignment>
+        <assignment expression="iif(sco_email &gt;= 10000, null, std_email)" column="std_email">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Only values with score less than 10 000 can be in std_email.</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Populates out_email.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove_internal_columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns/>
+      <removedColumns>
+        <columnRef name="pur_regex_name"/>
+        <columnRef name="exp_pur_email"/>
+        <columnRef name="pur_email"/>
+        <columnRef name="exp_pur_email_validation"/>
+        <columnRef name="rd"/>
+        <columnRef name="tmp_stopword"/>
+        <columnRef name="tmp_stopword_remainder"/>
+        <columnRef name="tmp_email_local"/>
+        <columnRef name="tmp_email_domain"/>
+        <columnRef name="tmp_email_trailing"/>
+        <columnRef name="tmp_email_leading"/>
+        <columnRef name="pur_email_2"/>
+        <columnRef name="pur_email_local"/>
+        <columnRef name="pur_email_domain"/>
+        <columnRef name="pur_email_tld"/>
+        <columnRef name="sco_pur_email"/>
+        <columnRef name="in_email"/>
+        <columnRef name="pur_domain"/>
+      </removedColumns>
+      <comm:comment>Removes internal columns.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="out (Integration Output)" image="images/OutputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep">
+    <properties>
+      <requiredColumns>
+        <requiredColumn name="std_email" type="STRING">
+          <comm:comment>Standardized value of the email address - contains only valid values.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="std_name" type="STRING">
+          <comm:comment>Column that stores the email address owner if recognised.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_email" type="STRING">
+          <comm:comment>The best existing value of email.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="exp_email" type="STRING">
+          <comm:comment>Explanations if invalid, cleansed or matched.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="sco_email" type="INTEGER">
+          <comm:comment>Data quality score for value of email.</comm:comment>
+        </requiredColumn>
+      </requiredColumns>
+    </properties>
+  </configAlg>
+</configDoc>

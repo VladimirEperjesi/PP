@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Trash) --><step id="Trash" className="com.ataccama.dqc.tasks.io.Trash" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="144,240,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (cz_lov_standardize_legal_forms) --><step id="cz_lov_standardize_legal_forms" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="NORMAL">
+		<properties stringQualifier="" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="pathvar://DATA/ext/src/cz_lov_standardize_legal_forms.csv" encoding="windows-1250" numberOfLinesInFooter="0" compression="NONE" stringQualifierEscape="">
+			<columns>
+				<textReaderColumn name="key" type="STRING" ignore="false"/>
+				<textReaderColumn name="code" type="INTEGER" ignore="false">
+					<dataFormatParameters thousandsSeparator="," decimalSeparator="."/>
+				</textReaderColumn>
+				<textReaderColumn name="res_client_type" type="STRING" ignore="false"/>
+				<textReaderColumn name="standardized_form" type="STRING" ignore="false"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd"/>
+			<errorHandlingStrategy rejectFileName="rejected.txt">
+				<errorInstructions>
+					<errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+				</errorInstructions>
+			</errorHandlingStrategy>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="144,48,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="cz_lov_standardize_legal_forms" endpoint="out"/>
+		<target step="standardized_legal_forms lookup" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (standardized_legal_forms lookup) --><step id="standardized_legal_forms lookup" className="com.ataccama.dqc.tasks.builders.LookupBuilder" disabled="false" mode="NORMAL">
+		<properties approximativeIndex="false" compressed="false" duplicities="FIRST" bestDistanceIndex="false" fileName="pathvar://DATA/ext/lkp/cz_standardized_legal_forms.lkp" bidirectApproximativeIndex="false" key="key">
+			<additionalColumns>
+				<columnExprDef name="standardized_form"/>
+			</additionalColumns>
+			<matchingValue substituteWith=" " doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters=" [:letter:][:digit:]" doRemoveDia="true" doUpperCase="true"/>
+			<userMetadata>
+				<items/>
+			</userMetadata>
+		</properties>
+		<visual-constraints bounds="144,144,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="standardized_legal_forms lookup" endpoint="rejected"/>
+		<target step="Trash" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+</purity-config>

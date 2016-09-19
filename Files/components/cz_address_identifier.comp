@@ -1,0 +1,1599 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:def="http://www.ataccama.com/purity/defaults" xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<component-id>address_identifier</component-id>
+	<icon type="5">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</icon>
+	<references/>
+	<component-mappings>
+		<propertyMappings>
+			<property name="use_extended_patterns" mappedTo="Use extended patterns/condition" insert="false">
+				<def:default-value>
+					<condition>true</condition>
+				</def:default-value>
+				<description>Type BOOLEAN. Flag indicating that extended patterns should be used to gain more from the identification process. When set to TRUE large amount of pattern combinations will be used, but this will have also a great impact on perfomance. Default value is true.</description>
+			</property>
+		</propertyMappings>
+	</component-mappings>
+
+<!-- (Add Columns) --><step id="Add Columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="out_address_line_1" type="STRING">
+					<comm:comment>Best existing value of the first address line. For identified addresses it includes street or city district or city part followed by a number or a combination of numbers (lrn, sn, evn). For unidentified addresses it is a copy of the input first address line.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_address_line_2" type="STRING">
+					<comm:comment>Best existing value of the second address line. For identified addresses it includes city or city district or city part or a combination of these followed by a number (if applicable). For unidentified addresses it is a copy of the input first address line.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_address_line_3" type="STRING">
+					<comm:comment>Best existing value of the third address line. For identified addresses it includes postal code and post office. For unidentified addresses it is a copy of the input first address line.</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_address_code" type="STRING">
+					<comm:comment>Standardized adress code (in Czech &quot;adresní kód&quot;).</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_zip" type="STRING">
+					<comm:comment>Standardized zip code (in Czech &quot;PSČ&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_city" type="STRING">
+					<comm:comment>Standardized city (in Czech &quot;město&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_city_district" type="STRING">
+					<comm:comment>Standardized city district (in Czech &quot;část obce&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_city_part" type="STRING">
+					<comm:comment>Standardized city part (in Czech &quot;městská část&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_street" type="STRING">
+					<comm:comment>Standardized street (in Czech &quot;ulice&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_lrn" type="STRING">
+					<comm:comment>Standardized land registry number (in Czech &quot;popisné číslo&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_sn" type="STRING">
+					<comm:comment>Standardized street number (in Czech &quot;orientační číslo&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_evn" type="STRING">
+					<comm:comment>Standardized evidentiary number (in Czech &quot;evidenční číslo&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_district" type="STRING">
+					<comm:comment>Standardized district (in Czech &quot;okres&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_post_office" type="STRING">
+					<comm:comment>Standardized post office (in Czech &quot;pošta&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_region" type="STRING">
+					<comm:comment>Standardized region (in Czech &quot;kraj&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_address" type="INTEGER">
+					<comm:comment>Data quality score of address</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_address" type="STRING">
+					<comm:comment>Explanation codes of data quality problems in address</comm:comment>
+				</addedColumn>
+				<addedColumn name="lbl_address" type="STRING">
+					<comm:comment>Output value of address validity label. Indicates whether the address is valid, corrected or unknown.</comm:comment>
+				</addedColumn>
+				<addedColumn name="pat_address" type="STRING">
+					<comm:comment>Pattern of parsed address. Address patterns are defined as string describing allowed text in the input. The allowed text can be defined by both, ordinary strings and components. Exclamation mark means that the component must be verified against reference data. See the complete pattern description in AI step reference documentation.</comm:comment>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="240,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add Columns" endpoint="out"/>
+		<target step="Add internal columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Add internal columns) --><step id="Add internal columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="pur_street" type="STRING">
+					<comm:comment>Pattern of parsed zip</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_city" type="STRING">
+					<comm:comment>Cleansed and normalized city</comm:comment>
+				</addedColumn>
+				<addedColumn name="pur_zip" type="STRING">
+					<comm:comment>Cleansed and normalized zip</comm:comment>
+				</addedColumn>
+				<addedColumn name="tmp_sco_address" type="INTEGER"/>
+				<addedColumn name="tmp_exp_address" type="STRING"/>
+				<addedColumn name="tmp_street" type="STRING"/>
+				<addedColumn name="tmp_city" type="STRING"/>
+				<addedColumn name="use_extended_patterns" type="BOOLEAN"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>Add internal columns</comm:comment>
+		</properties>
+		<visual-constraints bounds="240,168,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add internal columns" endpoint="out"/>
+		<target step="Values mapping" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Add temporary and other scoring) --><step id="Add temporary and other scoring" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_address" defaultExplainColumn="exp_address">
+			<scoringCases>
+				<scoringCase description="Type of land registry number has changed. It either has been parsed as evidence number (číslo evidenční) and should have been a house number (číslo popisné) or vice versa." explanation="&#39;ADDR_AI_LRN_TYPE_CHANGED&#39; " score="1000">
+					<condition>indexOf(exp_address, &#39;ADDR_AI_EVN&#39;) is not null //address identifer indicates evn
+and
+indexOf(exp_address, &#39;NUM_EVN_DETECTED&#39;) is null //evn was not labeled in the input
+and 
+indexOf(exp_address, &#39;ADDR_AI_LRN_TYPE_CHANGED&#39;) is null //address identifier does not report change from lrn to evn</condition>
+				</scoringCase>
+				<scoringCase condition="tmp_exp_address is not null" explanation="tmp_exp_address" score="tmp_sco_address"/>
+			</scoringCases>
+			<comm:comment>Adds scoring from temporary scoring values.</comm:comment>
+		</properties>
+		<visual-constraints bounds="192,2424,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Add temporary and other scoring" endpoint="out"/>
+		<target step="Set address labels" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Address not empty) --><step id="Address not empty" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="pur_city is not null or pur_street is not null">
+			<comm:comment>At least city or street must be present.</comm:comment>
+		</properties>
+		<visual-constraints bounds="240,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Address not empty" endpoint="out_false"/>
+		<target step="Score empty address" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="22,360"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Address not empty" endpoint="out_true"/>
+		<target step="ZIP not empty" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Address not identified) --><step id="Address not identified" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="std_address_code is null"/>
+		<visual-constraints bounds="192,2664,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Address not identified" endpoint="out_false"/>
+		<target step="Output values (addr. identified)" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Address not identified" endpoint="out_true"/>
+		<target step="Output values (addr. not identified)" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="479,2712"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Address not parsed) --><step id="Address not parsed" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="pat_address is null">
+			<comm:comment>Address not parsed: probably there is a typo in input street or city value
+Address parsed but not identified: probably there is an ambiguity in the combination of numbers and/or city+street etc. - we cannot do much better here..</comm:comment>
+		</properties>
+		<visual-constraints bounds="216,1272,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Address not parsed" endpoint="out_true"/>
+		<target step="Reset tmp scoring" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="407,1320"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Address not parsed" endpoint="out_false"/>
+		<target step="Union all addresses" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="215,1416"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Address not parsed 2) --><step id="Address not parsed 2" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="pat_address is null">
+			<comm:comment>Address not parsed for the second time: let&#39;s try to parse with excessive number of address patterns.
+Address parsed but not identified: probably there is an ambiguity in the combination of numbers and/or city+street etc. - we cannot do much better here..</comm:comment>
+		</properties>
+		<visual-constraints bounds="360,1872,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Address not parsed 2" endpoint="out_false"/>
+		<target step="Union all addresses" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Address not parsed 2" endpoint="out_true"/>
+		<target step="Use extended patterns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="527,1920"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Apply full city replacements - city) --><step id="Apply full city replacements - city" className="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm" disabled="false" mode="NORMAL">
+		<properties replacementsFileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_city_full.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="pur_city" out="pur_city">
+			<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+				<scoringEntries>
+					<scoringEntry score="10" explainAs="CITY_REPL_FULL" explain="true" key="AR_CHANGED"/>
+					<scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+					<scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+					<scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Apply FULL CITY replacements to unidentified addresses. Both abbreviation and typos are included. The goal is to replace unidentified city name to some standard value e.g.
+Same lkp file as in previous step used / cz_address_id_city_full.lkp
+
+/LZEN -&gt; Plzeň
+
+3 DVORY -&gt; Tři Dvory
+
+ALBRECHT V JIZ HORACH -&gt; Albrechtice v Jizerských horách</comm:comment>
+		</properties>
+		<visual-constraints bounds="384,1704,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Apply full city replacements - city" endpoint="out"/>
+		<target step="Parse address (UIR-ADR) 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Apply full city replacements - street) --><step id="Apply full city replacements - street" className="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm" disabled="false" mode="NORMAL">
+		<properties replacementsFileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_city_full.lkp" preserveUnsupportedChars="true" whenCondition="indexOf(exp_address, &#39;STREET_REPL&#39;) is null" onlyFullReplacement="false" in="pur_street" out="pur_street">
+			<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+				<scoringEntries>
+					<scoringEntry score="10" explainAs="STREET_REPL_CITY_FULL" explain="true" key="AR_CHANGED"/>
+					<scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+					<scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+					<scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>If street replacement was not applied, let&#39;s try to use city replacement (there might be a city in the street value)
+
+/LZEN -&gt; Plzeň
+
+3 DVORY -&gt; Tři Dvory
+
+ALBRECHT V JIZ HORACH -&gt; Albrechtice v Jizerských horách</comm:comment>
+		</properties>
+		<visual-constraints bounds="384,1632,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Apply full city replacements - street" endpoint="out"/>
+		<target step="Apply full city replacements - city" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Apply full street replacements - street) --><step id="Apply full street replacements - street" className="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm" disabled="false" mode="NORMAL">
+		<properties replacementsFileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_street_full.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="pur_street" out="pur_street">
+			<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+				<scoringEntries>
+					<scoringEntry score="10" explainAs="STREET_REPL_FULL" explain="true" key="AR_CHANGED"/>
+					<scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+					<scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+					<scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Apply FULL STREET replacements to unidentified addresses. Both abbreviation and typos are included. The goal is to replace unidentified street name to some standard value e.g.
+  
+NAMESTI WINSTCHURCHILLA -&gt; NÁMĚSTÍ WINSTONA CHURCHILLA
+
+NAMESTI ZBRASLAVSKE -&gt; ZBRASLAVSKÉ NÁMĚSTÍ
+
+NIK TESLY -&gt; NIKOLY TESLY
+
+NOR FRYDA -&gt; NORBERTA FRÝDA</comm:comment>
+		</properties>
+		<visual-constraints bounds="384,1512,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Apply full street replacements - street" endpoint="out"/>
+		<target step="Apply full city replacements - street" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Apply partial street replacements - street) --><step id="Apply partial street replacements - street" className="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm" disabled="false" mode="NORMAL">
+		<properties replacementsFileName="pathvar://DATA/ext/lkp/cz_address_identifier/cz_address_id_street_partial.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="pur_street" out="pur_street">
+			<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+				<scoringEntries>
+					<scoringEntry score="10" explainAs="STREET_REPL_PART" explain="true" key="AR_CHANGED"/>
+					<scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+					<scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+					<scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Apply STREET replacements to unidentified addresses. Both abbreviation and typos are included. The goal is to replace unidentified part of input street value to some standard value e.g.
+  
+NAM. -&gt; náměstí
+
+NAN -&gt; náměstí
+NEMOC. -&gt; nemocnice
+
+PLUK. -&gt; plk.
+
+
+PODHR. -&gt; podhradí
+
+PROFESORA -&gt; prof.</comm:comment>
+		</properties>
+		<visual-constraints bounds="384,1440,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Apply partial street replacements - street" endpoint="out"/>
+		<target step="Apply full street replacements - street" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Assign evidence number) --><step id="Assign evidence number" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="iif(std_address_code is not null and indexOf(exp_address, &#39;ADDR_AI_EVN&#39;) is not null, std_lrn, null)" column="std_evn">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="iif(std_evn is not null, substituteAll(&quot;\\b([0-9]+(/[0-9a-z]+)?)$&quot;, &quot;č. ev. $1&quot;, out_address_line_1, true), out_address_line_1)" column="out_address_line_1">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+					<comm:comment>Where evidentiary number was detected, this assignment generates a standard evn prefix: &quot;Pavlíkov 14&quot; =&gt; &quot;Pavlíkov č. ev. 14&quot;</comm:comment>
+				</assignment>
+				<assignment expression="iif(std_evn is not null, null, std_lrn)" column="std_lrn">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>when std_evn detected, std_lrn should be empty</comm:comment>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="288,2928,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Assign evidence number" endpoint="out"/>
+		<target step="Remove columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (City cleansing and normalization) --><step id="City cleansing and normalization" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="pur_city" column="pur_city">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="pur_city">
+					<expression>iif(find(&quot;\\b[čc][. ]*[íi]*[. ]*[s]*[. ]*[p][. ]*[o]*[. ]*[p]*[. ]*(\\d)&quot;,  pur_city, true),
+	substituteAll(&quot;\\b[čc][. ]*[íi]*[. ]*[s]*[. ]*[p][. ]*[o]*[. ]*[p]*[. ]*(\\d)&quot;, &quot;$1&quot;, pur_city, true),
+	pur_city
+)</expression>
+					<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="CITY_NUM_PREFIX_REMOVED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Removes typical &quot;č.p.&quot; from city value: Pavlíkov č.p. 14 =&gt; Pavlíkov 14</comm:comment>
+				</assignment>
+				<assignment column="pur_city">
+					<expression>iif(find(&quot;\\b[čc][. ]*[íi]*[. ]*[s]*[. ]*[o][. ]*[r]*[. ]*(\\d)&quot;,  pur_city, true),
+	substituteAll(&quot;\\b[čc][. ]*[íi]*[. ]*[s]*[. ]*[o][. ]*[r]*[. ]*(\\d)&quot;, &quot;$1&quot;, pur_city, true),
+	pur_city
+)</expression>
+					<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="CITY_NUM_PREFIX_REMOVED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Removes typical &quot;č.o.&quot; from city value: Pavlíkov č.o. 14 =&gt; Pavlíkov 14</comm:comment>
+				</assignment>
+				<assignment expression="iif(find(&quot;\\b[čc][. ]*ev?[. ]*(\\d)&quot;,  pur_city, true), substituteAll(&quot;\\b[čc][. ]*ev?[. ]*(\\d)&quot;, &quot;č.ev.$1&quot;, pur_city, true), pur_city)" column="pur_city">
+					<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CITY_NUM_EVN_PREFIX_DETECTED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Standardizes &quot;č.ev.&quot; in city value:
+Černý Důl č. ev. 58 =&gt; Černý Důl č.ev.58
+Černý Důl č.e. 58 =&gt; Černý Důl č.ev.58
+Černý Důl če 58 =&gt; Černý Důl č.ev.58
+Černý Důl ce 58 =&gt; Černý Důl č.ev.58
+Černý Důl cev 58 =&gt; Černý Důl č.ev.58</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Initial CITY line standardization and cleansing</comm:comment>
+		</properties>
+		<visual-constraints bounds="264,1008,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="City cleansing and normalization" endpoint="out"/>
+		<target step="City cleansing and normalization II" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (City cleansing and normalization II) --><step id="City cleansing and normalization II" className="com.ataccama.dqc.tasks.clean.MatchingValues" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<matchingColumn expression="pur_city" name="pur_city">
+					<generator substituteWith=" " doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters="[:all:-,:]" doRemoveDia="false" doUpperCase="false"/>
+					<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="CITY_SPECIAL_CHARS_REMOVED" explain="true" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Special characters removal in order to fit predefined parsing rule in the first attempt of address parsing:
+&quot;Opava, Předměstí&quot; =&gt; &quot;Opava Předměstí&quot;</comm:comment>
+				</matchingColumn>
+			</columns>
+		</properties>
+		<visual-constraints bounds="264,1080,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="City cleansing and normalization II" endpoint="out"/>
+		<target step="Union all city" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (City not empty) --><step id="City not empty" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="pur_city is not null"/>
+		<visual-constraints bounds="240,936,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="City not empty" endpoint="out_true"/>
+		<target step="City cleansing and normalization" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="City not empty" endpoint="out_false"/>
+		<target step="Union all city" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="168,984"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Output values (addr. identified)) --><step id="Output values (addr. identified)" className="com.ataccama.dqc.tasks.addresses.CreatePostalAddress" disabled="false" mode="NORMAL">
+		<properties middleRow="out_address_line_2" topRow="out_address_line_1" dataFolder="pathvar://DATA/ext/lkp/cz_address_identifier/ai" bottomRow="out_address_line_3" addressId="std_address_code" mode="UIR_ADR">
+			<scorer>
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="CPA_ADDR_ID_NULL" explain="false" key="CPA_ADDR_ID_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_INVALID_ADDR_ID" explain="false" key="CPA_INVALID_ADDR_ID"/>
+					<scoringEntry score="0" explainAs="CPA_LOCALITY_NULL" explain="false" key="CPA_LOCALITY_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_LOCALITY_PART_NULL" explain="false" key="CPA_LOCALITY_PART_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_STREET_NULL" explain="false" key="CPA_STREET_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_LRN_NULL" explain="false" key="CPA_LRN_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_SN_NULL" explain="false" key="CPA_SN_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_ZIP_NULL" explain="false" key="CPA_ZIP_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_POST_OFFICE_NULL" explain="false" key="CPA_POST_OFFICE_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_CITY_PART_NULL" explain="false" key="CPA_CITY_PART_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_CADASTRAL_AREA_NULL" explain="false" key="CPA_CADASTRAL_AREA_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_DISTRICT_OF_PRAGUE_NULL" explain="false" key="CPA_DISTRICT_OF_PRAGUE_NULL"/>
+					<scoringEntry score="0" explainAs="CPA_CANNOT_GENERATE" explain="false" key="CPA_CANNOT_GENERATE"/>
+				</scoringEntries>
+			</scorer>
+		</properties>
+		<visual-constraints bounds="168,2808,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Output values (addr. identified)" endpoint="out"/>
+		<target step="Union all output values" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Output values (addr. not identified)) --><step id="Output values (addr. not identified)" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="in_address_line_1" column="out_address_line_1">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="in_address_line_2" column="out_address_line_2">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="in_address_line_3" column="out_address_line_3">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Set output (best available) values</comm:comment>
+		</properties>
+		<visual-constraints bounds="456,2808,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Output values (addr. not identified)" endpoint="out"/>
+		<target step="Union all output values" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Parse address (UIR-ADR)) --><step id="Parse address (UIR-ADR)" className="com.ataccama.dqc.tasks.addresses.AddressIdentifier" disabled="false" mode="NORMAL">
+		<properties numApproxMatches="0" configFile="pathvar://DATA/ext/lkp/cz_address_identifier/address-cfg.xml" parserRuleName="pat_address" analyzedAddressLayout="{pur_zip} ;  {pur_city} ; {pur_street} ">
+			<ambiguityScorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CL" explain="true" key="AI_AMBIG_CL"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CL_CD" explain="true" key="AI_AMBIG_CL_CD"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CL_ZCD" explain="true" key="AI_AMBIG_CL_ZCD"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CS_N" explain="true" key="AI_AMBIG_CS_N"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_SN_Q" explain="true" key="AI_AMBIG_SN_Q"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZCD_L" explain="true" key="AI_AMBIG_ZCD_L"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZCS_L" explain="true" key="AI_AMBIG_ZCS_L"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZCS_N" explain="true" key="AI_AMBIG_ZCS_N"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZC_L" explain="true" key="AI_AMBIG_ZC_L"/>
+				</scoringEntries>
+			</ambiguityScorer>
+			<attributeScorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="ADDR_AI_CD" explain="false" key="AI_CD"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY" explain="false" key="AI_CITY"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_CD" explain="false" key="AI_CITY_CD"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_CD_STREET" explain="false" key="AI_CITY_CD_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_LRN" explain="false" key="AI_CITY_LRN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_STREET" explain="false" key="AI_CITY_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_STREET_SN" explain="false" key="AI_CITY_STREET_SN"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_ID_MISMATCH" explain="true" key="AI_ID_MISMATCH"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_LRN" explain="false" key="AI_LRN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_NOT_VERIFIED" explain="false" key="AI_NOT_VERIFIED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_NO_ADDRESS" explain="false" key="AI_NO_ADDRESS"/>
+					<scoringEntry score="750000" explainAs="ADDR_AI_NO_ADDRESS_ID" explain="true" key="AI_NO_ADDRESS_ID"/>
+					<scoringEntry score="5000000" explainAs="ADDR_AI_NO_PATTERN" explain="true" key="AI_NO_PATTERN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC" explain="false" key="AI_PC"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC_CITY" explain="false" key="AI_PC_CITY"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC_CITY_CD" explain="false" key="AI_PC_CITY_CD"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC_CITY_STREET" explain="false" key="AI_PC_CITY_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_SN" explain="false" key="AI_SN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET" explain="false" key="AI_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_SN" explain="false" key="AI_STREET_SN"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_SWAP_LRN_SN" explain="true" key="AI_SWAP_LRN_SN"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_UNDECIDED_LRN_SN" explain="true" key="AI_UNDECIDED_LRN_SN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CD_SUFFIX" explain="false" key="AI_CD_SUFFIX"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_EVN" explain="true" key="AI_EVN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_LRN_OR_EVN" explain="false" key="AI_LRN_OR_EVN"/>
+				</scoringEntries>
+			</attributeScorer>
+			<outputComponents streetClean="std_street" localityPartClean="std_city_district" localityClean="std_city" landRegistryNumberClean="std_lrn" cityPartClean="std_city_part" streetNumberClean="std_sn" postOfficeClean="std_post_office" districtClean="std_district" addressId="std_address_code" regionClean="std_region" postalCodeClean="std_zip"/>
+			<parserScorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_RPL_FULL" explain="false" key="AI_CITY_PART_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_RPL_FULL" explain="false" key="AI_DISTRICT_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_RPL_PART" explain="false" key="AI_CITY_PART_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_RPL_PART" explain="false" key="AI_DISTRICT_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_RPL_FULL" explain="false" key="AI_LOCALITY_PART_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_RPL_PART" explain="false" key="AI_LOCALITY_PART_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_RPL_FULL" explain="false" key="AI_LOCALITY_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_RPL_PART" explain="false" key="AI_LOCALITY_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_RPL_FULL" explain="false" key="AI_POST_OFFICE_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_RPL_PART" explain="false" key="AI_POST_OFFICE_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_RPL_FULL" explain="false" key="AI_STREET_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_RPL_PART" explain="false" key="AI_STREET_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_ZIP_RPL_FULL" explain="false" key="AI_ZIP_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_ZIP_RPL_PART" explain="false" key="AI_ZIP_REPL_PART"/>
+				</scoringEntries>
+			</parserScorer>
+			<scorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="1000" explainAs="ADDR_AI_DISTRICT_CHANGED" explain="true" key="AI_DISTRICT_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_NULL" explain="false" key="AI_DISTRICT_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_SET" explain="true" key="AI_DISTRICT_SET"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_CITY_CHANGED" explain="true" key="AI_LOCALITY_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_NULL" explain="false" key="AI_LOCALITY_NULL"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_CITY_DISTRICT_CHANGED" explain="true" key="AI_LOCALITY_PART_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_NULL" explain="false" key="AI_LOCALITY_PART_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_SET" explain="true" key="AI_LOCALITY_PART_SET"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_CITY_SET" explain="true" key="AI_LOCALITY_SET"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_LRN_CHANGED" explain="true" key="AI_LRN_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_LRN_NULL" explain="false" key="AI_LRN_NULL"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_LRN_SET" explain="true" key="AI_LRN_SET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_CHANGED" explain="false" key="AI_MUNICIPALITY_PART_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_NULL" explain="false" key="AI_MUNICIPALITY_PART_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_SET" explain="false" key="AI_MUNICIPALITY_PART_SET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_CHANGED" explain="false" key="AI_POST_OFFICE_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_NULL" explain="false" key="AI_POST_OFFICE_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_SET" explain="false" key="AI_POST_OFFICE_SET"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_SN_CHANGED" explain="true" key="AI_SN_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_SN_NULL" explain="false" key="AI_SN_NULL"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_SN_SET" explain="true" key="AI_SN_SET"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_CHANGED" explain="true" key="AI_STREET_CHANGED"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_MISSING" explain="true" key="AI_STREET_MISSING"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_NULL" explain="false" key="AI_STREET_NULL"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_SET" explain="true" key="AI_STREET_SET"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_SURPLUS" explain="true" key="AI_STREET_SURPLUS"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_ZIP_CHANGED" explain="true" key="AI_ZIP_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_ZIP_NULL" explain="false" key="AI_ZIP_NULL"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_ZIP_SET" explain="true" key="AI_ZIP_SET"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_LRN_TYPE_CHANGED" explain="true" key="AI_LRN_TYPE_CHANGED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>First address identification using limited set of patterns - address-cfg.xml (most common patterns)</comm:comment>
+		</properties>
+		<visual-constraints bounds="240,1176,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Parse address (UIR-ADR)" endpoint="out"/>
+		<target step="Address not parsed" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Parse address (UIR-ADR) 2) --><step id="Parse address (UIR-ADR) 2" className="com.ataccama.dqc.tasks.addresses.AddressIdentifier" disabled="false" mode="NORMAL">
+		<properties numApproxMatches="0" configFile="pathvar://DATA/ext/lkp/cz_address_identifier/address-cfg.xml" parserRuleName="pat_address" analyzedAddressLayout="{pur_zip} ;  {pur_city} ; {pur_street} ">
+			<ambiguityScorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CL" explain="true" key="AI_AMBIG_CL"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CL_CD" explain="true" key="AI_AMBIG_CL_CD"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CL_ZCD" explain="true" key="AI_AMBIG_CL_ZCD"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CS_N" explain="true" key="AI_AMBIG_CS_N"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_SN_Q" explain="true" key="AI_AMBIG_SN_Q"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZCD_L" explain="true" key="AI_AMBIG_ZCD_L"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZCS_L" explain="true" key="AI_AMBIG_ZCS_L"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZCS_N" explain="true" key="AI_AMBIG_ZCS_N"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZC_L" explain="true" key="AI_AMBIG_ZC_L"/>
+				</scoringEntries>
+			</ambiguityScorer>
+			<attributeScorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="ADDR_AI_CD" explain="false" key="AI_CD"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY" explain="false" key="AI_CITY"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_CD" explain="false" key="AI_CITY_CD"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_CD_STREET" explain="false" key="AI_CITY_CD_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_LRN" explain="false" key="AI_CITY_LRN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_STREET" explain="false" key="AI_CITY_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_STREET_SN" explain="false" key="AI_CITY_STREET_SN"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_ID_MISMATCH" explain="true" key="AI_ID_MISMATCH"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_LRN" explain="false" key="AI_LRN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_NOT_VERIFIED" explain="false" key="AI_NOT_VERIFIED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_NO_ADDRESS" explain="false" key="AI_NO_ADDRESS"/>
+					<scoringEntry score="750000" explainAs="ADDR_AI_NO_ADDRESS_ID" explain="true" key="AI_NO_ADDRESS_ID"/>
+					<scoringEntry score="5000000" explainAs="ADDR_AI_NO_PATTERN" explain="true" key="AI_NO_PATTERN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC" explain="false" key="AI_PC"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC_CITY" explain="false" key="AI_PC_CITY"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC_CITY_CD" explain="false" key="AI_PC_CITY_CD"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC_CITY_STREET" explain="false" key="AI_PC_CITY_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_SN" explain="false" key="AI_SN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET" explain="false" key="AI_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_SN" explain="false" key="AI_STREET_SN"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_SWAP_LRN_SN" explain="true" key="AI_SWAP_LRN_SN"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_UNDECIDED_LRN_SN" explain="true" key="AI_UNDECIDED_LRN_SN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CD_SUFFIX" explain="false" key="AI_CD_SUFFIX"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_EVN" explain="true" key="AI_EVN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_LRN_OR_EVN" explain="false" key="AI_LRN_OR_EVN"/>
+				</scoringEntries>
+			</attributeScorer>
+			<outputComponents streetClean="std_street" localityPartClean="std_city_district" localityClean="std_city" landRegistryNumberClean="std_lrn" cityPartClean="std_city_part" streetNumberClean="std_sn" postOfficeClean="std_post_office" districtClean="std_district" addressId="std_address_code" regionClean="std_region" postalCodeClean="std_zip"/>
+			<parserScorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_RPL_FULL" explain="false" key="AI_CITY_PART_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_RPL_FULL" explain="false" key="AI_DISTRICT_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_RPL_PART" explain="false" key="AI_CITY_PART_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_RPL_PART" explain="false" key="AI_DISTRICT_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_RPL_FULL" explain="false" key="AI_LOCALITY_PART_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_RPL_PART" explain="false" key="AI_LOCALITY_PART_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_RPL_FULL" explain="false" key="AI_LOCALITY_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_RPL_PART" explain="false" key="AI_LOCALITY_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_RPL_FULL" explain="false" key="AI_POST_OFFICE_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_RPL_PART" explain="false" key="AI_POST_OFFICE_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_RPL_FULL" explain="false" key="AI_STREET_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_RPL_PART" explain="false" key="AI_STREET_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_ZIP_RPL_FULL" explain="false" key="AI_ZIP_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_ZIP_RPL_PART" explain="false" key="AI_ZIP_REPL_PART"/>
+				</scoringEntries>
+			</parserScorer>
+			<scorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="1000" explainAs="ADDR_AI_DISTRICT_CHANGED" explain="true" key="AI_DISTRICT_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_NULL" explain="false" key="AI_DISTRICT_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_SET" explain="true" key="AI_DISTRICT_SET"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_CITY_CHANGED" explain="true" key="AI_LOCALITY_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_NULL" explain="false" key="AI_LOCALITY_NULL"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_CITY_DISTRICT_CHANGED" explain="true" key="AI_LOCALITY_PART_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_NULL" explain="false" key="AI_LOCALITY_PART_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_SET" explain="true" key="AI_LOCALITY_PART_SET"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_CITY_SET" explain="true" key="AI_LOCALITY_SET"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_LRN_CHANGED" explain="true" key="AI_LRN_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_LRN_NULL" explain="false" key="AI_LRN_NULL"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_LRN_SET" explain="true" key="AI_LRN_SET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_CHANGED" explain="false" key="AI_MUNICIPALITY_PART_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_NULL" explain="false" key="AI_MUNICIPALITY_PART_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_SET" explain="false" key="AI_MUNICIPALITY_PART_SET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_CHANGED" explain="false" key="AI_POST_OFFICE_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_NULL" explain="false" key="AI_POST_OFFICE_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_SET" explain="false" key="AI_POST_OFFICE_SET"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_SN_CHANGED" explain="true" key="AI_SN_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_SN_NULL" explain="false" key="AI_SN_NULL"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_SN_SET" explain="true" key="AI_SN_SET"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_CHANGED" explain="true" key="AI_STREET_CHANGED"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_MISSING" explain="true" key="AI_STREET_MISSING"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_NULL" explain="false" key="AI_STREET_NULL"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_SET" explain="true" key="AI_STREET_SET"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_SURPLUS" explain="true" key="AI_STREET_SURPLUS"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_ZIP_CHANGED" explain="true" key="AI_ZIP_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_ZIP_NULL" explain="false" key="AI_ZIP_NULL"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_ZIP_SET" explain="true" key="AI_ZIP_SET"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_LRN_TYPE_CHANGED" explain="true" key="AI_LRN_TYPE_CHANGED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Second address identification after applying replacements using limited set of patterns - address-cfg.xml (most common patterns)</comm:comment>
+		</properties>
+		<visual-constraints bounds="384,1776,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Parse address (UIR-ADR) 2" endpoint="out"/>
+		<target step="Address not parsed 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Parse address (UIR-ADR) 3) --><step id="Parse address (UIR-ADR) 3" className="com.ataccama.dqc.tasks.addresses.AddressIdentifier" disabled="false" mode="NORMAL">
+		<properties numApproxMatches="0" configFile="pathvar://DATA/ext/lkp/cz_address_identifier/address-cfg_2.xml" parserRuleName="pat_address" analyzedAddressLayout="{pur_zip} ;  {pur_city} ; {pur_street} ">
+			<ambiguityScorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CL" explain="true" key="AI_AMBIG_CL"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CL_CD" explain="true" key="AI_AMBIG_CL_CD"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CL_ZCD" explain="true" key="AI_AMBIG_CL_ZCD"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_CS_N" explain="true" key="AI_AMBIG_CS_N"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_SN_Q" explain="true" key="AI_AMBIG_SN_Q"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZCD_L" explain="true" key="AI_AMBIG_ZCD_L"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZCS_L" explain="true" key="AI_AMBIG_ZCS_L"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZCS_N" explain="true" key="AI_AMBIG_ZCS_N"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_AMBIG_ZC_L" explain="true" key="AI_AMBIG_ZC_L"/>
+				</scoringEntries>
+			</ambiguityScorer>
+			<attributeScorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="ADDR_AI_CD" explain="false" key="AI_CD"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY" explain="false" key="AI_CITY"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_CD" explain="false" key="AI_CITY_CD"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_CD_STREET" explain="false" key="AI_CITY_CD_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_LRN" explain="false" key="AI_CITY_LRN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_STREET" explain="false" key="AI_CITY_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_STREET_SN" explain="false" key="AI_CITY_STREET_SN"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_ID_MISMATCH" explain="true" key="AI_ID_MISMATCH"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_LRN" explain="false" key="AI_LRN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_NOT_VERIFIED" explain="false" key="AI_NOT_VERIFIED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_NO_ADDRESS" explain="false" key="AI_NO_ADDRESS"/>
+					<scoringEntry score="750000" explainAs="ADDR_AI_NO_ADDRESS_ID" explain="true" key="AI_NO_ADDRESS_ID"/>
+					<scoringEntry score="5000000" explainAs="ADDR_AI_NO_PATTERN" explain="true" key="AI_NO_PATTERN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC" explain="false" key="AI_PC"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC_CITY" explain="false" key="AI_PC_CITY"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC_CITY_CD" explain="false" key="AI_PC_CITY_CD"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_PC_CITY_STREET" explain="false" key="AI_PC_CITY_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_SN" explain="false" key="AI_SN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET" explain="false" key="AI_STREET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_SN" explain="false" key="AI_STREET_SN"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_SWAP_LRN_SN" explain="true" key="AI_SWAP_LRN_SN"/>
+					<scoringEntry score="500000" explainAs="ADDR_AI_UNDECIDED_LRN_SN" explain="true" key="AI_UNDECIDED_LRN_SN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CD_SUFFIX" explain="false" key="AI_CD_SUFFIX"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_EVN" explain="true" key="AI_EVN"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_LRN_OR_EVN" explain="false" key="AI_LRN_OR_EVN"/>
+				</scoringEntries>
+			</attributeScorer>
+			<outputComponents streetClean="std_street" localityPartClean="std_city_district" localityClean="std_city" landRegistryNumberClean="std_lrn" cityPartClean="std_city_part" streetNumberClean="std_sn" postOfficeClean="std_post_office" districtClean="std_district" addressId="std_address_code" regionClean="std_region" postalCodeClean="std_zip"/>
+			<parserScorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_RPL_FULL" explain="false" key="AI_CITY_PART_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_RPL_FULL" explain="false" key="AI_DISTRICT_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_RPL_PART" explain="false" key="AI_CITY_PART_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_RPL_PART" explain="false" key="AI_DISTRICT_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_RPL_FULL" explain="false" key="AI_LOCALITY_PART_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_RPL_PART" explain="false" key="AI_LOCALITY_PART_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_RPL_FULL" explain="false" key="AI_LOCALITY_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_RPL_PART" explain="false" key="AI_LOCALITY_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_RPL_FULL" explain="false" key="AI_POST_OFFICE_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_RPL_PART" explain="false" key="AI_POST_OFFICE_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_RPL_FULL" explain="false" key="AI_STREET_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_RPL_PART" explain="false" key="AI_STREET_REPL_PART"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_ZIP_RPL_FULL" explain="false" key="AI_ZIP_REPL_FULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_ZIP_RPL_PART" explain="false" key="AI_ZIP_REPL_PART"/>
+				</scoringEntries>
+			</parserScorer>
+			<scorer explanationColumn="tmp_exp_address" scoreColumn="tmp_sco_address">
+				<scoringEntries>
+					<scoringEntry score="1000" explainAs="ADDR_AI_DISTRICT_CHANGED" explain="true" key="AI_DISTRICT_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_NULL" explain="false" key="AI_DISTRICT_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_DISTRICT_SET" explain="true" key="AI_DISTRICT_SET"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_CITY_CHANGED" explain="true" key="AI_LOCALITY_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_NULL" explain="false" key="AI_LOCALITY_NULL"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_CITY_DISTRICT_CHANGED" explain="true" key="AI_LOCALITY_PART_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_NULL" explain="false" key="AI_LOCALITY_PART_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_DISTRICT_SET" explain="true" key="AI_LOCALITY_PART_SET"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_CITY_SET" explain="true" key="AI_LOCALITY_SET"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_LRN_CHANGED" explain="true" key="AI_LRN_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_LRN_NULL" explain="false" key="AI_LRN_NULL"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_LRN_SET" explain="true" key="AI_LRN_SET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_CHANGED" explain="false" key="AI_MUNICIPALITY_PART_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_NULL" explain="false" key="AI_MUNICIPALITY_PART_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_CITY_PART_SET" explain="false" key="AI_MUNICIPALITY_PART_SET"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_CHANGED" explain="false" key="AI_POST_OFFICE_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_NULL" explain="false" key="AI_POST_OFFICE_NULL"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_POST_OFFICE_SET" explain="false" key="AI_POST_OFFICE_SET"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_SN_CHANGED" explain="true" key="AI_SN_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_SN_NULL" explain="false" key="AI_SN_NULL"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_SN_SET" explain="true" key="AI_SN_SET"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_CHANGED" explain="true" key="AI_STREET_CHANGED"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_MISSING" explain="true" key="AI_STREET_MISSING"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_STREET_NULL" explain="false" key="AI_STREET_NULL"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_SET" explain="true" key="AI_STREET_SET"/>
+					<scoringEntry score="10000" explainAs="ADDR_AI_STREET_SURPLUS" explain="true" key="AI_STREET_SURPLUS"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_ZIP_CHANGED" explain="true" key="AI_ZIP_CHANGED"/>
+					<scoringEntry score="0" explainAs="ADDR_AI_ZIP_NULL" explain="false" key="AI_ZIP_NULL"/>
+					<scoringEntry score="100" explainAs="ADDR_AI_ZIP_SET" explain="true" key="AI_ZIP_SET"/>
+					<scoringEntry score="1000" explainAs="ADDR_AI_LRN_TYPE_CHANGED" explain="true" key="AI_LRN_TYPE_CHANGED"/>
+				</scoringEntries>
+			</scorer>
+			<comm:comment>Third address identification of unidentified addresses after applying replacements using full set of patterns - address-cfg_2.xml</comm:comment>
+		</properties>
+		<visual-constraints bounds="528,2160,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Parse address (UIR-ADR) 3" endpoint="out"/>
+		<target step="Union all addresses" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="528,2280"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove columns) --><step id="Remove columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="pur_street"/>
+				<columnRef name="pur_city"/>
+				<columnRef name="pur_zip"/>
+				<columnRef name="tmp_sco_address"/>
+				<columnRef name="tmp_exp_address"/>
+				<columnRef name="tmp_street"/>
+				<columnRef name="tmp_city"/>
+				<columnRef name="use_extended_patterns"/>
+			</removedColumns>
+		</properties>
+		<visual-constraints bounds="288,3000,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove columns" endpoint="out"/>
+		<target step="out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Reset tmp scoring) --><step id="Reset tmp scoring" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="0" column="tmp_sco_address">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+				<assignment expression="null" column="tmp_exp_address">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>reset temporary columns used for the next address identification</comm:comment>
+		</properties>
+		<visual-constraints bounds="384,1368,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Reset tmp scoring" endpoint="out"/>
+		<target step="Apply partial street replacements - street" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Reset tmp scoring 3) --><step id="Reset tmp scoring 3" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="0" column="tmp_sco_address">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+				<assignment expression="null" column="tmp_exp_address">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>reset temporary columns used for the next address identification</comm:comment>
+		</properties>
+		<visual-constraints bounds="528,2064,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Reset tmp scoring 3" endpoint="out"/>
+		<target step="Parse address (UIR-ADR) 3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Score empty address) --><step id="Score empty address" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_address" defaultExplainColumn="exp_address">
+			<scoringCases>
+				<scoringCase condition="true" description="Unknown value. Address delivery point was not identified as there is probably no address value in the input or major input values are missing." explanation="&#39;INSUFFICIENT_INPUT&#39;" score="10000000"/>
+			</scoringCases>
+			<comm:comment>Explain empty or unsufficient input.</comm:comment>
+		</properties>
+		<visual-constraints bounds="0,720,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Score empty address" endpoint="out"/>
+		<target step="Union all addresses" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="31,2280"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Set address labels) --><step id="Set address labels" className="com.ataccama.dqc.tasks.scoring.SimpleScoring" disabled="false" mode="NORMAL">
+		<properties defaultScoreColumn="sco_address" defaultExplainColumn="lbl_address">
+			<scoringCases>
+				<scoringCase condition="std_address_code is not NULL and sco_address = 0" description="No or minimal correction was done to the input value. DQ score is 0. The result address is valid." explanation="&quot;VALID&quot;" score="0"/>
+				<scoringCase condition="std_address_code is not NULL and sco_address &gt; 0 and sco_address &lt; 10000" description="Small correction was done to the input value. DQ score is greater than 0 and less than 10 000. The result address is valid-corrected." explanation="&quot;CORRECTED_MINOR&quot;" score="0"/>
+				<scoringCase condition="std_address_code is not NULL and sco_address &gt;= 10000 and sco_address &lt; 1000000" description="Unsafe value. Address code was identified, but huge modification was done to the input value and resulting value can no longer be considered valid, for example change of street name or adding a street even it was not found on input. The result address is unsafe." explanation="&quot;CORRECTED_MAJOR&quot;" score="0"/>
+				<scoringCase condition="std_address_code is NULL and pat_address is not null" description="Unknown value. No correction was able to help identify the address. Address code was not identified but at least input address was parsed." explanation="&quot;UNKNOWN&quot;" score="0"/>
+				<scoringCase condition="std_address_code is NULL and pat_address is null" description="Unknown value. No correction was able to help identify the address. Address was neither identified nor parsed." explanation="&quot;UNKNOWN&quot;" score="0"/>
+			</scoringCases>
+			<comm:comment>Set labels based on DQ score and output values.</comm:comment>
+		</properties>
+		<visual-constraints bounds="192,2496,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Set address labels" endpoint="out"/>
+		<target step="Address not identified" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Street cleansing and normalization) --><step id="Street cleansing and normalization" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="substituteAll(&quot;\\b[čc][. ]*[íi]*[. ]*[s]*[. ]*[p][. ]*[o]*[. ]*[p]*[. ]*(\\d)&quot;, &quot; $1&quot;, pur_street, true)" column="pur_street">
+					<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="STREET_NUM_PREFIX_REMOVED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Removes typical &quot;č.p.&quot; from street value: Jitravská č.p. 2087 =&gt; Jitravská 2087</comm:comment>
+				</assignment>
+				<assignment expression="substituteAll(&quot;\\b[čc][. ]*[íi]*[. ]*[s]*[. ]*[o][. ]*[r]*[. ]*(\\d)&quot;, &quot; $1&quot;, pur_street, true)" column="pur_street">
+					<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="STREET_NUM_PREFIX_REMOVED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Removes typical &quot;č.o.&quot; from street value: Jitravská č.o. 16 =&gt; Jitravská 16</comm:comment>
+				</assignment>
+				<assignment expression="iif(find(&quot;\\b[čc][. ]*ev?[. ]*(\\d)&quot;,  pur_street, true), substituteAll(&quot;\\b[čc][. ]*ev?[. ]*(\\d)&quot;, &quot;č.ev.$1&quot;, pur_street, true), pur_street)" column="pur_street">
+					<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="STREET_NUM_EVN_PREFIX_DETECTED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Standardizes &quot;č.ev.&quot; in street value:
+Černý Důl č. ev. 58 =&gt; Černý Důl č.ev.58
+Černý Důl č.e. 58 =&gt; Černý Důl č.ev.58
+Černý Důl če 58 =&gt; Černý Důl č.ev.58
+Černý Důl ce 58 =&gt; Černý Důl č.ev.58
+Černý Důl cev 58 =&gt; Černý Důl č.ev.58</comm:comment>
+				</assignment>
+				<assignment expression="substituteAll(@&quot;([a-zA-Z]+)(\d+)&quot;, &quot;$1 $2&quot;, pur_street, true)" column="pur_street">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Adds missing space in front of address number: Pražská9 =&gt; Pražská 9</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Initial street line standardization and cleansing</comm:comment>
+		</properties>
+		<visual-constraints bounds="264,744,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Street cleansing and normalization" endpoint="out"/>
+		<target step="Street cleansing and normalization II" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Street cleansing and normalization II) --><step id="Street cleansing and normalization II" className="com.ataccama.dqc.tasks.clean.MatchingValues" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<matchingColumn expression="pur_street" name="pur_street">
+					<generator substituteWith=" " doRemoveRepeatedChars="false" doSqueezeWS="true" supportedCharacters="[:all:-,:]" doRemoveDia="false" doUpperCase="false"/>
+					<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="STREET_SPECIAL_CHARS_REMOVED" explain="true" key="MV_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Special characters removal in order to fit predefined parsing rule in the first attempt of address parsing:
+&quot;Těšínská 786, 34&quot; =&gt; &quot;Těšínská 786 34&quot;</comm:comment>
+				</matchingColumn>
+			</columns>
+		</properties>
+		<visual-constraints bounds="264,816,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Street cleansing and normalization II" endpoint="out"/>
+		<target step="Union all street" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Street not empty) --><step id="Street not empty" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="pur_street is not null"/>
+		<visual-constraints bounds="240,672,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Street not empty" endpoint="out_true"/>
+		<target step="Street cleansing and normalization" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Street not empty" endpoint="out_false"/>
+		<target step="Union all street" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="168,720"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union all ZIP) --><step id="Union all ZIP" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="144,600,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union all ZIP" endpoint="out"/>
+		<target step="Street not empty" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="167,672"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union all addresses) --><step id="Union all addresses" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union all address records:
+- empty input records
+- addresses identified within the first AI
+- addresses identified within the second AI
+- addresses identified within the third AI
+- not identified addresses</comm:comment>
+		</properties>
+		<visual-constraints bounds="192,2280,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union all addresses" endpoint="out"/>
+		<target step="Add temporary and other scoring" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union all city) --><step id="Union all city" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="144,1128,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union all city" endpoint="out"/>
+		<target step="Parse address (UIR-ADR)" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union all output values) --><step id="Union all output values" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="288,2856,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union all output values" endpoint="out"/>
+		<target step="Assign evidence number" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union all street) --><step id="Union all street" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="144,864,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union all street" endpoint="out"/>
+		<target step="City not empty" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="167,936"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Use extended patterns) --><step id="Use extended patterns" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="true"/>
+		<visual-constraints bounds="504,1968,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Use extended patterns" endpoint="out_true"/>
+		<target step="Reset tmp scoring 3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Use extended patterns" endpoint="out_false"/>
+		<target step="Union all addresses" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Values mapping) --><step id="Values mapping" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="in_address_line_1" column="pur_street">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+				<assignment expression="in_address_line_2" column="pur_city">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+				<assignment expression="in_address_line_3" column="pur_zip">
+					<scorer>
+						<scoringEntries/>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>Initial mapping of input values for further pre-cleansing, validation, parsing.</comm:comment>
+		</properties>
+		<visual-constraints bounds="240,236,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Values mapping" endpoint="out"/>
+		<target step="Address not empty" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (ZIP cleansing and normalization) --><step id="ZIP cleansing and normalization" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="replace(pur_zip, &#39; &#39;, &#39;&#39;)" column="pur_zip">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>182 00 =&gt; 18200</comm:comment>
+				</assignment>
+				<assignment expression="trashNonDigits(pur_zip)" column="pur_zip">
+					<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+						<scoringEntries>
+							<scoringEntry score="10" explainAs="ZIP_NONDIGITS_REMOVED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>XNA =&gt; null</comm:comment>
+				</assignment>
+				<assignment column="pur_zip">
+					<expression>$hasDummyValue:=find(@&quot;(\d)\1{4}&quot;, pur_zip);
+
+iif($hasDummyValue, null, pur_zip)</expression>
+					<scorer explanationColumn="exp_address" scoreColumn="sco_address">
+						<scoringEntries>
+							<scoringEntry score="100" explainAs="ZIP_DUMMY_REMOVED" explain="true" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>11111 =&gt; null</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Initial ZIP standardization and cleansing</comm:comment>
+		</properties>
+		<visual-constraints bounds="264,480,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="ZIP cleansing and normalization" endpoint="out"/>
+		<target step="Union all ZIP" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="287,600"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (ZIP not empty) --><step id="ZIP not empty" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="pur_zip is not null"/>
+		<visual-constraints bounds="240,408,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="ZIP not empty" endpoint="out_false"/>
+		<target step="Union all ZIP" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="168,456"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="ZIP not empty" endpoint="out_true"/>
+		<target step="ZIP cleansing and normalization" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="in_address_line_1" type="STRING">
+					<comm:comment>Input first address line: street or city district or city part followed by a number or a combination of numbers (lrn, sn, evn)</comm:comment>
+				</columnDef>
+				<columnDef name="in_address_line_2" type="STRING">
+					<comm:comment>Input second address line: city or city district or city part or post office or a combination of these</comm:comment>
+				</columnDef>
+				<columnDef name="in_address_line_3" type="STRING">
+					<comm:comment>Input third address line: postal code</comm:comment>
+				</columnDef>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="240,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="Add Columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out) --><step id="out" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="out_address_line_1" type="STRING">
+					<comm:comment>Best existing value of the first address line. For identified addresses it includes street or city district or city part followed by a number or a combination of numbers (lrn, sn, evn). For unidentified addresses it is a copy of the input first address line.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_address_line_2" type="STRING">
+					<comm:comment>Best existing value of the second address line. For identified addresses it includes city or city district or city part or a combination of these followed by a number (if applicable). For unidentified addresses it is a copy of the input first address line.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="out_address_line_3" type="STRING">
+					<comm:comment>Best existing value of the third address line. For identified addresses it includes postal code and post office. For unidentified addresses it is a copy of the input first address line.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_address_code" type="STRING">
+					<comm:comment>Standardized adress code (in Czech &quot;adresní kód&quot;).</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_zip" type="STRING">
+					<comm:comment>Standardized zip code (in Czech &quot;PSČ&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_city" type="STRING">
+					<comm:comment>Standardized city (in Czech &quot;město&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_city_district" type="STRING">
+					<comm:comment>Standardized city district (in Czech &quot;část obce&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_city_part" type="STRING">
+					<comm:comment>Standardized city part (in Czech &quot;městská část&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_street" type="STRING">
+					<comm:comment>Standardized street (in Czech &quot;ulice&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_lrn" type="STRING">
+					<comm:comment>Standardized land registry number (in Czech &quot;popisné číslo&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_sn" type="STRING">
+					<comm:comment>Standardized street number (in Czech &quot;orientační číslo&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_evn" type="STRING">
+					<comm:comment>Standardized evidentiary number (in Czech &quot;evidenční číslo&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_district" type="STRING">
+					<comm:comment>Standardized district (in Czech &quot;okres&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_post_office" type="STRING">
+					<comm:comment>Standardized post office (in Czech &quot;pošta&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="std_region" type="STRING">
+					<comm:comment>Standardized region (in Czech &quot;kraj&quot;)</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="sco_address" type="INTEGER">
+					<comm:comment>Data quality score of address</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="exp_address" type="STRING">
+					<comm:comment>Explanation codes of data quality problems in address</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="lbl_address" type="STRING">
+					<comm:comment>Output value of address validity label. Indicates whether the address is valid, corrected or unknown.</comm:comment>
+				</requiredColumn>
+				<requiredColumn name="pat_address" type="STRING">
+					<comm:comment>Pattern of parsed address. Address patterns are defined as string describing allowed text in the input. The allowed text can be defined by both, ordinary strings and components. Exclamation mark means that the component must be verified against reference data. See the complete pattern description in AI step reference documentation.</comm:comment>
+				</requiredColumn>
+			</requiredColumns>
+		</properties>
+		<visual-constraints bounds="288,3096,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="-275,-130,351,154" borderColor="0,0,0" backgroundColor="255,255,255" foregroundColor="51,51,51">LEGEND</modelComment>
+
+
+
+<modelComment bounds="-264,-72,330,35" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Detailed comments to solution areas - how it works.</modelComment>
+
+
+
+<modelComment bounds="-264,-106,330,35" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Comments to main solution areas.</modelComment>
+
+
+
+<modelComment bounds="-264,-40,330,48" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Additional info related to one step or group of steps - 
+not how it works but why it works like that.</modelComment>
+
+
+
+<modelComment bounds="240,2352,340,73" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">All address identifier steps used temporary
+columns for scoring (in order not to score several times the same).
+Now the final scoring metadata must be added to regular scoring.</modelComment>
+
+
+
+<modelComment bounds="264,2592,289,73" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Composing output values
+depending on whether address was identified or not.</modelComment>
+
+
+
+<modelComment bounds="432,1584,217,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">If street replacement was not applied, 
+apply city replacement on street value.</modelComment>
+
+
+
+<modelComment bounds="504,432,337,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">ZIP cleansing and normalization</modelComment>
+
+
+
+<modelComment bounds="504,696,337,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Street cleansing and normalization</modelComment>
+
+
+
+<modelComment bounds="504,960,337,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">City cleansing and normalization</modelComment>
+
+
+
+<modelComment bounds="504,312,337,73" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">If both in_address_line_1 and in_address_line_2 are empty
+input address is considered empty (it is not reasonable to
+try to identify address if only postal code is on input)</modelComment>
+
+
+
+<modelComment bounds="504,504,337,73" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Dummy values are also identified and removed here
+(e.g. identical consecutive numbers)</modelComment>
+
+
+
+<modelComment bounds="504,768,337,73" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Dummy number prefixes are also identified and removed here
+(e.g. &quot;č.p.&quot;, &quot;č.ev.&quot;).
+Also special characters (e.g. comma) are removed here.</modelComment>
+
+
+
+<modelComment bounds="504,1032,337,73" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Dummy number prefixes are also identified and removed here
+(e.g. &quot;č.p.&quot;, &quot;č.ev.&quot;).
+Also special characters (e.g. comma) are removed here.</modelComment>
+
+
+
+<modelComment bounds="504,1272,337,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Address records that were not successfully parsed
+shoud be processed again, but first let&#39;s try to apply
+some transformation and replacements.</modelComment>
+
+
+
+<modelComment bounds="504,1176,337,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">First attempt to parse and identify address.</modelComment>
+
+
+
+<modelComment bounds="504,2688,343,113" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">For unidentified addresses we need to use some strategy
+how to set output (best of best) values. One of them is simply
+copying input values to the output; the main reason is that
+if the address is not identified (because of low quality of input data
+including typos or location inconsistency among particular address
+input fields), the component can never assure the consistency
+neither quality of output values.</modelComment>
+
+
+
+<modelComment bounds="600,1776,337,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Second attempt to parse and identify address.</modelComment>
+
+
+
+<modelComment bounds="600,1872,337,61" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Address records that were not successfully parsed
+shoud be processed again, this time with
+larger amount of parsing patterns.</modelComment>
+
+
+
+<modelComment bounds="744,2160,337,49" borderColor="183,183,0" backgroundColor="128,255,255" foregroundColor="51,51,51">Third attempt to parse and identify address.</modelComment>
+
+
+
+<modelComment bounds="864,696,337,74" borderColor="183,183,0" backgroundColor="128,255,128" foregroundColor="51,51,51">Normally we don&#39;t need to parse input street value
+(it is done in Address Identifier step)
+unless the quality of the input is significantly low.
+At least we need to perform basic pre-cleansing procedures here.</modelComment>
+
+</purity-config>

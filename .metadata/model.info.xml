@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+	<item path="/logicalModel/instanceModel">
+		<positions>
+			<item id="5267" value="132,43,118,-1"/>
+			<item id="5292" value="472,27,137,-1"/>
+			<item id="9415" value="125,331,127,-1"/>
+			<item id="6046" value="290,109,140,24"/>
+			<item id="9636" value="120,258,140,24"/>
+		</positions>
+	</item>
+	<item path="/systems[0]/model">
+		<positions>
+			<item id="6394" value="138,72,100,-1"/>
+		</positions>
+	</item>
+	<item path="/systems[1]/model">
+		<positions>
+			<item id="4260" value="216,150,100,100"/>
+		</positions>
+	</item>
+	<item path="/logicalModel/masterModels[0]">
+		<positions>
+			<item id="5177" value="218,146,120,127"/>
+		</positions>
+	</item>
+	<item path="/systems[2]/model">
+		<positions>
+			<item id="9794" value="237,156,100,100"/>
+		</positions>
+	</item>
+</root>

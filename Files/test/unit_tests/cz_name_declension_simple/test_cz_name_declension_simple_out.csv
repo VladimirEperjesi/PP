@@ -1,0 +1,37 @@
+"difference"^~"TC_ID"^~"description"^~"src_first_name"^~"src_middle_name"^~"src_last_name"^~"src_gender"^~"out_fn_accusative"^~"e_out_fn_accusative"^~"out_fn_vocative"^~"e_out_fn_vocative"^~"out_mn_accusative"^~"e_out_mn_accusative"^~"out_mn_vocative"^~"e_out_mn_vocative"^~"out_ln_accusative"^~"e_out_ln_accusative"^~"out_ln_vocative"^~"e_out_ln_vocative"^~"exp_declension"^~"e_exp_declension"^~"sco_declension"^~"e_sco_declension"
+^~1^~"missing input params"^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~"DECLENSION_MISSING_INPUT_PARAMS"^~"DECLENSION_MISSING_INPUT_PARAMS"^~10000000^~10000000
+^~2^~"invalid name parts"^~"arnold silvester"^~"#"^~"@"^~"f"^~^~^~^~^~^~^~^~^~^~^~^~^~"DECLENSION_FN_INVALID DECLENSION_MN_INVALID DECLENSION_LN_INVALID"^~"DECLENSION_FN_INVALID DECLENSION_MN_INVALID DECLENSION_LN_INVALID"^~30000^~30000
+^~3^~"invalid gender"^~^~^~^~"x"^~^~^~^~^~^~^~^~^~^~^~^~^~"DECLENSION_MISSING_INPUT_PARAMS DECLENSION_INVALID_GENDER"^~"DECLENSION_MISSING_INPUT_PARAMS DECLENSION_INVALID_GENDER"^~20000000^~20000000
+^~4^~"valid female name parts"^~"jana"^~"anča"^~"zelená"^~"F"^~"Janu"^~"Janu"^~"Jano"^~"Jano"^~"Anču"^~"Anču"^~"Ančo"^~"Ančo"^~"Zelenou"^~"Zelenou"^~"Zelená"^~"Zelená"^~^~^~0^~0
+^~5^~"valid male name parts"^~"milan"^~"ondrej"^~"modrý"^~"m"^~"Milana"^~"Milana"^~"Milane"^~"Milane"^~"Ondreje"^~"Ondreje"^~"Ondreji"^~"Ondreji"^~"Modrého"^~"Modrého"^~"Modrý"^~"Modrý"^~^~^~0^~0
+^~6^~"female multiwords last name"^~^~^~"Modrá-Zelená"^~"f"^~^~^~^~^~^~^~^~^~"Modrá-Zelenou"^~"Modrá-Zelenou"^~"Modrá-Zelená"^~"Modrá-Zelená"^~^~^~0^~0
+^~7^~"male multiwords last name"^~^~^~"Modrý Zelený"^~"m"^~^~^~^~^~^~^~^~^~"Modrý Zeleného"^~"Modrý Zeleného"^~"Modrý Zelený"^~"Modrý Zelený"^~^~^~0^~0
+^~8^~"wrong gender -> wrong declension"^~"jan"^~"fero"^~"novák"^~"f"^~"Jan"^~"Jan"^~"Jan"^~"Jan"^~"Fero"^~"Fero"^~"Fero"^~"Fero"^~"Novák"^~"Novák"^~"Novák"^~"Novák"^~^~^~0^~0
+^~9^~"female short fn, oriental ln - no declension"^~"Li"^~"Na"^~"XUAN"^~"f"^~"Li"^~"Li"^~"Li"^~"Li"^~"Na"^~"Na"^~"Na"^~"Na"^~"Xuan"^~"Xuan"^~"Xuan"^~"Xuan"^~^~^~0^~0
+^~10^~"female suffix 'ová'"^~^~^~"Pietrová"^~"f"^~^~^~^~^~^~^~^~^~"Pietrovou"^~"Pietrovou"^~"Pietrová"^~"Pietrová"^~^~^~0^~0
+^~11^~"female ends with 'a'"^~"Andrea"^~^~^~"f"^~"Andreu"^~"Andreu"^~"Andreo"^~"Andreo"^~^~^~^~^~^~^~^~^~^~^~0^~0
+^~12^~"female doesn't end with 'a'"^~"Karin"^~^~^~"f"^~"Karin"^~"Karin"^~"Karin"^~"Karin"^~^~^~^~^~^~^~^~^~^~^~0^~0
+^~13^~"female no rule"^~"Kariň"^~^~^~"f"^~^~^~^~^~^~^~^~^~^~^~^~^~"DECLENSION_FN_UNDECLINED"^~"DECLENSION_FN_UNDECLINED"^~10000^~10000
+^~14^~"female ends with 'e' - no decln."^~"Ulrike"^~^~^~"f"^~"Ulrike"^~"Ulrike"^~"Ulrike"^~"Ulrike"^~^~^~^~^~^~^~^~^~^~^~0^~0
+^~15^~"male short fn - no decln"^~"TJ"^~^~^~"m"^~"Tj"^~"Tj"^~"Tj"^~"Tj"^~^~^~^~^~^~^~^~^~^~^~0^~0
+^~16^~"male undecl."^~"Delacroix"^~^~^~"m"^~"Delacroix"^~"Delacroix"^~"Delacroix"^~"Delacroix"^~^~^~^~^~^~^~^~^~^~^~0^~0
+^~17^~"male latin fn"^~"Július"^~^~"Caesar"^~"m"^~"Júlia"^~"Júlia"^~"Júlie"^~"Júlie"^~^~^~^~^~"Caesara"^~"Caesara"^~"Caesare"^~"Caesare"^~^~^~0^~0
+^~18^~"male ends with 'í, ý'"^~"noexamplí"^~^~"Starý"^~"m"^~"Noexamplího"^~"Noexamplího"^~"Noexamplí"^~"Noexamplí"^~^~^~^~^~"Starého"^~"Starého"^~"Starý"^~"Starý"^~^~^~0^~0
+^~19^~"male ends with 'i', 'y'"^~"Hai"^~"Johnny"^~^~"m"^~"Hai"^~"Hai"^~"Hai"^~"Hai"^~"Johnnyho"^~"Johnnyho"^~"Johnny"^~"Johnny"^~^~^~^~^~^~^~0^~0
+^~20^~"male ends with "ek" or "ěk""^~"Marek"^~^~"Bezděk"^~"m"^~"Marka"^~"Marka"^~"Marku"^~"Marku"^~^~^~^~^~"Bezděka"^~"Bezděka"^~"Bezděku"^~"Bezděku"^~^~^~0^~0
+^~21^~"male ends with "el" or "ell""^~"Pavel"^~^~"Nevyjel"^~"m"^~"Pavla"^~"Pavla"^~"Pavle"^~"Pavle"^~^~^~^~^~"Nevyjela"^~"Nevyjela"^~"Nevyjele"^~"Nevyjele"^~^~^~0^~0
+^~22^~"male ends with "ěl""^~^~^~"Znejistěl"^~"m"^~^~^~^~^~^~^~^~^~"Znejistěla"^~"Znejistěla"^~"Znejistěli"^~"Znejistěli"^~^~^~0^~0
+^~23^~"male two forms (only one on output)"^~^~^~"Anděl"^~"m"^~^~^~^~^~^~^~^~^~"Anděla"^~"Anděla"^~"Anděle"^~"Anděle"^~^~^~0^~0
+^~24^~"male ends with "er""^~"Exler"^~^~"Brückner"^~"m"^~"Exlera"^~"Exlera"^~"Exlere"^~"Exlere"^~^~^~^~^~"Brücknera"^~"Brücknera"^~"Brücknere"^~"Brücknere"^~^~^~0^~0
+^~25^~"male ends with "ng""^~^~^~"Lang"^~"m"^~^~^~^~^~^~^~^~^~"Langa"^~"Langa"^~"Langu"^~"Langu"^~^~^~0^~0
+^~26^~"male month name"^~"Leden"^~^~^~"m"^~"Ledna"^~"Ledna"^~"Ledne"^~"Ledne"^~^~^~^~^~^~^~^~^~^~^~0^~0
+^~27^~"male ends with "evych""^~^~^~"Teslevych"^~"m"^~^~^~^~^~^~^~^~^~"Teslevycha"^~"Teslevycha"^~"Teslevychu"^~"Teslevychu"^~^~^~0^~0
+^~28^~"male ends with "[vocal]+r""^~"Homr"^~^~^~"m"^~"Homra"^~"Homra"^~"Homře"^~"Homře"^~^~^~^~^~^~^~^~^~^~^~0^~0
+^~29^~"male ends with "ec""^~^~^~"Kadlec"^~"m"^~^~^~^~^~^~^~^~^~"Kadlece"^~"Kadlece"^~"Kadleci"^~"Kadleci"^~^~^~0^~0
+^~30^~"male ends with "nc""^~^~^~"Lokvenc"^~"m"^~^~^~^~^~^~^~^~^~"Lokvence"^~"Lokvence"^~"Lokvenci"^~"Lokvenci"^~^~^~0^~0
+^~31^~"male ends with "a""^~"Ondra"^~^~"Nohavica"^~"m"^~"Ondru"^~"Ondru"^~"Ondro"^~"Ondro"^~^~^~^~^~"Nohavicu"^~"Nohavicu"^~"Nohavico"^~"Nohavico"^~^~^~0^~0
+^~32^~"male ends with "e""^~^~^~"šebrle"^~"m"^~^~^~^~^~^~^~^~^~"Šebrla"^~"Šebrla"^~"Šebrle"^~"Šebrle"^~^~^~0^~0
+^~33^~"male ends with "eň""^~^~^~"Jeleň"^~"m"^~^~^~^~^~^~^~^~^~"Jeleně"^~"Jeleně"^~"Jeleni"^~"Jeleni"^~^~^~0^~0
+^~34^~"male ends with "y""^~"Gorky"^~^~^~"m"^~"Gorkyho"^~"Gorkyho"^~"Gorky"^~"Gorky"^~^~^~^~^~^~^~^~^~^~^~0^~0
+^~35^~"male no rule"^~"Axr"^~^~^~"m"^~^~^~^~^~^~^~^~^~^~^~^~^~"DECLENSION_FN_UNDECLINED"^~"DECLENSION_FN_UNDECLINED"^~10000^~10000
+^~36^~"two forms - return one"^~^~^~"Švec"^~"m"^~^~^~^~^~^~^~^~^~"Ševce"^~"Ševce"^~"Ševče"^~"Ševče"^~^~^~0^~0

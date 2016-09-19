@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Calculate test result) --><step id="Calculate test result" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_out_address_line_1 is not out_address_line_1, &#39; out_address_line_1&#39;, &#39;&#39;) + 
+    iif(e_out_address_line_2 is not out_address_line_2, &#39; out_address_line_2&#39;, &#39;&#39;) + 
+    iif(e_out_address_line_3 is not out_address_line_3, &#39; out_address_line_3&#39;, &#39;&#39;) + 
+    iif(e_std_address_code is not std_address_code, &#39; std_address_code&#39;, &#39;&#39;) + 
+    iif(e_std_zip is not std_zip, &#39; std_zip&#39;, &#39;&#39;) + 
+    iif(e_std_city is not std_city, &#39; std_city&#39;, &#39;&#39;) + 
+    iif(e_std_city_district is not std_city_district, &#39; std_city_district&#39;, &#39;&#39;) + 
+    iif(e_std_city_part is not std_city_part, &#39; std_city_part&#39;, &#39;&#39;) + 
+    iif(e_std_street is not std_street, &#39; std_street&#39;, &#39;&#39;) + 
+    iif(e_std_lrn is not std_lrn, &#39; std_lrn&#39;, &#39;&#39;) + 
+    iif(e_std_sn is not std_sn, &#39; std_sn&#39;, &#39;&#39;) + 
+    iif(e_std_evn is not std_evn, &#39; std_evn&#39;, &#39;&#39;) + 
+    iif(e_std_district is not std_district, &#39; std_district&#39;, &#39;&#39;) + 
+    iif(e_std_post_office is not std_post_office, &#39; std_post_office&#39;, &#39;&#39;) + 
+    iif(e_std_region is not std_region, &#39; std_region&#39;, &#39;&#39;) + 
+    iif(e_sco_address is not sco_address, &#39; sco_address&#39;, &#39;&#39;) + 
+    iif(e_exp_address is not exp_address, &#39; exp_address&#39;, &#39;&#39;) + 
+    iif(e_lbl_address is not lbl_address, &#39; lbl_address&#39;, &#39;&#39;) + 
+    iif(e_pat_address is not pat_address, &#39; pat_address&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="24,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result" endpoint="out"/>
+		<target step="Sort" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Read test_cz_address_identifier_in.xls) --><step id="Read test_cz_address_identifier_in.xls" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader" disabled="false" mode="NORMAL">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/cz_address_identifier/test_cz_address_identifier_in.xls" startCell="A2" skipEmptyRows="true" sheet="0">
+			<columns>
+				<columnDef name="TC_ID" type="INTEGER"/>
+				<columnDef name="description" type="STRING"/>
+				<columnDef name="in_address_line_1" type="STRING"/>
+				<columnDef name="in_address_line_2" type="STRING"/>
+				<columnDef name="in_address_line_3" type="STRING"/>
+				<columnDef name="e_out_address_line_1" type="STRING"/>
+				<columnDef name="e_out_address_line_2" type="STRING"/>
+				<columnDef name="e_out_address_line_3" type="STRING"/>
+				<columnDef name="e_std_address_code" type="STRING"/>
+				<columnDef name="e_std_zip" type="STRING"/>
+				<columnDef name="e_std_city" type="STRING"/>
+				<columnDef name="e_std_city_district" type="STRING"/>
+				<columnDef name="e_std_city_part" type="STRING"/>
+				<columnDef name="e_std_street" type="STRING"/>
+				<columnDef name="e_std_lrn" type="STRING"/>
+				<columnDef name="e_std_sn" type="STRING"/>
+				<columnDef name="e_std_evn" type="STRING"/>
+				<columnDef name="e_std_district" type="STRING"/>
+				<columnDef name="e_std_post_office" type="STRING"/>
+				<columnDef name="e_std_region" type="STRING"/>
+				<columnDef name="e_sco_address" type="INTEGER"/>
+				<columnDef name="e_exp_address" type="STRING"/>
+				<columnDef name="e_lbl_address" type="STRING"/>
+				<columnDef name="e_pat_address" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="24,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Read test_cz_address_identifier_in.xls" endpoint="out"/>
+		<target step="add columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Sort) --><step id="Sort" className="com.ataccama.dqc.tasks.identify.sort.SortEngine" disabled="false" mode="NORMAL">
+		<properties>
+			<sort>
+				<orderBy expression="TC_ID" orderDescending="false" nullsFirst="false"/>
+			</sort>
+		</properties>
+		<visual-constraints bounds="24,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Sort" endpoint="out"/>
+		<target step="Write test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Write test result) --><step id="Write test result" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" mode="NORMAL">
+		<properties useStringQualifierOnAllColumns="false" stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator="^~" generateMetadata="true" fileName="pathvar://TESTS_ROOT/cz_address_identifier/test_cz_address_identifier_out.csv" encoding="UTF-8" writeHeader="true" writeAllColumns="false" compression="NONE">
+			<columns>
+				<textWriterColumn name="difference"/>
+				<textWriterColumn name="TC_ID"/>
+				<textWriterColumn name="description"/>
+				<textWriterColumn name="in_address_line_1"/>
+				<textWriterColumn name="in_address_line_2"/>
+				<textWriterColumn name="in_address_line_3"/>
+				<textWriterColumn name="out_address_line_1"/>
+				<textWriterColumn name="e_out_address_line_1"/>
+				<textWriterColumn name="out_address_line_2"/>
+				<textWriterColumn name="e_out_address_line_2"/>
+				<textWriterColumn name="out_address_line_3"/>
+				<textWriterColumn name="e_out_address_line_3"/>
+				<textWriterColumn name="std_address_code"/>
+				<textWriterColumn name="e_std_address_code"/>
+				<textWriterColumn name="std_zip"/>
+				<textWriterColumn name="e_std_zip"/>
+				<textWriterColumn name="std_city"/>
+				<textWriterColumn name="e_std_city"/>
+				<textWriterColumn name="std_city_district"/>
+				<textWriterColumn name="e_std_city_district"/>
+				<textWriterColumn name="std_city_part"/>
+				<textWriterColumn name="e_std_city_part"/>
+				<textWriterColumn name="std_street"/>
+				<textWriterColumn name="e_std_street"/>
+				<textWriterColumn name="std_lrn"/>
+				<textWriterColumn name="e_std_lrn"/>
+				<textWriterColumn name="std_sn"/>
+				<textWriterColumn name="e_std_sn"/>
+				<textWriterColumn name="std_evn"/>
+				<textWriterColumn name="e_std_evn"/>
+				<textWriterColumn name="std_district"/>
+				<textWriterColumn name="e_std_district"/>
+				<textWriterColumn name="std_post_office"/>
+				<textWriterColumn name="e_std_post_office"/>
+				<textWriterColumn name="std_region"/>
+				<textWriterColumn name="e_std_region"/>
+				<textWriterColumn name="sco_address"/>
+				<textWriterColumn name="e_sco_address"/>
+				<textWriterColumn name="exp_address"/>
+				<textWriterColumn name="e_exp_address"/>
+				<textWriterColumn name="lbl_address"/>
+				<textWriterColumn name="e_lbl_address"/>
+				<textWriterColumn name="pat_address"/>
+				<textWriterColumn name="e_pat_address"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss.SSS" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+		</properties>
+		<visual-constraints bounds="24,384,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (add columns) --><step id="add columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="out_address_line_1" type="STRING">
+					<comm:comment>Best existing value of the first address line. For identified addresses it includes street or city district or city part followed by a number or a combination of numbers (lrn, sn, evn). For unidentified addresses it is a copy of the input first address line.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_address_line_2" type="STRING">
+					<comm:comment>Best existing value of the second address line. For identified addresses it includes city or city district or city part or a combination of these followed by a number (if applicable). For unidentified addresses it is a copy of the input first address line.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_address_line_3" type="STRING">
+					<comm:comment>Best existing value of the third address line. For identified addresses it includes postal code and post office. For unidentified addresses it is a copy of the input first address line.</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_address_code" type="STRING">
+					<comm:comment>Standardized adress code (in Czech &quot;adresní kód&quot;).</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_zip" type="STRING">
+					<comm:comment>Standardized zip code (in Czech &quot;PSČ&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_city" type="STRING">
+					<comm:comment>Standardized city (in Czech &quot;město&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_city_district" type="STRING">
+					<comm:comment>Standardized city district (in Czech &quot;část obce&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_city_part" type="STRING">
+					<comm:comment>Standardized city part (in Czech &quot;městská část&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_street" type="STRING">
+					<comm:comment>Standardized street (in Czech &quot;ulice&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_lrn" type="STRING">
+					<comm:comment>Standardized land registry number (in Czech &quot;popisné číslo&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_sn" type="STRING">
+					<comm:comment>Standardized street number (in Czech &quot;orientační číslo&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_evn" type="STRING">
+					<comm:comment>Standardized evidentiary number (in Czech &quot;evidenční číslo&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_district" type="STRING">
+					<comm:comment>Standardized district (in Czech &quot;okres&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_post_office" type="STRING">
+					<comm:comment>Standardized post office (in Czech &quot;pošta&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_region" type="STRING">
+					<comm:comment>Standardized region (in Czech &quot;kraj&quot;)</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_address" type="INTEGER">
+					<comm:comment>Data quality score of address</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_address" type="STRING">
+					<comm:comment>Explanation codes of data quality problems in address</comm:comment>
+				</addedColumn>
+				<addedColumn name="lbl_address" type="STRING">
+					<comm:comment>Output value of address validity label. Indicates whether the address is valid, corrected or unknown.</comm:comment>
+				</addedColumn>
+				<addedColumn name="pat_address" type="STRING">
+					<comm:comment>Pattern of parsed address</comm:comment>
+				</addedColumn>
+				<addedColumn name="difference" type="STRING"/>
+				<addedColumn name="message" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="24,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns" endpoint="out"/>
+		<target step="component" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component) --><component id="component" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/cz_address_identifier.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_address_line_1" from="in_address_line_1"/>
+						<columnsMapping to="in_address_line_2" from="in_address_line_2"/>
+						<columnsMapping to="in_address_line_3" from="in_address_line_3"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="out_address_line_1" from="out_address_line_1"/>
+						<columnsMapping to="out_address_line_2" from="out_address_line_2"/>
+						<columnsMapping to="out_address_line_3" from="out_address_line_3"/>
+						<columnsMapping to="std_address_code" from="std_address_code"/>
+						<columnsMapping to="std_zip" from="std_zip"/>
+						<columnsMapping to="std_city" from="std_city"/>
+						<columnsMapping to="std_city_district" from="std_city_district"/>
+						<columnsMapping to="std_city_part" from="std_city_part"/>
+						<columnsMapping to="std_street" from="std_street"/>
+						<columnsMapping to="std_lrn" from="std_lrn"/>
+						<columnsMapping to="std_sn" from="std_sn"/>
+						<columnsMapping to="std_evn" from="std_evn"/>
+						<columnsMapping to="std_district" from="std_district"/>
+						<columnsMapping to="std_post_office" from="std_post_office"/>
+						<columnsMapping to="std_region" from="std_region"/>
+						<columnsMapping to="sco_address" from="sco_address"/>
+						<columnsMapping to="exp_address" from="exp_address"/>
+						<columnsMapping to="lbl_address" from="lbl_address"/>
+						<columnsMapping to="pat_address" from="pat_address"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters>
+				<use_extended_patterns>true</use_extended_patterns>
+			</parameters>
+		</properties>
+		<visual-constraints bounds="24,168,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component" endpoint="out"/>
+		<target step="Calculate test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+</purity-config>

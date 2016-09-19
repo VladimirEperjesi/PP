@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (SRC_party) --><step id="SRC_party" className="com.ataccama.dqc.tasks.flow.RecordCounter" disabled="false" mode="BYPASS">
+		<properties reportPerfPerBatch="true" append="true" reportFileName="\\logger" timeStampFormat="yyyy-MM-dd HH:mm:ss" batchSize="100000" reportPerfPerSecond="true">
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,504,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="SRC_party" endpoint="out"/>
+		<target step="party" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (TestBatch) --><step id="TestBatch" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="false" mode="NORMAL">
+		<properties stringQualifier="" lineSeparator="\r\n" fieldSeparator=";" lineMaxReadLength="65536" numberOfLinesInHeader="1" fileName="../../../../KoopData/TestBatch.csv" encoding="ISO-8859-1" numberOfLinesInFooter="0" compression="NONE" stringQualifierEscape="">
+			<columns>
+				<textReaderColumn name="id" type="STRING" ignore="false"/>
+				<textReaderColumn name="jmeno" type="STRING" ignore="false"/>
+				<textReaderColumn name="prijimeni" type="STRING" ignore="false"/>
+				<textReaderColumn name="datum" type="STRING" ignore="false"/>
+				<textReaderColumn name="rodcis" type="STRING" ignore="false"/>
+				<textReaderColumn name="rematch" type="STRING" ignore="false"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd"/>
+			<errorHandlingStrategy rejectFileName="rejected.txt">
+				<errorInstructions>
+					<errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+				</errorInstructions>
+			</errorHandlingStrategy>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="288,120,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="TestBatch" endpoint="out"/>
+		<target step="map_internal_columns_from_testbatch_to_party" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (map_internal_columns_from_testbatch_to_party) --><step id="map_internal_columns_from_testbatch_to_party" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="&#39;TestBatchCSV#testbatch#party&#39;" name="origin" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,264,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="map_internal_columns_from_testbatch_to_party" endpoint="out"/>
+		<target step="map_party_source_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (map_party_source_columns) --><step id="map_party_source_columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="id" name="source_id" type="STRING"/>
+				<addedColumn expression="rodcis" name="src_rod_cis" type="STRING"/>
+				<addedColumn expression="prijimeni" name="src_prijimeni" type="STRING"/>
+				<addedColumn expression="jmeno" name="src_jmeno" type="STRING"/>
+				<addedColumn expression="datum" name="src_datnar" type="STRING"/>
+				<addedColumn name="src_pohlavi" type="STRING"/>
+				<addedColumn expression="rematch" name="src_rematch" type="STRING"/>
+				<addedColumn name="source_timestamp" type="DATETIME"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>BE CAREFUL WHEN EDITING! This step was automatically pre-generated from the model. Your are allowed to complete the attribute mapping on Added Columns tab only (i.e. fill the Expression column in). This content will be preserved even if listed attributes changed. Other changes will be discarded.</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,360,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="map_party_source_columns" endpoint="out"/>
+		<target step="SRC_party" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (party) --><step id="party" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="source_id" type="STRING"/>
+				<requiredColumn name="origin" type="STRING"/>
+				<requiredColumn name="source_timestamp" type="DATETIME"/>
+				<requiredColumn name="src_rod_cis" type="STRING"/>
+				<requiredColumn name="src_prijimeni" type="STRING"/>
+				<requiredColumn name="src_jmeno" type="STRING"/>
+				<requiredColumn name="src_datnar" type="STRING"/>
+				<requiredColumn name="src_pohlavi" type="STRING"/>
+				<requiredColumn name="src_rematch" type="STRING"/>
+			</requiredColumns>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,576,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="24,24,937,60" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">•	Drag and drop your extract sources and connect them to appropriate data flow. Then complete mapping in map_&lt;entity&gt;_source_columns step to load data into MDM Hub.
+•	Delta load: change type I/U/D is expected to be mapped into change_type column (it doesn&#39;t matter whether I/U is used, because upsert is performed)
+</modelComment>
+
+</purity-config>

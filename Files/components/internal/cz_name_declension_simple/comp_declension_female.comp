@@ -1,0 +1,476 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<component-id>FN F (guess)</component-id>
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Accusative suffix "", "i", "u", Vocative "", "e", "o") --><step id="Accusative suffix &quot;&quot;, &quot;i&quot;, &quot;u&quot;, Vocative &quot;&quot;, &quot;e&quot;, &quot;o&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="vocative">
+					<expression>//jmena koncici samohlaskou, kratka(2 nebo 3 znaky), pravdepodobne vietnamska:
+kratke:=(matches(&#39;^.{2}[áaeéiíoóuúyí]$&#39;, name)
+		and lower(name) not in {&#39;eva&#39;, &#39;iva&#39;, &#39;ema&#39;, &#39;lea&#39;, &#39;ida&#39;, &#39;lia&#39;, &#39;mia&#39;, &#39;ana&#39;, &#39;ela&#39;, &#39;ewa&#39;, &#39;ada&#39;, &#39;ola&#39;, &#39;eda&#39;, &#39;tea&#39;, &#39;ria&#39;, &#39;ita&#39;, &#39;rea&#39;, &#39;ina&#39;, &#39;ira&#39;, &#39;bea&#39;})
+	/*LUSL: zbytocne	or length(name) = 2 */;
+
+case (
+	kratke,name,
+	right(name, 2) is in {&#39;ia&#39;}, left(name, length(name)-1)+&#39;e&#39;,
+	right(name, 1) is in {&#39;a&#39;, &#39;e&#39;}, left(name, length(name)-1)+&#39;o&#39;,
+	right(name, 1) is in {&#39;n&#39;, &#39;t&#39;, &#39;d&#39;, &#39;r&#39;, &#39;s&#39;, &#39;h&#39;, &#39;l&#39;, &#39;m&#39;, &#39;g&#39;, &#39;x&#39;}, name+&#39;o&#39;,
+	null
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Vocative:
+- 3-letter names end with vocal (with exceptions) -&gt; same as nomitanive
+- names end with &quot;ia&quot; -&gt; replace with &quot;ie&quot;
+- names end with &quot;a&quot; or &quot;e&quot; -&gt; replace with &quot;o&quot;
+- names end with &quot;n&quot;, &quot;t&quot;, .. -&gt; add &quot;o&quot;</comm:comment>
+				</assignment>
+				<assignment column="accusative">
+					<expression>//jmena koncici samohlaskou, kratka(2 nebo 3 znaky), pravdepodobne vietnamska:
+kratke:=(matches(&#39;^.{2}[áaeéiíoóuúyí]$&#39;, name)
+		and lower(name) not in {&#39;eva&#39;, &#39;iva&#39;, &#39;ema&#39;, &#39;lea&#39;, &#39;ida&#39;, &#39;lia&#39;, &#39;mia&#39;, &#39;ana&#39;, &#39;ela&#39;, &#39;ewa&#39;, &#39;ada&#39;, &#39;ola&#39;, &#39;eda&#39;, &#39;tea&#39;, &#39;ria&#39;, &#39;ita&#39;, &#39;rea&#39;, &#39;ina&#39;, &#39;ira&#39;, &#39;bea&#39;})
+	/*LUSL: zbytocne	or length(name) = 2 */;
+
+case (
+	kratke,name,
+	right(name, 2) is in {&#39;ia&#39;}, left(name, length(name)-1)+&#39;i&#39;,
+	right(name, 1) is in {&#39;a&#39;, &#39;e&#39;}, left(name, length(name)-1)+&#39;u&#39;,
+	right(name, 1) is in {&#39;n&#39;, &#39;t&#39;, &#39;d&#39;, &#39;r&#39;, &#39;s&#39;, &#39;h&#39;, &#39;l&#39;, &#39;m&#39;, &#39;g&#39;, &#39;x&#39;}, name+&#39;u&#39;,
+	null
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Vocative:
+- 3-letter names end with vocal (with exceptions) -&gt; same as nomitanive
+- names end with &quot;ia&quot; -&gt; replace with &quot;i&quot;
+- names end with &quot;a&quot; or &quot;e&quot; -&gt; replace with &quot;u&quot;
+- names end with &quot;n&quot;, &quot;t&quot;, .. -&gt; add &quot;u&quot;</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Decline according to rules - see Column comments</comm:comment>
+		</properties>
+		<visual-constraints bounds="624,504,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;&quot;, &quot;i&quot;, &quot;u&quot;, Vocative &quot;&quot;, &quot;e&quot;, &quot;o&quot;" endpoint="out"/>
+		<target step="Union all female names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "", "ou", "i", Vocative "") --><step id="Accusative suffix &quot;&quot;, &quot;ou&quot;, &quot;i&quot;, Vocative &quot;&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="name" column="vocative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment column="accusative">
+					<expression>privlPrij:=right(name, 3) is in {&#39;ová&#39;, &#39;ská&#39;, &#39;cká&#39;, &#39;ova&#39;, &#39;ska&#39;, &#39;cka&#39;, &#39;owa&#39;}
+or right(name, 2) is in {&#39;ká&#39;} or right(name, 1) is in {&#39;á&#39;};
+
+souhlaskae:=matches(&#39;^.*[bdgfklmnprstvz]e$&#39;, name); //de(Heide),ke(Ulrike, Frederike),ge(Inge),te(Charlotte, Ute), atd.
+
+ie:=right(name, 1) is in {&#39;e&#39;};
+//TODO když se to e nečte
+
+//koncovky ue:Dominique, atd.
+neohybej:=right(name, 3) is in {&#39;nko&#39;, &#39;yuk&#39;} or right(name, 2) is in {&#39;uk&#39;, &#39;er&#39;, &#39;ue&#39;} or
+right(name, 1) is in {&#39;i&#39;, &#39;g&#39;, &#39;h&#39;, &#39;y&#39;, &#39;k&#39;, &#39;s&#39;, &#39;ů&#39;, &#39;ú&#39;, &#39;u&#39;, &#39;l&#39;, &#39;o&#39;, &#39;ó&#39;, &#39;r&#39;, &#39;t&#39;, &#39;í&#39;, &#39;d&#39;, &#39;v&#39;, &#39;m&#39;, &#39;n&#39;, &#39;c&#39;, &#39;z&#39;, &#39;p&#39;, &#39;é&#39;, &#39;j&#39;,
+&#39;b&#39;, &#39;ě&#39;, &#39;x&#39;, &#39;č&#39;, &#39;f&#39;, &#39;w&#39;, &#39;ß&#39;, &#39;š&#39;}; //u: Susan ani Erikson, Urmann, atd.
+
+case (
+	privlPrij, left(name, length(name)-1) + &#39;ou&#39;,
+	souhlaskae,name,
+	neohybej, name,
+	ie, left(name, length(name)-1) + &#39;i&#39;,
+	null
+)</expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+					<comm:comment>Accusative:
+- names end with &quot;ová&quot;, .. -&gt; suffix &quot;ou&quot;. E.g. &quot;Malinová&quot; -&gt; &quot;Malinovou&quot;
+- names end with &quot;[bdg..]e&quot; -&gt; same as nominative
+- names end with &quot;nko&quot;, &quot;yuk&quot;, &quot;uk&quot;, &quot;er&quot;, &quot;ue&quot;, &quot;i&quot;, &quot;g&quot;, ... -&gt; same as nominative
+- names end with &quot;[^bdg..]e&quot; -&gt; suffix &quot;i&quot;</comm:comment>
+				</assignment>
+			</assignments>
+			<comm:comment>Accusative - see Column comment
+Vocative - same as Nominative</comm:comment>
+		</properties>
+		<visual-constraints bounds="288,672,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;&quot;, &quot;ou&quot;, &quot;i&quot;, Vocative &quot;&quot;" endpoint="out"/>
+		<target step="Union all female names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="312,768"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Accusative suffix "", Vocative "") --><step id="Accusative suffix &quot;&quot;, Vocative &quot;&quot;" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment expression="name" column="vocative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+				<assignment expression="name" column="accusative">
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+			<comm:comment>We don&#39;t decline one and two-letter names.</comm:comment>
+		</properties>
+		<visual-constraints bounds="1056,672,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Accusative suffix &quot;&quot;, Vocative &quot;&quot;" endpoint="out"/>
+		<target step="Union all female names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1080,768"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Check oriental syllable) --><step id="Check oriental syllable" className="com.ataccama.dqc.tasks.clean.StripTitlesAlgorithm" disabled="false" mode="NORMAL">
+		<properties titleLookupFileName="pathvar://DATA/ext/lkp/cz_name_declension_orient_female.lkp" preserveUnsupportedChars="true" ignoredSeparators="._/" in="name" separator="" minWordCount="0">
+			<scorer explanationColumn="expl_f_rule">
+				<scoringEntries>
+					<scoringEntry score="0" explainAs="ORIENT_FOUND" explain="true" key="ST_CHANGED"/>
+				</scoringEntries>
+			</scorer>
+			<tokenizer whiteSpaceDefinition="[:white:]">
+				<types>
+					<tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+					<tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+				</types>
+			</tokenizer>
+			<comm:comment>Check oriental syllable</comm:comment>
+		</properties>
+		<visual-constraints bounds="720,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Check oriental syllable" endpoint="out"/>
+		<target step="Contains oriental syllable" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Contains oriental syllable) --><step id="Contains oriental syllable" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties condition="containsWord(expl_f_rule, &#39;ORIENT_FOUND&#39;)">
+			<comm:comment>Contains oriental syllable</comm:comment>
+		</properties>
+		<visual-constraints bounds="720,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Contains oriental syllable" endpoint="out_false"/>
+		<target step="Ends with &quot;Ová&quot;, &quot;Ská&quot;, ... (with exceptions) - undeclinable lastnames" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Contains oriental syllable" endpoint="out_true"/>
+		<target step="No declension" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "Ová", "Ská", ... (with exceptions) - undeclinable lastnames) --><step id="Ends with &quot;Ová&quot;, &quot;Ská&quot;, ... (with exceptions) - undeclinable lastnames" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>(right(name, 3) is in {&#39;ová&#39;, &#39;ova&#39;, &#39;ská&#39;, &#39;cká&#39;, &#39;čná&#39;, &#39;avá&#39;, &#39;nko&#39;, &#39;atá&#39;, &#39;ých&#39;, &#39;ska&#39;, &#39;cka&#39;, &#39;owa&#39;} //ska,cka,owa - vetsinou polske
+ and lower(name) not in {&#39;priska&#39;, &#39;franziska&#39;, &#39;piroska&#39;, &#39;paraska&#39;, &#39;valeska&#39;, &#39;narciska&#39;, &#39;franciska&#39;, &#39;eliska&#39;, &#39;atanaska&#39;, &#39;franceska&#39;, &#39;jindriska&#39;, &#39;veska&#39;, &#39;waleska&#39;, &#39;nataska&#39;, &#39;boriska&#39;, &#39;mariska&#39;, &#39;micka&#39;, &#39;moska&#39;, &#39;katiuska&#39;, &#39;kráska&#39;, &#39;liska&#39;, &#39;jaska&#39;, &#39;nacka&#39;, &#39;francizska&#39;, &#39;francka&#39;, &#39;ericka&#39;, &#39;agniezska&#39;, &#39;duska&#39;, &#39;gacka&#39;, &#39;iriska&#39;, &#39;kocka&#39;, &#39;gecka&#39;, &#39;tanaska&#39;, &#39;ruska&#39;, &#39;spaska&#39;, &#39;vítězska&#39;, &#39;toska&#39;, &#39;zuska&#39;, &#39;francizka&#39;} )
+or
+right(name, 2) is in {&#39;ná&#39;, &#39;lá&#39;, &#39;dá&#39;, &#39;an&#39;, &#39;ká&#39;, &#39;uk&#39;, &#39;ak&#39;, &#39;ng&#39;, &#39;vá&#39;, &#39;ko&#39;, &#39;tá&#39;, &#39;ch&#39;, &#39;rá&#39;, &#39;há&#39;, &#39;er&#39;, &#39;in&#39;, &#39;ts&#39;, &#39;ar&#39;, &#39;yn&#39;,
+&#39;yk&#39;, &#39;am&#39;, &#39;en&#39;, &#39;nh&#39;, &#39;el&#39;, &#39;iv&#39;, &#39;on&#39;, &#39;li&#39;, &#39;es&#39;, &#39;eg&#39;, &#39;li&#39;, &#39;sh&#39;, &#39;et&#39;, &#39;ey&#39;,&#39;al&#39;,&#39;iy&#39;,&#39;má&#39;,&#39;id&#39;,&#39;ly&#39;,&#39;ni&#39;,&#39;šu&#39;,&#39;ud&#39;,&#39;bá&#39;,
+&#39;eí&#39;,&#39;is&#39;,&#39;ní&#39;,&#39;nn&#39;,&#39;ov&#39;,&#39;th&#39;,&#39;un&#39;,&#39;ao&#39;,&#39;hi&#39;,&#39;it&#39;,&#39;lu&#39;,&#39;no&#39;,&#39;ru&#39;,&#39;ah&#39;,&#39;ai&#39;,&#39;as&#39;,&#39;au&#39;,&#39;ay&#39;,&#39;cí&#39;,&#39;cu&#39;,&#39;hu&#39;,&#39;ku&#39;,&#39;nu&#39;,&#39;oi&#39;,&#39;or&#39;,&#39;ry&#39;,
+&#39;sá&#39;,&#39;ší&#39;,&#39;tu&#39;,&#39;du&#39;,&#39;dy&#39;,&#39;ec&#39;,&#39;eu&#39;,&#39;ll&#39;,&#39;lo&#39;,&#39;mi&#39;,&#39;ol&#39;,&#39;pá&#39;,&#39;pi&#39;,&#39;rj&#39;,&#39;ty&#39;,&#39;ur&#39;,&#39;ut&#39;,&#39;at&#39;,&#39;cy&#39;,&#39;ki&#39;,&#39;ny&#39;,&#39;os&#39;,&#39;ou&#39;,&#39;ri&#39;,&#39;si&#39;,&#39;tt&#39;,
+&#39;uc&#39;,&#39;us&#39;,&#39;wá&#39;,&#39;ym&#39;,&#39;ad&#39;}
+//Dagmar
+</condition>
+			<comm:comment>List of endings, when we don&#39;t decline names.
+
+
+http://prirucka.ujc.cas.cz/?id=352
+
+1 Jména zakončená v psané i vyslovované podobě na souhlásku
+
+(Dagmar, Ingrid, Eleonor, Carmen, Maud, Marylin, Kim)
+
+Přestože Mluvnice češtiny přiřazuje většinu jmen tohoto typu ke skloňování podle vzoru „žena“ a uvádí, že pod vlivem tohoto paradigmatu proniká do 1. p. zakončení -a (Dagmar – Dagmara, Eleonor – Eleonora, Karin – Karina), současný běžný úzus je trochu jiný a tato jména zůstávají obvykle nesklonná. Ta, která mají českou obdobu s koncovým -a (Dagmar – Dagmara, Eleonor – Eleonora, Karin – Karina), se opravdu občas počešťují a v nepřímých pádech přibírají koncovky vzoru „žena“  (2. p. Dagmary, Eleonory, Kariny), ale nesklonné pojetí převažuje. Volba závisí do velké míry na situaci, na typu textu a pojmenovávané osobě. Např. v beletrii je počešťování jmen běžné, také jména známých historických osobností tradičně počešťujeme (Eleonor Akvitánská – Eleonora Akvitánská). Pokud však jde o osobnost méně známou, současnou, jejíž jméno je užito např. v publicistickém textu, pak je u autorů patrná spíše snaha o zachování základní podoby jména ve všech pádech. Aby bylo čtenáři zřejmé, že žena se jmenuje např. Eleonor, nikoli Eleonora. Někdy dochází ke kolísání a v úzu se lze setkat s oběma podobami jména.</comm:comment>
+		</properties>
+		<visual-constraints bounds="168,360,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;Ová&quot;, &quot;Ská&quot;, ... (with exceptions) - undeclinable lastnames" endpoint="out_false"/>
+		<target step="Ends with &quot;a&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;Ová&quot;, &quot;Ská&quot;, ... (with exceptions) - undeclinable lastnames" endpoint="out_true"/>
+		<target step="Use &quot;&quot;, &quot;ou&quot;, &quot;i&quot; (Accu) and &quot;&quot; (Voc) declension" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="312,408"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "a") --><step id="Ends with &quot;a&quot;" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>/* LUSL: asi zbytocne
+right(name, 2) is in {&#39;na&#39;, &#39;ka&#39;}
+or
+*/
+right(name, 1) is in {&#39;a&#39;}
+//projít, jestli není nějaká výjimka, ale neměla by být</condition>
+			<comm:comment>Ends with &quot;a&quot;</comm:comment>
+		</properties>
+		<visual-constraints bounds="144,456,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;a&quot;" endpoint="out_true"/>
+		<target step="Accusative suffix &quot;&quot;, &quot;i&quot;, &quot;u&quot;, Vocative &quot;&quot;, &quot;e&quot;, &quot;o&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;a&quot;" endpoint="out_false"/>
+		<target step="Ends with &quot;e&quot;, &quot;i&quot;, ..." endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Ends with "e", "i", ...) --><step id="Ends with &quot;e&quot;, &quot;i&quot;, ..." className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>right(name, 1) is in {&#39;e&#39;, &#39;ů&#39;, &#39;i&#39;, &#39;í&#39;, &#39;ú&#39;, &#39;u&#39; ,&#39;k&#39;, &#39;o&#39;,&#39;y&#39;,&#39;s&#39;,&#39;d&#39;,&#39;z&#39;,&#39;p&#39;,&#39;é&#39;,&#39;t&#39;,&#39;n&#39;,&#39;g&#39;,&#39;h&#39;,&#39;l&#39;,&#39;ó&#39;,&#39;b&#39;,&#39;m&#39;,&#39;c&#39;,&#39;i&#39;,
+&#39;f&#39;,&#39;x&#39;,&#39;á&#39;,&#39;e&#39;,&#39;j&#39;,&#39;r&#39;,&#39;ß&#39;,&#39;v&#39;,&#39;w&#39;, &#39;ě&#39;, &#39;č&#39;, &#39;š&#39;}
+//š: Buš</condition>
+			<comm:comment>Ends with &quot;e&quot;, &quot;i&quot;, ...</comm:comment>
+		</properties>
+		<visual-constraints bounds="120,552,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;e&quot;, &quot;i&quot;, ..." endpoint="out_false"/>
+		<target step="Union all female names" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="120,768"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Ends with &quot;e&quot;, &quot;i&quot;, ..." endpoint="out_true"/>
+		<target step="Use &quot;&quot;, &quot;ou&quot;, &quot;i&quot; (Accu) and &quot;&quot; (Voc) declension" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (It is short name) --><step id="It is short name" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="false" mode="NORMAL">
+		<properties>
+			<condition>//vyjimka:=null;
+// not vyjimka and
+(length(name) is 1 or length(name) is 2)</condition>
+			<comm:comment>Short names</comm:comment>
+		</properties>
+		<visual-constraints bounds="744,144,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="It is short name" endpoint="out_false"/>
+		<target step="Check oriental syllable" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="It is short name" endpoint="out_true"/>
+		<target step="No declension" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1080,192"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Multiple word names) --><step id="Multiple word names" className="com.ataccama.dqc.tasks.conditions.Condition" disabled="true" mode="NORMAL">
+		<properties condition="find(&#39;[ -]&#39;, name)"/>
+		<visual-constraints bounds="192,192,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="true">
+		<source step="Multiple word names" endpoint="out_true"/>
+		<target step="Check oriental syllable" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="true">
+		<source step="Multiple word names" endpoint="out_false"/>
+		<target step="Ends with &quot;Ová&quot;, &quot;Ská&quot;, ... (with exceptions) - undeclinable lastnames" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (No declension) --><step id="No declension" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>No declension</comm:comment>
+		</properties>
+		<visual-constraints bounds="1056,360,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="No declension" endpoint="out"/>
+		<target step="Accusative suffix &quot;&quot;, Vocative &quot;&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Remove internal columns) --><step id="Remove internal columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns/>
+			<removedColumns>
+				<columnRef name="expl_f_rule"/>
+			</removedColumns>
+		</properties>
+		<visual-constraints bounds="624,840,48,48" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Remove internal columns" endpoint="out"/>
+		<target step="out" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union all female names) --><step id="Union all female names" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties>
+			<comm:comment>Union all female names</comm:comment>
+		</properties>
+		<visual-constraints bounds="624,768,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union all female names" endpoint="out"/>
+		<target step="Remove internal columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Use "", "ou", "i" (Accu) and "" (Voc) declension) --><step id="Use &quot;&quot;, &quot;ou&quot;, &quot;i&quot; (Accu) and &quot;&quot; (Voc) declension" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="288,600,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Use &quot;&quot;, &quot;ou&quot;, &quot;i&quot; (Accu) and &quot;&quot; (Voc) declension" endpoint="out"/>
+		<target step="Accusative suffix &quot;&quot;, &quot;ou&quot;, &quot;i&quot;, Vocative &quot;&quot;" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (in) --><step id="in" className="com.ataccama.dqc.tasks.common.usersteps.io.InputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<columns>
+				<columnDef name="name" type="STRING"/>
+			</columns>
+			<shadowColumns>
+				<shadowColumnDef name="accusative" type="STRING"/>
+				<shadowColumnDef name="vocative" type="STRING"/>
+				<shadowColumnDef name="expl_f_rule" type="STRING"/>
+			</shadowColumns>
+		</properties>
+		<visual-constraints bounds="744,48,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="in" endpoint="out"/>
+		<target step="It is short name" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (out) --><step id="out" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns/>
+		</properties>
+		<visual-constraints bounds="624,912,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<modelComment bounds="624,144,98,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Length 1 or 2</modelComment>
+
+
+
+<modelComment bounds="1104,624,101,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">No declension</modelComment>
+
+
+
+<modelComment bounds="456,240,258,49" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">e.g. DUC, MIHO, OK, TAN, TE, THI, XUAN</modelComment>
+
+</purity-config>

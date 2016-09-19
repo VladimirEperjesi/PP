@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WorkflowInstanceState>
+	<forcedResume>false</forcedResume>
+	<id>11</id>
+	<linkEvaluations/>
+	<started>2016-09-12 16:09:10</started>
+	<state>FINISHED_OK</state>
+	<stopped>2016-09-12 16:09:11</stopped>
+	<taskVariables>
+		<taskVariableBean task="Run MDC Load" name="taskId" value="510"/>
+		<taskVariableBean task="Run MDC Load" name="transactionId" value="504029"/>
+	</taskVariables>
+	<tasks>
+		<workflowTaskPersistModelBean id="Run MDC Load" stopped="2016-09-12 16:09:11" state="FINISHED_OK" started="2016-09-12 16:09:10">
+			<compensationStates/>
+		</workflowTaskPersistModelBean>
+	</tasks>
+	<wfTimestamp>1970-01-01 01:00:00</wfTimestamp>
+	<wfVariables>
+		<variableBean name="ewf_user_name" value=""/>
+		<variableBean name="ewf_workflow_id" value="WF1:PrvyPokus.ewf"/>
+		<variableBean name="ewf_execution_id" value="11"/>
+		<variableBean name="ewf_private_folder" value="D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\storage\resources\workflow\wfinst_11"/>
+	</wfVariables>
+	<workflowId>WF1:PrvyPokus.ewf</workflowId>
+</WorkflowInstanceState>

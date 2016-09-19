@@ -1,0 +1,105 @@
+"pattern";"replacement"
+BABICE U U.H.;BABICE U UHER.HRADIŠTÌ
+BABICE U UH.HR.;BABICE U UHER.HRADIŠTÌ
+BABICE U UH.HRAD.;BABICE U UHER.HRADIŠTÌ
+BABICE U UHERSKEHO HRADISTE.;BABICE U UHER.HRADIŠTÌ
+BILOVICE N.SVITAV.;Bílovice nad Svitavou
+BILOVICE U U;BÍLOVICE U UHER.HRADIŠTÌ
+BILOVICE U UH.HR.;BÍLOVICE U UHER.HRADIŠTÌ
+BILOVICE U UH.HRA;BÍLOVICE U UHER.HRADIŠTÌ
+BILOVICE U UH.HRAD;BÍLOVICE U UHER.HRADIŠTÌ
+BLATNICE P.SV.ANT.;Blatnice p.Sv.Antonínkem
+BLATNICE P. SV. ANT.;Blatnice p.Sv.Antonínkem
+BORSICE U BUCHLOV.;BORŠICE U BUCHLOVIC
+BRNO  KRAL.POLE;BRNO 12
+BRNO  KRAL. POLE;BRNO 12
+BUDISOV N.BUDISOV.;Budišov nad Budišovkou
+BYSTRICE N.PERN.;Bystøice nad Pernštejnem
+BYSTRICE P.HOST.;Bystøice pod Hostýnem
+BYSTRICE U BENES.;Bystøice u Benešova
+Cachovice;Èachovice u Ml.Boleslavì
+DOLNI LHOTA U LUH.;DOLNÍ LHOTA U LUHAÈOVIC
+HLUBOKA N.VLTAVOU;HLUBOKÁ NAD VLTAVOU
+HODKOVICE N.MOHEL.;Hodkovice nad Mohelkou
+JABLONNE N. O.;Jablonné nad Orlicí
+JABLONNE N ORL;Jablonné nad Orlicí
+JABLONNE N.ORLICI;Jablonné nad Orlicí
+JABLONNE V PODJES.;Jablonné v Podještìdí
+JAVORNIK U JESEN.;Javorník u Jeseníku
+KRALUV DVUR U BER.;Králùv Dvùr u Berouna
+KRENOVICE U SLAVK.;Køenovice u Slavkova
+LISOV U C. BU.;Lišov u Èeských Budìjovic
+LISOV U C. BUD;Lišov u Èeských Budìjovic
+LISOV U C. BUDEJ.;Lišov u Èeských Budìjovic
+LISOV U C. BUDEJOV.;Lišov u Èeských Budìjovic
+LISOV U C.B.;Lišov u Èeských Budìjovic
+LISOV U C.BUD.;Lišov u Èeských Budìjovic
+LISOV U C.BUDEJ.;Lišov u Èeských Budìjovic
+LISOV U C.BUDEJOV;Lišov u Èeských Budìjovic
+LISOV U C.BUDEJOV.;Lišov u Èeských Budìjovic
+LISOV U CES.BUDEJOVIC;Lišov u Èeských Budìjovic
+LISOVO U C.BUDEJOVIC;Lišov u Èeských Budìjovic
+MOR.BUDEJOVICE;Moravské Budìjovice
+NEZAMYSLICE U PRO.;Nezamyslice u Prostìjova
+Nove Dvory;Nové Dvory u Kutné Hory
+Nove Hrady;Nové Hrady v již.Èechách
+NOVE HRADY V J.C.;Nové Hrady v již.Èechách
+Ostrov;Ostrov nad Ohøí
+PENCIN;PÌNÈÍN U LIBERCE
+ROKYTNICE N.JIZ.;Rokytnice nad Jizerou
+SLOUP V MOR.KRASU;SLOUP V MORAVSKÉM KRASU
+SUCHDOL N.L.;SUCHDOL NAD LUŽNICÍ
+SUCHDOL N. LUZNICI;SUCHDOL NAD LUŽNICÍ
+SUCHDOL N.LUZNICI;SUCHDOL NAD LUŽNICÍ
+BABICE U U.H.;BABICE U UHER.HRADIŠTÌ
+BABICE U UH.HR.;BABICE U UHER.HRADIŠTÌ
+BABICE U UH.HRAD.;BABICE U UHER.HRADIŠTÌ
+BABICE U UHERSKÉHO HRADIŠTÌ.;BABICE U UHER.HRADIŠTÌ
+BÍLOVICE N.SVITAV.;Bílovice nad Svitavou
+BILOVICE U U;BÍLOVICE U UHER.HRADIŠTÌ
+BILOVICE U UH.HR.;BÍLOVICE U UHER.HRADIŠTÌ
+BILOVICE U UH.HRA;BÍLOVICE U UHER.HRADIŠTÌ
+BÍLOVICE U UH.HRAD;BÍLOVICE U UHER.HRADIŠTÌ
+BLATNICE P.SV.ANT.;Blatnice p.Sv.Antonínkem
+BLATNICE P. SV. ANT.;Blatnice p.Sv.Antonínkem
+BORŠICE U BUCHLOV.;BORŠICE U BUCHLOVIC
+BRNO  KRÁL.POLE;BRNO 12
+BRNO  KRÁL. POLE;BRNO 12
+BUDIŠOV N.BUDIŠOV.;Budišov nad Budišovkou
+BYSTØICE N.PERN.;Bystøice nad Pernštejnem
+BYSTØICE P.HOST.;Bystøice pod Hostýnem
+BYSTØICE U BENEŠ.;Bystøice u Benešova
+Èachovice;Èachovice u Ml.Boleslavì
+DOLNÍ LHOTA U LUH.;DOLNÍ LHOTA U LUHAÈOVIC
+HLUBOKÁ N.VLTAVOU;HLUBOKÁ NAD VLTAVOU
+HODKOVICE N.MOHEL.;Hodkovice nad Mohelkou
+JABLONNÉ N. O.;Jablonné nad Orlicí
+JABLONNÉ N ORL;Jablonné nad Orlicí
+JABLONNÉ N.ORLICÍ;Jablonné nad Orlicí
+JABLONNÉ V PODJEŠ.;Jablonné v Podještìdí
+JAVORNÍK U JESEN.;Javorník u Jeseníku
+KRÁLÙV DVÙR U BER.;Králùv Dvùr u Berouna
+KØENOVICE U SLAVK.;Køenovice u Slavkova
+LIŠOV U È. BU.;Lišov u Èeských Budìjovic
+LIŠOV U È. BUD;Lišov u Èeských Budìjovic
+LIŠOV U È. BUDÌJ.;Lišov u Èeských Budìjovic
+LIŠOV U È. BUDÌJOV.;Lišov u Èeských Budìjovic
+LIŠOV U È.B.;Lišov u Èeských Budìjovic
+LIŠOV U È.BUD.;Lišov u Èeských Budìjovic
+LIŠOV U È.BUDÌJ.;Lišov u Èeských Budìjovic
+LIŠOV U È.BUDÌJOV;Lišov u Èeských Budìjovic
+LIŠOV U È.BUDÌJOV.;Lišov u Èeských Budìjovic
+LIŠOV U ÈES.BUDÌJOVIC;Lišov u Èeských Budìjovic
+LIŠOVO U È.BUDÌJOVIC;Lišov u Èeských Budìjovic
+MOR.BUDÌJOVICE;Moravské Budìjovice
+NEZAMYSLICE U PRO.;Nezamyslice u Prostìjova
+Nové Dvory;Nové Dvory u Kutné Hory
+Nové Hrady;Nové Hrady v již.Èechách
+NOVÉ HRADY V J.È.;Nové Hrady v již.Èechách
+Ostrov;Ostrov nad Ohøí
+PÌNÈÍN;PÌNÈÍN U LIBERCE
+ROKYTNICE N.JIZ.;Rokytnice nad Jizerou
+SLOUP V MOR.KRASU;SLOUP V MORAVSKÉM KRASU
+SUCHDOL N.L.;SUCHDOL NAD LUŽNICÍ
+SUCHDOL N. LUŽNICÍ;SUCHDOL NAD LUŽNICÍ
+SUCHDOL N.LUŽNICÍ;SUCHDOL NAD LUŽNICÍ

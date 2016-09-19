@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<projectSettings>
+	<folderShortcuts>
+		<folderShortcut name="DATA" value="D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\data"/>
+		<folderShortcut name="EXT" value="D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\data\ext"/>
+		<folderShortcut name="COMPONENTS" value="D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\components"/>
+		<folderShortcut name="TESTS_ROOT" value="D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\test\unit_tests"/>
+		<folderShortcut name="DOCUMENTATION" value="D:\Users\vladimir.eperejsi\Desktop\MDC\workspace\General MDM project - PrvyPokus\Files\doc"/>
+	</folderShortcuts>
+</projectSettings>

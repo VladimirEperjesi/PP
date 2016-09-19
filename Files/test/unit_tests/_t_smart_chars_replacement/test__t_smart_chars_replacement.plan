@@ -1,0 +1,518 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Calculate test result) --><step id="Calculate test result" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="normal">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_out_string is not out_string, &#39; out_string&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="24,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result" endpoint="out"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Calculate test result 2) --><step id="Calculate test result 2" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_out_string is not out_string, &#39; out_string&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="384,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result 2" endpoint="out"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="408,312"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Calculate test result 3) --><step id="Calculate test result 3" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_out_string is not out_string, &#39; out_string&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="744,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result 3" endpoint="out"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="768,312"/>
+				<point location="333,312"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Calculate test result 4) --><step id="Calculate test result 4" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_out_string is not out_string, &#39; out_string&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="1104,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result 4" endpoint="out"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="1128,312"/>
+				<point location="356,312"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Read test__t_smart_chars_replacement_in.xls) --><step id="Read test__t_smart_chars_replacement_in.xls" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/_t_smart_chars_replacement/test__t_smart_chars_replacement_in.xls" startCell="A2" skipEmptyRows="true" sheet="0">
+			<columns>
+				<columnDef name="TC_ID" type="integer"/>
+				<columnDef name="description" type="string"/>
+				<columnDef name="in_string" type="STRING"/>
+				<columnDef name="in_replacement" type="STRING"/>
+				<columnDef name="e_out_string" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="24,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Read test__t_smart_chars_replacement_in.xls" endpoint="out"/>
+		<target step="add columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Read test__t_smart_chars_replacement_in.xls 2) --><step id="Read test__t_smart_chars_replacement_in.xls 2" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader" disabled="false" mode="NORMAL">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/_t_smart_chars_replacement/test__t_smart_chars_replacement_in.xls" startCell="A2" skipEmptyRows="true" sheetName="letters">
+			<columns>
+				<columnDef name="TC_ID" type="INTEGER"/>
+				<columnDef name="description" type="STRING"/>
+				<columnDef name="in_string" type="STRING"/>
+				<columnDef name="in_replacement" type="STRING"/>
+				<columnDef name="e_out_string" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="384,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Read test__t_smart_chars_replacement_in.xls 2" endpoint="out"/>
+		<target step="add columns 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Read test__t_smart_chars_replacement_in.xls 3) --><step id="Read test__t_smart_chars_replacement_in.xls 3" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader" disabled="false" mode="NORMAL">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/_t_smart_chars_replacement/test__t_smart_chars_replacement_in.xls" startCell="A2" skipEmptyRows="true" sheetName="digits">
+			<columns>
+				<columnDef name="TC_ID" type="INTEGER"/>
+				<columnDef name="description" type="STRING"/>
+				<columnDef name="in_string" type="STRING"/>
+				<columnDef name="in_replacement" type="STRING"/>
+				<columnDef name="e_out_string" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="744,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Read test__t_smart_chars_replacement_in.xls 3" endpoint="out"/>
+		<target step="add columns 3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Read test__t_smart_chars_replacement_in.xls 4) --><step id="Read test__t_smart_chars_replacement_in.xls 4" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader" disabled="false" mode="NORMAL">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/_t_smart_chars_replacement/test__t_smart_chars_replacement_in.xls" startCell="A2" skipEmptyRows="true" sheetName="special_chars">
+			<columns>
+				<columnDef name="TC_ID" type="INTEGER"/>
+				<columnDef name="description" type="STRING"/>
+				<columnDef name="in_string" type="STRING"/>
+				<columnDef name="in_replacement" type="STRING"/>
+				<columnDef name="e_out_string" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="1104,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Read test__t_smart_chars_replacement_in.xls 4" endpoint="out"/>
+		<target step="add columns 4" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Sort) --><step id="Sort" className="com.ataccama.dqc.tasks.identify.sort.SortEngine" disabled="false" mode="normal">
+		<properties>
+			<sort>
+				<orderBy expression="TC_ID" orderDescending="false" nullsFirst="false"/>
+			</sort>
+		</properties>
+		<visual-constraints bounds="24,384,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Sort" endpoint="out"/>
+		<target step="Write test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same) --><step id="Union Same" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="24,312,48,48" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same" endpoint="out"/>
+		<target step="Sort" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Write test result) --><step id="Write test result" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" mode="normal">
+		<properties useStringQualifierOnAllColumns="false" stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator="^~" generateMetadata="true" fileName="pathvar://TESTS_ROOT/_t_smart_chars_replacement/test__t_smart_chars_replacement_out.csv" encoding="UTF-8" writeHeader="true" writeAllColumns="false">
+			<columns>
+				<textWriterColumn name="difference"/>
+				<textWriterColumn name="TC_ID"/>
+				<textWriterColumn name="description"/>
+				<textWriterColumn name="in_string"/>
+				<textWriterColumn name="in_replacement"/>
+				<textWriterColumn name="out_string"/>
+				<textWriterColumn name="e_out_string"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss.SSS" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+		</properties>
+		<visual-constraints bounds="24,456,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (add columns) --><step id="add columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="normal">
+		<properties>
+			<addedColumns>
+				<addedColumn name="out_string" type="STRING">
+					<comm:comment>String with replaced chars</comm:comment>
+				</addedColumn>
+				<addedColumn name="difference" type="string"/>
+				<addedColumn name="message" type="string"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="24,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns" endpoint="out"/>
+		<target step="component" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (add columns 2) --><step id="add columns 2" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="out_string" type="STRING"/>
+				<addedColumn name="difference" type="STRING"/>
+				<addedColumn name="message" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="384,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns 2" endpoint="out"/>
+		<target step="component 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (add columns 3) --><step id="add columns 3" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="out_string" type="STRING"/>
+				<addedColumn name="difference" type="STRING"/>
+				<addedColumn name="message" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="744,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns 3" endpoint="out"/>
+		<target step="component 3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (add columns 4) --><step id="add columns 4" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="out_string" type="STRING"/>
+				<addedColumn name="difference" type="STRING"/>
+				<addedColumn name="message" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="1104,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns 4" endpoint="out"/>
+		<target step="component 4" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component) --><component id="component" disabled="false" mode="normal">
+		<properties fileName="pathvar://COMPONENTS/_t_smart_chars_replacement.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_string" from="in_string"/>
+						<columnsMapping to="in_replacement" from="in_replacement"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="out_string" from="out_string"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters>
+				<letters>false</letters>
+				<digits>false</digits>
+				<special_chars>false</special_chars>
+				<defined_set>&#39;a1&#39;</defined_set>
+			</parameters>
+		</properties>
+		<visual-constraints bounds="24,168,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component" endpoint="out"/>
+		<target step="Calculate test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component 2) --><component id="component 2" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/_t_smart_chars_replacement.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_string" from="in_string"/>
+						<columnsMapping to="in_replacement" from="in_replacement"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="out_string" from="out_string"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters>
+				<letters>true</letters>
+				<digits>false</digits>
+				<special_chars>false</special_chars>
+				<defined_set>&#39;&#39;</defined_set>
+			</parameters>
+		</properties>
+		<visual-constraints bounds="384,168,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component 2" endpoint="out"/>
+		<target step="Calculate test result 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component 3) --><component id="component 3" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/_t_smart_chars_replacement.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_string" from="in_string"/>
+						<columnsMapping to="in_replacement" from="in_replacement"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="out_string" from="out_string"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters>
+				<letters>false</letters>
+				<digits>true</digits>
+				<special_chars>false</special_chars>
+				<defined_set>&#39;&#39;</defined_set>
+			</parameters>
+		</properties>
+		<visual-constraints bounds="744,168,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component 3" endpoint="out"/>
+		<target step="Calculate test result 3" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component 4) --><component id="component 4" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/_t_smart_chars_replacement.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_string" from="in_string"/>
+						<columnsMapping to="in_replacement" from="in_replacement"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="out_string" from="out_string"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters>
+				<letters>false</letters>
+				<digits>false</digits>
+				<special_chars>true</special_chars>
+				<defined_set>&#39;&#39;</defined_set>
+			</parameters>
+		</properties>
+		<visual-constraints bounds="1104,168,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component 4" endpoint="out"/>
+		<target step="Calculate test result 4" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<modelComment bounds="24,-96,162,102" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Component parameters:
+letters - false
+digit - false
+spec. chars - false
+defined set - &#39;a1&#39;</modelComment>
+
+
+
+<modelComment bounds="384,-96,162,102" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Component parameters:
+letters - true
+digit - false
+spec. chars - false
+defined set - null</modelComment>
+
+
+
+<modelComment bounds="744,-96,162,102" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Component parameters:
+letters - false
+digit - true
+spec. chars - false
+defined set - null</modelComment>
+
+
+
+<modelComment bounds="1104,-96,162,102" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Component parameters:
+letters - false
+digit - false
+spec. chars - true
+defined set - null</modelComment>
+
+</purity-config>

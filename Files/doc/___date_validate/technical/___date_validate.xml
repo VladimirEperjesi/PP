@@ -1,0 +1,689 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configDoc screen="images/screen____date_validate.comp.png" cfgFilePath="workspace://Component_manager_v9/component/___date_validate.comp" runtimeVersion="9.0.0.custom-2014-11-14" companyImage="images/logo_about.png" fileName="___date_validate.comp" date="2014-12-01 15:40:04" xmlns:comm="http://www.ataccama.com/purity/comment" version="1.0">
+  <generatorMeta name="Master Data Center 9.0.0" company="Ataccama Corporation" about="{0}
+
+Version: {1}
+
+Copyright © 2002-{2} {3} All rights reserved.
+
+Your use of the product is subject to the {0} end user license agreement." date="2014-12-01 15:44:41"/>
+  <configAlg name="in (Integration Input)" image="images/InputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.InputStep">
+    <properties>
+      <columns>
+        <columnDef name="in_datetime" type="STRING">
+          <comm:comment>Input STRING value of a date or datetime. Many patterns of the date(time) are supported (see in Functional description).</comm:comment>
+        </columnDef>
+      </columns>
+      <shadowColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add Columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="std_date" type="DAY">
+          <comm:comment>Standardized value of the date: cleansed, parsed and validated by business logic.</comm:comment>
+        </addedColumn>
+        <addedColumn name="std_datetime" type="DATETIME">
+          <comm:comment>Standardized value of the datetime: cleansed, parsed and validated by business logic.</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_date" type="DAY">
+          <comm:comment>The best existing value of a date in the DAY format.</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_datetime" type="DATETIME">
+          <comm:comment>The best existing value of a date in the DATETIME format.</comm:comment>
+        </addedColumn>
+        <addedColumn name="out_pattern" type="STRING">
+          <comm:comment>Parsed pattern of the date/datetime.</comm:comment>
+        </addedColumn>
+        <addedColumn name="sco_datetime" type="INTEGER">
+          <comm:comment>Data quality score penalizing the discrepancies in the date value.</comm:comment>
+        </addedColumn>
+        <addedColumn name="exp_datetime" type="STRING">
+          <comm:comment>Data quality explananation for the discrepancies in the date value.</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Internal_columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="pur_datetime" type="STRING">
+          <comm:comment>Cleansed datetime: squeezed spaces, replaced names of months, replaced ordinal numbers (e.g. 1st -&gt; 01)</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_date" type="STRING">
+          <comm:comment>Cleansed date part</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_time" type="STRING">
+          <comm:comment>Cleansed time part</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_date_day" type="STRING">
+          <comm:comment>Day number (1-31)</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_date_month" type="STRING">
+          <comm:comment>Month number (1-12)</comm:comment>
+        </addedColumn>
+        <addedColumn name="pur_date_year" type="STRING">
+          <comm:comment>2 or 4-digit long year</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_comment_before" type="STRING">
+          <comm:comment>Optional comment before datetime</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_comment_after" type="STRING">
+          <comm:comment>Optional comment after datetime</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_time_valid" type="BOOLEAN">
+          <comm:comment>Time validity flag</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_date_valid" type="BOOLEAN">
+          <comm:comment>Date validity flag</comm:comment>
+        </addedColumn>
+        <addedColumn name="pat_datetime" type="STRING">
+          <comm:comment>Pattern of datetime</comm:comment>
+        </addedColumn>
+        <addedColumn name="pat_date" type="STRING">
+          <comm:comment>Pattern of date</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+      <comm:comment>Add internal columns used only within this plan (They are not sent to output).</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Not empty (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="in_datetime is not null">
+      <comm:comment>Check, whether input is empty</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Empty input (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_datetime" defaultExplainColumn="exp_datetime">
+      <scoringCases>
+        <scoringCase condition="true" explanation="&#39;DATE_EMPTY_INPUT&#39;" score="10000000"/>
+      </scoringCases>
+    </properties>
+  </configAlg>
+  <configAlg name="Squeeze spaces (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="squeezeSpaces(in_datetime)" column="pur_datetime">
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Squeeze spaces</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Replace months names by order (Apply Replacements)" image="images/ApplyReplacementsAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm">
+    <properties replacementsFileName="pathvar://DATA/ext/lkp/___month_replacement.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="pur_datetime" out="pur_datetime">
+      <scorer explanationColumn="exp_datetime" scoreColumn="sco_datetime">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="DATE_MONTH_NAME_REPLACED" explain="true" key="AR_CHANGED"/>
+          <scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+          <scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+          <scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+        </scoringEntries>
+      </scorer>
+      <tokenizer whiteSpaceDefinition="[:white:]">
+        <types>
+          <tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+          <tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+        </types>
+      </tokenizer>
+      <comm:comment>Replace month name by its order. Snowman (☃) character is added before number, so we know later that this number represents month and not day or year.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Replace ordinal numbers (Apply Replacements)" image="images/ApplyReplacementsAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm">
+    <properties replacementsFileName="pathvar://DATA/ext/lkp/___ordinal_number_replacement.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="pur_datetime" out="pur_datetime">
+      <scorer explanationColumn="exp_datetime" scoreColumn="sco_datetime">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="DATE_ORDINAL_NUMBER_REPLACED" explain="true" key="AR_CHANGED"/>
+          <scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+          <scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+          <scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+        </scoringEntries>
+      </scorer>
+      <tokenizer whiteSpaceDefinition="[:white:]">
+        <types>
+          <tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+          <tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+        </types>
+      </tokenizer>
+      <comm:comment>Replace ordinal numbers. Skull (☠) character is added before number, so we know later that this number represents day and not month or year.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Separate date and time (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_datetime" regexNameColumn="pat_datetime" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="(.*?\D)??((?:☃?☠?\d\s?\p{Punct}?\s?☃?☠?){3,7}\d)(?:\s|T)(\d{1,2}:\d{1,2}:\d{1,2}(?:.\d{1,3})?)(\D.*)?" name="date_and_time" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="tmp_comment_before" substitution="$1">
+              <comm:comment>Optional comment, which doesn&#39;t end with digt</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_date" substitution="$2">
+              <comm:comment>4-8 digits, separated by special char, space or snowman. Last char must be digit</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_time" substitution="$3">
+              <comm:comment>Three groups of 1 or 2 digit long numbers separated by colon (:), plus optional 3-digit long number for milliseconds separated by dot (.)</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="tmp_comment_after" substitution="$4">
+              <comm:comment>Optional comment, which doesn&#39;t start with digit</comm:comment>
+            </regexOutputColumn>
+          </resultColumns>
+          <comm:comment>Minimal digit count for date is 4. 
+E.g. 10/15/85
+
+E.g. of parsable time:
+12:34:56.789
+
+Date and time have to be separated by space or character &#39;T&#39;</comm:comment>
+        </regExpression>
+        <regExpression pattern="(.*?\D)??((?:☃?☠?\d\s?\p{Punct}?\s?☃?☠?){3,7}\d)(\D.*)?" name="date" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="tmp_comment_before" substitution="$1">
+              <comm:comment>Optional comment, which doesn&#39;t end with digt</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_date" substitution="$2">
+              <comm:comment>4-8 digits, separated by special char, space or snowman. Last char must be digit</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="tmp_comment_after" substitution="$3">
+              <comm:comment>Optional comment, which doesn&#39;t start with digit</comm:comment>
+            </regexOutputColumn>
+          </resultColumns>
+          <comm:comment>Minimal digit count for date is 4. 
+E.g. 10/15/85</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>If there is datetime on input, separate date and time.
+For both date and datetime, remove possible comments before/after.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Date/datetime parsed (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties>
+      <condition>$digit_count:=length(trashNonDigits(pur_date));
+$special_char_count:=length(substituteAll(@&quot;[^\p{Punct}☃☠]&quot;, &#39;&#39;, pur_date));
+
+iif
+(
+	pat_datetime is null, 
+		false,
+	iif
+	(
+		$digit_count &lt; 8,
+			$special_char_count &gt; 1,
+			true
+	)
+)	
+	
+		</condition>
+      <comm:comment>Check, whether possible date was parsed</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Unparsed input (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_datetime" defaultExplainColumn="exp_datetime">
+      <scoringCases>
+        <scoringCase condition="true" explanation="&#39;DATE_NOT_PARSED&#39;" score="1000000"/>
+      </scoringCases>
+    </properties>
+  </configAlg>
+  <configAlg name="Parse numeric date (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="pur_date" regexNameColumn="pat_date" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="(\d{1,2})\.\s?(\d{1,2})\.\s?(\d{2}|\d{4})" name="dd.MM.(yy)yy" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_date_day" substitution="$1">
+              <comm:comment>One or two digits</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_date_month" substitution="$2">
+              <comm:comment>One or two digits</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_date_year" substitution="$3">
+              <comm:comment>Two or four digits</comm:comment>
+            </regexOutputColumn>
+          </resultColumns>
+          <comm:comment>E.g. 
+15. 10. 1985</comm:comment>
+        </regExpression>
+        <regExpression pattern="(\d{1,2})/\s?(\d{1,2})/\s?(\d{2}|\d{4})" name="MM/dd/(yy)yy" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_date_day" substitution="$2">
+              <comm:comment>One or two digits</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_date_month" substitution="$1">
+              <comm:comment>One or two digits</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_date_year" substitution="$3">
+              <comm:comment>Two or four digits</comm:comment>
+            </regexOutputColumn>
+          </resultColumns>
+          <comm:comment>E.g.
+10/15/85</comm:comment>
+        </regExpression>
+        <regExpression pattern="(\d{2}|\d{4})\s?-\s?(\d{1,2})\s?-\s?(\d{1,2})" name="(yy)yy-MM-dd" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_date_day" substitution="$3">
+              <comm:comment>One or two digits</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_date_month" substitution="$2">
+              <comm:comment>One or two digits</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_date_year" substitution="$1">
+              <comm:comment>Two or four digits</comm:comment>
+            </regexOutputColumn>
+          </resultColumns>
+          <comm:comment>E.g.
+1985- 10 - 15</comm:comment>
+        </regExpression>
+        <regExpression pattern="(\d{4})(\d{2})(\d{2})" name="yyyyMMdd" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns>
+            <regexOutputColumn name="pur_date_day" substitution="$3">
+              <comm:comment>One or two digits</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_date_month" substitution="$2">
+              <comm:comment>One or two digits</comm:comment>
+            </regexOutputColumn>
+            <regexOutputColumn name="pur_date_year" substitution="$1">
+              <comm:comment>Two or four digits</comm:comment>
+            </regexOutputColumn>
+          </resultColumns>
+          <comm:comment>E.g.
+19851015</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Parse date part.
+
+Predefined formats are used.
+If you prefer different formats, e.g. instead of &quot;MM/dd/yyyy&quot; you need &quot;/dd/MM/yyyy&quot;, you need to make change here.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Check numeric date validity (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="tmp_date_valid">
+          <expression>toDate(pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day, &#39;yyyy-MM-dd&#39;) is not null or
+toDate(pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day, &#39;yy-MM-dd&#39;) is not null
+</expression>
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+          <comm:comment>For 2-digit year, toDate function &quot;goes 20 years into the future or 80 years into the past&quot; from current date.
+E.g.:
+If today was 2014-10-13,
+input date 34-10-13 would be recognized as 2034-10-13
+input date 34-10-14 would be recognized as 1934-10-14</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Check if parsed parts compose valid date</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Valid numeric date (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="tmp_date_valid">
+      <comm:comment>Input numeric date is valid</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Non numeric date (Pattern Parser)" image="images/PatternParserAlgorithm.large.png" class="com.ataccama.dqc.tasks.parse.PatternParserAlgorithm">
+    <properties fullTrashScope="false" in="pur_date" patternName="pat_date">
+      <parserConfig>
+        <components>
+          <component definition="{REGEXP: pattern=@&quot;☠(0?[1-9]|[12][0-9]|3[01])&quot;}" storeParsedInto="pur_date_day" name="DAY_ORDINAL">
+            <scorer>
+              <scoringEntries>
+                <scoringEntry score="0" explainAs="PPV_MISMATCH" explain="true" key="PPV_MISMATCH"/>
+              </scoringEntries>
+            </scorer>
+            <comm:comment>Day from 1 to 31, with skull char (☠) in front. It means, that there was ordinal number on the input (e.g. 1st, 2nd, ..)</comm:comment>
+          </component>
+          <component definition="{REGEXP: pattern=@&quot;(0?[1-9]|[12][0-9]|3[01])&quot;}" storeParsedInto="pur_date_day" name="DAY">
+            <scorer>
+              <scoringEntries>
+                <scoringEntry score="0" explainAs="PPV_MISMATCH" explain="true" key="PPV_MISMATCH"/>
+              </scoringEntries>
+            </scorer>
+            <comm:comment>Day from 1 to 31</comm:comment>
+          </component>
+          <component definition="{REGEXP: pattern=@&quot;☃(0?[1-9]|1[012])&quot;}" storeParsedInto="pur_date_month" name="MONTH_NAME">
+            <scorer>
+              <scoringEntries>
+                <scoringEntry score="0" explainAs="PPV_MISMATCH" explain="true" key="PPV_MISMATCH"/>
+              </scoringEntries>
+            </scorer>
+            <comm:comment>Month from 1 to 12, with required snowman char (☃) in front. This means, that there was month name on the input instead of the numeric month order.</comm:comment>
+          </component>
+          <component definition="{REGEXP: pattern=@&quot;(\d{4})&quot;}" storeParsedInto="pur_date_year" name="YEAR4">
+            <scorer>
+              <scoringEntries>
+                <scoringEntry score="0" explainAs="PPV_MISMATCH" explain="true" key="PPV_MISMATCH"/>
+              </scoringEntries>
+            </scorer>
+            <comm:comment>4-digit long year.</comm:comment>
+          </component>
+          <component definition="{REGEXP: pattern=@&quot;(\d{2})&quot;}" storeParsedInto="pur_date_year" name="YEAR2">
+            <scorer>
+              <scoringEntries>
+                <scoringEntry score="0" explainAs="PPV_MISMATCH" explain="true" key="PPV_MISMATCH"/>
+              </scoringEntries>
+            </scorer>
+            <comm:comment>2-digit long year</comm:comment>
+          </component>
+        </components>
+        <patternGroups>
+          <patternGroup>
+            <patterns>
+              <pattern definition="{DAY_ORDINAL}{MONTH_NAME}{YEAR4}" priority="1" name="Dth MMM(M) YYYY"/>
+              <pattern definition="{DAY_ORDINAL}{MONTH_NAME}{YEAR2}" priority="1" name="Dth MMM(M) YY"/>
+              <pattern definition="{DAY}{MONTH_NAME}{YEAR4}" priority="1" name="D MMM(M) YYYY"/>
+              <pattern definition="{MONTH_NAME}{DAY_ORDINAL}{YEAR4}" priority="1" name="MMM(M) Dth YYYY"/>
+              <pattern definition="{MONTH_NAME}{DAY_ORDINAL}{YEAR2}" priority="1" name="MMM(M) Dth YY"/>
+              <pattern definition="{MONTH_NAME}{DAY}{YEAR4}" priority="1" name="MMM(M) D YYYY"/>
+              <pattern definition="{YEAR4}{MONTH_NAME}{DAY_ORDINAL}" priority="1" name="YYYY MMM(M) Dth"/>
+              <pattern definition="{YEAR2}{MONTH_NAME}{DAY_ORDINAL}" priority="1" name="YY MMM(M) Dth"/>
+              <pattern definition="{YEAR4}{MONTH_NAME}{DAY}" priority="1" name="YYYY MMM(M) D"/>
+            </patterns>
+            <comm:comment>Arbitrary position of day, month and year.
+There has to be month name on input.
+If 2-digit long year is present, day had to be in ordinal number form on input.
+This means, that dates &quot;June 13 1997&quot; and &quot;June 13th 97&quot; would be parsed, but &quot;June 13 97&quot; would not.</comm:comment>
+          </patternGroup>
+        </patternGroups>
+      </parserConfig>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="PP_NULL" explain="false" key="PP_NULL"/>
+          <scoringEntry score="0" explainAs="DATE_NOT_PARSED" explain="false" key="PP_NO_PATTERN"/>
+          <scoringEntry score="0" explainAs="DATE_AMBIGUOUS" explain="false" key="PP_MORE_PATTERNS"/>
+          <scoringEntry score="0" explainAs="PP_TRASH" explain="false" key="PP_TRASH"/>
+        </scoringEntries>
+      </scorer>
+      <tokenizerConfig whiteSpaceDefinition="[:white:]./,-">
+        <types>
+          <tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+          <tokenType tokenStartCharacters="[:digit:]☠☃" tokenCharacters="[:digit:]"/>
+        </types>
+        <comm:comment>Date part can be separated by space, dot, forward slash or dash. They can be mixed.
+
+E.g. &quot;☠15.☃10/85&quot; - this would be created from input &quot;15th. October/1985&quot;</comm:comment>
+      </tokenizerConfig>
+      <comm:comment>If date wasn&#39;t parsed or valid using predefined patterns, try to find date parts with lesser format strictness</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove snowman and skull (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="pur_date_month">
+          <expression>replace(pur_date_month, &#39;☃&#39;, &#39;&#39;)
+
+</expression>
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+        </assignment>
+        <assignment expression="replace(pur_date_day, &#39;☠&#39;, &#39;&#39;)" column="pur_date_day">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Remove snowman char from month and skull from day</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Check non-numeric date validity  (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="tmp_date_valid">
+          <expression>toDate(pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day, &#39;yyyy-MM-dd&#39;) is not null or
+toDate(pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day, &#39;yy-MM-dd&#39;) is not null
+</expression>
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+          <comm:comment>For 2-digit year, toDate function &quot;goes 20 years into the future or 80 years into the past&quot; from current date.
+E.g.:
+If today was 2014-10-13,
+input date 34-10-13 would be recognized as 2034-10-13
+input date 34-10-14 would be recognized as 1934-10-14</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Check if parsed parts compose valid date.
+
+It will invalidate dates like 30.2.2000</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Valid non-numeric date (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="tmp_date_valid">
+      <comm:comment>Date in benevolent format is valid</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Invalid date (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_datetime" defaultExplainColumn="exp_datetime">
+      <scoringCases>
+        <scoringCase condition="true" explanation="&#39;DATE_INVALID&#39;" score="100000"/>
+      </scoringCases>
+    </properties>
+  </configAlg>
+  <configAlg name="Invalid dates (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union invalid, unparsed, empty inputs</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Non-numeric date format (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_datetime" defaultExplainColumn="exp_datetime">
+      <scoringCases>
+        <scoringCase condition="true" explanation="&#39;DATE_WITH_MONTH_NAME&#39;" score="100"/>
+      </scoringCases>
+      <comm:comment>Benevolent date format - it won&#39;t be in std values</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Valid dates (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union valid dates</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="All dates (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union all input records</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Check time validity (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties whenCondition="pur_time is not null">
+      <assignments>
+        <assignment column="tmp_time_valid">
+          <expression>toDateTime(pur_time, &#39;HH:mm:ss.SSS&#39;) is not null or 
+toDateTime(pur_time, &#39;HH:mm:ss&#39;) is not null
+</expression>
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Check time validity when it was parsed
+
+24 hours time mode is checked.
+Hours, minutes and seconds are required.
+Milliseconds are optional</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Set out values (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="out_date">
+          <expression>$date:=pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day;
+
+iif(
+	length(pur_date_year) is 4,
+		toDate($date, &#39;yyyy-MM-dd&#39;),
+		toDate($date, &#39;yy-MM-dd&#39;)
+)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Depending on digit count of year, use particular format for creating date.</comm:comment>
+        </assignment>
+        <assignment column="out_datetime">
+          <expression>$datetime:=pur_date_year+&#39;-&#39;+pur_date_month+&#39;-&#39;+pur_date_day+&#39; &#39;+pur_time;
+
+case
+(
+	tmp_time_valid is null, //there was no time on input
+		toDateTime(out_date),
+	tmp_time_valid is false,//there was invalid time on input
+		null,
+	case( //there was valid time on input. 
+		//Depending on number of year digit and presence/absence of milliseconds, create datetime
+		length(pur_date_year) is 4 and indexOf(pur_time, &#39;.&#39;) is not null,
+			toDateTime($datetime, &#39;yyyy-MM-dd HH:mm:ss.SSS&#39;),
+		length(pur_date_year) is 4 and indexOf(pur_time, &#39;.&#39;) is null,
+			toDateTime($datetime, &#39;yyyy-MM-dd HH:mm:ss&#39;),
+		length(pur_date_year) is 2 and indexOf(pur_time, &#39;.&#39;) is not null,
+			toDateTime($datetime, &#39;yy-MM-dd HH:mm:ss.SSS&#39;),
+		length(pur_date_year) is 2 and indexOf(pur_time, &#39;.&#39;) is null,
+			toDateTime($datetime, &#39;yy-MM-dd HH:mm:ss&#39;)
+		)
+)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Depending on digit count of year and presence/absence of milliseconds, use particular format for creating date.</comm:comment>
+        </assignment>
+        <assignment column="out_pattern">
+          <expression>$pat_fixed_years:=iif(length(pur_date_year) is 4, 
+							replace(pat_date, &#39;(yy)yy&#39;, &#39;yyyy&#39;),
+							replace(pat_date, &#39;(yy)yy&#39;, &#39;yy&#39;)
+					);
+$pat_time:=iif(indexOf(pur_time, &#39;.&#39;) is not null, 
+					&#39;HH:mm:ss.SSS&#39;,
+					&#39;HH:mm:ss&#39;
+			);		
+							
+							
+case
+(
+	out_datetime is not null and tmp_time_valid is true,
+		$pat_fixed_years + &#39; &#39; + $pat_time,
+	out_date is not null,
+		$pat_fixed_years,
+	null
+)						</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Adjust actual format</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Setting output (the best existing) values of the date</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Set score and explanations (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_datetime" defaultExplainColumn="exp_datetime">
+      <scoringCases>
+        <scoringCase description="The date is in the future" explanation="&#39;DATE_IN_FUTURE&#39;" score="10000">
+          <condition>$today:=today();
+out_date&gt;$today</condition>
+        </scoringCase>
+        <scoringCase description="The date is too far in the past" explanation="&#39;DATE_FAR_IN_PAST&#39;" score="10000">
+          <condition>$date_from:=toDate(&#39;1900-01-01&#39;,&#39;yyyy-MM-dd&#39;,&#39;en&#39;);
+
+out_date&lt;=$date_from</condition>
+        </scoringCase>
+        <scoringCase description="Date contains comments" explanation="&#39;DATE_COMMENTS_FOUND&#39;" score="min(length(tmp_comment_before) +  length(tmp_comment_after), 100)">
+          <condition>sco_datetime &lt;= 10000 and
+(tmp_comment_before is not null or tmp_comment_after is not null)</condition>
+        </scoringCase>
+        <scoringCase condition="tmp_time_valid is false" explanation="&#39;DATE_INVALID_TIME&#39;" score="5000"/>
+      </scoringCases>
+      <comm:comment>Setting additional score and explanantions for data quality discrepancies.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Set std values (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="iif(sco_datetime&lt;10000,out_date,null)" column="std_date">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Null the std value in case that the score is 10 000 or higher. (e.g. it&#39;s in the future or far in the past)</comm:comment>
+        </assignment>
+        <assignment expression="iif(sco_datetime&lt;5000, out_datetime,null)" column="std_datetime">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Null the std value in case that the score is 5000 or higher. (e.g. it&#39;s in the future or far in the past or has invalid time part)</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Apply business validations for std values</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove internal columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns/>
+      <removedColumns>
+        <columnRef name="pur_date"/>
+        <columnRef name="pur_date_day"/>
+        <columnRef name="pur_date_month"/>
+        <columnRef name="pur_date_year"/>
+        <columnRef name="pur_datetime"/>
+        <columnRef name="tmp_comment_before"/>
+        <columnRef name="pur_time"/>
+        <columnRef name="tmp_comment_after"/>
+        <columnRef name="tmp_time_valid"/>
+        <columnRef name="tmp_date_valid"/>
+        <columnRef name="pat_datetime"/>
+        <columnRef name="pat_date"/>
+      </removedColumns>
+      <comm:comment>Removing internal columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="out (Integration Output)" image="images/OutputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep">
+    <properties>
+      <requiredColumns>
+        <requiredColumn name="std_date" type="DAY">
+          <comm:comment>Standardized value of the date: cleansed, parsed and validated by business logic.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="std_datetime" type="DATETIME">
+          <comm:comment>Standardized value of the datetime: cleansed, parsed and validated by business logic.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_date" type="DAY">
+          <comm:comment>The best existing value of a date in the DAY format.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_datetime" type="DATETIME">
+          <comm:comment>The best existing value of a date in the DATETIME format.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="out_pattern" type="STRING">
+          <comm:comment>Parsed pattern of the date/datetime.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="sco_datetime" type="INTEGER">
+          <comm:comment>Data quality score penalizing the discrepancies in the date value.</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="exp_datetime" type="STRING">
+          <comm:comment>Data quality explananation for the discrepancies in the date value.</comm:comment>
+        </requiredColumn>
+      </requiredColumns>
+    </properties>
+  </configAlg>
+</configDoc>

@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Calculate test result) --><step id="Calculate test result" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="normal">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_std_date is not std_date, &#39; std_date&#39;, &#39;&#39;) + 
+    iif(e_std_datetime is not std_datetime, &#39; std_datetime&#39;, &#39;&#39;) + 
+    iif(e_out_date is not out_date, &#39; out_date&#39;, &#39;&#39;) + 
+    iif(e_out_datetime is not out_datetime, &#39; out_datetime&#39;, &#39;&#39;) + 
+    iif(e_out_pattern is not out_pattern, &#39; out_pattern&#39;, &#39;&#39;) + 
+    iif(e_sco_datetime is not sco_datetime, &#39; sco_datetime&#39;, &#39;&#39;) + 
+    iif(e_exp_datetime is not exp_datetime, &#39; exp_datetime&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="24,240,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result" endpoint="out"/>
+		<target step="Sort" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Read test____date_validate_in.xls) --><step id="Read test____date_validate_in.xls" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/___date_validate/test____date_validate_in.xls" startCell="A2" skipEmptyRows="true" sheet="0">
+			<columns>
+				<columnDef name="TC_ID" type="integer"/>
+				<columnDef name="description" type="string"/>
+				<columnDef name="in_datetime" type="STRING"/>
+				<columnDef name="e_std_date" type="DAY"/>
+				<columnDef name="e_std_datetime" type="DATETIME"/>
+				<columnDef name="e_out_date" type="DAY"/>
+				<columnDef name="e_out_datetime" type="DATETIME"/>
+				<columnDef name="e_out_pattern" type="STRING"/>
+				<columnDef name="e_sco_datetime" type="INTEGER"/>
+				<columnDef name="e_exp_datetime" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="24,24,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Read test____date_validate_in.xls" endpoint="out"/>
+		<target step="add columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Sort) --><step id="Sort" className="com.ataccama.dqc.tasks.identify.sort.SortEngine" disabled="false" mode="normal">
+		<properties>
+			<sort>
+				<orderBy expression="TC_ID" orderDescending="false" nullsFirst="false"/>
+			</sort>
+		</properties>
+		<visual-constraints bounds="24,312,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Sort" endpoint="out"/>
+		<target step="Write test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Write test result) --><step id="Write test result" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" mode="normal">
+		<properties useStringQualifierOnAllColumns="false" stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator="^~" generateMetadata="true" fileName="pathvar://TESTS_ROOT/___date_validate/test____date_validate_out.csv" encoding="UTF-8" writeHeader="true" writeAllColumns="false">
+			<columns>
+				<textWriterColumn name="difference"/>
+				<textWriterColumn name="TC_ID"/>
+				<textWriterColumn name="description"/>
+				<textWriterColumn name="in_datetime"/>
+				<textWriterColumn name="std_date"/>
+				<textWriterColumn name="e_std_date"/>
+				<textWriterColumn name="std_datetime"/>
+				<textWriterColumn name="e_std_datetime"/>
+				<textWriterColumn name="out_date"/>
+				<textWriterColumn name="e_out_date"/>
+				<textWriterColumn name="out_datetime"/>
+				<textWriterColumn name="e_out_datetime"/>
+				<textWriterColumn name="out_pattern"/>
+				<textWriterColumn name="e_out_pattern"/>
+				<textWriterColumn name="sco_datetime"/>
+				<textWriterColumn name="e_sco_datetime"/>
+				<textWriterColumn name="exp_datetime"/>
+				<textWriterColumn name="e_exp_datetime"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss.SSS" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+		</properties>
+		<visual-constraints bounds="24,384,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (add columns) --><step id="add columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="normal">
+		<properties>
+			<addedColumns>
+				<addedColumn name="std_date" type="DAY">
+					<comm:comment>Standardized value of the date: cleansed, parsed and validated by business logic.</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_datetime" type="DATETIME">
+					<comm:comment>Standardized value of the datetime: cleansed, parsed and validated by business logic.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_date" type="DAY">
+					<comm:comment>The best existing value of a date in the DAY format.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_datetime" type="DATETIME">
+					<comm:comment>The best existing value of a date in the DATETIME format.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_pattern" type="STRING">
+					<comm:comment>Parsed pattern of the date/datetime.</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_datetime" type="INTEGER">
+					<comm:comment>Data quality score penalizing the discrepancies in the date value.</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_datetime" type="STRING">
+					<comm:comment>Data quality explananation for the discrepancies in the date value.</comm:comment>
+				</addedColumn>
+				<addedColumn name="difference" type="string"/>
+				<addedColumn name="message" type="string"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="24,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns" endpoint="out"/>
+		<target step="component" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component) --><component id="component" disabled="false" mode="normal">
+		<properties fileName="pathvar://COMPONENTS/___date_validate.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_datetime" from="in_datetime"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="std_date" from="std_date"/>
+						<columnsMapping to="std_datetime" from="std_datetime"/>
+						<columnsMapping to="out_date" from="out_date"/>
+						<columnsMapping to="out_datetime" from="out_datetime"/>
+						<columnsMapping to="out_pattern" from="out_pattern"/>
+						<columnsMapping to="sco_datetime" from="sco_datetime"/>
+						<columnsMapping to="exp_datetime" from="exp_datetime"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters/>
+		</properties>
+		<visual-constraints bounds="24,168,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component" endpoint="out"/>
+		<target step="Calculate test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+</purity-config>

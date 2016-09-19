@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Excel File Writer) --><step id="Excel File Writer" className="com.ataccama.dqc.tasks.msoffice.excel.write.ExcelFileWriter" disabled="true" mode="NORMAL">
+		<properties fileName="z_tz_vzorek.xls" excel2007="false">
+			<inputs>
+				<excelSheetInput clearSheet="false" startCell="A1" writeHeader="false" writeAllColumns="false" inputName="in">
+					<columns>
+						<columnExprDef expression="klic" name="klic"/>
+						<columnExprDef expression="titul" name="titul"/>
+						<columnExprDef expression="prijimeni" name="prijimeni"/>
+						<columnExprDef expression="jmeno" name="jmeno"/>
+						<columnExprDef expression="rodcis" name="rodcis"/>
+						<columnExprDef expression="ulice" name="ulice"/>
+						<columnExprDef expression="misto" name="misto"/>
+						<columnExprDef expression="psc" name="psc"/>
+						<columnExprDef expression="tel" name="tel"/>
+						<columnExprDef expression="mobil" name="mobil"/>
+						<columnExprDef expression="email" name="email"/>
+					</columns>
+				</excelSheetInput>
+			</inputs>
+		</properties>
+		<visual-constraints bounds="600,288,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (Filter) --><step id="Filter" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" mode="BYPASS">
+		<properties/>
+		<visual-constraints bounds="432,216,48,48" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Filter" endpoint="out"/>
+		<target step="Multiplicator" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter 2) --><step id="Filter 2" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="true" mode="NORMAL">
+		<properties condition="misto = &#39;Tábor&#39;"/>
+		<visual-constraints bounds="600,192,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="true">
+		<source step="Filter 2" endpoint="out"/>
+		<target step="Excel File Writer" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Multiplicator) --><step id="Multiplicator" className="com.ataccama.dqc.tasks.flow.Multiplicator" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="432,312,48,48" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Multiplicator" endpoint="out"/>
+		<target step="map_internal_columns_from_z_tz_to_adresa" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Multiplicator" endpoint="out"/>
+		<target step="map_internal_columns_from_z_tz_to_contact" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Multiplicator" endpoint="out"/>
+		<target step="map_internal_columns_from_z_tz_to_party" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (SRC_adresa) --><step id="SRC_adresa" className="com.ataccama.dqc.tasks.flow.RecordCounter" disabled="false" mode="BYPASS">
+		<properties reportPerfPerBatch="true" append="true" reportFileName="\\logger" timeStampFormat="yyyy-MM-dd HH:mm:ss" batchSize="100000" reportPerfPerSecond="true">
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="432,648,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="SRC_adresa" endpoint="out"/>
+		<target step="adresa" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (SRC_contact) --><step id="SRC_contact" className="com.ataccama.dqc.tasks.flow.RecordCounter" disabled="false" mode="BYPASS">
+		<properties reportPerfPerBatch="true" append="true" reportFileName="\\logger" timeStampFormat="yyyy-MM-dd HH:mm:ss" batchSize="100000" reportPerfPerSecond="true">
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="768,648,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="SRC_contact" endpoint="out"/>
+		<target step="contact" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (SRC_party) --><step id="SRC_party" className="com.ataccama.dqc.tasks.flow.RecordCounter" disabled="false" mode="BYPASS">
+		<properties reportPerfPerBatch="true" append="true" reportFileName="\\logger" timeStampFormat="yyyy-MM-dd HH:mm:ss" batchSize="100000" reportPerfPerSecond="true">
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="96,648,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="SRC_party" endpoint="out"/>
+		<target step="party" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (adresa) --><step id="adresa" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="source_id" type="STRING"/>
+				<requiredColumn name="origin" type="STRING"/>
+				<requiredColumn name="source_timestamp" type="DATETIME"/>
+				<requiredColumn name="src_ruian" type="STRING"/>
+				<requiredColumn name="src_ulice" type="STRING"/>
+				<requiredColumn name="src_cislop" type="STRING"/>
+				<requiredColumn name="src_cisloev" type="STRING"/>
+				<requiredColumn name="src_cisloor" type="STRING"/>
+				<requiredColumn name="src_mesto" type="STRING"/>
+				<requiredColumn name="src_psc_id" type="STRING"/>
+			</requiredColumns>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="432,720,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (contact) --><step id="contact" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="source_id" type="STRING"/>
+				<requiredColumn name="origin" type="STRING"/>
+				<requiredColumn name="source_timestamp" type="DATETIME"/>
+				<requiredColumn name="src_contact" type="STRING"/>
+				<requiredColumn name="src_type" type="STRING"/>
+			</requiredColumns>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="768,720,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (map_adresa_source_columns) --><step id="map_adresa_source_columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="klic" name="source_id" type="STRING"/>
+				<addedColumn name="src_ruian" type="STRING"/>
+				<addedColumn expression="ulice" name="src_ulice" type="STRING"/>
+				<addedColumn name="src_cislop" type="STRING"/>
+				<addedColumn name="src_cisloev" type="STRING"/>
+				<addedColumn name="src_cisloor" type="STRING"/>
+				<addedColumn expression="misto" name="src_mesto" type="STRING"/>
+				<addedColumn expression="psc" name="src_psc_id" type="STRING"/>
+				<addedColumn name="source_timestamp" type="DATETIME"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>BE CAREFUL WHEN EDITING! This step was automatically pre-generated from the model. Your are allowed to complete the attribute mapping on Added Columns tab only (i.e. fill the Expression column in). This content will be preserved even if listed attributes changed. Other changes will be discarded.</comm:comment>
+		</properties>
+		<visual-constraints bounds="432,552,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="map_adresa_source_columns" endpoint="out"/>
+		<target step="SRC_adresa" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (map_contact_source_columns) --><step id="map_contact_source_columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="klic" name="source_id" type="STRING"/>
+				<addedColumn expression="tel" name="src_contact" type="STRING"/>
+				<addedColumn name="src_type" type="STRING"/>
+				<addedColumn name="source_timestamp" type="DATETIME"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>BE CAREFUL WHEN EDITING! This step was automatically pre-generated from the model. Your are allowed to complete the attribute mapping on Added Columns tab only (i.e. fill the Expression column in). This content will be preserved even if listed attributes changed. Other changes will be discarded.</comm:comment>
+		</properties>
+		<visual-constraints bounds="768,552,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="map_contact_source_columns" endpoint="out"/>
+		<target step="SRC_contact" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (map_internal_columns_from_z_tz_to_adresa) --><step id="map_internal_columns_from_z_tz_to_adresa" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="&#39;KoopGolem#z_tz_party#adresa&#39;" name="origin" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="432,456,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="map_internal_columns_from_z_tz_to_adresa" endpoint="out"/>
+		<target step="map_adresa_source_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (map_internal_columns_from_z_tz_to_contact) --><step id="map_internal_columns_from_z_tz_to_contact" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="&#39;KoopGolem#z_tz_party#contact&#39;" name="origin" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="768,456,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="map_internal_columns_from_z_tz_to_contact" endpoint="out"/>
+		<target step="map_contact_source_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (map_internal_columns_from_z_tz_to_party) --><step id="map_internal_columns_from_z_tz_to_party" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="&#39;KoopGolem#z_tz_party#party&#39;" name="origin" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="96,456,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="map_internal_columns_from_z_tz_to_party" endpoint="out"/>
+		<target step="map_party_source_columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (map_party_source_columns) --><step id="map_party_source_columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn expression="klic" name="source_id" type="STRING"/>
+				<addedColumn expression="rodcis" name="src_rod_cis" type="STRING"/>
+				<addedColumn expression="prijimeni" name="src_prijimeni" type="STRING"/>
+				<addedColumn expression="jmeno" name="src_jmeno" type="STRING"/>
+				<addedColumn name="src_datnar" type="STRING"/>
+				<addedColumn name="src_pohlavi" type="STRING"/>
+				<addedColumn expression="rematch" name="src_rematch" type="STRING"/>
+				<addedColumn expression="now()" name="source_timestamp" type="DATETIME"/>
+			</addedColumns>
+			<removedColumns/>
+			<comm:comment>BE CAREFUL WHEN EDITING! This step was automatically pre-generated from the model. Your are allowed to complete the attribute mapping on Added Columns tab only (i.e. fill the Expression column in). This content will be preserved even if listed attributes changed. Other changes will be discarded.</comm:comment>
+		</properties>
+		<visual-constraints bounds="96,552,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="map_party_source_columns" endpoint="out"/>
+		<target step="SRC_party" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (party) --><step id="party" className="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep" disabled="false" mode="NORMAL">
+		<properties>
+			<requiredColumns>
+				<requiredColumn name="source_id" type="STRING"/>
+				<requiredColumn name="origin" type="STRING"/>
+				<requiredColumn name="source_timestamp" type="DATETIME"/>
+				<requiredColumn name="src_rod_cis" type="STRING"/>
+				<requiredColumn name="src_prijimeni" type="STRING"/>
+				<requiredColumn name="src_jmeno" type="STRING"/>
+				<requiredColumn name="src_datnar" type="STRING"/>
+				<requiredColumn name="src_pohlavi" type="STRING"/>
+				<requiredColumn name="src_rematch" type="STRING"/>
+			</requiredColumns>
+			<comm:comment>DO NOT ALTER! This step was automatically generated from the model. Your changes will be discarded when you re-generate this plan!</comm:comment>
+		</properties>
+		<visual-constraints bounds="96,720,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (z_tz) --><step id="z_tz" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="true" mode="NORMAL">
+		<properties stringQualifier="" lineSeparator="\n" fieldSeparator="|" lineMaxReadLength="65536" numberOfLinesInHeader="0" fileName="../../../../KoopData/koop/z_tz.unl" encoding="ISO-8859-2" numberOfLinesInFooter="0" compression="NONE" stringQualifierEscape="">
+			<columns>
+				<textReaderColumn name="klic" type="STRING" ignore="false"/>
+				<textReaderColumn name="kodzi" type="STRING" ignore="false"/>
+				<textReaderColumn name="typzis" type="STRING" ignore="false"/>
+				<textReaderColumn name="kod_zps" type="STRING" ignore="false"/>
+				<textReaderColumn name="titul" type="STRING" ignore="false"/>
+				<textReaderColumn name="prijimeni" type="STRING" ignore="false"/>
+				<textReaderColumn name="jmeno" type="STRING" ignore="false"/>
+				<textReaderColumn name="rodcis" type="STRING" ignore="false"/>
+				<textReaderColumn name="idrc" type="STRING" ignore="false"/>
+				<textReaderColumn name="ulice" type="STRING" ignore="false"/>
+				<textReaderColumn name="misto" type="STRING" ignore="false"/>
+				<textReaderColumn name="psc" type="STRING" ignore="false"/>
+				<textReaderColumn name="tel" type="STRING" ignore="false"/>
+				<textReaderColumn name="nadriz" type="STRING" ignore="false"/>
+				<textReaderColumn name="zppla" type="STRING" ignore="false"/>
+				<textReaderColumn name="limit" type="STRING" ignore="false"/>
+				<textReaderColumn name="vma" type="STRING" ignore="false"/>
+				<textReaderColumn name="datzav" type="STRING" ignore="false"/>
+				<textReaderColumn name="datvyr" type="STRING" ignore="false"/>
+				<textReaderColumn name="povpro" type="STRING" ignore="false"/>
+				<textReaderColumn name="skup" type="STRING" ignore="false"/>
+				<textReaderColumn name="vykon" type="STRING" ignore="false"/>
+				<textReaderColumn name="strprov" type="STRING" ignore="false"/>
+				<textReaderColumn name="id_pskup" type="STRING" ignore="false"/>
+				<textReaderColumn name="kodban" type="STRING" ignore="false"/>
+				<textReaderColumn name="cisuct" type="STRING" ignore="false"/>
+				<textReaderColumn name="vars" type="STRING" ignore="false"/>
+				<textReaderColumn name="statut" type="STRING" ignore="false"/>
+				<textReaderColumn name="smlouva" type="STRING" ignore="false"/>
+				<textReaderColumn name="uvoldo" type="STRING" ignore="false"/>
+				<textReaderColumn name="strcis" type="STRING" ignore="false"/>
+				<textReaderColumn name="mobil" type="STRING" ignore="false"/>
+				<textReaderColumn name="email" type="STRING" ignore="false"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd"/>
+			<errorHandlingStrategy rejectFileName="rejected.txt">
+				<errorInstructions>
+					<errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+				</errorInstructions>
+			</errorHandlingStrategy>
+			<shadowColumns>
+				<shadowColumnDef name="radek" defaultExpression="sequence()" type="INTEGER"/>
+			</shadowColumns>
+		</properties>
+		<visual-constraints bounds="432,96,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (z_tz 2) --><step id="z_tz 2" className="com.ataccama.dqc.tasks.io.text.read.TextFileReader" disabled="true" mode="NORMAL">
+		<properties stringQualifier="" lineSeparator="\n" fieldSeparator="|" lineMaxReadLength="65536" numberOfLinesInHeader="0" fileName="../../../../KoopData/koop/z_tz.unl" encoding="ISO-8859-2" numberOfLinesInFooter="0" compression="NONE" stringQualifierEscape="">
+			<columns>
+				<textReaderColumn name="klic" type="STRING" ignore="false"/>
+				<textReaderColumn name="kodzi" type="STRING" ignore="false"/>
+				<textReaderColumn name="typzis" type="STRING" ignore="false"/>
+				<textReaderColumn name="kod_zps" type="STRING" ignore="false"/>
+				<textReaderColumn name="titul" type="STRING" ignore="false"/>
+				<textReaderColumn name="prijimeni" type="STRING" ignore="false"/>
+				<textReaderColumn name="jmeno" type="STRING" ignore="false"/>
+				<textReaderColumn name="rodcis" type="STRING" ignore="false"/>
+				<textReaderColumn name="idrc" type="STRING" ignore="false"/>
+				<textReaderColumn name="ulice" type="STRING" ignore="false"/>
+				<textReaderColumn name="misto" type="STRING" ignore="false"/>
+				<textReaderColumn name="psc" type="STRING" ignore="false"/>
+				<textReaderColumn name="tel" type="STRING" ignore="false"/>
+				<textReaderColumn name="nadriz" type="STRING" ignore="false"/>
+				<textReaderColumn name="zppla" type="STRING" ignore="false"/>
+				<textReaderColumn name="limit" type="STRING" ignore="false"/>
+				<textReaderColumn name="vma" type="STRING" ignore="false"/>
+				<textReaderColumn name="datzav" type="STRING" ignore="false"/>
+				<textReaderColumn name="datvyr" type="STRING" ignore="false"/>
+				<textReaderColumn name="povpro" type="STRING" ignore="false"/>
+				<textReaderColumn name="skup" type="STRING" ignore="false"/>
+				<textReaderColumn name="vykon" type="STRING" ignore="false"/>
+				<textReaderColumn name="strprov" type="STRING" ignore="false"/>
+				<textReaderColumn name="id_pskup" type="STRING" ignore="false"/>
+				<textReaderColumn name="kodban" type="STRING" ignore="false"/>
+				<textReaderColumn name="cisuct" type="STRING" ignore="false"/>
+				<textReaderColumn name="vars" type="STRING" ignore="false"/>
+				<textReaderColumn name="statut" type="STRING" ignore="false"/>
+				<textReaderColumn name="smlouva" type="STRING" ignore="false"/>
+				<textReaderColumn name="uvoldo" type="STRING" ignore="false"/>
+				<textReaderColumn name="strcis" type="STRING" ignore="false"/>
+				<textReaderColumn name="mobil" type="STRING" ignore="false"/>
+				<textReaderColumn name="email" type="STRING" ignore="false"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd"/>
+			<errorHandlingStrategy rejectFileName="rejected.txt">
+				<errorInstructions>
+					<errorInstruction putToLog="true" errorType="EXTRA_DATA" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="LONG_LINE" dataStrategy="STOP" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="PROCESSING_ERROR" dataStrategy="STOP" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="INVALID_DATE" dataStrategy="READ_POSSIBLE" putToReject="false"/>
+					<errorInstruction putToLog="true" errorType="SHORT_LINE" dataStrategy="READ_POSSIBLE" putToReject="true"/>
+					<errorInstruction putToLog="true" errorType="UNPARSABLE_FIELD" dataStrategy="NULL_VALUE" putToReject="false"/>
+				</errorInstructions>
+			</errorHandlingStrategy>
+			<shadowColumns>
+				<shadowColumnDef name="radek" defaultExpression="sequence()" type="INTEGER"/>
+			</shadowColumns>
+		</properties>
+		<visual-constraints bounds="600,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="true">
+		<source step="z_tz 2" endpoint="out"/>
+		<target step="Filter 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (z_tz_vzorek) --><step id="z_tz_vzorek" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader" disabled="false" mode="NORMAL">
+		<properties useModelApi="false" fileName="z_tz_vzorek.xls" startCell="A1" skipEmptyRows="false" sheetName="Sheet0">
+			<columns>
+				<columnDef name="klic" type="STRING"/>
+				<columnDef name="titul" type="STRING"/>
+				<columnDef name="prijimeni" type="STRING"/>
+				<columnDef name="jmeno" type="STRING"/>
+				<columnDef name="rodcis" type="STRING"/>
+				<columnDef name="ulice" type="STRING"/>
+				<columnDef name="misto" type="STRING"/>
+				<columnDef name="psc" type="STRING"/>
+				<columnDef name="tel" type="STRING"/>
+				<columnDef name="mobil" type="STRING"/>
+				<columnDef name="email" type="STRING"/>
+				<columnDef name="rematch" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="312,96,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="z_tz_vzorek" endpoint="out"/>
+		<target step="Filter" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<modelComment bounds="24,24,937,61" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">•	Drag and drop your extract sources and connect them to appropriate data flow. Then complete mapping in map_&lt;entity&gt;_source_columns step to load data into MDM Hub.
+•	Delta load: change type I/U/D is expected to be mapped into change_type column (it doesn&#39;t matter whether I/U is used, because upsert is performed)
+</modelComment>
+
+</purity-config>

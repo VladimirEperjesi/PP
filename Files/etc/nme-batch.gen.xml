@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch>
+	<loadOperations>
+		<op class="com.ataccama.nme.engine.batch.FullLoadBatchOperation" name="Golem_full" sourceSystem="Golem" sourceDeletionStrategy="deactivate">
+			<dataProvider class="com.ataccama.nme.dqc.batch.PlanBatchDataSource" planFileName="../engine/load/Golem_full.comp"/>
+			<importAllEntities>true</importAllEntities>
+		</op>
+		<op class="com.ataccama.nme.engine.batch.FullLoadBatchOperation" name="KoopGolem_full" sourceSystem="KoopGolem" sourceDeletionStrategy="deactivate">
+			<dataProvider class="com.ataccama.nme.dqc.batch.PlanBatchDataSource" planFileName="../engine/load/KoopGolem_full.comp"/>
+			<importAllEntities>true</importAllEntities>
+		</op>
+		<op class="com.ataccama.nme.engine.batch.FullLoadBatchOperation" name="TestBatchCSV_csv" sourceSystem="TestBatchCSV" sourceDeletionStrategy="deactivate">
+			<dataProvider class="com.ataccama.nme.dqc.batch.PlanBatchDataSource" planFileName="../engine/load/TestBatchCSV_csv.comp"/>
+			<importAllEntities>true</importAllEntities>
+		</op>
+		<op class="com.ataccama.nme.engine.batch.DeltaLoadBatchOperation" name="TestBatchCSV_inc" sourceSystem="TestBatchCSV" sourceDeletionStrategy="deactivate">
+			<dataProvider class="com.ataccama.nme.dqc.batch.PlanBatchDataSource" planFileName="../engine/load/TestBatchCSV_inc.comp"/>
+			<descriptors>
+				<descriptor class="com.ataccama.nme.engine.batch.load.AutonomousEntity" name="party"/>
+			</descriptors>
+		</op>
+		<op class="com.ataccama.nme.engine.batch.FullReprocessBatchOperation" name="Rematch">
+			<processAllEntities>false</processAllEntities>
+			<processedEntities>
+				<entity name="party"/>
+			</processedEntities>
+			<rematchAll>true</rematchAll>
+			<ignorePersistence>false</ignorePersistence>
+		</op>
+	</loadOperations>
+	<exportOperations>
+		<op class="com.ataccama.nme.engine.batch.StandardBatchExportOperation" name="full_export">
+			<dataProviders>
+				<dataProvider class="com.ataccama.nme.engine.batch.MasterLayerDataSource" viewName="master_party" scope="ACTIVE"/>
+			</dataProviders>
+			<publisher class="com.ataccama.nme.dqc.batch.PlanBatchExportPublisher" planFileName="../engine/export/Full_export.comp"/>
+		</op>
+	</exportOperations>
+</batch>

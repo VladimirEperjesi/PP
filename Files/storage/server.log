@@ -1,0 +1,897 @@
+26.08.2016 14:36:58 [INFO]     Starting 'ManagementServiceImpl'
+26.08.2016 14:36:58 [INFO]     Starting 'DerbyServerComponent'
+26.08.2016 14:36:58 [INFO]     Starting 'UmcManagerComponent'
+26.08.2016 14:36:58 [INFO]     Starting 'LoggingComponent'
+26.08.2016 14:36:58 [INFO]     Starting 'HttpDispatcher'
+26.08.2016 14:36:58 [INFO]    [HttpDispatcher][default] Listening for HTTP requests on port 8888
+26.08.2016 14:36:58 [INFO]     Starting 'JmsProviderComponent'
+26.08.2016 14:36:58 [INFO]     Starting 'AuthenticationService'
+26.08.2016 14:36:58 [INFO]     Starting 'HealthStateProviders'
+26.08.2016 14:37:03 [INFO]     Starting 'WebConsoleComponent'
+26.08.2016 14:37:03 [INFO]     Starting 'HealthStateWebConsole'
+26.08.2016 14:37:03 [INFO]     Starting 'OnlineServicesComponent'
+26.08.2016 14:37:03 [INFO]     Starting 'NmeServerComponent'
+26.08.2016 14:37:05 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+26.08.2016 14:37:06 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+26.08.2016 14:37:06 [INFO]    [NmeServerComponent][party_match.comp] Starting plan...
+26.08.2016 14:37:08 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+26.08.2016 14:37:12 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+26.08.2016 14:37:15 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+26.08.2016 14:37:16 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+26.08.2016 14:37:17 [INFO]    [NmeServerComponent][master_party_party_merge.comp] Starting plan...
+26.08.2016 14:37:19 [INFO]    [NmeServerComponent][nme-config.xml] Creating NmeHistoryPlugin
+26.08.2016 14:37:21 [INFO]     Starting 'ElasticsearchComponent'
+26.08.2016 14:37:34 [INFO]     Starting 'JmsMessageServerComponent'
+26.08.2016 14:37:36 [INFO]     Starting 'MdaBackendComponent'
+26.08.2016 14:37:37 [INFO]     Starting 'WorkflowServerComponent'
+26.08.2016 14:37:37 [INFO]     Starting 'SchedulerServerComponent'
+26.08.2016 14:37:37 [INFO]     Server startup complete.
+26.08.2016 14:38:38 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #1 has started.
+26.08.2016 14:38:38 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #1 because of NOT_FOUND
+26.08.2016 14:38:38 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Data acquisition has started.
+26.08.2016 14:38:38 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+26.08.2016 14:38:39 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Data acquisition has finished.
+26.08.2016 14:38:39 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Change detection has started.
+26.08.2016 14:38:39 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Change detection - party has started.
+26.08.2016 14:38:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Change detection - party has finished (424 change(s)).
+26.08.2016 14:38:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Change detection - adresa has started.
+26.08.2016 14:38:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Change detection - adresa has finished (424 change(s)).
+26.08.2016 14:38:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Change detection - contact has started.
+26.08.2016 14:38:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Change detection - contact has finished (424 change(s)).
+26.08.2016 14:38:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Change detection has finished.
+26.08.2016 14:38:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation has started.
+26.08.2016 14:38:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - Cleanse(adresa) has started.
+26.08.2016 14:38:41 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - Cleanse(adresa) has finished (424 record(s)).
+26.08.2016 14:38:41 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - Cleanse(party) has started.
+26.08.2016 14:38:41 [INFO]    [NmeServerComponent][party_clean.comp][counter_party_clean_in] Processing started.
+26.08.2016 14:38:41 [INFO]    [NmeServerComponent][party_clean.comp][counter_party_clean_out] Processing started.
+26.08.2016 14:38:41 [INFO]    [NmeServerComponent][party_clean.comp][counter_party_clean_in] 424 recs 20190 recs/s, 424 recs/21.0 ms
+26.08.2016 14:38:41 [INFO]    [NmeServerComponent][party_clean.comp][counter_party_clean_in] Processing finished. 20190 recs/s, 424 recs/21.0 ms
+26.08.2016 14:38:41 [INFO]    [NmeServerComponent][party_clean.comp][counter_party_clean_out] 424 recs 26500 recs/s, 424 recs/16.0 ms
+26.08.2016 14:38:41 [INFO]    [NmeServerComponent][party_clean.comp][counter_party_clean_out] Processing finished. 26500 recs/s, 424 recs/16.0 ms
+26.08.2016 14:38:41 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - Cleanse(party) has finished (424 record(s)).
+26.08.2016 14:38:41 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (424+0 record(s)).
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - Match(party) has started.
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][party_match.comp][counter_party_match_in] Processing started.
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][party_match.comp][counter_party_match_out] Processing started.
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][party_match.comp][counter_party_match_in] 424 recs 70667 recs/s, 424 recs/6.0 ms
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][party_match.comp][counter_party_match_in] Processing finished. 70667 recs/s, 424 recs/6.0 ms
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][party_match.comp][counter_party_match_out] 424 recs 9217 recs/s, 424 recs/46.0 ms
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][party_match.comp][counter_party_match_out] Processing finished. 9217 recs/s, 424 recs/46.0 ms
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - Match(party) has finished (424+0 record(s)).
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - Merge(master_party.party) has started.
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - Merge(master_party.party) has finished (424+0->310 record(s)).
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - Cleanse(contact) has started.
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation - Cleanse(contact) has finished (424 record(s)).
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Master data consolidation has finished.
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Committing has started.
+26.08.2016 14:38:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Committing - InstanceEntity(contact) has started.
+26.08.2016 14:38:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Committing - InstanceEntity(contact) has finished (424 record(s)).
+26.08.2016 14:38:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Committing - InstanceEntity(party) has started.
+26.08.2016 14:38:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Committing - InstanceEntity(party) has finished (424 record(s)).
+26.08.2016 14:38:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Committing - InstanceEntity(adresa) has started.
+26.08.2016 14:38:44 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Committing - InstanceEntity(adresa) has finished (424 record(s)).
+26.08.2016 14:38:44 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Committing - NmePersistentMasterType(master_party.party) has started.
+26.08.2016 14:38:44 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Committing - NmePersistentMasterType(master_party.party) has finished (310 record(s)).
+26.08.2016 14:38:44 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #1 Committing has finished.
+26.08.2016 14:38:44 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #1 has finished successfully.
+26.08.2016 14:42:04 [INFO]     Initiating server shutdown
+26.08.2016 14:42:04 [INFO]     Shutting down 'SchedulerServerComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'WorkflowServerComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'MdaBackendComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'JmsMessageServerComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'ElasticsearchComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'NmeServerComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'OnlineServicesComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'HealthStateWebConsole'
+26.08.2016 14:42:04 [INFO]     Shutting down 'WebConsoleComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'HealthStateProviders'
+26.08.2016 14:42:04 [INFO]     Shutting down 'AuthenticationService'
+26.08.2016 14:42:04 [INFO]     Shutting down 'JmsProviderComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'HttpDispatcher'
+26.08.2016 14:42:04 [INFO]     Shutting down 'LoggingComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'UmcManagerComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'DerbyServerComponent'
+26.08.2016 14:42:04 [INFO]     Shutting down 'ManagementServiceImpl'
+26.08.2016 14:42:04 [INFO]     Server shutdown complete.
+26.08.2016 14:42:09 [INFO]     Starting 'ManagementServiceImpl'
+26.08.2016 14:42:09 [INFO]     Starting 'DerbyServerComponent'
+26.08.2016 14:42:09 [INFO]     Starting 'UmcManagerComponent'
+26.08.2016 14:42:09 [INFO]     Starting 'LoggingComponent'
+26.08.2016 14:42:09 [INFO]     Starting 'HttpDispatcher'
+26.08.2016 14:42:09 [INFO]    [HttpDispatcher][default] Listening for HTTP requests on port 8888
+26.08.2016 14:42:09 [INFO]     Starting 'JmsProviderComponent'
+26.08.2016 14:42:09 [INFO]     Starting 'AuthenticationService'
+26.08.2016 14:42:09 [INFO]     Starting 'HealthStateProviders'
+26.08.2016 14:42:15 [INFO]     Starting 'WebConsoleComponent'
+26.08.2016 14:42:15 [INFO]     Starting 'HealthStateWebConsole'
+26.08.2016 14:42:15 [INFO]     Starting 'OnlineServicesComponent'
+26.08.2016 14:42:15 [INFO]     Starting 'NmeServerComponent'
+26.08.2016 14:42:17 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+26.08.2016 14:42:17 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+26.08.2016 14:42:17 [INFO]    [NmeServerComponent][party_match.comp] Starting plan...
+26.08.2016 14:42:18 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+26.08.2016 14:42:22 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+26.08.2016 14:42:25 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+26.08.2016 14:42:26 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+26.08.2016 14:42:27 [INFO]    [NmeServerComponent][master_party_party_merge.comp] Starting plan...
+26.08.2016 14:42:28 [INFO]    [NmeServerComponent][nme-config.xml] Creating NmeHistoryPlugin
+26.08.2016 14:42:29 [INFO]     Starting 'ElasticsearchComponent'
+26.08.2016 14:42:42 [INFO]     Starting 'JmsMessageServerComponent'
+26.08.2016 14:42:45 [INFO]     Starting 'MdaBackendComponent'
+26.08.2016 14:42:46 [INFO]     Starting 'WorkflowServerComponent'
+26.08.2016 14:42:46 [INFO]     Starting 'SchedulerServerComponent'
+26.08.2016 14:42:46 [INFO]     Server startup complete.
+26.08.2016 14:45:54 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #101 has started.
+26.08.2016 14:45:54 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #101 because of NOT_FOUND
+26.08.2016 14:45:54 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Data acquisition has started.
+26.08.2016 14:45:55 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+26.08.2016 14:45:55 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Data acquisition has finished.
+26.08.2016 14:45:55 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Change detection has started.
+26.08.2016 14:45:55 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Change detection - party has started.
+26.08.2016 14:45:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Change detection - party has finished (0 change(s), 424 record(s) in).
+26.08.2016 14:45:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Change detection - adresa has started.
+26.08.2016 14:45:58 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Change detection - adresa has finished (0 change(s), 424 record(s) in).
+26.08.2016 14:45:58 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Change detection - contact has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Change detection - contact has finished (0 change(s), 424 record(s) in).
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Change detection has finished.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (SKIPPED).
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - Cleanse(adresa) has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - Cleanse(adresa) has finished (SKIPPED).
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - Cleanse(party) has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - Cleanse(party) has finished (SKIPPED).
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - Match(party) has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - Match(party) has finished (SKIPPED).
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - Merge(master_party.party) has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - Merge(master_party.party) has finished (SKIPPED).
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - Cleanse(contact) has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation - Cleanse(contact) has finished (SKIPPED).
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Master data consolidation has finished.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Committing has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Committing - InstanceEntity(adresa) has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Committing - InstanceEntity(adresa) has finished (SKIPPED).
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Committing - InstanceEntity(party) has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Committing - InstanceEntity(party) has finished (SKIPPED).
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Committing - InstanceEntity(contact) has started.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Committing - InstanceEntity(contact) has finished (SKIPPED).
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #101 Committing has finished.
+26.08.2016 14:45:59 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #101 has finished successfully.
+26.08.2016 15:39:49 [INFO]     Initiating server shutdown
+26.08.2016 15:39:49 [INFO]     Shutting down 'SchedulerServerComponent'
+26.08.2016 15:39:49 [INFO]     Shutting down 'WorkflowServerComponent'
+26.08.2016 15:39:49 [INFO]     Shutting down 'MdaBackendComponent'
+26.08.2016 15:39:49 [INFO]     Shutting down 'JmsMessageServerComponent'
+26.08.2016 15:39:50 [INFO]     Shutting down 'ElasticsearchComponent'
+26.08.2016 15:39:50 [INFO]     Shutting down 'NmeServerComponent'
+26.08.2016 15:39:50 [INFO]     Shutting down 'OnlineServicesComponent'
+26.08.2016 15:39:50 [INFO]     Shutting down 'HealthStateWebConsole'
+26.08.2016 15:39:50 [INFO]     Shutting down 'WebConsoleComponent'
+26.08.2016 15:39:50 [INFO]     Shutting down 'HealthStateProviders'
+26.08.2016 15:39:50 [INFO]     Shutting down 'AuthenticationService'
+26.08.2016 15:39:50 [INFO]     Shutting down 'JmsProviderComponent'
+26.08.2016 15:39:50 [INFO]     Shutting down 'HttpDispatcher'
+26.08.2016 15:39:50 [INFO]     Shutting down 'LoggingComponent'
+26.08.2016 15:39:50 [INFO]     Shutting down 'UmcManagerComponent'
+26.08.2016 15:39:50 [INFO]     Shutting down 'DerbyServerComponent'
+26.08.2016 15:39:50 [INFO]     Shutting down 'ManagementServiceImpl'
+26.08.2016 15:39:50 [INFO]     Server shutdown complete.
+26.08.2016 15:39:55 [INFO]     Starting 'ManagementServiceImpl'
+26.08.2016 15:39:55 [INFO]     Starting 'DerbyServerComponent'
+26.08.2016 15:39:55 [INFO]     Starting 'UmcManagerComponent'
+26.08.2016 15:39:55 [INFO]     Starting 'LoggingComponent'
+26.08.2016 15:39:55 [INFO]     Starting 'HttpDispatcher'
+26.08.2016 15:39:55 [INFO]    [HttpDispatcher][default] Listening for HTTP requests on port 8888
+26.08.2016 15:39:55 [INFO]     Starting 'JmsProviderComponent'
+26.08.2016 15:39:55 [INFO]     Starting 'AuthenticationService'
+26.08.2016 15:39:55 [INFO]     Starting 'HealthStateProviders'
+26.08.2016 15:39:58 [INFO]     Starting 'WebConsoleComponent'
+26.08.2016 15:39:58 [INFO]     Starting 'HealthStateWebConsole'
+26.08.2016 15:39:58 [INFO]     Starting 'OnlineServicesComponent'
+26.08.2016 15:39:58 [INFO]     Starting 'NmeServerComponent'
+26.08.2016 15:40:00 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+26.08.2016 15:40:00 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+26.08.2016 15:40:00 [INFO]    [NmeServerComponent][party_match.comp] Starting plan...
+26.08.2016 15:40:02 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+26.08.2016 15:40:05 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+26.08.2016 15:40:08 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+26.08.2016 15:40:08 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+26.08.2016 15:40:09 [INFO]    [NmeServerComponent][master_party_party_merge.comp] Starting plan...
+26.08.2016 15:40:10 [INFO]    [NmeServerComponent][nme-config.xml] Creating NmeHistoryPlugin
+26.08.2016 15:40:11 [INFO]     Starting 'ElasticsearchComponent'
+26.08.2016 15:40:24 [INFO]     Starting 'JmsMessageServerComponent'
+26.08.2016 15:40:27 [INFO]     Starting 'MdaBackendComponent'
+26.08.2016 15:40:28 [INFO]     Starting 'WorkflowServerComponent'
+26.08.2016 15:40:28 [INFO]     Starting 'SchedulerServerComponent'
+26.08.2016 15:40:28 [INFO]     Server startup complete.
+26.08.2016 15:42:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #102 has started.
+26.08.2016 15:42:40 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #102 because of NOT_FOUND
+26.08.2016 15:42:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Data acquisition has started.
+26.08.2016 15:42:40 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+26.08.2016 15:42:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Data acquisition has finished.
+26.08.2016 15:42:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Change detection has started.
+26.08.2016 15:42:40 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Change detection - party has started.
+26.08.2016 15:42:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Change detection - party has finished (0 change(s), 424 record(s) in).
+26.08.2016 15:42:42 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Change detection - adresa has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Change detection - adresa has finished (0 change(s), 424 record(s) in).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Change detection - contact has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Change detection - contact has finished (0 change(s), 424 record(s) in).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Change detection has finished.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - Cleanse(contact) has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - Cleanse(contact) has finished (SKIPPED).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - Cleanse(party) has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - Cleanse(party) has finished (SKIPPED).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - Cleanse(adresa) has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - Cleanse(adresa) has finished (SKIPPED).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (SKIPPED).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - Match(party) has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - Match(party) has finished (SKIPPED).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - Merge(master_party.party) has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation - Merge(master_party.party) has finished (SKIPPED).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Master data consolidation has finished.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Committing has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Committing - InstanceEntity(adresa) has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Committing - InstanceEntity(adresa) has finished (SKIPPED).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Committing - InstanceEntity(contact) has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Committing - InstanceEntity(contact) has finished (SKIPPED).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Committing - InstanceEntity(party) has started.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Committing - InstanceEntity(party) has finished (SKIPPED).
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #102 Committing has finished.
+26.08.2016 15:42:43 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #102 has finished successfully.
+26.08.2016 15:50:48 [INFO]     Initiating server shutdown
+26.08.2016 15:50:48 [INFO]     Shutting down 'SchedulerServerComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'WorkflowServerComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'MdaBackendComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'JmsMessageServerComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'ElasticsearchComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'NmeServerComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'OnlineServicesComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'HealthStateWebConsole'
+26.08.2016 15:50:48 [INFO]     Shutting down 'WebConsoleComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'HealthStateProviders'
+26.08.2016 15:50:48 [INFO]     Shutting down 'AuthenticationService'
+26.08.2016 15:50:48 [INFO]     Shutting down 'JmsProviderComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'HttpDispatcher'
+26.08.2016 15:50:48 [INFO]     Shutting down 'LoggingComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'UmcManagerComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'DerbyServerComponent'
+26.08.2016 15:50:48 [INFO]     Shutting down 'ManagementServiceImpl'
+26.08.2016 15:50:48 [INFO]     Server shutdown complete.
+26.08.2016 15:50:53 [INFO]     Starting 'ManagementServiceImpl'
+26.08.2016 15:50:53 [INFO]     Starting 'DerbyServerComponent'
+26.08.2016 15:50:53 [INFO]     Starting 'UmcManagerComponent'
+26.08.2016 15:50:53 [INFO]     Starting 'LoggingComponent'
+26.08.2016 15:50:53 [INFO]     Starting 'HttpDispatcher'
+26.08.2016 15:50:53 [INFO]    [HttpDispatcher][default] Listening for HTTP requests on port 8888
+26.08.2016 15:50:53 [INFO]     Starting 'JmsProviderComponent'
+26.08.2016 15:50:53 [INFO]     Starting 'AuthenticationService'
+26.08.2016 15:50:53 [INFO]     Starting 'HealthStateProviders'
+26.08.2016 15:50:56 [INFO]     Starting 'WebConsoleComponent'
+26.08.2016 15:50:56 [INFO]     Starting 'HealthStateWebConsole'
+26.08.2016 15:50:56 [INFO]     Starting 'OnlineServicesComponent'
+26.08.2016 15:50:56 [INFO]     Starting 'NmeServerComponent'
+26.08.2016 15:50:58 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+26.08.2016 15:50:58 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+26.08.2016 15:50:58 [INFO]    [NmeServerComponent][party_match.comp] Starting plan...
+26.08.2016 15:51:00 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+26.08.2016 15:51:02 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+26.08.2016 15:51:05 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+26.08.2016 15:51:05 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+26.08.2016 15:51:05 [INFO]    [NmeServerComponent][master_party_party_merge.comp] Starting plan...
+26.08.2016 15:51:06 [INFO]    [NmeServerComponent][nme-config.xml] Creating NmeHistoryPlugin
+26.08.2016 15:51:07 [INFO]     Starting 'ElasticsearchComponent'
+26.08.2016 15:51:20 [INFO]     Starting 'JmsMessageServerComponent'
+26.08.2016 15:51:23 [INFO]     Starting 'MdaBackendComponent'
+26.08.2016 15:51:24 [INFO]     Starting 'WorkflowServerComponent'
+26.08.2016 15:51:24 [INFO]     Starting 'SchedulerServerComponent'
+26.08.2016 15:51:24 [INFO]     Server startup complete.
+26.08.2016 15:51:30 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #202 has started.
+26.08.2016 15:51:30 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #202 because of NOT_FOUND
+26.08.2016 15:51:30 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Data acquisition has started.
+26.08.2016 15:51:31 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+26.08.2016 15:51:31 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Data acquisition has finished.
+26.08.2016 15:51:31 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Change detection has started.
+26.08.2016 15:51:31 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Change detection - party has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Change detection - party has finished (0 change(s), 424 record(s) in).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Change detection - adresa has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Change detection - adresa has finished (0 change(s), 424 record(s) in).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Change detection - contact has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Change detection - contact has finished (0 change(s), 424 record(s) in).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Change detection has finished.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - Cleanse(party) has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - Cleanse(party) has finished (SKIPPED).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (SKIPPED).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - Match(party) has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - Match(party) has finished (SKIPPED).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - Cleanse(adresa) has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - Cleanse(adresa) has finished (SKIPPED).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - Cleanse(contact) has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - Cleanse(contact) has finished (SKIPPED).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - Merge(master_party.party) has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation - Merge(master_party.party) has finished (SKIPPED).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Master data consolidation has finished.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Committing has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Committing - InstanceEntity(adresa) has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Committing - InstanceEntity(adresa) has finished (SKIPPED).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Committing - InstanceEntity(party) has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Committing - InstanceEntity(party) has finished (SKIPPED).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Committing - InstanceEntity(contact) has started.
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Committing - InstanceEntity(contact) has finished (SKIPPED).
+26.08.2016 15:51:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #202 Committing has finished.
+26.08.2016 15:51:34 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #202 has finished successfully.
+26.08.2016 15:55:13 [INFO]     Initiating server shutdown
+26.08.2016 15:55:13 [INFO]     Shutting down 'SchedulerServerComponent'
+26.08.2016 15:55:13 [INFO]     Shutting down 'WorkflowServerComponent'
+26.08.2016 15:55:13 [INFO]     Shutting down 'MdaBackendComponent'
+26.08.2016 15:55:14 [INFO]     Shutting down 'JmsMessageServerComponent'
+26.08.2016 15:55:14 [INFO]     Shutting down 'ElasticsearchComponent'
+26.08.2016 15:55:14 [INFO]     Shutting down 'NmeServerComponent'
+26.08.2016 15:55:14 [INFO]     Shutting down 'OnlineServicesComponent'
+26.08.2016 15:55:14 [INFO]     Shutting down 'HealthStateWebConsole'
+26.08.2016 15:55:14 [INFO]     Shutting down 'WebConsoleComponent'
+26.08.2016 15:55:14 [INFO]     Shutting down 'HealthStateProviders'
+26.08.2016 15:55:14 [INFO]     Shutting down 'AuthenticationService'
+26.08.2016 15:55:14 [INFO]     Shutting down 'JmsProviderComponent'
+26.08.2016 15:55:14 [INFO]     Shutting down 'HttpDispatcher'
+26.08.2016 15:55:14 [INFO]     Shutting down 'LoggingComponent'
+26.08.2016 15:55:14 [INFO]     Shutting down 'UmcManagerComponent'
+26.08.2016 15:55:14 [INFO]     Shutting down 'DerbyServerComponent'
+26.08.2016 15:55:14 [INFO]     Shutting down 'ManagementServiceImpl'
+26.08.2016 15:55:14 [INFO]     Server shutdown complete.
+26.08.2016 15:55:20 [INFO]     Starting 'ManagementServiceImpl'
+26.08.2016 15:55:20 [INFO]     Starting 'DerbyServerComponent'
+26.08.2016 15:55:20 [INFO]     Starting 'UmcManagerComponent'
+26.08.2016 15:55:20 [INFO]     Starting 'LoggingComponent'
+26.08.2016 15:55:20 [INFO]     Starting 'HttpDispatcher'
+26.08.2016 15:55:20 [INFO]    [HttpDispatcher][default] Listening for HTTP requests on port 8888
+26.08.2016 15:55:20 [INFO]     Starting 'JmsProviderComponent'
+26.08.2016 15:55:20 [INFO]     Starting 'AuthenticationService'
+26.08.2016 15:55:20 [INFO]     Starting 'HealthStateProviders'
+26.08.2016 15:55:23 [INFO]     Starting 'WebConsoleComponent'
+26.08.2016 15:55:23 [INFO]     Starting 'HealthStateWebConsole'
+26.08.2016 15:55:23 [INFO]     Starting 'OnlineServicesComponent'
+26.08.2016 15:55:23 [INFO]     Starting 'NmeServerComponent'
+26.08.2016 15:55:25 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+26.08.2016 15:55:25 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+26.08.2016 15:55:25 [INFO]    [NmeServerComponent][party_match.comp] Starting plan...
+26.08.2016 15:55:27 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+26.08.2016 15:55:30 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+26.08.2016 15:55:33 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+26.08.2016 15:55:34 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+26.08.2016 15:55:35 [INFO]    [NmeServerComponent][master_party_party_merge.comp] Starting plan...
+26.08.2016 15:55:36 [INFO]    [NmeServerComponent][nme-config.xml] Creating NmeHistoryPlugin
+26.08.2016 15:55:37 [INFO]     Starting 'ElasticsearchComponent'
+26.08.2016 15:55:50 [INFO]     Starting 'JmsMessageServerComponent'
+26.08.2016 15:55:53 [INFO]     Starting 'MdaBackendComponent'
+26.08.2016 15:55:53 [INFO]     Starting 'WorkflowServerComponent'
+26.08.2016 15:55:53 [INFO]     Starting 'SchedulerServerComponent'
+26.08.2016 15:55:54 [INFO]     Server startup complete.
+26.08.2016 15:56:47 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #302 has started.
+26.08.2016 15:56:47 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #302 because of NOT_FOUND
+26.08.2016 15:56:47 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Data acquisition has started.
+26.08.2016 15:56:47 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+26.08.2016 15:56:48 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Data acquisition has finished.
+26.08.2016 15:56:48 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Change detection has started.
+26.08.2016 15:56:48 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Change detection - party has started.
+26.08.2016 15:56:49 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Change detection - party has finished (0 change(s), 424 record(s) in).
+26.08.2016 15:56:49 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Change detection - adresa has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Change detection - adresa has finished (0 change(s), 424 record(s) in).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Change detection - contact has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Change detection - contact has finished (0 change(s), 424 record(s) in).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Change detection has finished.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - Cleanse(contact) has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - Cleanse(contact) has finished (SKIPPED).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - Cleanse(adresa) has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - Cleanse(adresa) has finished (SKIPPED).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (SKIPPED).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - Cleanse(party) has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - Cleanse(party) has finished (SKIPPED).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - Match(party) has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - Match(party) has finished (SKIPPED).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - Merge(master_party.party) has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation - Merge(master_party.party) has finished (SKIPPED).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Master data consolidation has finished.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Committing has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Committing - InstanceEntity(adresa) has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Committing - InstanceEntity(adresa) has finished (SKIPPED).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Committing - InstanceEntity(party) has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Committing - InstanceEntity(party) has finished (SKIPPED).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Committing - InstanceEntity(contact) has started.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Committing - InstanceEntity(contact) has finished (SKIPPED).
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #302 Committing has finished.
+26.08.2016 15:56:50 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #302 has finished successfully.
+12.09.2016 14:11:20 [INFO]     Starting 'ManagementServiceImpl'
+12.09.2016 14:11:20 [INFO]     Starting 'DerbyServerComponent'
+12.09.2016 14:11:20 [INFO]     Starting 'UmcManagerComponent'
+12.09.2016 14:11:20 [INFO]     Starting 'LoggingComponent'
+12.09.2016 14:11:20 [INFO]     Starting 'HttpDispatcher'
+12.09.2016 14:11:20 [INFO]    [HttpDispatcher][default] Listening for HTTP requests on port 8888
+12.09.2016 14:11:20 [INFO]     Starting 'JmsProviderComponent'
+12.09.2016 14:11:20 [INFO]     Starting 'AuthenticationService'
+12.09.2016 14:11:20 [INFO]     Starting 'HealthStateProviders'
+12.09.2016 14:11:21 [INFO]     Starting 'WebConsoleComponent'
+12.09.2016 14:11:21 [INFO]     Starting 'HealthStateWebConsole'
+12.09.2016 14:11:21 [INFO]     Starting 'OnlineServicesComponent'
+12.09.2016 14:11:21 [INFO]     Starting 'NmeServerComponent'
+12.09.2016 14:11:22 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+12.09.2016 14:11:22 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+12.09.2016 14:11:22 [INFO]    [NmeServerComponent][party_match.comp] Starting plan...
+12.09.2016 14:11:22 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+12.09.2016 14:11:24 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+12.09.2016 14:11:25 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+12.09.2016 14:11:25 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+12.09.2016 14:11:25 [INFO]    [NmeServerComponent][master_party_party_merge.comp] Starting plan...
+12.09.2016 14:11:25 [INFO]    [NmeServerComponent][nme-config.xml] Creating NmeHistoryPlugin
+12.09.2016 14:11:26 [INFO]     Starting 'ElasticsearchComponent'
+12.09.2016 14:11:32 [INFO]     Starting 'JmsMessageServerComponent'
+12.09.2016 14:11:33 [INFO]     Starting 'MdaBackendComponent'
+12.09.2016 14:11:34 [INFO]     Starting 'WorkflowServerComponent'
+12.09.2016 14:11:34 [INFO]     Starting 'SchedulerServerComponent'
+12.09.2016 14:11:34 [INFO]     Server startup complete.
+12.09.2016 14:17:48 [INFO]     Initiating server shutdown
+12.09.2016 14:17:48 [INFO]     Shutting down 'SchedulerServerComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'WorkflowServerComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'MdaBackendComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'JmsMessageServerComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'ElasticsearchComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'NmeServerComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'OnlineServicesComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'HealthStateWebConsole'
+12.09.2016 14:17:48 [INFO]     Shutting down 'WebConsoleComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'HealthStateProviders'
+12.09.2016 14:17:48 [INFO]     Shutting down 'AuthenticationService'
+12.09.2016 14:17:48 [INFO]     Shutting down 'JmsProviderComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'HttpDispatcher'
+12.09.2016 14:17:48 [INFO]     Shutting down 'LoggingComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'UmcManagerComponent'
+12.09.2016 14:17:48 [INFO]     Shutting down 'DerbyServerComponent'
+12.09.2016 14:17:49 [INFO]     Shutting down 'ManagementServiceImpl'
+12.09.2016 14:17:49 [INFO]     Server shutdown complete.
+12.09.2016 14:17:50 [INFO]     Starting 'ManagementServiceImpl'
+12.09.2016 14:17:50 [INFO]     Starting 'DerbyServerComponent'
+12.09.2016 14:17:50 [INFO]     Starting 'UmcManagerComponent'
+12.09.2016 14:17:50 [INFO]     Starting 'LoggingComponent'
+12.09.2016 14:17:50 [INFO]     Starting 'HttpDispatcher'
+12.09.2016 14:17:50 [INFO]    [HttpDispatcher][default] Listening for HTTP requests on port 8888
+12.09.2016 14:17:50 [INFO]     Starting 'JmsProviderComponent'
+12.09.2016 14:17:50 [INFO]     Starting 'AuthenticationService'
+12.09.2016 14:17:50 [INFO]     Starting 'HealthStateProviders'
+12.09.2016 14:17:50 [INFO]     Starting 'WebConsoleComponent'
+12.09.2016 14:17:50 [INFO]     Starting 'HealthStateWebConsole'
+12.09.2016 14:17:50 [INFO]     Starting 'OnlineServicesComponent'
+12.09.2016 14:17:50 [INFO]     Starting 'NmeServerComponent'
+12.09.2016 14:17:51 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+12.09.2016 14:17:51 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+12.09.2016 14:17:51 [INFO]    [NmeServerComponent][party_match.comp] Starting plan...
+12.09.2016 14:17:51 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+12.09.2016 14:17:53 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+12.09.2016 14:17:54 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+12.09.2016 14:17:54 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+12.09.2016 14:17:54 [INFO]    [NmeServerComponent][master_party_party_merge.comp] Starting plan...
+12.09.2016 14:17:54 [INFO]    [NmeServerComponent][nme-config.xml] Creating NmeHistoryPlugin
+12.09.2016 14:17:55 [INFO]     Starting 'ElasticsearchComponent'
+12.09.2016 14:18:01 [INFO]     Starting 'JmsMessageServerComponent'
+12.09.2016 14:18:02 [INFO]     Starting 'MdaBackendComponent'
+12.09.2016 14:18:02 [INFO]     Starting 'WorkflowServerComponent'
+12.09.2016 14:18:02 [INFO]     Starting 'SchedulerServerComponent'
+12.09.2016 14:18:02 [INFO]     Server startup complete.
+12.09.2016 15:21:36 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #402 has started.
+12.09.2016 15:21:36 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #402 because of NOT_FOUND
+12.09.2016 15:21:36 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #402 Data acquisition has started.
+12.09.2016 15:21:37 [INFO]    [NmeServerComponent][Golem_full.comp] Starting plan...
+12.09.2016 15:21:37 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing started.
+12.09.2016 15:21:37 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] 126 recs 4667 recs/s, 126 recs/27.0 ms
+12.09.2016 15:21:37 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing finished. 4667 recs/s, 126 recs/27.0 ms
+12.09.2016 15:21:37 [WARNING] [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #402 has finished with error.
+com.ataccama.nme.core.NmeExecutionException: Missing identity on loaded adresa record: source_id = null, origin = Golem#d_osoba#adresa
+	at com.ataccama.nme.internal.engine.batch.NmeInstanceDataReceiver.addRecord(NmeInstanceDataReceiver.java:91)
+	at com.ataccama.nme.dqc.batch.PlanBatchDataSource$PlanDataSourceImpl.execute(PlanBatchDataSource.java:144)
+	at com.ataccama.nme.internal.engine.batch.load.ProviderBatchProcBase.execute(ProviderBatchProcBase.java:70)
+	at com.ataccama.nme.internal.engine.batch.NmeBatchInterface$BatchLoadOperation$1.run(NmeBatchInterface.java:481)
+	at com.ataccama.nme.internal.engine.exec.NmeTaskHandle.run(NmeTaskHandle.java:222)
+	at com.ataccama.nme.internal.engine.exec.Runner$InnerRunnable.run(Runner.java:217)
+	at com.ataccama.dqc.commons.threads.ThreadSet$1.run(ThreadSet.java:52)
+	at java.lang.Thread.run(Unknown Source)
+12.09.2016 15:59:30 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #403 has started.
+12.09.2016 15:59:30 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #403 because of NOT_FOUND
+12.09.2016 15:59:30 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #403 Data acquisition has started.
+12.09.2016 15:59:30 [INFO]    [NmeServerComponent][Golem_full.comp] Starting plan...
+12.09.2016 15:59:30 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing started.
+12.09.2016 15:59:30 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] 126 recs 5250 recs/s, 126 recs/24.0 ms
+12.09.2016 15:59:30 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing finished. 5250 recs/s, 126 recs/24.0 ms
+12.09.2016 15:59:31 [WARNING] [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #403 has finished with error.
+com.ataccama.nme.core.NmeExecutionException: Missing identity on loaded adresa record: source_id = null, origin = Golem#d_osoba#adresa
+	at com.ataccama.nme.internal.engine.batch.NmeInstanceDataReceiver.addRecord(NmeInstanceDataReceiver.java:91)
+	at com.ataccama.nme.dqc.batch.PlanBatchDataSource$PlanDataSourceImpl.execute(PlanBatchDataSource.java:144)
+	at com.ataccama.nme.internal.engine.batch.load.ProviderBatchProcBase.execute(ProviderBatchProcBase.java:70)
+	at com.ataccama.nme.internal.engine.batch.NmeBatchInterface$BatchLoadOperation$1.run(NmeBatchInterface.java:481)
+	at com.ataccama.nme.internal.engine.exec.NmeTaskHandle.run(NmeTaskHandle.java:222)
+	at com.ataccama.nme.internal.engine.exec.Runner$InnerRunnable.run(Runner.java:217)
+	at com.ataccama.dqc.commons.threads.ThreadSet$1.run(ThreadSet.java:52)
+	at java.lang.Thread.run(Unknown Source)
+12.09.2016 15:59:32 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #404 has started.
+12.09.2016 15:59:32 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #404 because of NOT_FOUND
+12.09.2016 15:59:32 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #404 Data acquisition has started.
+12.09.2016 15:59:32 [INFO]    [NmeServerComponent][Golem_full.comp] Starting plan...
+12.09.2016 15:59:32 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing started.
+12.09.2016 15:59:32 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] 126 recs 5727 recs/s, 126 recs/22.0 ms
+12.09.2016 15:59:32 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing finished. 5727 recs/s, 126 recs/22.0 ms
+12.09.2016 15:59:32 [WARNING] [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #404 has finished with error.
+com.ataccama.nme.core.NmeExecutionException: Missing identity on loaded adresa record: source_id = null, origin = Golem#d_osoba#adresa
+	at com.ataccama.nme.internal.engine.batch.NmeInstanceDataReceiver.addRecord(NmeInstanceDataReceiver.java:91)
+	at com.ataccama.nme.dqc.batch.PlanBatchDataSource$PlanDataSourceImpl.execute(PlanBatchDataSource.java:144)
+	at com.ataccama.nme.internal.engine.batch.load.ProviderBatchProcBase.execute(ProviderBatchProcBase.java:70)
+	at com.ataccama.nme.internal.engine.batch.NmeBatchInterface$BatchLoadOperation$1.run(NmeBatchInterface.java:481)
+	at com.ataccama.nme.internal.engine.exec.NmeTaskHandle.run(NmeTaskHandle.java:222)
+	at com.ataccama.nme.internal.engine.exec.Runner$InnerRunnable.run(Runner.java:217)
+	at com.ataccama.dqc.commons.threads.ThreadSet$1.run(ThreadSet.java:52)
+	at java.lang.Thread.run(Unknown Source)
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #405 has started.
+12.09.2016 15:59:34 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #405 because of NOT_FOUND
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #405 Data acquisition has started.
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][Golem_full.comp] Starting plan...
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing started.
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] 126 recs 14000 recs/s, 126 recs/9.0 ms
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing finished. 14000 recs/s, 126 recs/9.0 ms
+12.09.2016 15:59:34 [WARNING] [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #405 has finished with error.
+com.ataccama.nme.core.NmeExecutionException: Missing identity on loaded adresa record: source_id = null, origin = Golem#d_osoba#adresa
+	at com.ataccama.nme.internal.engine.batch.NmeInstanceDataReceiver.addRecord(NmeInstanceDataReceiver.java:91)
+	at com.ataccama.nme.dqc.batch.PlanBatchDataSource$PlanDataSourceImpl.execute(PlanBatchDataSource.java:144)
+	at com.ataccama.nme.internal.engine.batch.load.ProviderBatchProcBase.execute(ProviderBatchProcBase.java:70)
+	at com.ataccama.nme.internal.engine.batch.NmeBatchInterface$BatchLoadOperation$1.run(NmeBatchInterface.java:481)
+	at com.ataccama.nme.internal.engine.exec.NmeTaskHandle.run(NmeTaskHandle.java:222)
+	at com.ataccama.nme.internal.engine.exec.Runner$InnerRunnable.run(Runner.java:217)
+	at com.ataccama.dqc.commons.threads.ThreadSet$1.run(ThreadSet.java:52)
+	at java.lang.Thread.run(Unknown Source)
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #406 has started.
+12.09.2016 15:59:34 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #406 because of NOT_FOUND
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #406 Data acquisition has started.
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][Golem_full.comp] Starting plan...
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing started.
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] 126 recs 25200 recs/s, 126 recs/5.0 ms
+12.09.2016 15:59:34 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing finished. 25200 recs/s, 126 recs/5.0 ms
+12.09.2016 15:59:34 [WARNING] [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #406 has finished with error.
+com.ataccama.nme.core.NmeExecutionException: Missing identity on loaded adresa record: source_id = null, origin = Golem#d_osoba#adresa
+	at com.ataccama.nme.internal.engine.batch.NmeInstanceDataReceiver.addRecord(NmeInstanceDataReceiver.java:91)
+	at com.ataccama.nme.dqc.batch.PlanBatchDataSource$PlanDataSourceImpl.execute(PlanBatchDataSource.java:144)
+	at com.ataccama.nme.internal.engine.batch.load.ProviderBatchProcBase.execute(ProviderBatchProcBase.java:70)
+	at com.ataccama.nme.internal.engine.batch.NmeBatchInterface$BatchLoadOperation$1.run(NmeBatchInterface.java:481)
+	at com.ataccama.nme.internal.engine.exec.NmeTaskHandle.run(NmeTaskHandle.java:222)
+	at com.ataccama.nme.internal.engine.exec.Runner$InnerRunnable.run(Runner.java:217)
+	at com.ataccama.dqc.commons.threads.ThreadSet$1.run(ThreadSet.java:52)
+	at java.lang.Thread.run(Unknown Source)
+12.09.2016 16:05:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #407 has started.
+12.09.2016 16:05:33 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #407 because of NOT_FOUND
+12.09.2016 16:05:33 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #407 Data acquisition has started.
+12.09.2016 16:05:33 [INFO]    [NmeServerComponent][Golem_full.comp] Starting plan...
+12.09.2016 16:05:33 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing started.
+12.09.2016 16:05:33 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] 126 recs 31500 recs/s, 126 recs/4.0 ms
+12.09.2016 16:05:33 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing finished. 31500 recs/s, 126 recs/4.0 ms
+12.09.2016 16:05:33 [WARNING] [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #407 has finished with error.
+com.ataccama.nme.core.NmeExecutionException: Missing identity on loaded adresa record: source_id = null, origin = Golem#d_osoba#adresa
+	at com.ataccama.nme.internal.engine.batch.NmeInstanceDataReceiver.addRecord(NmeInstanceDataReceiver.java:91)
+	at com.ataccama.nme.dqc.batch.PlanBatchDataSource$PlanDataSourceImpl.execute(PlanBatchDataSource.java:144)
+	at com.ataccama.nme.internal.engine.batch.load.ProviderBatchProcBase.execute(ProviderBatchProcBase.java:70)
+	at com.ataccama.nme.internal.engine.batch.NmeBatchInterface$BatchLoadOperation$1.run(NmeBatchInterface.java:481)
+	at com.ataccama.nme.internal.engine.exec.NmeTaskHandle.run(NmeTaskHandle.java:222)
+	at com.ataccama.nme.internal.engine.exec.Runner$InnerRunnable.run(Runner.java:217)
+	at com.ataccama.dqc.commons.threads.ThreadSet$1.run(ThreadSet.java:52)
+	at java.lang.Thread.run(Unknown Source)
+12.09.2016 16:05:56 [INFO]     Initiating server shutdown
+12.09.2016 16:05:56 [INFO]     Shutting down 'SchedulerServerComponent'
+12.09.2016 16:05:56 [INFO]     Shutting down 'WorkflowServerComponent'
+12.09.2016 16:05:56 [INFO]     Shutting down 'MdaBackendComponent'
+12.09.2016 16:05:56 [INFO]     Shutting down 'JmsMessageServerComponent'
+12.09.2016 16:05:57 [INFO]     Shutting down 'ElasticsearchComponent'
+12.09.2016 16:05:57 [INFO]     Shutting down 'NmeServerComponent'
+12.09.2016 16:05:57 [INFO]     Shutting down 'OnlineServicesComponent'
+12.09.2016 16:05:57 [INFO]     Shutting down 'HealthStateWebConsole'
+12.09.2016 16:05:57 [INFO]     Shutting down 'WebConsoleComponent'
+12.09.2016 16:05:57 [INFO]     Shutting down 'HealthStateProviders'
+12.09.2016 16:05:57 [INFO]     Shutting down 'AuthenticationService'
+12.09.2016 16:05:57 [INFO]     Shutting down 'JmsProviderComponent'
+12.09.2016 16:05:57 [INFO]     Shutting down 'HttpDispatcher'
+12.09.2016 16:05:57 [INFO]     Shutting down 'LoggingComponent'
+12.09.2016 16:05:57 [INFO]     Shutting down 'UmcManagerComponent'
+12.09.2016 16:05:57 [INFO]     Shutting down 'DerbyServerComponent'
+12.09.2016 16:05:57 [FATAL]    Unhandled exception while shutting down component com.ataccama.server.component.derby.DerbyServerComponent@4c9df60e
+java.lang.Exception: DRDA_NeedLocalHost.S:Host VEPEREJSI.adastracorp.net is not local to the server running on 0.0.0.0, so cannot be used for NetworkServerControl commands.  
+	at org.apache.derby.impl.drda.NetworkServerControlImpl.consolePropertyMessageWork(Unknown Source)
+	at org.apache.derby.impl.drda.NetworkServerControlImpl.consolePropertyMessage(Unknown Source)
+	at org.apache.derby.impl.drda.NetworkServerControlImpl.readResult(Unknown Source)
+	at org.apache.derby.impl.drda.NetworkServerControlImpl.shutdown(Unknown Source)
+	at org.apache.derby.drda.NetworkServerControl.shutdown(Unknown Source)
+	at com.ataccama.server.component.derby.DerbyServerComponent.stop(DerbyServerComponent.java:61)
+	at com.ataccama.dqc.server.runtime.ServerRuntimeImpl.stopComponents(ServerRuntimeImpl.java:617)
+	at com.ataccama.dqc.server.runtime.ServerRuntimeImpl.shutdownServer(ServerRuntimeImpl.java:515)
+	at com.ataccama.dqc.server.config.ServerConfigImpl.shutdownServer(ServerConfigImpl.java:330)
+	at com.ataccama.dqc.server.services.ManagementServiceImpl$1.run(ManagementServiceImpl.java:64)
+	at java.lang.Thread.run(Unknown Source)
+12.09.2016 16:05:57 [INFO]     Shutting down 'ManagementServiceImpl'
+12.09.2016 16:05:57 [INFO]     Server shutdown complete.
+12.09.2016 16:05:58 [INFO]     Starting 'ManagementServiceImpl'
+12.09.2016 16:05:58 [INFO]     Starting 'DerbyServerComponent'
+12.09.2016 16:05:58 [INFO]     Starting 'UmcManagerComponent'
+12.09.2016 16:05:58 [INFO]     Starting 'LoggingComponent'
+12.09.2016 16:05:58 [INFO]     Starting 'HttpDispatcher'
+12.09.2016 16:05:58 [INFO]    [HttpDispatcher][default] Listening for HTTP requests on port 8888
+12.09.2016 16:05:58 [INFO]     Starting 'JmsProviderComponent'
+12.09.2016 16:05:58 [INFO]     Starting 'AuthenticationService'
+12.09.2016 16:05:58 [INFO]     Starting 'HealthStateProviders'
+12.09.2016 16:05:58 [INFO]     Starting 'WebConsoleComponent'
+12.09.2016 16:05:58 [INFO]     Starting 'HealthStateWebConsole'
+12.09.2016 16:05:58 [INFO]     Starting 'OnlineServicesComponent'
+12.09.2016 16:05:58 [INFO]     Starting 'NmeServerComponent'
+12.09.2016 16:05:59 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+12.09.2016 16:05:59 [INFO]    [NmeServerComponent][party_clean.comp] Starting plan...
+12.09.2016 16:05:59 [INFO]    [NmeServerComponent][party_match.comp] Starting plan...
+12.09.2016 16:06:00 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+12.09.2016 16:06:01 [INFO]    [NmeServerComponent][adresa_clean.comp] Starting plan...
+12.09.2016 16:06:02 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+12.09.2016 16:06:02 [INFO]    [NmeServerComponent][contact_clean.comp] Starting plan...
+12.09.2016 16:06:02 [INFO]    [NmeServerComponent][master_party_party_merge.comp] Starting plan...
+12.09.2016 16:06:02 [INFO]    [NmeServerComponent][nme-config.xml] Creating NmeHistoryPlugin
+12.09.2016 16:06:03 [INFO]     Starting 'ElasticsearchComponent'
+12.09.2016 16:06:09 [INFO]     Starting 'JmsMessageServerComponent'
+12.09.2016 16:06:10 [INFO]     Starting 'MdaBackendComponent'
+12.09.2016 16:06:11 [INFO]     Starting 'WorkflowServerComponent'
+12.09.2016 16:06:11 [INFO]     Starting 'SchedulerServerComponent'
+12.09.2016 16:06:11 [INFO]     Server startup complete.
+12.09.2016 16:06:31 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #503 has started.
+12.09.2016 16:06:31 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #503 because of NOT_FOUND
+12.09.2016 16:06:31 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #503 Data acquisition has started.
+12.09.2016 16:06:31 [INFO]    [NmeServerComponent][Golem_full.comp] Starting plan...
+12.09.2016 16:06:31 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing started.
+12.09.2016 16:06:31 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] 126 recs 4667 recs/s, 126 recs/27.0 ms
+12.09.2016 16:06:31 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing finished. 4667 recs/s, 126 recs/27.0 ms
+12.09.2016 16:06:31 [WARNING] [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #503 has finished with error.
+com.ataccama.nme.core.NmeExecutionException: Missing identity on loaded adresa record: source_id = null, origin = Golem#d_osoba#adresa
+	at com.ataccama.nme.internal.engine.batch.NmeInstanceDataReceiver.addRecord(NmeInstanceDataReceiver.java:91)
+	at com.ataccama.nme.dqc.batch.PlanBatchDataSource$PlanDataSourceImpl.execute(PlanBatchDataSource.java:144)
+	at com.ataccama.nme.internal.engine.batch.load.ProviderBatchProcBase.execute(ProviderBatchProcBase.java:70)
+	at com.ataccama.nme.internal.engine.batch.NmeBatchInterface$BatchLoadOperation$1.run(NmeBatchInterface.java:481)
+	at com.ataccama.nme.internal.engine.exec.NmeTaskHandle.run(NmeTaskHandle.java:222)
+	at com.ataccama.nme.internal.engine.exec.Runner$InnerRunnable.run(Runner.java:217)
+	at com.ataccama.dqc.commons.threads.ThreadSet$1.run(ThreadSet.java:52)
+	at java.lang.Thread.run(Unknown Source)
+12.09.2016 16:06:46 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #504 has started.
+12.09.2016 16:06:46 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #504 because of NOT_FOUND
+12.09.2016 16:06:46 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #504 Data acquisition has started.
+12.09.2016 16:06:46 [INFO]    [NmeServerComponent][Golem_full.comp] Starting plan...
+12.09.2016 16:06:46 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing started.
+12.09.2016 16:06:46 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] 126 recs 3600 recs/s, 126 recs/35.0 ms
+12.09.2016 16:06:46 [INFO]    [NmeServerComponent][Golem_full.comp][SRC_contact] Processing finished. 3600 recs/s, 126 recs/35.0 ms
+12.09.2016 16:06:46 [WARNING] [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "Golem_full" #504 has finished with error.
+com.ataccama.nme.core.NmeExecutionException: Missing identity on loaded adresa record: source_id = null, origin = Golem#d_osoba#adresa
+	at com.ataccama.nme.internal.engine.batch.NmeInstanceDataReceiver.addRecord(NmeInstanceDataReceiver.java:91)
+	at com.ataccama.nme.dqc.batch.PlanBatchDataSource$PlanDataSourceImpl.execute(PlanBatchDataSource.java:144)
+	at com.ataccama.nme.internal.engine.batch.load.ProviderBatchProcBase.execute(ProviderBatchProcBase.java:70)
+	at com.ataccama.nme.internal.engine.batch.NmeBatchInterface$BatchLoadOperation$1.run(NmeBatchInterface.java:481)
+	at com.ataccama.nme.internal.engine.exec.NmeTaskHandle.run(NmeTaskHandle.java:222)
+	at com.ataccama.nme.internal.engine.exec.Runner$InnerRunnable.run(Runner.java:217)
+	at com.ataccama.dqc.commons.threads.ThreadSet$1.run(ThreadSet.java:52)
+	at java.lang.Thread.run(Unknown Source)
+12.09.2016 16:07:05 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #505 has started.
+12.09.2016 16:07:05 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #505 because of NOT_FOUND
+12.09.2016 16:07:05 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Data acquisition has started.
+12.09.2016 16:07:05 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+12.09.2016 16:07:05 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Data acquisition has finished.
+12.09.2016 16:07:05 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Change detection has started.
+12.09.2016 16:07:05 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Change detection - party has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Change detection - party has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Change detection - adresa has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Change detection - adresa has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Change detection - contact has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Change detection - contact has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Change detection has finished.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - Cleanse(adresa) has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - Cleanse(adresa) has finished (SKIPPED).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - Cleanse(party) has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - Cleanse(party) has finished (SKIPPED).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - Cleanse(contact) has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - Cleanse(contact) has finished (SKIPPED).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (SKIPPED).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - Match(party) has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - Match(party) has finished (SKIPPED).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - Merge(master_party.party) has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation - Merge(master_party.party) has finished (SKIPPED).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Master data consolidation has finished.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Committing has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Committing - InstanceEntity(party) has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Committing - InstanceEntity(party) has finished (SKIPPED).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Committing - InstanceEntity(adresa) has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Committing - InstanceEntity(adresa) has finished (SKIPPED).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Committing - InstanceEntity(contact) has started.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Committing - InstanceEntity(contact) has finished (SKIPPED).
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #505 Committing has finished.
+12.09.2016 16:07:06 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #505 has finished successfully.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #506 has started.
+12.09.2016 16:08:57 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #506 because of NOT_FOUND
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Data acquisition has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Data acquisition has finished.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Change detection has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Change detection - party has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Change detection - party has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Change detection - adresa has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Change detection - adresa has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Change detection - contact has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Change detection - contact has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Change detection has finished.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - Cleanse(adresa) has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - Cleanse(adresa) has finished (SKIPPED).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - Cleanse(party) has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - Cleanse(party) has finished (SKIPPED).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - Cleanse(contact) has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - Cleanse(contact) has finished (SKIPPED).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (SKIPPED).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - Match(party) has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - Match(party) has finished (SKIPPED).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - Merge(master_party.party) has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation - Merge(master_party.party) has finished (SKIPPED).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Master data consolidation has finished.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Committing has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Committing - InstanceEntity(party) has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Committing - InstanceEntity(party) has finished (SKIPPED).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Committing - InstanceEntity(adresa) has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Committing - InstanceEntity(adresa) has finished (SKIPPED).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Committing - InstanceEntity(contact) has started.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Committing - InstanceEntity(contact) has finished (SKIPPED).
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #506 Committing has finished.
+12.09.2016 16:08:57 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #506 has finished successfully.
+12.09.2016 16:09:08 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #507 has started.
+12.09.2016 16:09:08 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #507 because of NOT_FOUND
+12.09.2016 16:09:08 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Data acquisition has started.
+12.09.2016 16:09:08 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+12.09.2016 16:09:08 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Data acquisition has finished.
+12.09.2016 16:09:08 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Change detection has started.
+12.09.2016 16:09:08 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Change detection - party has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Change detection - party has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Change detection - adresa has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Change detection - adresa has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Change detection - contact has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Change detection - contact has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Change detection has finished.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - Cleanse(adresa) has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - Cleanse(adresa) has finished (SKIPPED).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - Cleanse(party) has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - Cleanse(party) has finished (SKIPPED).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - Cleanse(contact) has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - Cleanse(contact) has finished (SKIPPED).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (SKIPPED).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - Match(party) has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - Match(party) has finished (SKIPPED).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - Merge(master_party.party) has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation - Merge(master_party.party) has finished (SKIPPED).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Master data consolidation has finished.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Committing has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Committing - InstanceEntity(party) has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Committing - InstanceEntity(party) has finished (SKIPPED).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Committing - InstanceEntity(adresa) has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Committing - InstanceEntity(adresa) has finished (SKIPPED).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Committing - InstanceEntity(contact) has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Committing - InstanceEntity(contact) has finished (SKIPPED).
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #507 Committing has finished.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #507 has finished successfully.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #508 has started.
+12.09.2016 16:09:09 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #508 because of NOT_FOUND
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Data acquisition has started.
+12.09.2016 16:09:09 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Data acquisition has finished.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Change detection has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Change detection - party has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Change detection - party has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Change detection - adresa has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Change detection - adresa has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Change detection - contact has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Change detection - contact has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Change detection has finished.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - Cleanse(adresa) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - Cleanse(adresa) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - Cleanse(party) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - Cleanse(party) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - Cleanse(contact) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - Cleanse(contact) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - Match(party) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - Match(party) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - Merge(master_party.party) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation - Merge(master_party.party) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Master data consolidation has finished.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Committing has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Committing - InstanceEntity(party) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Committing - InstanceEntity(party) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Committing - InstanceEntity(adresa) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Committing - InstanceEntity(adresa) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Committing - InstanceEntity(contact) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Committing - InstanceEntity(contact) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #508 Committing has finished.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #508 has finished successfully.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #509 has started.
+12.09.2016 16:09:10 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #509 because of NOT_FOUND
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Data acquisition has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Data acquisition has finished.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Change detection has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Change detection - party has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Change detection - party has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Change detection - adresa has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Change detection - adresa has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Change detection - contact has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Change detection - contact has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Change detection has finished.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - Cleanse(adresa) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - Cleanse(adresa) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - Cleanse(party) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - Cleanse(party) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - Cleanse(contact) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - Cleanse(contact) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - Match(party) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - Match(party) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - Merge(master_party.party) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation - Merge(master_party.party) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Master data consolidation has finished.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Committing has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Committing - InstanceEntity(party) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Committing - InstanceEntity(party) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Committing - InstanceEntity(adresa) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Committing - InstanceEntity(adresa) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Committing - InstanceEntity(contact) has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Committing - InstanceEntity(contact) has finished (SKIPPED).
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #509 Committing has finished.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #509 has finished successfully.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #510 has started.
+12.09.2016 16:09:10 [FATAL]   [NmeServerComponent][nme-executor.xml][Executor][WorkflowTaskListener] execution failed for #510 because of NOT_FOUND
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Data acquisition has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][KoopGolem_full.comp] Starting plan...
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Data acquisition has finished.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Change detection has started.
+12.09.2016 16:09:10 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Change detection - party has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Change detection - party has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Change detection - adresa has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Change detection - adresa has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Change detection - contact has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Change detection - contact has finished (0 change(s), 424 record(s) in).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Change detection has finished.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - Cleanse(adresa) has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - Cleanse(adresa) has finished (SKIPPED).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - Cleanse(party) has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - Cleanse(party) has finished (SKIPPED).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - Cleanse(contact) has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - Cleanse(contact) has finished (SKIPPED).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - CopyColumns(adresa -(rev_party_has_adresa)-> party, COPY_CLEAN) has finished (SKIPPED).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - Match(party) has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - Match(party) has finished (SKIPPED).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - Merge(master_party.party) has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation - Merge(master_party.party) has finished (SKIPPED).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Master data consolidation has finished.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Committing has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Committing - InstanceEntity(party) has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Committing - InstanceEntity(party) has finished (SKIPPED).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Committing - InstanceEntity(adresa) has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Committing - InstanceEntity(adresa) has finished (SKIPPED).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Committing - InstanceEntity(contact) has started.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Committing - InstanceEntity(contact) has finished (SKIPPED).
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] #510 Committing has finished.
+12.09.2016 16:09:11 [INFO]    [NmeServerComponent][nme-executor.xml][Executor] Task Batch load "KoopGolem_full" #510 has finished successfully.

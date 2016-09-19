@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='windows-1250'?>
+<address-config>
+		
+		<parser-factory className='com.ataccama.dqc.tasks.addresses.core.PatternBasedAddressParserFactory'>
+
+			//---------------------------------------------------------------------------------------
+			// S uliční sítí
+			//---------------------------------------------------------------------------------------
+			<address-pattern definition='{ZIP} ; {CITY!} ; {STREET!} {SN}      '                        ruleName='Z C! S! N'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {STREET!} {LRN}     '                        ruleName='Z C! S! L'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {STREET!} {LRN} {SN}'                        ruleName='Z C! S! L N'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {STREET!} {LRN}/{SN}'                        ruleName='Z C! S! L/N'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {STREET!} {LRN}/I'                           ruleName='Z C! S! L/I'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {STREET!} {LRN}/II'                          ruleName='Z C! S! L/II'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {STREET!} {LRN}/III'                         ruleName='Z C! S! L/III'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {STREET!} {LRN}/IV'                          ruleName='Z C! S! L/IV'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {STREET!} {LRN}/V'                           ruleName='Z C! S! L/V'/>
+			
+			<address-pattern definition='{ZIP} ; {CITY!} {CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'       ruleName='Z C! D! S! L N'/>
+			<address-pattern definition='{ZIP} ; {CITY!} {CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'       ruleName='Z C! D! S! L/N'/>
+			<address-pattern definition='{ZIP} ; {CITY!} {CITY_DISTRICT!} ; {STREET!} {SN}      '       ruleName='Z C! D! S! N'/>
+			<address-pattern definition='{ZIP} ; {CITY!} {CITY_DISTRICT!} ; {STREET!} {LRN}     '       ruleName='Z C! D! S! L'/>
+
+			<address-pattern definition='{ZIP} ; {CITY_PART!} {CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'  ruleName='Z Q! D! S! L N'/>
+			<address-pattern definition='{ZIP} ; {CITY_PART!} {CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'  ruleName='Z Q! D! S! L/N'/>
+			<address-pattern definition='{ZIP} ; {CITY_PART!} {CITY_DISTRICT!} ; {STREET!} {SN}      '  ruleName='Z Q! D! S! N'/>
+			<address-pattern definition='{ZIP} ; {CITY_PART!} {CITY_DISTRICT!} ; {STREET!} {LRN}     '  ruleName='Z Q! D! S! L'/>
+
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} {CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'  ruleName='Z P! D! S! L N'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} {CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'  ruleName='Z P! D! S! L/N'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} {CITY_DISTRICT!} ; {STREET!} {SN}      '  ruleName='Z P! D! S! N'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} {CITY_DISTRICT!} ; {STREET!} {LRN}     '  ruleName='Z P! D! S! L'/>
+
+			//---------------------------------------------------------------------------------------
+			
+			<address-pattern definition='{ZIP} ; {CITY!}-{CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'       ruleName='Z C!-D! S! L N'/>
+			<address-pattern definition='{ZIP} ; {CITY!}-{CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'       ruleName='Z C!-D! S! L/N'/>
+			<address-pattern definition='{ZIP} ; {CITY!}-{CITY_DISTRICT!} ; {STREET!} {SN}      '       ruleName='Z C!-D! S! N'/>
+			<address-pattern definition='{ZIP} ; {CITY!}-{CITY_DISTRICT!} ; {STREET!} {LRN}     '       ruleName='Z C!-D! S! L'/>
+
+			<address-pattern definition='{ZIP} ; {CITY!}-{CITY_PART!} ; {STREET!} {LRN} {SN}'           ruleName='Z C!-Q! S! L N'/>
+			<address-pattern definition='{ZIP} ; {CITY!}-{CITY_PART!} ; {STREET!} {LRN}/{SN}'           ruleName='Z C!-Q! S! L/N'/>
+			<address-pattern definition='{ZIP} ; {CITY!}-{CITY_PART!} ; {STREET!} {SN}      '           ruleName='Z C!-Q! S! N'/>
+			<address-pattern definition='{ZIP} ; {CITY!}-{CITY_PART!} ; {STREET!} {LRN}     '           ruleName='Z C!-Q! S! L'/>
+
+			<address-pattern definition='{ZIP} ; {CITY_PART!}-{CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'  ruleName='Z Q!-D! S! L N'/>
+			<address-pattern definition='{ZIP} ; {CITY_PART!}-{CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'  ruleName='Z Q!-D! S! L/N'/>
+			<address-pattern definition='{ZIP} ; {CITY_PART!}-{CITY_DISTRICT!} ; {STREET!} {SN}      '  ruleName='Z Q!-D! S! N'/>
+			<address-pattern definition='{ZIP} ; {CITY_PART!}-{CITY_DISTRICT!} ; {STREET!} {LRN}     '  ruleName='Z Q!-D! S! L'/>
+
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!}-{CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'  ruleName='Z P!-D! S! L N'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!}-{CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'  ruleName='Z P!-D! S! L/N'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!}-{CITY_DISTRICT!} ; {STREET!} {SN}      '  ruleName='Z P!-D! S! N'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!}-{CITY_DISTRICT!} ; {STREET!} {LRN}     '  ruleName='Z P!-D! S! L'/>
+
+			//---------------------------------------------------------------------------------------
+			
+			<address-pattern definition='      ; {CITY!} ; {STREET!} {LRN} {SN}'                        ruleName='C! S! L N'/>
+			<address-pattern definition='      ; {CITY!} ; {STREET!} {LRN}/{SN}'                        ruleName='C! S! L/N'/>
+			<address-pattern definition='      ; {CITY!} ; {STREET!} {SN}      '                        ruleName='C! S! N'/>
+			<address-pattern definition='      ; {CITY!} ; {STREET!} {LRN}     '                        ruleName='C! S! L'/>
+			
+			<address-pattern definition='      ; {CITY!} {CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'       ruleName='C! D! S! L N'/>
+			<address-pattern definition='      ; {CITY!} {CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'       ruleName='C! D! S! L/N'/>
+			<address-pattern definition='      ; {CITY!} {CITY_DISTRICT!} ; {STREET!} {SN}      '       ruleName='C! D! S! N'/>
+			<address-pattern definition='      ; {CITY!} {CITY_DISTRICT!} ; {STREET!} {LRN}     '       ruleName='C! D! S! L'/>
+
+			<address-pattern definition='      ; {CITY!} {CITY_PART!} ; {STREET!} {LRN} {SN}'           ruleName='C! Q! S! L N'/>
+			<address-pattern definition='      ; {CITY!} {CITY_PART!} ; {STREET!} {LRN}/{SN}'           ruleName='C! Q! S! L/N'/>
+			<address-pattern definition='      ; {CITY!} {CITY_PART!} ; {STREET!} {SN}      '           ruleName='C! Q! S! N'/>
+			<address-pattern definition='      ; {CITY!} {CITY_PART!} ; {STREET!} {LRN}     '           ruleName='C! Q! S! L'/>
+
+			<address-pattern definition='      ; {CITY_PART!} {CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'  ruleName='Q! D! S! L N'/>
+			<address-pattern definition='      ; {CITY_PART!} {CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'  ruleName='Q! D! S! L/N'/>
+			<address-pattern definition='      ; {CITY_PART!} {CITY_DISTRICT!} ; {STREET!} {SN}      '  ruleName='Q! D! S! N'/>
+			<address-pattern definition='      ; {CITY_PART!} {CITY_DISTRICT!} ; {STREET!} {LRN}     '  ruleName='Q! D! S! L'/>
+
+			<address-pattern definition='      ; {POST_OFFICE!} {CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'  ruleName='P! D! S! L N'/>
+			<address-pattern definition='      ; {POST_OFFICE!} {CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'  ruleName='P! D! S! L/N'/>
+			<address-pattern definition='      ; {POST_OFFICE!} {CITY_DISTRICT!} ; {STREET!} {SN}      '  ruleName='P! D! S! N'/>
+			<address-pattern definition='      ; {POST_OFFICE!} {CITY_DISTRICT!} ; {STREET!} {LRN}     '  ruleName='P! D! S! L'/>
+
+			//---------------------------------------------------------------------------------------
+			
+			<address-pattern definition='      ; {CITY!}-{CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'       ruleName='C!-D! S! L N'/>
+			<address-pattern definition='      ; {CITY!}-{CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'       ruleName='C!-D! S! L/N'/>
+			<address-pattern definition='      ; {CITY!}-{CITY_DISTRICT!} ; {STREET!} {SN}      '       ruleName='C!-D! S! N'/>
+			<address-pattern definition='      ; {CITY!}-{CITY_DISTRICT!} ; {STREET!} {LRN}     '       ruleName='C!-D! S! L'/>
+
+			<address-pattern definition='      ; {CITY!}-{CITY_PART!} ; {STREET!} {LRN} {SN}'           ruleName='C!-Q! S! L N'/>
+			<address-pattern definition='      ; {CITY!}-{CITY_PART!} ; {STREET!} {LRN}/{SN}'           ruleName='C!-Q! S! L/N'/>
+			<address-pattern definition='      ; {CITY!}-{CITY_PART!} ; {STREET!} {SN}      '           ruleName='C!-Q! S! N'/>
+			<address-pattern definition='      ; {CITY!}-{CITY_PART!} ; {STREET!} {LRN}     '           ruleName='C!-Q! S! L'/>
+
+			<address-pattern definition='      ; {CITY_PART!}-{CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'  ruleName='Q!-D! S! L N'/>
+			<address-pattern definition='      ; {CITY_PART!}-{CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'  ruleName='Q!-D! S! L/N'/>
+			<address-pattern definition='      ; {CITY_PART!}-{CITY_DISTRICT!} ; {STREET!} {SN}      '  ruleName='Q!-D! S! N'/>
+			<address-pattern definition='      ; {CITY_PART!}-{CITY_DISTRICT!} ; {STREET!} {LRN}     '  ruleName='Q!-D! S! L'/>
+
+			<address-pattern definition='      ; {POST_OFFICE!}-{CITY_DISTRICT!} ; {STREET!} {LRN} {SN}'  ruleName='P!-D! S! L N'/>
+			<address-pattern definition='      ; {POST_OFFICE!}-{CITY_DISTRICT!} ; {STREET!} {LRN}/{SN}'  ruleName='P!-D! S! L/N'/>
+			<address-pattern definition='      ; {POST_OFFICE!}-{CITY_DISTRICT!} ; {STREET!} {SN}      '  ruleName='P!-D! S! N'/>
+			<address-pattern definition='      ; {POST_OFFICE!}-{CITY_DISTRICT!} ; {STREET!} {LRN}     '  ruleName='P!-D! S! L'/>
+
+			//---------------------------------------------------------------------------------------
+			// Bez uliční sítě 
+			//---------------------------------------------------------------------------------------
+
+			<address-pattern definition='{ZIP} ; {CITY!} ; č.p.{LRN}'                                   ruleName='Z C! č.p.L'/>
+			<address-pattern definition='{ZIP} ; {CITY!} {LRN}; '                                       ruleName='Z C! L'/>
+			//---------------------------------------------------------------------------------------
+			<address-pattern definition='{ZIP} ; {CITY_DISTRICT!} ; {LRN}'                             ruleName='Z D! L'/>
+			<address-pattern definition='{ZIP} ; {CITY_DISTRICT!} {LRN}; '                             ruleName='Z D! L'/>
+			<address-pattern definition='{ZIP} ; ; {CITY_DISTRICT!} {LRN}'                             ruleName='Z D! L'/>
+			//---------------------------------------------------------------------------------------
+			<address-pattern definition='{ZIP} ; {CITY!} {CITY_DISTRICT!} ; {LRN}'       		   ruleName='Z C! D! L'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {CITY_DISTRICT!} {LRN}'       		   ruleName='Z C! D! L'/>
+			<address-pattern definition='{ZIP} ; {CITY!}-{CITY_DISTRICT!} ; {LRN}'       		   ruleName='Z C!-D! L'/>
+			<address-pattern definition='; {CITY!} {CITY_DISTRICT!} ; {LRN}'        		   ruleName='C! D! L'/>
+			<address-pattern definition='; {CITY!} ; {CITY_DISTRICT!} {LRN}'        		   ruleName='C! D! L'/>
+			<address-pattern definition='; {CITY!}-{CITY_DISTRICT!} ; {LRN}'        		   ruleName='C!-D! L'/>
+			//---------------------------------------------------------------------------------------
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} ; {CITY!} č.p.{LRN}'                    ruleName='Z P! C! č.p.L'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} ; {CITY!} {LRN}'                        ruleName='Z P! C! L'/>
+			<address-pattern definition='      ; {POST_OFFICE!} ; {CITY!} č.p.{LRN}'                    ruleName='P! C! č.p.L'/>
+			<address-pattern definition='      ; {POST_OFFICE!} ; {CITY!} {LRN}'                        ruleName='P! C! L'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {POST_OFFICE!} {LRN}'                        ruleName='Z C! P! L'/>
+			//---------------------------------------------------------------------------------------
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} {CITY!} ; č.p.{LRN}'                    ruleName='Z P! C! č.p.L'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} {CITY!} ; {LRN}'                        ruleName='Z P! C! L'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} - {CITY!} ; č.p.{LRN}'                  ruleName='Z P!-C! č.p.L'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} - {CITY!} ; {LRN}'                      ruleName='Z P!-C! L'/>
+			<address-pattern definition='      ; {POST_OFFICE!} {CITY!} ; č.p.{LRN}'                    ruleName='P! C! č.p.L'/>
+			<address-pattern definition='      ; {POST_OFFICE!} {CITY!} ; {LRN}'                        ruleName='P! C! L'/>
+			<address-pattern definition='      ; {POST_OFFICE!} - {CITY!} ; č.p.{LRN}'                  ruleName='P!-C! č.p.L'/>
+			<address-pattern definition='      ; {POST_OFFICE!} - {CITY!} ; {LRN}'                      ruleName='P!-C! L'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} ; č.p.{LRN}'                            ruleName='Z P! č.p.L'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} ; {LRN}'                                ruleName='Z P! L'/>
+			<address-pattern definition='{ZIP} ; {POST_OFFICE!} {LRN};'                                 ruleName='Z P! L'/>
+			//---------------------------------------------------------------------------------------
+			// Evidenční čísla
+			//---------------------------------------------------------------------------------------
+			
+			<address-pattern definition='{ZIP} ; {CITY!} ; {STREET!} č.ev.{EVN}'                        ruleName='Z C! S! č.ev.E'/>
+			<address-pattern definition='{ZIP} ; {CITY!} ; {CITY_DISTRICT!} č.ev.{EVN}'                 ruleName='Z C! D! č.ev.E'/>
+			<address-pattern definition='{ZIP} ; ; {CITY!} {CITY_DISTRICT!} č.ev.{EVN}'                 ruleName='Z C! D! č.ev.E'/>
+			<address-pattern definition='{ZIP} ; ; {CITY!}-{CITY_DISTRICT!} č.ev.{EVN}'                 ruleName='Z C!-D! č.ev.E'/>
+			<address-pattern definition='{ZIP} ; {CITY!} {CITY_DISTRICT!} ; {STREET!} č.ev.{EVN}'       ruleName='Z C! D! S! č.ev.E'/>
+			<address-pattern definition='{ZIP} ; {CITY!}-{CITY_DISTRICT!} ; {STREET!} č.ev.{EVN}'       ruleName='Z C!-D! S! č.ev.E'/>
+			<address-pattern definition='{ZIP} ; ; {CITY_DISTRICT!} č.ev.{EVN}'		            ruleName='Z D! č.ev.E'/>
+			<address-pattern definition='{ZIP} ; {CITY_DISTRICT!} č.ev.{EVN} ;'		            ruleName='Z D! č.ev.E'/>
+
+			<address-pattern definition='; {CITY!} ; {STREET!} č.ev.{EVN}'                        ruleName='C! S! č.ev.E'/>
+			<address-pattern definition='; {CITY!} ; {CITY_DISTRICT!} č.ev.{EVN}'                 ruleName='C! D! č.ev.E'/>
+			<address-pattern definition='; {CITY!} {CITY_DISTRICT!} ; {STREET!} č.ev.{EVN}'       ruleName='C! D! S! č.ev.E'/>
+			<address-pattern definition='; {CITY!}-{CITY_DISTRICT!} ; {STREET!} č.ev.{EVN}'       ruleName='C!-D! S! č.ev.E'/>
+			<address-pattern definition='; {CITY_DISTRICT!} č.ev.{EVN} ;'		            ruleName='D! č.ev.E'/>
+
+			//---------------------------------------------------------------------------------------
+			// jednoslozkove
+			<address-pattern definition='; ; {ZIP} {CITY!} {STREET!} {LRN}'  	                    ruleName='Z C! S! L'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {STREET!} {LRN} {SN}'                        ruleName='Z C! S! L N'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {STREET!} {LRN}/{SN}'                        ruleName='Z C! S! L/N'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {CITY_DISTRICT!} {STREET!} {LRN} '           ruleName='Z C! D! S! L'/>
+			<address-pattern definition='; ; {ZIP} {CITY!}-{CITY_DISTRICT!} {STREET!} {LRN} '           ruleName='Z C!-D! S! L'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {CITY_DISTRICT!} {STREET!} {LRN} {SN}'       ruleName='Z C! D! S! L N'/>
+			<address-pattern definition='; ; {ZIP} {CITY!}-{CITY_DISTRICT!} {STREET!} {LRN} {SN}'       ruleName='Z C!-D! S! L N'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {CITY_DISTRICT!} {STREET!} {LRN}/{SN}'       ruleName='Z C! D! S! L/N'/>
+			<address-pattern definition='; ; {ZIP} {CITY!}-{CITY_DISTRICT!} {STREET!} {LRN}/{SN}'       ruleName='Z C!-D! S! L/N'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {CITY_PART!} {STREET!} {LRN}'                ruleName='Z C! Q! S! L'/>
+			<address-pattern definition='; ; {ZIP} {CITY!}-{CITY_PART!} {STREET!} {LRN}'                ruleName='Z C!-Q! S! L'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {CITY_PART!} {STREET!} {LRN} {SN}'           ruleName='Z C! Q! S! L N'/>
+			<address-pattern definition='; ; {ZIP} {CITY!}-{CITY_PART!} {STREET!} {LRN} {SN}'           ruleName='Z C!-Q! S! L N'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {CITY_PART!} {STREET!} {LRN}/{SN}'           ruleName='Z C! Q! S! L/N'/>
+			<address-pattern definition='; ; {ZIP} {CITY!}-{CITY_PART!} {STREET!} {LRN}/{SN}'           ruleName='Z C!-Q! S! L/N'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {CITY!} {ZIP}'  	                    ruleName='S! L C! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {SN} {CITY!} {ZIP}'                        ruleName='S! L N C! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN}/{SN} {CITY!} {ZIP}'                        ruleName='S! L/N C! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {CITY!} {CITY_DISTRICT!} {ZIP} '           ruleName='S! L C! D! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {CITY!}-{CITY_DISTRICT!} {ZIP} '           ruleName='S! L C!-D! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {SN} {CITY!} {CITY_DISTRICT!} {ZIP} '      ruleName='S! L N C! D! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN}/{SN} {CITY!} {CITY_DISTRICT!} {ZIP} '      ruleName='S! L/N C! D! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {SN} {CITY!}-{CITY_DISTRICT!} {ZIP} '      ruleName='S! L N C!-D! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN}/{SN} {CITY!}-{CITY_DISTRICT!} {ZIP} '      ruleName='S! L/N C!-D! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {CITY!} {CITY_PART!} {ZIP} '           ruleName='S! L C! Q! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {CITY!}-{CITY_PART!} {ZIP} '           ruleName='S! L C!-Q! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {SN} {CITY!} {CITY_PART!} {ZIP} '      ruleName='S! L N C! Q! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN}/{SN} {CITY!} {CITY_PART!} {ZIP} '      ruleName='S! L/N C! Q! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {SN} {CITY!}-{CITY_PART!} {ZIP} '      ruleName='S! L N C!-Q! Z'/>
+			<address-pattern definition='; ; {STREET!} {LRN}/{SN} {CITY!}-{CITY_PART!} {ZIP} '      ruleName='S! L/N C!-Q! Z'/>
+
+			<address-pattern definition='; ; {CITY!} {STREET!} {LRN}'	                      ruleName='C! S! L'/>
+			<address-pattern definition='; ; {CITY!} {STREET!} {LRN} {SN}'                        ruleName='C! S! L N'/>
+			<address-pattern definition='; ; {CITY!} {STREET!} {LRN}/{SN}'                        ruleName='C! S! L/N'/>
+			<address-pattern definition='; ; {CITY!} {CITY_DISTRICT!} {STREET!} {LRN} '           ruleName='C! D! S! L'/>
+			<address-pattern definition='; ; {CITY!}-{CITY_DISTRICT!} {STREET!} {LRN} '           ruleName='C!-D! S! L'/>
+			<address-pattern definition='; ; {CITY!} {CITY_DISTRICT!} {STREET!} {LRN} {SN}'       ruleName='C! D! S! L N'/>
+			<address-pattern definition='; ; {CITY!}-{CITY_DISTRICT!} {STREET!} {LRN} {SN}'       ruleName='C!-D! S! L N'/>
+			<address-pattern definition='; ; {CITY!} {CITY_DISTRICT!} {STREET!} {LRN}/{SN}'       ruleName='C! D! S! L/N'/>
+			<address-pattern definition='; ; {CITY!}-{CITY_DISTRICT!} {STREET!} {LRN}/{SN}'       ruleName='C!-D! S! L/N'/>
+			<address-pattern definition='; ; {CITY!} {CITY_PART!} {STREET!} {LRN}'                ruleName='C! Q! S! L'/>
+			<address-pattern definition='; ; {CITY!}-{CITY_PART!} {STREET!} {LRN}'                ruleName='C!-Q! S! L'/>
+			<address-pattern definition='; ; {CITY!} {CITY_PART!} {STREET!} {LRN} {SN}'           ruleName='C! Q! S! L N'/>
+			<address-pattern definition='; ; {CITY!}-{CITY_PART!} {STREET!} {LRN} {SN}'           ruleName='C!-Q! S! L N'/>
+			<address-pattern definition='; ; {CITY!} {CITY_PART!} {STREET!} {LRN}/{SN}'           ruleName='C! Q! S! L/N'/>
+			<address-pattern definition='; ; {CITY!}-{CITY_PART!} {STREET!} {LRN}/{SN}'           ruleName='C!-Q! S! L/N'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {CITY!}'  	                    ruleName='S! L C!'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {SN} {CITY!}'                        ruleName='S! L N C!'/>
+			<address-pattern definition='; ; {STREET!} {LRN}/{SN} {CITY!}'                        ruleName='S! L/N C!'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {CITY!} {CITY_DISTRICT!}'           ruleName='S! L C! D!'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {CITY!}-{CITY_DISTRICT!}'           ruleName='S! L C!-D!'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {SN} {CITY!} {CITY_DISTRICT!}'      ruleName='S! L N C! D!'/>
+			<address-pattern definition='; ; {STREET!} {LRN}/{SN} {CITY!} {CITY_DISTRICT!}'      ruleName='S! L/N C! D!'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {SN} {CITY!}-{CITY_DISTRICT!}'      ruleName='S! L N C!-D!'/>
+			<address-pattern definition='; ; {STREET!} {LRN}/{SN} {CITY!}-{CITY_DISTRICT!}'      ruleName='S! L/N C!-D!'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {CITY!} {CITY_PART!}'           ruleName='S! L C! Q!'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {CITY!}-{CITY_PART!}'           ruleName='S! L C!-Q!'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {SN} {CITY!} {CITY_PART!}'      ruleName='S! L N C! Q!'/>
+			<address-pattern definition='; ; {STREET!} {LRN}/{SN} {CITY!} {CITY_PART!}'      ruleName='S! L/N C! Q!'/>
+			<address-pattern definition='; ; {STREET!} {LRN} {SN} {CITY!}-{CITY_PART!}'      ruleName='S! L N C!-Q!'/>
+			<address-pattern definition='; ; {STREET!} {LRN}/{SN} {CITY!}-{CITY_PART!}'      ruleName='S! L/N C!-Q!'/>
+
+
+			<address-pattern definition='; ; {ZIP} {CITY!} {LRN}'                                       ruleName='Z C! L'/>
+			<address-pattern definition='; ; {ZIP} {CITY_DISTRICT!} {LRN}'                             ruleName='Z D! L'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {CITY_DISTRICT!} {LRN}'       		   ruleName='Z C! D! L'/>
+			<address-pattern definition='; ; {ZIP} {CITY!}-{CITY_DISTRICT!} {LRN}'       		   ruleName='Z C!-D! L'/>
+			<address-pattern definition='; ; {CITY!} {CITY_DISTRICT!} {LRN}'       		   ruleName='C! D! L'/>
+			<address-pattern definition='; ; {CITY!}-{CITY_DISTRICT!} {LRN}'       		   ruleName='C!-D! L'/>
+			<address-pattern definition='; ; {ZIP} {POST_OFFICE!} {CITY!} {LRN}'                        ruleName='Z P! C! L'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {POST_OFFICE!} {LRN}'                        ruleName='Z C! P! L'/>
+			<address-pattern definition='; ; {ZIP} {CITY!}-{POST_OFFICE!} {LRN}'                        ruleName='Z C!-P! L'/>
+			<address-pattern definition='; ; {POST_OFFICE!} {CITY!} {LRN}'                        ruleName='P! C! L'/>
+			<address-pattern definition='; ; {CITY!}-{POST_OFFICE!} {LRN}'                        ruleName='C!-P! L'/>
+			//---------------------------------------------------------------------------------------
+
+			<address-pattern definition='; ; {ZIP} {CITY!} {STREET!} č.ev.{EVN}'                        ruleName='Z C! S! č.ev.E'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {CITY_DISTRICT!} č.ev.{EVN}'                 ruleName='Z C! D! č.ev.E'/>
+			<address-pattern definition='; ; {ZIP} {CITY!} {CITY_DISTRICT!} {STREET!} č.ev.{EVN}'       ruleName='Z C! D! S! č.ev.E'/>
+			<address-pattern definition='; ; {ZIP} {CITY_DISTRICT!} č.ev.{EVN}'		            ruleName='Z D! č.ev.E'/>
+			<address-pattern definition='; ; {ZIP} {CITY_DISTRICT!} č.ev.{EVN}'		            ruleName='Z D! č.ev.E'/>
+			<address-pattern definition='; ; {CITY!} {CITY_DISTRICT!} {STREET!} č.ev.{EVN}'         ruleName='C! D! S! č.ev.E'/>
+			<address-pattern definition='; ; {CITY!}-{CITY_DISTRICT!} {STREET!} č.ev.{EVN}'         ruleName='C!-D! S! č.ev.E'/>
+			<address-pattern definition='; ; {CITY!} {CITY_DISTRICT!} č.ev.{EVN}'                   ruleName='C! D! č.ev.E'/>
+			<address-pattern definition='; ; {CITY!}-{CITY_DISTRICT!} č.ev.{EVN}'                   ruleName='C! D! č.ev.E'/>
+			<address-pattern definition='; ; {CITY_DISTRICT!} č.ev.{EVN}'				ruleName='D! č.ev.E'/>
+			<address-pattern definition='; ; {CITY!} {ZIP} {STREET!} {LRN}'                    ruleName='C! Z S! L'/>
+			<address-pattern definition='; ; {CITY!} {ZIP} {STREET!} {LRN}/{SN}'                    ruleName='C! Z S! L N'/>
+			<address-pattern definition='; ; {CITY!} {ZIP} {CITY_DISTRICT!} {LRN}'                    ruleName='C! Z D! L'/>
+		</parser-factory>
+
+		<verifier-factory className="com.ataccama.dqc.tasks.addresses.core.UirAdrAddressVerifierFactory">
+			<property name="dataFolder" value="pathvar://DATA/ext/lkp/cz_address_identifier/ai" />
+			<property name="updateMissingAddressFields" value="true" />
+<!--			
+			<property name="cityDistrictContextReplacements" value="pathvar://DATA/ext/lkp/cz_address_identifier/rpl/ctxCMrpl_cz.txt" /> 
+			<property name="streetContextReplacements"       value="pathvar://DATA/ext/lkp/cz_address_identifier/rpl/ctxCSrep.txt" />
+ -->
+<!-- 
+			<replacements addressComponent="CITY"
+				          partialReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/rpl/id_city_partial.lkp"
+				          fullReplacements=   "pathvar://DATA/ext/lkp/cz_address_identifier/rpl/id_city_full.lkp" />
+			<replacements addressComponent="CITY_DISTRICT"
+				          partialReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/rpl/id_city_district_partial.lkp"
+				          fullReplacements=   "pathvar://DATA/ext/lkp/cz_address_identifier/rpl/id_city_district_full.lkp" />
+			<replacements addressComponent="STREET"
+				          partialReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/rpl/id_street_partial.lkp"
+				          fullReplacements=   "pathvar://DATA/ext/lkp/cz_address_identifier/rpl/id_street_full.lkp" />
+			<replacements addressComponent="POST_OFFICE"
+				          partialReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/rpl/id_post_office_partial.lkp"
+				          fullReplacements=   "pathvar://DATA/ext/lkp/cz_address_identifier/rpl/id_post_office_full.lkp" />
+-->				          
+<!--			<replacements addressComponent="ZIP"
+				          partialReplacements="pathvar://DATA/ext/lkp/cz_address_identifier/rpl/id_zip_partial.lkp"
+				          fullReplacements=   "pathvar://DATA/ext/lkp/cz_address_identifier/rpl/id_zip_full.lkp" />
+-->
+		</verifier-factory>
+</address-config>

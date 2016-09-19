@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configDoc screen="images/screen__t_smart_chars_replacement.comp.png" cfgFilePath="pathvar://COMPONENTS/_t_smart_chars_replacement.comp" runtimeVersion="10.2.1.ga-2015-10-30" companyImage="images/logo_about.png" fileName="_t_smart_chars_replacement.comp" date="2015-12-01 16:29:44" xmlns:comm="http://www.ataccama.com/purity/comment" version="1.0">
+  <generatorMeta name="Data Quality Center 10.2.1" company="Ataccama Corporation" about="{0}
+
+Version: {1}
+
+Copyright © 2002-{2} Ataccama Corporation. All rights reserved.
+
+Your use of the product is subject to the {0} end user license agreement." date="2015-12-14 10:11:03"/>
+  <configAlg name="in (Integration Input)" image="images/InputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.InputStep">
+    <properties>
+      <columns>
+        <columnDef name="in_string" type="STRING">
+          <comm:comment>Any string with chars to be replaced</comm:comment>
+        </columnDef>
+        <columnDef name="in_replacement" type="STRING">
+          <comm:comment>String with replacing chars</comm:comment>
+        </columnDef>
+      </columns>
+      <shadowColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add Columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="out_string" type="STRING">
+          <comm:comment>String with replaced chars</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add internal columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn expression="false" name="par_letters" type="BOOLEAN"/>
+        <addedColumn expression="false" name="par_digits" type="BOOLEAN"/>
+        <addedColumn expression="false" name="par_special_chars" type="BOOLEAN"/>
+        <addedColumn expression="&#39;&#39;" name="par_defined_set" type="STRING"/>
+        <addedColumn name="tmp_char_sequence" type="STRING">
+          <comm:comment>Chars defined by params will get sequence number</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_order_and_char" type="STRING">
+          <comm:comment>From sequence, order will be calculated</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_check_sequence_overflow" type="STRING">
+          <comm:comment>Usefull only in situation, when integer sequence would overflow because of too many records (hundrets of milions)</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+      <comm:comment>Add internal columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Integer overflow check (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="tmp_check_sequence_overflow">
+          <expression>$long_sequence:=toLong(namedSequence(&#39;char_sequence&#39;, 0, 1)) + length(in_string);
+$integer_sequence:=toInteger($long_sequence);
+
+iif($long_sequence is not $integer_sequence, 									//if there would be overflow
+		set.mapExp(substituteAll(&#39;(.)(?!$)&#39;, &#39;$1☃&#39;, in_string), &#39;☃&#39;, (x){
+						toString(namedSequence(&#39;char_sequence&#39;, 0, 1))			//force it to overflow						
+					}
+		),
+		&#39;&#39;
+	)
+
+</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>For too many records (hundreds of milions), integer overflow might happen.
+We don&#39;t mind, if it happens bewteen records because sequence/order of chars in one string would be still correct. 
+However, when it overflows &quot;inside&quot; string processing, order wouldn&#39;t be calculated correctly.
+Therefore, if the sequence is close to overflowing (its value plus lenght of comming string would overflow), we call it few times, so it will overflow and we can continue normally.</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Integer overflow control.
+
+If overflow of the sequence is about to happen, we force it to overflow &quot;between records&quot; and not inside one record.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Sequence and Order (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="tmp_char_sequence">
+          <expression>set.mapExp(substituteAll(&#39;(.)(?!$)&#39;, &#39;$1☃&#39;, in_string), &#39;☃&#39;, (x){
+				iif(
+					(par_digits and isNumber(x)) or								//digits should be replaced
+					(par_letters and trashNonLetters(x) is not null) or			//letters should be replaced
+					(par_special_chars and matches(@&quot;\p{Punct}&quot;, x)) or 		//special chars should be replaced
+					 indexOf(par_defined_set, x) is not null,					//chars in defined set should be replaced
+					 toString(namedSequence(&#39;char_sequence&#39;, 0, 1)) + &#39;☠&#39; + x,	//add sequence before char
+					 x
+				)
+									
+			}
+)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Chars defined by params will get sequence number. Separator between chars (with order) is snowman. Separator between order and char is skull.
+
+E.g. for replacing digit only
+input: a*1
+output: a☃*☃2☠1</comm:comment>
+        </assignment>
+        <assignment column="tmp_order_and_char">
+          <expression>$sequences:=tmp_char_sequence;
+
+function calculate_order(string x, string sequences){	
+	toString(set.sumExp(sequences, &#39;☃&#39;, (y) {
+				//if char y in string has sequence and it is less than sequence of x, add one
+				iif(indexOf(y, &#39;☠&#39;) is not null and toInteger(word(y, 0, &#39;☠&#39;))&lt;toInteger(word(x, 0, &#39;☠&#39;)), 1, 0)})
+			)	
+	+ &#39;☠&#39; + word(x, 1, &#39;☠&#39;)
+}
+
+set.mapExp($sequences, &#39;☃&#39;, (x){						//for every char
+				iif(indexOf(x, &#39;☠&#39;) is null, 			//if it has sequence generated
+				x, 										//keep as it is
+				calculate_order(x, $sequences))})		//else: calculate, how many defined chars are before it (by using sequence)
+</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>From sequence, order is calculated
+E.g.
+input: a☃*☃2☠1
+output: a☃*☃0☠1</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Chars defined by params will get sequence number
+
+From sequence, order is calculated</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Replace chars (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="out_string">
+          <expression>$replacement:=substituteAll(&#39;(.)(?!$)&#39;, &#39;$1☃&#39;, in_replacement);
+
+replace(set.mapExp(tmp_order_and_char, &#39;☃&#39;, (x){	//for every char
+				iif(
+					indexOf(x, &#39;☠&#39;) is null,		//if it has not order
+						x,							//keep as it is
+						word($replacement, toInteger(word(x, 0, &#39;☠&#39;)), &#39;☃&#39;) /*else get its order and replace it with char
+					 														   in replacing string on this position */
+				)
+									
+			}
+	)
+, &#39;☃&#39;, &#39;&#39;)</expression>
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+          <comm:comment>Eg.
+input: a☃*☃0☠1 and 9
+output: a*9   (digit &#39;1&#39; is replaced with digit &#39;9&#39; )</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Replace chars having order with chars from replacing string</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove internal columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns/>
+      <removedColumns>
+        <columnRef name="par_letters"/>
+        <columnRef name="par_digits"/>
+        <columnRef name="par_special_chars"/>
+        <columnRef name="par_defined_set"/>
+        <columnRef name="tmp_char_sequence"/>
+        <columnRef name="tmp_order_and_char"/>
+        <columnRef name="tmp_check_sequence_overflow"/>
+        <columnRef name="in_string"/>
+        <columnRef name="in_replacement"/>
+      </removedColumns>
+      <comm:comment>Remove internal columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="out (Integration Output)" image="images/OutputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep">
+    <properties>
+      <requiredColumns>
+        <requiredColumn name="out_string" type="STRING">
+          <comm:comment>String with replaced chars</comm:comment>
+        </requiredColumn>
+      </requiredColumns>
+    </properties>
+  </configAlg>
+  <referedBy name="cz_phone_numbers"/>
+</configDoc>

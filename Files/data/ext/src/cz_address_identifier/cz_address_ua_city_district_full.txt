@@ -1,0 +1,21 @@
+"pattern";"replacement"
+BILOVICE N.SVITAV.;Bílovice nad Svitavou
+BUDISOV N.BUDISOV.;Budišov nad Budišovkou
+BYSTRICE N.PERN.;Bystøice nad Pernštejnem
+BYSTRICE P.HOST.;Bystøice pod Hostýnem
+HODKOVICE N.MOHEL.;Hodkovice nad Mohelkou
+JABLONNE N. O.;Jablonné nad Orlicí
+JABLONNE N ORL;Jablonné nad Orlicí
+JABLONNE N.ORLICI;Jablonné nad Orlicí
+JABLONNE V PODJES.;Jablonné v Podještìdí
+MOR.BUDEJOVICE;Moravské Budìjovice
+BÍLOVICE N.SVITAV.;Bílovice nad Svitavou
+BUDIŠOV N.BUDIŠOV.;Budišov nad Budišovkou
+BYSTØICE N.PERN.;Bystøice nad Pernštejnem
+BYSTØICE P.HOST.;Bystøice pod Hostýnem
+HODKOVICE N.MOHEL.;Hodkovice nad Mohelkou
+JABLONNÉ N. O.;Jablonné nad Orlicí
+JABLONNÉ N ORL;Jablonné nad Orlicí
+JABLONNÉ N.ORLICÍ;Jablonné nad Orlicí
+JABLONNÉ V PODJEŠ.;Jablonné v Podještìdí
+MOR.BUDÌJOVICE;Moravské Budìjovice

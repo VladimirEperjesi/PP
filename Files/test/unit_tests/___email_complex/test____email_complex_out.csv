@@ -1,0 +1,78 @@
+"difference"^~"TC_ID"^~"description"^~"in_email"^~"std_email"^~"e_std_email"^~"std_name"^~"e_std_name"^~"out_email"^~"e_out_email"^~"exp_email"^~"e_exp_email"^~"sco_email"^~"e_sco_email"
+^~1^~"Email with diacritics"^~"my_mail@mycentrum.čž"^~"my_mail@mycentrum.cz"^~"my_mail@mycentrum.cz"^~^~^~"my_mail@mycentrum.cz"^~"my_mail@mycentrum.cz"^~"EMAIL_CLEANSED"^~"EMAIL_CLEANSED"^~5^~5
+^~2^~"missing/unknown tld + stopword"^~"e-post: pepik@omackacom"^~"pepik@omacka.com"^~"pepik@omacka.com"^~^~^~"pepik@omacka.com"^~"pepik@omacka.com"^~"EMAIL_STOPWORD_CLEANSED EMAIL_TLD_MISSING_LAST_DOT"^~"EMAIL_STOPWORD_CLEANSED EMAIL_TLD_MISSING_LAST_DOT"^~8000^~8000
+^~3^~"missing/unknown tld"^~"nekdo@emailname"^~"nekdo@email.name"^~"nekdo@email.name"^~^~^~"nekdo@email.name"^~"nekdo@email.name"^~"EMAIL_TLD_MISSING_LAST_DOT"^~"EMAIL_TLD_MISSING_LAST_DOT"^~7000^~7000
+^~4^~"missing/unknown tld"^~"cokoli@sezncz"^~"cokoli@sezn.cz"^~"cokoli@sezn.cz"^~^~^~"cokoli@sezn.cz"^~"cokoli@sezn.cz"^~"EMAIL_TLD_MISSING_LAST_DOT"^~"EMAIL_TLD_MISSING_LAST_DOT"^~7000^~7000
+^~5^~"missing/unknown tld"^~"cokoli@hmmxn"^~^~^~^~^~"cokoli@hmmxn"^~"cokoli@hmmxn"^~"EMAIL_TLD_MISSING"^~"EMAIL_TLD_MISSING"^~5000000^~5000000
+^~6^~"missing/unknown tld"^~"cokoli@gmail"^~"cokoli@gmail.com"^~"cokoli@gmail.com"^~^~^~"cokoli@gmail.com"^~"cokoli@gmail.com"^~"EMAIL_TLD_APPENDED_KNOWN_PROVIDER"^~"EMAIL_TLD_APPENDED_KNOWN_PROVIDER"^~5000^~5000
+^~7^~"missing/unknown tld"^~"cokoli@gmailcom"^~"cokoli@gmail.com"^~"cokoli@gmail.com"^~^~^~"cokoli@gmail.com"^~"cokoli@gmail.com"^~"EMAIL_TLD_MISSING_LAST_DOT_KNOWN_PROVIDER"^~"EMAIL_TLD_MISSING_LAST_DOT_KNOWN_PROVIDER"^~4000^~4000
+^~8^~"missspelled/unknown tld"^~"cokoli@gmail.giv"^~"cokoli@gmail.gov"^~"cokoli@gmail.gov"^~^~^~"cokoli@gmail.gov"^~"cokoli@gmail.gov"^~"EMAIL_TLD_CORRECTED_MISSPELLING"^~"EMAIL_TLD_CORRECTED_MISSPELLING"^~6000^~6000
+^~9^~"missspelled/unknown tld"^~"cokoli@gmail.cim"^~"cokoli@gmail.com"^~"cokoli@gmail.com"^~^~^~"cokoli@gmail.com"^~"cokoli@gmail.com"^~"EMAIL_TLD_CORRECTED_KNOWN_PROVIDER"^~"EMAIL_TLD_CORRECTED_KNOWN_PROVIDER"^~4000^~4000
+^~10^~"invalid tld"^~"cokoli@domain.tld"^~^~^~^~^~"cokoli@domain.tld"^~"cokoli@domain.tld"^~"EMAIL_TLD_NOT_MATCHED"^~"EMAIL_TLD_NOT_MATCHED"^~5000000^~5000000
+^~11^~"suspicious"^~"foo@com"^~^~^~^~^~"foo@com"^~"foo@com"^~"EMAIL_SUSPICIOUS"^~"EMAIL_SUSPICIOUS"^~5000000^~5000000
+^~12^~"stopword"^~"e-post: joe@smith.com"^~"joe@smith.com"^~"joe@smith.com"^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_STOPWORD_CLEANSED"^~"EMAIL_STOPWORD_CLEANSED"^~1000^~1000
+^~13^~"stopword"^~"e-mail joe@smith.com"^~"joe@smith.com"^~"joe@smith.com"^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_STOPWORD_CLEANSED"^~"EMAIL_STOPWORD_CLEANSED"^~1000^~1000
+^~14^~"stopword"^~"e: joe@smith.com"^~"joe@smith.com"^~"joe@smith.com"^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_STOPWORD_CLEANSED"^~"EMAIL_STOPWORD_CLEANSED"^~1000^~1000
+^~15^~"stopword"^~"em: joe@smith.com"^~"joe@smith.com"^~"joe@smith.com"^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_STOPWORD_CLEANSED"^~"EMAIL_STOPWORD_CLEANSED"^~1000^~1000
+^~16^~"stopword"^~"em. joe@smith.com"^~"joe@smith.com"^~"joe@smith.com"^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_STOPWORD_CLEANSED"^~"EMAIL_STOPWORD_CLEANSED"^~1000^~1000
+^~17^~"valid"^~"joe@a.com"^~"joe@a.com"^~"joe@a.com"^~^~^~"joe@a.com"^~"joe@a.com"^~^~^~0^~0
+^~18^~"enclosed"^~"[joe@smith.com]"^~"joe@smith.com"^~"joe@smith.com"^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_CLEANSED"^~"EMAIL_CLEANSED"^~500^~500
+^~19^~"email within/uncertain"^~"Joe Smith joe@smith.com"^~^~^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_WITHIN"^~"EMAIL_WITHIN"^~18000^~18000
+^~20^~"comma"^~"Joe, Smith <joe@smith.com>"^~"joe@smith.com"^~"joe@smith.com"^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_CLEANSED"^~"EMAIL_CLEANSED"^~200^~200
+^~21^~"valid"^~"Joe Smith <joe@smith.com>"^~"joe@smith.com"^~"joe@smith.com"^~"Joe Smith"^~"Joe Smith"^~"joe@smith.com"^~"joe@smith.com"^~^~^~0^~0
+^~22^~"valid"^~"Joe <joe@smith.com>"^~"joe@smith.com"^~"joe@smith.com"^~"Joe"^~"Joe"^~"joe@smith.com"^~"joe@smith.com"^~^~^~0^~0
+^~23^~"enclosed with name"^~"Ing. Joe Smith <joe@smith.com>"^~"joe@smith.com"^~"joe@smith.com"^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_CLEANSED"^~"EMAIL_CLEANSED"^~50^~50
+^~24^~"valid"^~"Joe Pepik Smith <joe@smith.com>"^~"joe@smith.com"^~"joe@smith.com"^~"Joe Pepik Smith"^~"Joe Pepik Smith"^~"joe@smith.com"^~"joe@smith.com"^~^~^~0^~0
+^~25^~"valid"^~"Joe Smith <joe@smith.com>"^~"joe@smith.com"^~"joe@smith.com"^~"Joe Smith"^~"Joe Smith"^~"joe@smith.com"^~"joe@smith.com"^~^~^~0^~0
+^~26^~"comma"^~"Joe, Smith <joe@smith.com>"^~"joe@smith.com"^~"joe@smith.com"^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_CLEANSED"^~"EMAIL_CLEANSED"^~200^~200
+^~27^~"comma + email within/uncertain"^~"Joe, Smith joe@smith.com"^~^~^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_CLEANSED EMAIL_WITHIN"^~"EMAIL_CLEANSED EMAIL_WITHIN"^~19150^~19150
+^~28^~"enclosed + missing tld"^~"<<joe@smith>>"^~"joe@smi.th"^~"joe@smi.th"^~^~^~"joe@smi.th"^~"joe@smi.th"^~"EMAIL_CLEANSED EMAIL_TLD_MISSING_LAST_DOT"^~"EMAIL_CLEANSED EMAIL_TLD_MISSING_LAST_DOT"^~7500^~7500
+^~29^~"enclosed"^~"{joe@smith.com}"^~"joe@smith.com"^~"joe@smith.com"^~^~^~"joe@smith.com"^~"joe@smith.com"^~"EMAIL_CLEANSED"^~"EMAIL_CLEANSED"^~500^~500
+^~30^~"missing tld"^~"joe@smith"^~"joe@smi.th"^~"joe@smi.th"^~^~^~"joe@smi.th"^~"joe@smi.th"^~"EMAIL_TLD_MISSING_LAST_DOT"^~"EMAIL_TLD_MISSING_LAST_DOT"^~7000^~7000
+^~31^~"at dot synonyms + invalid tld"^~"ambig[at]domain[dot]tld"^~^~^~^~^~"ambig@domain.tld"^~"ambig@domain.tld"^~"EMAIL_TLD_NOT_MATCHED EMAIL_AT_DOT_SYNONYMS"^~"EMAIL_TLD_NOT_MATCHED EMAIL_AT_DOT_SYNONYMS"^~5001000^~5001000
+^~32^~"empty"^~^~^~^~^~^~^~^~"EMAIL_EMPTY"^~"EMAIL_EMPTY"^~10000000^~10000000
+^~33^~"invalid email + at dot synonyms"^~"joe<at>smith<at>x<at>.cz"^~^~^~^~^~^~^~"EMAIL_INVALID"^~"EMAIL_INVALID"^~5000000^~5000000
+^~34^~"valid"^~"RaDim.BufKKa@GMail.Com"^~"RaDim.BufKKa@GMail.Com"^~"RaDim.BufKKa@GMail.Com"^~^~^~"RaDim.BufKKa@GMail.Com"^~"RaDim.BufKKa@GMail.Com"^~^~^~0^~0
+^~35^~"unsupported characters"^~"(),:;<>@[\\]\ 甲斐@黒川日本@neco.cz"^~^~^~^~^~^~^~"EMAIL_INVALID"^~"EMAIL_INVALID"^~5000000^~5000000
+^~36^~"unsupported characters"^~"(),:;<>@[\\]\ @neco.cz"^~^~^~^~^~^~^~"EMAIL_INVALID"^~"EMAIL_INVALID"^~5000000^~5000000
+^~37^~"invalid"^~"joe@smith@gmail.com"^~^~^~^~^~^~^~"EMAIL_INVALID"^~"EMAIL_INVALID"^~5000000^~5000000
+^~38^~"email within/uncertain"^~"joe\ smith@gmail.com"^~^~^~^~^~"smith@gmail.com"^~"smith@gmail.com"^~"EMAIL_WITHIN"^~"EMAIL_WITHIN"^~13000^~13000
+^~39^~"email within/uncertain"^~"joe smith@gmail.com"^~^~^~^~^~"smith@gmail.com"^~"smith@gmail.com"^~"EMAIL_WITHIN"^~"EMAIL_WITHIN"^~13000^~13000
+^~40^~"invalid"^~"aha."joe\ smith".haha@gmail.com"^~^~^~^~^~"haha@gmail.com"^~"haha@gmail.com"^~"EMAIL_WITHIN"^~"EMAIL_WITHIN"^~22000^~22000
+^~41^~"invalid"^~"joe@smith@gmail.com"^~^~^~^~^~^~^~"EMAIL_INVALID"^~"EMAIL_INVALID"^~5000000^~5000000
+^~42^~"email within/uncertain"^~"Joe Smith joesmith@smith.cz"^~^~^~^~^~"joesmith@smith.cz"^~"joesmith@smith.cz"^~"EMAIL_WITHIN"^~"EMAIL_WITHIN"^~18000^~18000
+^~43^~"comma + email within/uncertain"^~"Smith, Joe joe.smith@smith.cz"^~^~^~^~^~"joe.smith@smith.cz"^~"joe.smith@smith.cz"^~"EMAIL_CLEANSED EMAIL_WITHIN"^~"EMAIL_CLEANSED EMAIL_WITHIN"^~19150^~19150
+^~44^~"invalid"^~"joe<at>smith.com mar(at)sig.net"^~^~^~^~^~^~^~"EMAIL_INVALID"^~"EMAIL_INVALID"^~5000000^~5000000
+^~45^~"invalid"^~"awdd"^~^~^~^~^~^~^~"EMAIL_INVALID"^~"EMAIL_INVALID"^~5000000^~5000000
+^~46^~"unsupported characters"^~"בײַשפּ@בײַשפּיל.טעסט"^~^~^~^~^~^~^~"EMAIL_INVALID"^~"EMAIL_INVALID"^~5000000^~5000000
+^~47^~"unsupported characters"^~"甲斐@黒川.日本"^~^~^~^~^~^~^~"EMAIL_INVALID"^~"EMAIL_INVALID"^~5000000^~5000000
+^~48^~"valid"^~"joe.smith@ataccama.com"^~"joe.smith@ataccama.com"^~"joe.smith@ataccama.com"^~^~^~"joe.smith@ataccama.com"^~"joe.smith@ataccama.com"^~^~^~0^~0
+^~49^~"multiple dots"^~"joe..smith@gmail.com"^~"joe.smith@gmail.com"^~"joe.smith@gmail.com"^~^~^~"joe.smith@gmail.com"^~"joe.smith@gmail.com"^~"EMAIL_CLEANSED"^~"EMAIL_CLEANSED"^~100^~100
+^~50^~"invalid (but RFC valid)"^~"joe."ha@haha".nichts@smithiki.net"^~^~^~^~^~^~^~"EMAIL_INVALID"^~"EMAIL_INVALID"^~5000000^~5000000
+^~51^~"valid"^~"ra#dim@nini.com"^~"ra#dim@nini.com"^~"ra#dim@nini.com"^~^~^~"ra#dim@nini.com"^~"ra#dim@nini.com"^~^~^~0^~0
+^~52^~"valid"^~"!#$%&'*+-/=?^_`{|}~@possible.net"^~"!#$%&'*+-/=?^_`{|}~@possible.net"^~"!#$%&'*+-/=?^_`{|}~@possible.net"^~^~^~"!#$%&'*+-/=?^_`{|}~@possible.net"^~"!#$%&'*+-/=?^_`{|}~@possible.net"^~^~^~0^~0
+^~53^~"email within/uncertain"^~"awdaw\ awd@possible.name"^~^~^~^~^~"awd@possible.name"^~"awd@possible.name"^~"EMAIL_WITHIN"^~"EMAIL_WITHIN"^~15000^~15000
+^~54^~"valid"^~"!!##$$%%&&''**++--//==??^^__``{{||}}~~@possible.net"^~"!!##$$%%&&''**++--//==??^^__``{{||}}~~@possible.net"^~"!!##$$%%&&''**++--//==??^^__``{{||}}~~@possible.net"^~^~^~"!!##$$%%&&''**++--//==??^^__``{{||}}~~@possible.net"^~"!!##$$%%&&''**++--//==??^^__``{{||}}~~@possible.net"^~^~^~0^~0
+^~55^~"space instead of last dot"^~"foo@bar com"^~^~^~^~^~"foo@bar.com"^~"foo@bar.com"^~"EMAIL_GUESSED_WITHIN"^~"EMAIL_GUESSED_WITHIN"^~13000^~13000
+^~56^~"space instead of last dot"^~"foo@gmail com"^~^~^~^~^~"foo@gmail.com"^~"foo@gmail.com"^~"EMAIL_GUESSED_WITHIN"^~"EMAIL_GUESSED_WITHIN"^~13000^~13000
+^~57^~"invalid"^~"foo@bark awd"^~^~^~^~^~"foo@bark.awd"^~"foo@bark.awd"^~"EMAIL_TLD_NOT_MATCHED EMAIL_GUESSED_WITHIN"^~"EMAIL_TLD_NOT_MATCHED EMAIL_GUESSED_WITHIN"^~5013000^~5013000
+^~58^~"at dot synonyms"^~"joe<dot>smith<at>foo<dot>co<dot>uk"^~"joe.smith@foo.co.uk"^~"joe.smith@foo.co.uk"^~^~^~"joe.smith@foo.co.uk"^~"joe.smith@foo.co.uk"^~"EMAIL_AT_DOT_SYNONYMS"^~"EMAIL_AT_DOT_SYNONYMS"^~1000^~1000
+^~59^~"stopword/at dot synonyms"^~"email:joe<dot>smith<at>foo<dot>co<dot>uk"^~"joe.smith@foo.co.uk"^~"joe.smith@foo.co.uk"^~^~^~"joe.smith@foo.co.uk"^~"joe.smith@foo.co.uk"^~"EMAIL_STOPWORD_CLEANSED EMAIL_AT_DOT_SYNONYMS"^~"EMAIL_STOPWORD_CLEANSED EMAIL_AT_DOT_SYNONYMS"^~2000^~2000
+^~60^~"email within unspoported characters"^~"€[[Đ[€€đ[mail@foo.org[đ€€[€[|\\ł"^~^~^~^~^~"mail@foo.org"^~"mail@foo.org"^~"EMAIL_CLEANSED EMAIL_WITHIN"^~"EMAIL_CLEANSED EMAIL_WITHIN"^~12005^~12005
+^~61^~"enclosed + at dot synonyms"^~"{{mail<at>gmail<dot>}}"^~"mail@gmail.com"^~"mail@gmail.com"^~^~^~"mail@gmail.com"^~"mail@gmail.com"^~"EMAIL_CLEANSED EMAIL_AT_DOT_SYNONYMS EMAIL_TLD_APPENDED_KNOWN_PROVIDER"^~"EMAIL_CLEANSED EMAIL_AT_DOT_SYNONYMS EMAIL_TLD_APPENDED_KNOWN_PROVIDER"^~6500^~6500
+^~62^~"missing tld"^~"aaa@gmail."^~"aaa@gmail.com"^~"aaa@gmail.com"^~^~^~"aaa@gmail.com"^~"aaa@gmail.com"^~"EMAIL_TLD_APPENDED_KNOWN_PROVIDER"^~"EMAIL_TLD_APPENDED_KNOWN_PROVIDER"^~5000^~5000
+^~63^~"email withing"^~"uuuu.@foof.cz"^~^~^~^~^~"uuuu@foof.cz"^~"uuuu@foof.cz"^~"EMAIL_WITHIN"^~"EMAIL_WITHIN"^~10000^~10000
+^~64^~"cleansed email"^~".hooah.cpt@airf.gov.."^~"hooah.cpt@airf.gov"^~"hooah.cpt@airf.gov"^~^~^~"hooah.cpt@airf.gov"^~"hooah.cpt@airf.gov"^~"EMAIL_CLEANSED"^~"EMAIL_CLEANSED"^~100^~100
+^~65^~"guessed within"^~"foo @ ah com"^~^~^~^~^~"foo@ah.com"^~"foo@ah.com"^~"EMAIL_GUESSED_WITHIN"^~"EMAIL_GUESSED_WITHIN"^~13000^~13000
+^~66^~"tld appended"^~"bar@ gmail"^~^~^~^~^~"bar@gmail.com"^~"bar@gmail.com"^~"EMAIL_GUESSED_WITHIN EMAIL_TLD_APPENDED_KNOWN_PROVIDER"^~"EMAIL_GUESSED_WITHIN EMAIL_TLD_APPENDED_KNOWN_PROVIDER"^~18000^~18000
+^~67^~"missing last dot"^~"foo@bar awd"^~^~^~^~^~"foo@b.ar"^~"foo@b.ar"^~"EMAIL_GUESSED_WITHIN EMAIL_TLD_MISSING_LAST_DOT"^~"EMAIL_GUESSED_WITHIN EMAIL_TLD_MISSING_LAST_DOT"^~20000^~20000
+^~68^~"corrected misspelling"^~"foo@bawd cim"^~^~^~^~^~"foo@bawd.com"^~"foo@bawd.com"^~"EMAIL_GUESSED_WITHIN EMAIL_TLD_CORRECTED_MISSPELLING"^~"EMAIL_GUESSED_WITHIN EMAIL_TLD_CORRECTED_MISSPELLING"^~19000^~19000
+^~69^~"guessed within"^~"foo@name com"^~^~^~^~^~"foo@name.com"^~"foo@name.com"^~"EMAIL_GUESSED_WITHIN"^~"EMAIL_GUESSED_WITHIN"^~13000^~13000
+^~70^~"white list"^~"whitelisted"^~"whitelisted"^~"whitelisted"^~^~^~"whitelisted"^~"whitelisted"^~"EMAIL_WHITELISTED"^~"EMAIL_WHITELISTED"^~0^~0
+^~71^~"black list"^~"blacklisted@email.com"^~^~^~^~^~"blacklisted@email.com"^~"blacklisted@email.com"^~"EMAIL_BLACKLISTED"^~"EMAIL_BLACKLISTED"^~2000000^~2000000
+^~72^~"at dot synonyms with whitespaces"^~"joe< dot >smith< at>foo< dot>co< dot >uk"^~"joe.smith@foo.co.uk"^~"joe.smith@foo.co.uk"^~^~^~"joe.smith@foo.co.uk"^~"joe.smith@foo.co.uk"^~"EMAIL_AT_DOT_SYNONYMS"^~"EMAIL_AT_DOT_SYNONYMS"^~1000^~1000
+^~73^~"spaces before/after/inside synonyms"^~"joe [ at ] smith [ dot ] ca [ dot ] com"^~"joe@smith.ca.com"^~"joe@smith.ca.com"^~^~^~"joe@smith.ca.com"^~"joe@smith.ca.com"^~"EMAIL_AT_DOT_SYNONYMS"^~"EMAIL_AT_DOT_SYNONYMS"^~1000^~1000
+^~74^~"temporary domain"^~"john@yopmail.com"^~"john@yopmail.com"^~"john@yopmail.com"^~^~^~"john@yopmail.com"^~"john@yopmail.com"^~"EMAIL_TMP_DOMAIN"^~"EMAIL_TMP_DOMAIN"^~100^~100
+^~75^~"temporary domain"^~"joe@mailinater.com"^~"joe@mailinater.com"^~"joe@mailinater.com"^~^~^~"joe@mailinater.com"^~"joe@mailinater.com"^~"EMAIL_TMP_DOMAIN"^~"EMAIL_TMP_DOMAIN"^~100^~100
+^~76^~"temporary domain"^~"smith@3d-painting.com"^~"smith@3d-painting.com"^~"smith@3d-painting.com"^~^~^~"smith@3d-painting.com"^~"smith@3d-painting.com"^~"EMAIL_TMP_DOMAIN"^~"EMAIL_TMP_DOMAIN"^~100^~100
+^~77^~"email in brackets with temporary domain"^~"[bracket@yopmail.com]"^~"bracket@yopmail.com"^~"bracket@yopmail.com"^~^~^~"bracket@yopmail.com"^~"bracket@yopmail.com"^~"EMAIL_TMP_DOMAIN EMAIL_CLEANSED"^~"EMAIL_TMP_DOMAIN EMAIL_CLEANSED"^~600^~600

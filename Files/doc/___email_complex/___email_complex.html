@@ -1,0 +1,584 @@
+<html xmlns:comm="http://www.ataccama.com/purity/comment" xmlns:ver="http://www.ataccama.com/purity/version">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">			
+				table.smpl {
+						border-width: 0 0 1px 1px;
+						border-spacing: 0;
+						border-collapse: collapse;
+						width: 90%;
+				}
+
+				table.outer {
+						border-width: 1px 1px 1px 1px;
+						border-spacing: 0;
+						border-collapse: collapse;
+						border-color: #0;
+						border-style: solid;
+				}
+				
+				table td
+				{
+					margin: 0;
+					padding: 4px;
+					border-width: 1px 1px 0 0;
+				}
+				
+				table.smpl, table.smpl td
+				{
+					border-color: #0;
+					border-style: solid;
+				}
+				
+				pre.nonprop {
+					font-family: Arial;
+				}	
+			
+				
+				.cell_hdr {
+				font-weight:bold;
+				}
+				.cell_hdr { 
+					background-color: #D0D0F0; 
+					font-weight: bold; 
+					font-family: Arial; 		
+					font-size: 16px; 
+					}
+				.cell_val { 
+					background-color: #F0F0F0; 
+					font-family: Arial; 
+					font-size: 12px;
+					}
+				.cell_extra_val { 
+					background-color: #F0F0F0;
+					color: #A00000; 
+					}
+				.cell_hdr_red { 
+					background-color: #D0E0F0; 
+					font-weight: bold; 
+					font-family: Arial;
+					font-size: 16px; 
+					}	
+				.cell_line_hdr { 
+					background-color: #D0D0F0; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}
+				.cell_line_val {
+					background-color: #F0F0F0; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}	 
+				.cell_hdr_comment { 
+					background-color: #E0E0E0; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}
+				.cell_val_comment { 
+					background-color: #F0F0F0; 
+					color: #808080; 
+					font-weight: bold; 
+					font-family: Arial; 
+					font-size: 12px; 
+					}	
+				
+				.table_90 { 
+					width: 90%; }
+				
+				li { font-family: Arial; font-size: 12px; }
+				
+				H1 { font-family: Arial; font-size: 25px; }
+				H2 { font-family: Arial; font-size: 20px; }
+				H3 { font-family: Arial; font-size: 15px; text-decoration: underline; margin: 20px, 0, 0, 0; padding: 0; }
+				p { font-family: Arial; font-size: 12px; margin: 0; padding: 2px; }				
+				pre {font-family: Arial; font-size: 12px; margin: 0; padding: 2px;				 				 
+ 				 white-space: pre-wrap;       /* css-3 */
+ 				 white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ 				 white-space: -pre-wrap;      /* Opera 4-6 */
+ 				 white-space: -o-pre-wrap;    /* Opera 7 */
+ 				 word-wrap: break-word;       /* Internet Explorer 5.5+ */
+					}
+		</style><title>Documentation of Component Definition : ___email_complex</title>
+   </head>
+   <body>
+      <table class="outer" width="90%">
+         <tr>
+            <td rowspan="3"><img src="images/logo_about.png"></td>
+            <td>
+               <H1>Component Documentation</H1>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <H2>Cleanse Email (___email_complex.comp)</H2>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <table width="100%">
+                  <tr>
+                     <td class="cell_hdr">Minimum Engine Version Required</td>
+                     <td class="cell_val">engine v8.x.x</td>
+                     <td class="cell_hdr">Last Update Date</td>
+                     <td class="cell_val">2016-04-27+02:00</td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <div id="l_contents">
+         <H1>Contents</H1>
+      </div>
+      <ul>
+         <li><a href="#l_fdesc">Functional Description</a></li>
+         <li><a href="#l_tdesc">Technical Description</a></li>
+         <li><a href="#l_params">Parameters</a></li>
+         <li><a href="#l_pathv">Path Variables</a></li>
+         <li><a href="#l_lkps">Lookups</a></li>
+         <li><a href="#l_inputs">Input Attributes</a></li>
+         <li><a href="#l_outputs">Output Attributes</a></li>
+         <li><a href="#l_details">Attribute Details</a></li>
+      </ul><br><table id="l_desc" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Functional Description</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <div><pre><fdescription><h4>Component Goals</h4>
+The purpose of this component is to validate and cleanse email addresses in the best possible manner. Although this component is powerful in transforming invalid email addresses into valid ones, keep in mind that a valid email address is not the same as an existing email address – a valid address only conforms to a standard. Therefore, any change in the source value can result in a non-existent output. Also, not all email providers follow the RFC rules for email address format, and in that case, an existing email address is not the same as a valid email address (i.e., the message will be delivered even though the email address does not conform to the standard).
+
+Therefore, consider carefully what the component is used for.
+
+<h4>Interface</h4>
+Input: email column.
+Output: 
+<ul>
+<li>standardized value of the email address (score less than 10 000)</li>
+<li>data quality score of the email address</li>
+<li>data quality imperfection explanations</li>
+<li>best existing value of the email address (standardized or parsed or input value)</li>
+<li>standardized value of the email address owner if recognized (person's name is populated if recognized)</li>
+</ul>
+
+Allowed input email address formats:
+<ul>
+<li>Email address found in the whitelist.</li>
+<li>Email address with valid a TLD.</li>
+<li>Email address in a valid format.</li>
+<li>Email address with a string before &lt;em@il.tld&gt;.</li>
+<li>Email address in the upper case - valid with no change (local part is case sensitive).</li>
+<li>Email address with special characters, such as !#$%&amp;'\*+-/=?^_`{|}~.</li>
+<li>Email address with accents and multiple consequent dots or commas used instead of dots (e.g., "john,smith@email.com").</li>
+<li>Email address with a leading stopword delimited from the email address by space or colon (e.g., "email: mail@dom.tld").</li>
+<li>Valid email address enclosed in &lt;&gt; having a string before the encapsulated email.</li>
+<li>Valid email in any type of paired enclosing strings: (), {}, &lt;&gt;, [], "", '' (e.g. "{email}", "(email)", ...).</li>
+<li>Spam-protected versions of the email address with "at" and/or "dot" codes (e.g. name&lt;dot&gt;surname&lt;at&gt;domain&lt;dot&gt;tld).</li>
+<li>Email address with the most common misspellings of TLDs.</li>
+<li>Email address with a missing or misspelled TLD in case of well-known email providers.</li>
+<li>Email address missing the last dot between the TLD and the second level domain name.</li>
+<li>Any string that contains a valid email address as a substring (delimited by characters not supported in email addresses).</li>
+<li>Email address with a temporary domain (e.g. 5 and 10 minute emails).</li>
+<li>Any viable combinations of the previous.</li>
+</ul>
+Not allowed (not processed well):
+<ul>
+<li>Empty email address (or whitespaces only).</li>
+<li>Email address with unsupported characters, such as בײַשפּ@בײַשפּיל.טעסט.</li>
+<li>String without an email address.</li>
+<li>String with multiple emails.</li>
+<li>Email address with only a TLD in the domain part (e.g. "john.smith@com"). Though RFC-valid, it is considered suspicious.</li>
+<li>Email address found in the blacklist (spam addresses, business defined emails, ...).</li>
+</ul>
+<h4>Component Behaviour</h4>
+The only input entering the component is the email address column.
+<ol>
+<li>The value is checked against a business-defined whitelist.</li>
+<li>If it is not matched, the component trims the value, replaces commas with dots, squeezes all whitespaces and dots, then it uses step Validate Email just like <i>___email_validate_simple</i> does with the same definition of a valid value. If the email address is in the standard form (enclosed with '&lt;' and '&gt;') and has a string before it, this string is considered to be the email owner name (e.g.:  "Joe Black &lt;joe.black@email.com&gt;"). When the input is not in this format, the potential <strong>name</strong> (string before email) <strong>is removed</strong> during further cleansing operations.</li> 
+<li>Invalid values are parsed and cleansed further until they are valid (checking with the Validate Email step) or returned as invalid. When the email address is found in this phase, all strings before/after the email address are trashed.</li>
+<li>Afterwards, the value is checked against a business-defined black list. </li>
+<li>The final value is checked against a temporary-domain list, which determines if the email address contains a temporary domain value.</li>
+</ol>
+Advanced cleansing and parsing is performed in the following order:
+<ol>
+<li>removing any possible leading stopword ("email:" ..., "e:" ..., ...)</li>
+<li>extracting the email address from the "Name Surname" &lt;em@il&gt; format</li>
+<li>removing all enclosing symbols ("&lt;&lt;em@il&gt;&gt;," ...).</li>
+<li>replacing at-sign and dot synonyms if necessary (e.g. "e[dot]m[at]ail[dot]tld" -> "e.m@ail.tld")</li>
+<li>extracting any string that is matched against any of the two defined regular expressions (strict or loose) representing an email address</li>
+<li>guessing missing TLD or correcting mistyped TLD</li>
+</ol>
+Scored discrepancies in the value of the email address are:
+<ul> 
+<li>Email address contains accents, multiple dots, commas</li>
+<li>Email address is null</li>
+<li>Email address format is invalid</li>
+<li>Email address misses a TLD or TLD is not valid.</li>
+<li>Email contains extra words and symbols.</li>
+<li>Email contains a temporary domain.</li>
+<li>Email is spam-protected.</li>
+</ul>
+<h4>Lookup files and external sources</h4>
+Component uses the following etalons:
+<ol>
+<li>Top level domains</li>
+<li>TLD misspellings</li>
+<li>TLD lengths</li>
+<li>Well-known email providers</li>
+<li>At sign and dot synonyms</li>
+<li>Whitelisted email addresses</li>
+<li>Most commonly used leading stopwords</li>
+<li>Blacklisted email addresses</li>
+<li>Temporary domains</li>
+(more in chapter <i>Lookups</i>). 
+</ol>
+<h4>Summary of testing data</h4>
+Testing data contains a set of input email values:
+<ol>
+<li>values representing valid emails</li>
+<li>invalid values (with wrong pattern, not verified in the etalon, containing not allowed characters or parts)</li>
+<li>values representing valid emais with temporary domain</li>
+<li>examples of wrong input</li> 
+</ol></fdescription></pre></div><br><table id="l_tdesc" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Technical Description</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>For detailed technical description see <a href="./technical/___email_complex.html">doc / ___email_complex / technical / ___email_complex.html</a></p><br><table id="l_params" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Parameters</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>There are no parameters for this component.</p><br><table id="l_pathv" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Path Variables</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table>
+         <tr>
+            <td class="cell_hdr" width="20%">Pathvar Name</td>
+            <td class="cell_hdr" width="40%">Folder</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">COMPONENTS</td>
+            <td class="cell_line_val">/ [ your project folder ] / components</td>
+            <td class="cell_line_val">all components folder</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">TESTS_ROOT</td>
+            <td class="cell_line_val">/ [ your project folder ] / unit_tests</td>
+            <td class="cell_line_val">all unit tests folder</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">DATA</td>
+            <td class="cell_line_val">/ [ your project folder ] / data</td>
+            <td class="cell_line_val">dictionaries e.g Data/ext/src</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr">DOCUMENTATION</td>
+            <td class="cell_line_val">/ [ your project folder ] / doc</td>
+            <td class="cell_line_val">documentation folder</td>
+         </tr>
+      </table><br><table id="l_lkps" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Lookups</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Lookup name/folder</td>
+            <td class="cell_hdr">Build plan name</td>
+            <td class="cell_hdr">Source name/folder</td>
+            <td class="cell_hdr">Initial content</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___email_stopwords.lkp</td>
+            <td class="cell_line_val" width="150">___02_email_stopwords.plan</td>
+            <td class="cell_line_val" width="150">___email_stopwords.csv</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">Words like EL. POSTA, MAILTO, ... (custom, google.com)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___email_tld_misspellings.lkp</td>
+            <td class="cell_line_val" width="150">___02_email_tld_misspellings.plan</td>
+            <td class="cell_line_val" width="150">___email_tld_misspellings.csv</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">Common misspellings of TLD (eg. con -> com) (source unknown + custom)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___email_tld.lkp</td>
+            <td class="cell_line_val" width="150">___01_email_tld.plan</td>
+            <td class="cell_line_val" width="150">tlds-alpha-by-domain.txt</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">List of top level domains. Source: IANA org - <a href="http://data.iana.org/TLD/tlds-alpha-by-domain.txt">http://data.iana.org/TLD/tlds-alpha-by-domain.txt</a></td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___email_known_providers.lkp</td>
+            <td class="cell_line_val" width="150">___02_email_known_providers.plan</td>
+            <td class="cell_line_val" width="150">___email_known_providers.csv</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">List of well-known email providers. (custom)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___email_at_dot_synonyms_replacements.lkp</td>
+            <td class="cell_line_val" width="150">___02_email_at_dot_synonyms_replacements.plan</td>
+            <td class="cell_line_val" width="150">___email_at_dot_replacement_patterns.csv</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">List of '@' and '.' synonyms used in email addresses, e.g., name[dot]surname[at]domain[dot]tld, ... (custom)</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___email_tld_lengths.lkp</td>
+            <td class="cell_line_val" width="150">___02_email_tld.plan</td>
+            <td class="cell_line_val" width="150">tlds-alpha-by-domain.txt</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">List of TLD lengths. Source: IANA org - <a href="http://data.iana.org/TLD/tlds-alpha-by-domain.txt">http://data.iana.org/TLD/tlds-alpha-by-domain.txt</a></td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___email_whitelist.lkp</td>
+            <td class="cell_line_val" width="150">___02_email_whitelist.plan</td>
+            <td class="cell_line_val" width="150">___email_whitelist.csv</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">List of whitelisted email addresses. Defined by business.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___email_blacklist.lkp</td>
+            <td class="cell_line_val" width="150">___02_email_blacklist.plan</td>
+            <td class="cell_line_val" width="150">___email_blacklist.csv</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">List of blacklisted email addresses. Defined by business</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">___email_temporary_domains.lkp</td>
+            <td class="cell_line_val" width="150">___02_email_temporary_domains.plan</td>
+            <td class="cell_line_val" width="150">___02_email_temporary_domains.txt</td>
+            <td class="cell_line_val" width="30">full</td>
+            <td class="cell_line_val">List of temporary domains.</td>
+         </tr>
+      </table><br><table id="l_sComps" width="90%">
+         <tr>
+            <td>
+               <div>
+                  <H2>Included Components</H2>
+               </div>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <p>There are no included non-internal components in this component.</p><br><table id="l_inputs" width="90%">
+         <tr>
+            <td>
+               <H2>Input Attributes</H2>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Attribute</td>
+            <td class="cell_hdr">DQC type</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">in_email</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Source email address.</td>
+         </tr>
+      </table><br><table id="l_outputs" width="90%">
+         <tr>
+            <td>
+               <H2>Output Attributes</H2>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr">Attribute</td>
+            <td class="cell_hdr">DQC type</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">std_email</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Standardized value of the email address - contains only valid values.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">std_name</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Column that stores the email address owner if recognised.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150">out_email</td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">The best existing value of email.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150"><a href="#exp_email">exp_email</a></td>
+            <td class="cell_line_val" width="150">STRING</td>
+            <td class="cell_line_val">Explanations if invalid, cleansed or matched.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="150"><a href="#sco_email">sco_email</a></td>
+            <td class="cell_line_val" width="150">INTEGER</td>
+            <td class="cell_line_val">Data quality score for value of email.</td>
+         </tr>
+      </table><br><H2 id="l_details">Attribute Details</H2>
+      <table id="exp_email" width="90%">
+         <tr>
+            <td>
+               <H3>Explanations if invalid, cleansed or matched. (exp_email)</H3>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr" width="300">Value</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_EMPTY</td>
+            <td class="cell_val">Scored 10 000 000. Input field is empty.  </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_INVALID</td>
+            <td class="cell_val">Scored 5 000 000. Input e-mail address has an invalid format or has an unknown or
+               missing TLD.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_SUSPICIOUS</td>
+            <td class="cell_val">Scored 5 000 000. Input e-mail address contains only a TLD after @ (corresponding
+               to the RFC 2822 standard), however the domain is considered suspicious.  
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_CLEANSED</td>
+            <td class="cell_val">Scored 1-256. Email address is valid, however, input value has been cleansed (accents
+               removed, dots reduced, commas changed to dots ).
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_TLD_MISSING_LAST_DOT_KNOWN_PROVIDER</td>
+            <td class="cell_val">Scored 4 000. Missing TLD, TLD taken from the domain name as if the last dot was missing.
+               Domain and TLD matched a well-known email provider.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_TLD_MISSING_LAST_DOT</td>
+            <td class="cell_val">Scored 7 000. Missing TLD, TLD taken from the domain name as if the last dot was missing.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_TLD_CORRECTED_MISSPELLING</td>
+            <td class="cell_val">Scored 6 000. TLD with a typo.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_TLD_CORRECTED_KNOWN_PROVIDER</td>
+            <td class="cell_val">Scored 4 000. TLD corrected, domain belongs to a well-known email provider.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_TLD_APPENDED_KNOWN_PROVIDER</td>
+            <td class="cell_val">Scored 5 000. Missing TLD, domain belongs to a well-known email provider.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_TLD_NOT_MATCHED</td>
+            <td class="cell_val">Scored 5 000 000. Input email format is valid, however, TLD is not valid.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_TLD_MISSING</td>
+            <td class="cell_val">Scored 5 000 000. Missing TLD.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_STOPWORD_CLEANSED</td>
+            <td class="cell_val">Scored 1000. Removed a leading stopword (e-mail: ...).</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_AT_DOT_SYNONYMS</td>
+            <td class="cell_val">Scored 1000. E-mail address contained at sign and dot synonyms (&lt;at&gt;, &lt;dot&gt;, ...).</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_WHITELISTED</td>
+            <td class="cell_val">Scored 0. Email address found in the whitelist.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_BLACKLISTED</td>
+            <td class="cell_val">Scored 2 000 000. Email address found in the blacklist.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_TMP_DOMAIN</td>
+            <td class="cell_val">Scored 100. Email address is valid, however, it contains a temporary domain.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_WITHIN</td>
+            <td class="cell_val">Scored 10 000-500 000. Email address surrounded by other text, matched against the
+               strict regular expression. The higher score, the more text around.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">EMAIL_GUESSED_WITHIN</td>
+            <td class="cell_val">Scored 13 000-1 000 000. Email address surrounded by other text, matched against the
+               loose regular expression. The higher score, the more text around.
+            </td>
+         </tr>
+      </table>
+      <table id="sco_email" width="90%">
+         <tr>
+            <td>
+               <H3>Data quality score for value of email. (sco_email)</H3>
+            </td>
+            <td width="80"><a href="#l_contents">contents</a></td>
+         </tr>
+      </table>
+      <table width="90%">
+         <tr>
+            <td class="cell_hdr" width="300">Value</td>
+            <td class="cell_hdr">Description</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">0</td>
+            <td class="cell_val">Valid value. No modification was done to the input value, it was correct on input.</td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">&lt; 10 000</td>
+            <td class="cell_val">Corrected value. Small modification was done to the input value (trim, squeeze spaces
+               and dots, removing &lt; &gt;, accents, ...) but resulting value is still valid.
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">&lt; 10 000 000</td>
+            <td class="cell_val">Unsafe/Unknown value. Huge modification was done to the input value or value does
+               not fit the pattern requirements or etalon
+            </td>
+         </tr>
+         <tr>
+            <td class="cell_line_hdr" width="300">&gt;= 10 000 000</td>
+            <td class="cell_val">Empy value. Input value is empty.</td>
+         </tr>
+      </table><br></body>
+</html>

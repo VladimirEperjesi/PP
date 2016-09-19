@@ -1,0 +1,429 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config xmlns:comm="http://www.ataccama.com/purity/comment" version="10.5.0.ga-2016-06-24">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Calculate test result) --><step id="Calculate test result" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_std_reg_number is not std_reg_number, &#39; std_reg_number&#39;, &#39;&#39;) + 
+    iif(e_std_company_name is not std_company_name, &#39; std_company_name&#39;, &#39;&#39;) + 
+    iif(e_std_legal_form is not std_legal_form, &#39; std_legal_form&#39;, &#39;&#39;) + 
+    iif(e_out_reg_number is not out_reg_number, &#39; out_reg_number&#39;, &#39;&#39;) + 
+    iif(e_out_company_name is not out_company_name, &#39; out_company_name&#39;, &#39;&#39;) + 
+    iif(e_out_company_name_base is not out_company_name_base, &#39; out_company_name_base&#39;, &#39;&#39;) + 
+    iif(e_out_legal_form is not out_legal_form, &#39; out_legal_form&#39;, &#39;&#39;) + 
+    iif(e_out_active is not out_active, &#39; out_active&#39;, &#39;&#39;) + 
+    iif(e_out_reg_num_comments is not out_reg_num_comments, &#39; out_reg_num_comments&#39;, &#39;&#39;) + 
+    iif(e_sco_company is not sco_company, &#39; sco_company&#39;, &#39;&#39;) + 
+    iif(e_exp_company is not exp_company, &#39; exp_company&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="96,360,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result" endpoint="out"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Calculate test result 2) --><step id="Calculate test result 2" className="com.ataccama.dqc.tasks.expressions.ColumnAssigner" disabled="false" mode="NORMAL">
+		<properties>
+			<assignments>
+				<assignment column="difference">
+					<expression>
+    iif(e_std_reg_number is not std_reg_number, &#39; std_reg_number&#39;, &#39;&#39;) + 
+    iif(e_std_company_name is not std_company_name, &#39; std_company_name&#39;, &#39;&#39;) + 
+    iif(e_std_legal_form is not std_legal_form, &#39; std_legal_form&#39;, &#39;&#39;) + 
+    iif(e_out_reg_number is not out_reg_number, &#39; out_reg_number&#39;, &#39;&#39;) + 
+    iif(e_out_company_name is not out_company_name, &#39; out_company_name&#39;, &#39;&#39;) + 
+    iif(e_out_company_name_base is not out_company_name_base, &#39; out_company_name_base&#39;, &#39;&#39;) + 
+    iif(e_out_active is not out_active, &#39; out_active&#39;, &#39;&#39;) + 
+    iif(e_out_reg_num_comments is not out_reg_num_comments, &#39; out_reg_num_comments&#39;, &#39;&#39;) + 
+    iif(e_sco_company is not sco_company, &#39; sco_company&#39;, &#39;&#39;) + 
+    iif(e_exp_company is not exp_company, &#39; exp_company&#39;, &#39;&#39;) + 
+                    &#39;&#39; </expression>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+						</scoringEntries>
+					</scorer>
+				</assignment>
+			</assignments>
+		</properties>
+		<visual-constraints bounds="480,360,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Calculate test result 2" endpoint="out"/>
+		<target step="Union Same" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="503,432"/>
+				<point location="387,432"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Read test_cz_company_reg_number_and_name_in.xls) --><step id="Read test_cz_company_reg_number_and_name_in.xls" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader" disabled="false" mode="NORMAL">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/cz_company_reg_number_and_name/test_cz_company_reg_number_and_name_in.xls" startCell="A2" skipEmptyRows="true" sheet="0">
+			<columns>
+				<columnDef name="TC_ID" type="integer"/>
+				<columnDef name="description" type="string"/>
+				<columnDef name="in_reg_number" type="STRING"/>
+				<columnDef name="in_company_name" type="STRING"/>
+				<columnDef name="in_residence_city" type="STRING"/>
+				<columnDef name="e_std_reg_number" type="STRING"/>
+				<columnDef name="e_std_company_name" type="STRING"/>
+				<columnDef name="e_std_legal_form" type="STRING"/>
+				<columnDef name="e_out_reg_number" type="STRING"/>
+				<columnDef name="e_out_company_name" type="STRING"/>
+				<columnDef name="e_out_company_name_base" type="STRING"/>
+				<columnDef name="e_out_legal_form" type="STRING"/>
+				<columnDef name="e_out_active" type="BOOLEAN"/>
+				<columnDef name="e_out_reg_num_comments" type="STRING"/>
+				<columnDef name="e_sco_company" type="INTEGER"/>
+				<columnDef name="e_exp_company" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="96,144,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Read test_cz_company_reg_number_and_name_in.xls" endpoint="out"/>
+		<target step="add columns" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Sort) --><step id="Sort" className="com.ataccama.dqc.tasks.identify.sort.SortEngine" disabled="false" mode="NORMAL">
+		<properties>
+			<sort>
+				<orderBy expression="TC_ID" orderDescending="false" nullsFirst="false"/>
+			</sort>
+		</properties>
+		<visual-constraints bounds="96,504,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Sort" endpoint="out"/>
+		<target step="Write test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Union Same) --><step id="Union Same" className="com.ataccama.dqc.tasks.conditions.UnionSame" disabled="false" mode="NORMAL">
+		<properties/>
+		<visual-constraints bounds="96,432,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="Union Same" endpoint="out"/>
+		<target step="Sort" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Write test result) --><step id="Write test result" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" mode="NORMAL">
+		<properties useStringQualifierOnAllColumns="false" stringQualifier="&quot;" lineSeparator="\r\n" fieldSeparator="^~" generateMetadata="true" fileName="pathvar://TESTS_ROOT/cz_company_reg_number_and_name/test_cz_company_reg_number_and_name_out.csv" encoding="UTF-8" writeHeader="true" writeAllColumns="false">
+			<columns>
+				<textWriterColumn name="difference"/>
+				<textWriterColumn name="TC_ID"/>
+				<textWriterColumn name="description"/>
+				<textWriterColumn name="in_reg_number"/>
+				<textWriterColumn name="in_company_name"/>
+				<textWriterColumn name="in_residence_city"/>
+				<textWriterColumn name="std_reg_number"/>
+				<textWriterColumn name="e_std_reg_number"/>
+				<textWriterColumn name="std_company_name"/>
+				<textWriterColumn name="e_std_company_name"/>
+				<textWriterColumn name="std_legal_form"/>
+				<textWriterColumn name="e_std_legal_form"/>
+				<textWriterColumn name="out_reg_number"/>
+				<textWriterColumn name="e_out_reg_number"/>
+				<textWriterColumn name="out_company_name"/>
+				<textWriterColumn name="e_out_company_name"/>
+				<textWriterColumn name="out_company_name_base"/>
+				<textWriterColumn name="e_out_company_name_base"/>
+				<textWriterColumn name="out_legal_form"/>
+				<textWriterColumn name="e_out_legal_form"/>
+				<textWriterColumn name="out_active"/>
+				<textWriterColumn name="e_out_active"/>
+				<textWriterColumn name="out_reg_num_comments"/>
+				<textWriterColumn name="e_out_reg_num_comments"/>
+				<textWriterColumn name="sco_company"/>
+				<textWriterColumn name="e_sco_company"/>
+				<textWriterColumn name="exp_company"/>
+				<textWriterColumn name="e_exp_company"/>
+			</columns>
+			<dataFormatParameters trueValue="true" falseValue="false" thousandsSeparator="" dateFormatLocale="en_US" dateTimeFormat="yyyy-MM-dd HH:mm:ss.SSS" decimalSeparator="." dayFormat="yyyy-MM-dd"/>
+		</properties>
+		<visual-constraints bounds="96,576,-1,-1" layout="vertical"/>
+	</step>
+
+
+
+<!-- (add columns) --><step id="add columns" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="std_reg_number" type="STRING">
+					<comm:comment>Standardized and verified registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_company_name" type="STRING">
+					<comm:comment>Standardized company name from RES lookup</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_legal_form" type="STRING">
+					<comm:comment>Standardized legal form (in long form)</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_reg_number" type="STRING">
+					<comm:comment>Best available value of registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_company_name" type="STRING">
+					<comm:comment>Best available value of company name. When company name is validated against RES, it is assigned from RES, if we recognize major difference in name (including legal form), then value from input is assigned.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_company_name_base" type="STRING">
+					<comm:comment>Best available value of company name without legal form. (Value from RES lookup)</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_legal_form" type="STRING">
+					<comm:comment>Best available value of company legal form. Value is always standardized against RES legal form list.</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_active" type="BOOLEAN">
+					<comm:comment>Boolean flag indicating, whether the company is active </comm:comment>
+				</addedColumn>
+				<addedColumn name="out_reg_num_comments" type="STRING">
+					<comm:comment>Comments found before/after registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_company" type="INTEGER">
+					<comm:comment>Data quality score of company registration number and name</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_company" type="STRING">
+					<comm:comment>Explanation codes of data quality problems in company registration number and name</comm:comment>
+				</addedColumn>
+				<addedColumn name="difference" type="string"/>
+				<addedColumn name="message" type="string"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="96,216,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns" endpoint="out"/>
+		<target step="component" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (add columns 2) --><step id="add columns 2" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" mode="NORMAL">
+		<properties>
+			<addedColumns>
+				<addedColumn name="std_reg_number" type="STRING">
+					<comm:comment>Standardized and verified registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_company_name" type="STRING">
+					<comm:comment>Standardized company name from RES lookup</comm:comment>
+				</addedColumn>
+				<addedColumn name="std_legal_form" type="STRING">
+					<comm:comment>Standardized legal form (in long form)</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_reg_number" type="STRING">
+					<comm:comment>Best available value of registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_company_name" type="STRING">
+					<comm:comment>Best available value of company name</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_company_name_base" type="STRING">
+					<comm:comment>Best available value of company name without legal form</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_legal_form" type="STRING">
+					<comm:comment>Best available value of company legal form</comm:comment>
+				</addedColumn>
+				<addedColumn name="out_active" type="BOOLEAN">
+					<comm:comment>Boolean flag indicating, whether the company is active </comm:comment>
+				</addedColumn>
+				<addedColumn name="out_reg_num_comments" type="STRING">
+					<comm:comment>Comments found before/after registration number</comm:comment>
+				</addedColumn>
+				<addedColumn name="sco_company" type="INTEGER">
+					<comm:comment>Data quality score of company registration number and name</comm:comment>
+				</addedColumn>
+				<addedColumn name="exp_company" type="STRING">
+					<comm:comment>Explanation codes of data quality problems in company registration number and name</comm:comment>
+				</addedColumn>
+				<addedColumn name="difference" type="STRING"/>
+				<addedColumn name="message" type="STRING"/>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints bounds="480,216,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="add columns 2" endpoint="out"/>
+		<target step="component 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component) --><component id="component" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/cz_company_reg_number_and_name.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_reg_number" from="in_reg_number"/>
+						<columnsMapping to="in_company_name" from="in_company_name"/>
+						<columnsMapping to="in_residence_city" from="in_residence_city"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="std_reg_number" from="std_reg_number"/>
+						<columnsMapping to="std_company_name" from="std_company_name"/>
+						<columnsMapping to="std_legal_form" from="std_legal_form"/>
+						<columnsMapping to="out_reg_number" from="out_reg_number"/>
+						<columnsMapping to="out_company_name" from="out_company_name"/>
+						<columnsMapping to="out_company_name_base" from="out_company_name_base"/>
+						<columnsMapping to="out_legal_form" from="out_legal_form"/>
+						<columnsMapping to="out_active" from="out_active"/>
+						<columnsMapping to="out_reg_num_comments" from="out_reg_num_comments"/>
+						<columnsMapping to="sco_company" from="sco_company"/>
+						<columnsMapping to="exp_company" from="exp_company"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters>
+				<ico_search_only_parameter>false</ico_search_only_parameter>
+			</parameters>
+		</properties>
+		<visual-constraints bounds="96,288,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component" endpoint="out"/>
+		<target step="Calculate test result" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (component 2) --><component id="component 2" disabled="false" mode="NORMAL">
+		<properties fileName="pathvar://COMPONENTS/cz_company_reg_number_and_name.comp">
+			<mappings>
+				<mappingEndPoint name="in">
+					<columnMappings>
+						<columnsMapping to="in_reg_number" from="in_reg_number"/>
+						<columnsMapping to="in_company_name" from="in_company_name"/>
+						<columnsMapping to="in_residence_city" from="in_residence_city"/>
+					</columnMappings>
+				</mappingEndPoint>
+				<mappingEndPoint name="out">
+					<columnMappings>
+						<columnsMapping to="std_reg_number" from="std_reg_number"/>
+						<columnsMapping to="std_company_name" from="std_company_name"/>
+						<columnsMapping to="std_legal_form" from="std_legal_form"/>
+						<columnsMapping to="out_reg_number" from="out_reg_number"/>
+						<columnsMapping to="out_company_name" from="out_company_name"/>
+						<columnsMapping to="out_company_name_base" from="out_company_name_base"/>
+						<columnsMapping to="out_legal_form" from="out_legal_form"/>
+						<columnsMapping to="out_active" from="out_active"/>
+						<columnsMapping to="out_reg_num_comments" from="out_reg_num_comments"/>
+						<columnsMapping to="sco_company" from="sco_company"/>
+						<columnsMapping to="exp_company" from="exp_company"/>
+					</columnMappings>
+				</mappingEndPoint>
+			</mappings>
+			<parameters>
+				<ico_search_only_parameter>true</ico_search_only_parameter>
+			</parameters>
+		</properties>
+		<visual-constraints bounds="480,288,-1,-1" layout="vertical"/>
+	</component>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="component 2" endpoint="out"/>
+		<target step="Calculate test result 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (test_cz_company_reg_number_and_name_in.xls 2) --><step id="test_cz_company_reg_number_and_name_in.xls 2" className="com.ataccama.dqc.tasks.msoffice.excel.read.ExcelFileReader" disabled="false" mode="NORMAL">
+		<properties useModelApi="false" fileName="pathvar://TESTS_ROOT/cz_company_reg_number_and_name/test_cz_company_reg_number_and_name_in.xls" startCell="A2" skipEmptyRows="true" sheetName="ico_search_only">
+			<columns>
+				<columnDef name="TC_ID" type="INTEGER"/>
+				<columnDef name="description" type="STRING"/>
+				<columnDef name="in_reg_number" type="STRING"/>
+				<columnDef name="in_company_name" type="STRING"/>
+				<columnDef name="in_residence_city" type="STRING"/>
+				<columnDef name="e_std_reg_number" type="STRING"/>
+				<columnDef name="e_std_company_name" type="STRING"/>
+				<columnDef name="e_std_legal_form" type="STRING"/>
+				<columnDef name="e_out_reg_number" type="STRING"/>
+				<columnDef name="e_out_company_name" type="STRING"/>
+				<columnDef name="e_out_company_name_base" type="STRING"/>
+				<columnDef name="e_out_legal_form" type="STRING"/>
+				<columnDef name="e_out_active" type="BOOLEAN"/>
+				<columnDef name="e_out_reg_num_comments" type="STRING"/>
+				<columnDef name="e_sco_company" type="INTEGER"/>
+				<columnDef name="e_exp_company" type="STRING"/>
+			</columns>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints bounds="480,144,-1,-1" layout="vertical"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source step="test_cz_company_reg_number_and_name_in.xls 2" endpoint="out"/>
+		<target step="add columns 2" endpoint="in"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<modelComment bounds="480,24,193,97" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Component parameters set to:
+ico_search_only_parameter = true;
+
+
+Excel sheet:
+ico_search_only</modelComment>
+
+
+
+<modelComment bounds="96,24,217,100" borderColor="183,183,0" backgroundColor="255,255,180" foregroundColor="51,51,51">Component parameters set to:
+ico_search_only_parameter = false; 
+(default)
+
+Excel sheet:
+DATA</modelComment>
+
+</purity-config>

@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configDoc screen="images/screen____contact_type_guess.comp.png" cfgFilePath="workspace://Component_manager/component/___contact_type_guess.comp" runtimeVersion="10.3.0.ga-2016-02-01" companyImage="images/logo_about.png" fileName="___contact_type_guess.comp" date="2016-03-16 11:35:51" xmlns:comm="http://www.ataccama.com/purity/comment" version="1.0">
+  <generatorMeta name="Data Quality Center 10.3.0" company="Ataccama Corporation" about="{4}
+
+Version: {1}
+
+Copyright © 2002-{2} Ataccama Corporation. All rights reserved.
+
+Your use of the product is subject to the {4} end user license agreement." date="2016-03-16 11:35:59"/>
+  <configAlg name="in (Integration Input)" image="images/InputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.InputStep">
+    <properties>
+      <columns>
+        <columnDef name="in_contact" type="STRING">
+          <comm:comment>Input contact value</comm:comment>
+        </columnDef>
+      </columns>
+      <shadowColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add Columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="out_contact_type" type="STRING">
+          <comm:comment>Guessed contact type(s)</comm:comment>
+        </addedColumn>
+        <addedColumn name="exp_contact_type" type="STRING">
+          <comm:comment>Cleansing explanation</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+    </properties>
+  </configAlg>
+  <configAlg name="Add internal columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns>
+        <addedColumn name="pur_contact" type="STRING">
+          <comm:comment>Input value with squeezed whitespaces and removed stopwords</comm:comment>
+        </addedColumn>
+        <addedColumn name="pat_email" type="STRING">
+          <comm:comment>Pattern of single or multiple emails</comm:comment>
+        </addedColumn>
+        <addedColumn name="pat_webpage" type="STRING">
+          <comm:comment>Pattern of single or multiple webpages</comm:comment>
+        </addedColumn>
+        <addedColumn name="pat_phone" type="STRING">
+          <comm:comment>Pattern of single or multiple phones</comm:comment>
+        </addedColumn>
+        <addedColumn name="pat_common" type="STRING">
+          <comm:comment>Pattern of single common digit type (credit card, date, .. )</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_contact" type="STRING">
+          <comm:comment>Value where contacts are searched and if found, they are removed</comm:comment>
+        </addedColumn>
+        <addedColumn name="tmp_RD" type="STRING">
+          <comm:comment>Record descriptor for splitting possible phone contacts</comm:comment>
+        </addedColumn>
+        <addedColumn name="sco_dummy" type="INTEGER">
+          <comm:comment>Not used score column</comm:comment>
+        </addedColumn>
+      </addedColumns>
+      <removedColumns/>
+      <comm:comment>Add internal columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Sqeeze spaces (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="squeezeSpaces(in_contact)" column="pur_contact">
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Sqeeze spaces</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove stopwords (Strip Titles)" image="images/StripTitlesAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.StripTitlesAlgorithm">
+    <properties titleLookupFileName="pathvar://DATA/ext/lkp/___contact_type_guess_stopwords.lkp" preserveUnsupportedChars="false" in="pur_contact" separator="" out="pur_contact" minWordCount="0">
+      <scorer explanationColumn="exp_contact_type" scoreColumn="sco_dummy">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="CONTACT_STOPWORD_FOUND" explain="true" key="ST_CHANGED"/>
+        </scoringEntries>
+      </scorer>
+      <tokenizer whiteSpaceDefinition="[:white:]">
+        <types>
+          <tokenType tokenStartCharacters="[:letter:]" tokenCharacters="[:letter:]"/>
+          <tokenType tokenStartCharacters="[:digit:]" tokenCharacters="[:digit:]"/>
+        </types>
+      </tokenizer>
+      <comm:comment>Remove stopwords</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Replace_synonyms_with_dot_or_at (Apply Replacements)" image="images/ApplyReplacementsAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.ApplyReplacementsAlgorithm">
+    <properties replacementsFileName="pathvar://DATA/ext/lkp/___email_at_dot_synonyms_replacements.lkp" preserveUnsupportedChars="true" onlyFullReplacement="false" in="pur_contact" out="tmp_contact">
+      <scorer explanationColumn="exp_contact_type">
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="CONTACT_EMAIL_AT_DOT_SYNONYMS" explain="true" key="AR_CHANGED"/>
+          <scoringEntry score="0" explainAs="AR_NULL" explain="false" key="AR_NULL"/>
+          <scoringEntry score="0" explainAs="AR_MULTI" explain="false" key="AR_MULTI"/>
+          <scoringEntry score="0" explainAs="AR_MORE" explain="false" key="AR_MORE"/>
+        </scoringEntries>
+      </scorer>
+      <tokenizer whiteSpaceDefinition="[:white:]">
+        <types>
+          <tokenType tokenStartCharacters="[:letter:][:digit:]" tokenCharacters="[:letter:][:digit:]"/>
+        </types>
+      </tokenizer>
+      <comm:comment>Replaces synonyms with their respective symbols.</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Deduplicate @ (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="tmp_contact">
+          <expression>//in replacement are used snowman and skull chars, which have purpose for email validation component. We don&#39;t need them
+$removed_snowman_and_skull_chars:=substituteAll(@&quot;[☃☠]&quot;, &#39;&#39;, tmp_contact);
+
+substituteAll(@&quot;@+&quot;, &#39;@&#39;, $removed_snowman_and_skull_chars)</expression>
+          <scorer>
+            <scoringEntries/>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Deduplicate @ symbols</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Email pattern (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="tmp_contact" regexNameColumn="pat_email" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="([^\s@]+\s?@\s?[^\s@]+).*?([^\s@]+\s?@\s?[^\s@]+)" name="EMAIL_MULTIPLE" multiplicative="false" ignoreCase="false" partialMatch="true">
+          <resultColumns/>
+          <comm:comment>At least two possible email addresses
+e.g.:
+aaa @ 123 anything xyz@#$%</comm:comment>
+        </regExpression>
+        <regExpression pattern="([^\s@]+\s?@\s?[^\s@]+)" name="EMAIL_SINGLE" multiplicative="false" ignoreCase="false" partialMatch="true">
+          <resultColumns/>
+          <comm:comment>Single possible email address
+e.g.:
+aaa @ 123</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Email pattern</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove emails (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="tmp_contact">
+          <expression>iif(pat_email is not null,
+		substituteAll(@&quot;[^\s@]+\s?@\s?[^\s@]+(?!@)&quot;, &#39;&#39;, tmp_contact),
+		tmp_contact
+	)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>Lookahead &quot;(?!@)&quot; is needed, because otherwise it would remove all chars before second email
+e.g.
+
+In &#39;a@b-c@d&#39; it would remove &#39;a@b-c&#39; and &quot;second round&quot; would not match &#39;@d&#39;</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Remove emails</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Webpage pattern (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="tmp_contact" regexNameColumn="pat_webpage" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="(?:^|[^\p{Alnum}])((?:[Hh][Tt][Tt][Pp][Ss]?://|[Ww][Ww][Ww]\.)[^ ]+)(?:[^\p{Alnum}]).*((?:[Hh][Tt][Tt][Pp][Ss]?://|[Ww][Ww][Ww]\.)[^ ]+)" name="WEBPAGE_MULTIPLE" multiplicative="false" ignoreCase="false" partialMatch="true">
+          <resultColumns/>
+          <comm:comment>At least two webpages separated by space
+e.g.:
+hTtPs://abc www.yyy</comm:comment>
+        </regExpression>
+        <regExpression pattern="(?:^|[^\p{Alnum}])((?:[Hh][Tt][Tt][Pp][Ss]?://|[Ww][Ww][Ww]\.)[^ ]+)" name="WEBPAGE_SINGLE" multiplicative="false" ignoreCase="false" partialMatch="true">
+          <resultColumns/>
+          <comm:comment>Single webpage
+e.g.:
+hTtPs://abc</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Webpage pattern</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove webpages (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="tmp_contact">
+          <expression>iif(pat_webpage is not null,
+		substituteAll(@&quot;(?:^|[^\p{Alnum}])((?:[Hh][Tt][Tt][Pp][Ss]?://|[Ww][Ww][Ww]\.)[^ ]+)&quot;, &#39;&#39;, tmp_contact),
+		tmp_contact
+	)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Remove webpages</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Group letters (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="substituteAll(@&quot;\p{Alpha}+&quot;, &#39;x&#39;, tmp_contact)" column="tmp_contact">
+          <scorer explanationColumn="out_contact_type">
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CONTACT_UNRECOGNIZED_TEXT" explain="true" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+          <comm:comment>E.g.
+
+something 123456 anything 9999999 -&gt; x 123456 x 9999999
+
+&#39;x&#39; will be used as phone separator together with defined separators in parameter</comm:comment>
+        </assignment>
+      </assignments>
+      <comm:comment>Group letters</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Split phones (Splitter)" image="images/Splitter.large.png" class="com.ataccama.dqc.tasks.text.Splitter">
+    <properties allSentenceColumn="tmp_contact" recordDescriptorColumn="tmp_RD" oneWordColumn="tmp_contact">
+      <separatorConfig includeSeparators="" lowerCaseLetters="true" excludeSeparators="`~!@#$%^&amp;*()_+=-\][{}|&#39;;:&quot;/.,&lt;&gt;? " digits="false" upperCaseLetters="false"/>
+      <comm:comment>Split phones by parameterized separators and lowercase (char &#39;x&#39; from previous step)</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Parse common digital types (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="tmp_contact" regexNameColumn="pat_common" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="\d{4}([ -])(?:\d{4}\1){2}\d{4}" name="credit_card" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns/>
+          <comm:comment>Allowed examples:
+1111 2222 3333 4444
+1111-2222-3333-4444
+
+CCNs with same delimiter between four four-digit groups.
+
+Usually: VISA, MasterCard, Discovery</comm:comment>
+        </regExpression>
+        <regExpression pattern="\d{4}([ -])\d{6}\1\d{4}" name="credit_card" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns/>
+          <comm:comment>Allowed examples:
+1111 222222 3333
+1111-222222-3333
+
+CCNs with same delimiter between 4digit, 6digit and 4digit groups
+
+Usually: Diners Club</comm:comment>
+        </regExpression>
+        <regExpression pattern="\d{4}([ -])\d{6}\1\d{5}" name="credit_card" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns/>
+          <comm:comment>Allowed examples:
+1111 222222 33333
+1111-222222-33333
+
+CCNs with same delimiter between 4digit, 6digit and 5digit groups
+
+Usually: American express and JCB credit cards</comm:comment>
+        </regExpression>
+        <regExpression pattern="([A-Z0-9]{3})([A-Z0-9]{6})([A-Z0-9]{8})" name="vin" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns/>
+        </regExpression>
+        <regExpression pattern="(\d{1,2})\.\s?(\d{1,2})\.\s?(\d{2}|\d{4})" name="date" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns/>
+          <comm:comment>E.g. 
+15. 10. 1985</comm:comment>
+        </regExpression>
+        <regExpression pattern="(\d{1,2})/\s?(\d{1,2})/\s?(\d{2}|\d{4})" name="date" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns/>
+          <comm:comment>E.g.
+10/15/85</comm:comment>
+        </regExpression>
+        <regExpression pattern="(\d{2}|\d{4})\s?-\s?(\d{1,2})\s?-\s?(\d{1,2})" name="date" multiplicative="false" ignoreCase="false" partialMatch="false">
+          <resultColumns/>
+          <comm:comment>E.g.
+1985- 10 - 15</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Parse common digital types, so they won&#39;t be considered as phone numbers</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Not common (Condition)" image="images/Condition.large.png" class="com.ataccama.dqc.tasks.conditions.Condition">
+    <properties condition="pat_common is null">
+      <comm:comment>When no commont digital type was found, we will check phone pattern</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Phone pattern (Regex Matching)" image="images/RegexMatchingAlgorithm.large.png" class="com.ataccama.dqc.tasks.clean.RegexMatchingAlgorithm">
+    <properties expression="tmp_contact" regexNameColumn="pat_phone" appendRegexNameColumn="false" appendRegexNameColumnSeparator=" ">
+      <noMatchColumns/>
+      <regExpressions>
+        <regExpression pattern="\+?((?:\s?[~\)\(/\\-]*\s?\d){6,15})($|\D)" name="PHONE_SINGLE" multiplicative="false" ignoreCase="false" partialMatch="true">
+          <resultColumns/>
+          <comm:comment>Single phone, which can begin with &#39;+&#39; sign, consists of 6 to 15 digits and can contain special symbols ~()/\- or spaces</comm:comment>
+        </regExpression>
+      </regExpressions>
+      <scorer>
+        <scoringEntries>
+          <scoringEntry score="0" explainAs="STN_NULL" explain="true" key="STN_NULL"/>
+          <scoringEntry score="0" explainAs="STN_MATCHED" explain="true" key="STN_MATCHED"/>
+          <scoringEntry score="0" explainAs="STN_NOT_MATCHED" explain="true" key="STN_NOT_MATCHED"/>
+        </scoringEntries>
+      </scorer>
+      <comm:comment>Phone pattern</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove phone (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="tmp_contact">
+          <expression>iif(pat_phone is not null,
+		substituteAll(@&quot;\+?((?:\s?[~\)\(/\\-]*\s?\d){6,15})($|\D)&quot;, &#39;&#39;, tmp_contact),
+		tmp_contact
+		)</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Remove phone</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Union Same (Union Same)" image="images/UnionSame.large.png" class="com.ataccama.dqc.tasks.conditions.UnionSame">
+    <properties>
+      <comm:comment>Union common digital types and phones</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Group possible phones (Selector)" image="images/Selector.large.png" class="com.ataccama.dqc.tasks.flow.Selector">
+    <properties recordDescriptorColumn="tmp_RD">
+      <assignments>
+        <assignment column="pat_phone">
+          <expression>$phones:=concatenate(pat_phone, 10000);
+
+case
+(
+	set.size($phones, &#39; &#39;)&gt;1,
+		&#39;PHONE_MULTIPLE&#39;,
+	$phones
+)	</expression>
+        </assignment>
+        <assignment expression="concatenate(tmp_contact, 10000)" column="tmp_contact"/>
+        <assignment expression="concatenate(pat_common, 10000)" column="pat_common"/>
+      </assignments>
+      <selectionRules>
+        <orderBy expression="true" orderDescending="false" nullsFirst="false"/>
+      </selectionRules>
+      <comm:comment>Group possible phones back together</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove special chars (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment expression="substituteAll(@&quot;\p{Punct}&quot;, &#39;&#39;, tmp_contact)" column="tmp_contact">
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Remove special chars. They are not considered as unrecognized text</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Set type (Column Assigner)" image="images/ColumnAssigner.large.png" class="com.ataccama.dqc.tasks.expressions.ColumnAssigner">
+    <properties>
+      <assignments>
+        <assignment column="out_contact_type">
+          <expression>$tmp_type:=squeezeSpaces(pat_email + &#39; &#39; + pat_webpage + &#39; &#39; + pat_phone + &#39; &#39; + out_contact_type);
+
+iif(tmp_contact is null,
+		distinct($tmp_type),
+		distinct($tmp_type + &#39; CONTACT_UNRECOGNIZED_TEXT&#39;))</expression>
+          <scorer>
+            <scoringEntries>
+              <scoringEntry score="0" explainAs="CA_CHANGED" explain="false" key="CA_CHANGED"/>
+            </scoringEntries>
+          </scorer>
+        </assignment>
+      </assignments>
+      <comm:comment>Set type</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Explain found digital types (Simple Scoring)" image="images/SimpleScoring.large.png" class="com.ataccama.dqc.tasks.scoring.SimpleScoring">
+    <properties defaultScoreColumn="sco_dummy" defaultExplainColumn="exp_contact_type">
+      <scoringCases>
+        <scoringCase condition="pat_common is not null" explanation="&#39;CONTACT_DIGITAL_TYPE_FOUND&#39;" score="0"/>
+      </scoringCases>
+      <comm:comment>Explain found digital types</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="Remove internal columns (Alter Format)" image="images/AlterFormat.large.png" class="com.ataccama.dqc.tasks.flow.AlterFormat">
+    <properties>
+      <addedColumns/>
+      <removedColumns>
+        <columnRef name="in_contact"/>
+        <columnRef name="pur_contact"/>
+        <columnRef name="pat_email"/>
+        <columnRef name="pat_webpage"/>
+        <columnRef name="pat_phone"/>
+        <columnRef name="tmp_contact"/>
+        <columnRef name="tmp_RD"/>
+        <columnRef name="pat_common"/>
+        <columnRef name="sco_dummy"/>
+      </removedColumns>
+      <comm:comment>Remove internal columns</comm:comment>
+    </properties>
+  </configAlg>
+  <configAlg name="out (Integration Output)" image="images/OutputStep.large.png" class="com.ataccama.dqc.tasks.common.usersteps.io.OutputStep">
+    <properties>
+      <requiredColumns>
+        <requiredColumn name="out_contact_type" type="STRING">
+          <comm:comment>Guessed contact type(s)</comm:comment>
+        </requiredColumn>
+        <requiredColumn name="exp_contact_type" type="STRING">
+          <comm:comment>Cleansing explanation</comm:comment>
+        </requiredColumn>
+      </requiredColumns>
+    </properties>
+  </configAlg>
+</configDoc>
